@@ -9,7 +9,14 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\script0.gml</script>
+    <script>scripts\client_create.gml</script>
+    <script>scripts\server_create.gml</script>
+    <script>scripts\Event_Engine_Step.gml</script>
+    <script>scripts\Event_Network.gml</script>
+    <script>scripts\Event_Network_Connect.gml</script>
+    <script>scripts\Event_Network_Disconnect.gml</script>
+    <script>scripts\Event_Network_Data.gml</script>
+    <script>scripts\client_connect.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>
