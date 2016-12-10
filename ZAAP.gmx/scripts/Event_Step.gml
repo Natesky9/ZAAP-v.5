@@ -8,3 +8,7 @@ if keyboard_check_pressed(ord('C'))
     if client_create()
     client_connect(ip,port)
     }
+if keyboard_check_pressed(vk_escape)
+    {
+    game_end()
+    }

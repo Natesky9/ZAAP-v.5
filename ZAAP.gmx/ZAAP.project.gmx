@@ -9,14 +9,27 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\client_create.gml</script>
-    <script>scripts\server_create.gml</script>
-    <script>scripts\Event_Engine_Step.gml</script>
-    <script>scripts\Event_Network.gml</script>
-    <script>scripts\Event_Network_Connect.gml</script>
-    <script>scripts\Event_Network_Disconnect.gml</script>
-    <script>scripts\Event_Network_Data.gml</script>
-    <script>scripts\client_connect.gml</script>
+    <scripts name="Network">
+      <script>scripts\server_create.gml</script>
+      <script>scripts\client_create.gml</script>
+      <script>scripts\client_connect.gml</script>
+    </scripts>
+    <scripts name="Events">
+      <script>scripts\Event_Create.gml</script>
+      <script>scripts\Event_Step.gml</script>
+      <script>scripts\Event_Network.gml</script>
+      <script>scripts\Event_Network_Connect.gml</script>
+      <script>scripts\Event_Network_Disconnect.gml</script>
+      <script>scripts\Event_Network_Data.gml</script>
+      <script>scripts\Event_Draw.gml</script>
+    </scripts>
+    <scripts name="Helper Scripts">
+      <script>scripts\font_align.gml</script>
+      <script>scripts\show.gml</script>
+    </scripts>
+    <script>scripts\dialog_add.gml</script>
+    <script>scripts\Draw_Dialog.gml</script>
+    <script>scripts\Draw_Socket_List.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

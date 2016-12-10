@@ -1,12 +1,23 @@
 //create a server and return the result
 //less than 0 means socket failed
+if game_server >= 0
+    {
+    dialog_add("Game already has a server")
+    exit
+    }
 
 var network_result = network_create_server(network_socket_tcp,5678,10)
-if network_result >= 0
-show_debug_message("Server succesfully bound to port");
+
 if network_result < 0
-show_debug_message("Server failed to bind to port");
+    {
+    dialog_add("Server failed to bind");
+    return false
+    }
 
-game_server = network_result
-
-return network_result
+if network_result >= 0
+    {
+    dialog_add("Server succesfully bound")
+    socket_list = ds_list_create()
+    game_server = network_result
+    return true
+    }
