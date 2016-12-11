@@ -11,5 +11,5 @@ draw_set_color(c_black)
 for (var i = 0;i < sockets;i += 1)
     {
     var get_socket = ds_list_find_value(socket_list,i)
-    draw_text(8,8+16*i,"socket: " + string(get_socket))
+    draw_text(8,16*i,"socket: " + string(get_socket))
     }

@@ -9,6 +9,7 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\Define_Packets.gml</script>
     <scripts name="Network">
       <script>scripts\server_create.gml</script>
       <script>scripts\client_create.gml</script>
@@ -18,18 +19,25 @@
       <script>scripts\Event_Create.gml</script>
       <script>scripts\Event_Step.gml</script>
       <script>scripts\Event_Network.gml</script>
-      <script>scripts\Event_Network_Connect.gml</script>
-      <script>scripts\Event_Network_Disconnect.gml</script>
-      <script>scripts\Event_Network_Data.gml</script>
+      <script>scripts\Network_Connect_Socket.gml</script>
+      <script>scripts\Network_Disconnect.gml</script>
+      <script>scripts\Network_Server_Data.gml</script>
       <script>scripts\Event_Draw.gml</script>
     </scripts>
     <scripts name="Helper Scripts">
       <script>scripts\font_align.gml</script>
       <script>scripts\show.gml</script>
     </scripts>
-    <script>scripts\dialog_add.gml</script>
-    <script>scripts\Draw_Dialog.gml</script>
+    <script>scripts\console_add.gml</script>
+    <script>scripts\Draw_Console.gml</script>
     <script>scripts\Draw_Socket_List.gml</script>
+    <script>scripts\Network_Data.gml</script>
+    <script>scripts\packet_create.gml</script>
+    <script>scripts\packet_write.gml</script>
+    <script>scripts\packet_chat.gml</script>
+    <script>scripts\packet_mode.gml</script>
+    <script>scripts\packet_update_sockets.gml</script>
+    <script>scripts\packet_type.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>
