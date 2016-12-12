@@ -1,9 +1,5 @@
 var get_packet_array = argument0
 
-var get_mode = get_packet_array[0]
-show("mode is: " + string(get_mode))
-show(string(get_packet_array))
-
 switch get_mode
     {
     case "server read":
