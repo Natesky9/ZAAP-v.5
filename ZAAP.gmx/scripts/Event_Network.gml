@@ -14,6 +14,7 @@ switch get_network_type
     case network_type_connect:
         {
         console_add("Client attempting to connect")
+        show("Client attempting to connect")
         console_add("[" + string(get_network_ip) + ":" + string(get_network_port) + "]")
         var get_network_socket = ds_map_find_value(async_load,"socket")
         var get_network_succeeded = ds_map_find_value(async_load,"succeeded")

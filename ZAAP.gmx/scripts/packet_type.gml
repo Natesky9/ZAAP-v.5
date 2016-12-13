@@ -1,8 +1,10 @@
 //get the packet type
 //if reading, read the first byte
 //if writing, use the first argument
-var get_function = argument0
-var get_packet_array = argument1
+var get_packet_array = argument0
+var get_function = get_packet_array[0]
+
+show("get_function is now" + string(get_function))
 
 if get_function == "server read"
 or get_function == "client read"
@@ -18,6 +20,5 @@ or get_function == "client write"
     var get_packet = get_packet_array[1]
     return get_packet
     }
-
 console_add("Error, no packet type defined!")
 return -1

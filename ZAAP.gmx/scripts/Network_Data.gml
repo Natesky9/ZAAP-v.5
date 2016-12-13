@@ -1,8 +1,9 @@
 //get_packet_array is the filled out packet
 get_packet_array = argument[0]
+show("Packet [" + string(get_packet_array) + "]")
 
 //get the packet type
-var get_packet = packet_type(get_function,get_packet_array)
+var get_packet = packet_type(get_packet_array)
 
 switch get_packet
     {

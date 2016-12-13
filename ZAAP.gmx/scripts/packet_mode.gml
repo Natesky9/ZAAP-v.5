@@ -1,10 +1,7 @@
 if game_server >= 0
     {
-    if argument0 == "read"
-        {
-        
-        return "server read"
-        }
+    if argument0 == "read"    
+    return "server read"
     if argument0 == "write"
     return "server write"
     }
