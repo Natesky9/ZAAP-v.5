@@ -4,23 +4,22 @@ show("Packet [" + string(get_packet_array) + "]")
 
 //get the packet type
 var get_packet = packet_type(get_packet_array)
-
+show("//")
+show("packet type is: " + string(get_packet))
+show("//")
 switch get_packet
     {
     //----------------//
     case packet.update_sockets:
-        {
-        packet_update_sockets(get_packet_array);break
-        }
+        {packet_update_sockets(get_packet_array);break}
     //----------------//
     case packet.chat:
-        {
-        packet_chat(get_packet_array);break
-        }
+        {packet_chat(get_packet_array);break}
+    //----------------//
+    case packet.entity_create:
+        {packet_entity_create(get_packet_array);break}
     //----------------//
     default:
-        {
-        console_add("Error, no packet defined");break
-        }
+        {console_add("Error, no packet defined");break}
     //----------------//
     }

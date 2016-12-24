@@ -2,5 +2,5 @@ enum packet
     {
     update_sockets,
     chat,
-    create,
+    entity_create,
     }

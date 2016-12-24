@@ -14,7 +14,7 @@ if network_result < 0
     console_add("Client failed to create")
     return false
     }
-console_add("Network result: " + string(network_result))
+show("Network result: " + string(network_result))
 if network_result >= 0
     {
     console_add("Client successfully created")

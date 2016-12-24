@@ -1,6 +1,6 @@
 var get_packet_array = argument0
 
-switch get_packet_array[0]
+switch get_packet_array[data.mode]
     {
     //----------------//
     case "server write":
@@ -9,7 +9,7 @@ switch get_packet_array[0]
         var sockets = ds_list_size(socket_list)
         
         //socket update packet
-        buffer_seek(bout,buffer_seek_start,0)
+        seek()
         buffer_write(bout,buffer_u8,packet.update_sockets)
         buffer_write(bout,buffer_u8,sockets)
         for (var i = 0;i < sockets;i += 1)
@@ -25,13 +25,15 @@ switch get_packet_array[0]
             if !data_sent
             console_add("Packet failed to send")
             if data_sent
-            console_add("Packet of size")
-            console_add("[" + string(data_sent) + "] sent")
+            show("Packet of size")
+            show("[" + string(data_sent) + "] sent")
             }
+        break
         }
     //----------------//
     case "client read":
         {
+        seek()
         var sockets = buffer_read(bin,buffer_u8)
         
         ds_list_clear(socket_list)

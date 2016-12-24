@@ -1,4 +1,4 @@
-console_add("Received network data")
+show("Received network data")
 
 //retrieve the info
 var get_network_id = ds_map_find_value(async_load,"id")
@@ -15,9 +15,7 @@ switch get_network_type
         {
         console_add("Client attempting to connect")
         show("Client attempting to connect")
-        console_add("[" + string(get_network_ip) + ":" + string(get_network_port) + "]")
-        var get_network_socket = ds_map_find_value(async_load,"socket")
-        var get_network_succeeded = ds_map_find_value(async_load,"succeeded")
+        show("[" + string(get_network_ip) + ":" + string(get_network_port) + "]")
         Network_Connect_Socket(get_network_id,get_network_type,get_network_ip)
         break
         }
@@ -36,10 +34,11 @@ switch get_network_type
     case network_type_data:
         {
         var get_network_size = ds_map_find_value(async_load,"size")
-        console_add("Recieved packet, [" + string(get_network_size) + "] bytes")
+        show("Recieved packet, [" + string(get_network_size) + "] bytes")
         //remember to update packet_read to accept these values
         packet_read(get_network_id,get_network_type,get_network_ip)
         break
         }
     //----------------//
     }
+show("End Network")

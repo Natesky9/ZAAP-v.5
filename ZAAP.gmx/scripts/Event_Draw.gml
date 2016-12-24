@@ -6,5 +6,7 @@ draw_text(room_width,24,"client: " + string(game_client))
 
 Draw_Socket_List()
 
+Draw_Entities()
+
 
 Draw_Console()
