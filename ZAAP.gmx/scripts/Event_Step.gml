@@ -1,22 +1,25 @@
-if keyboard_check_pressed(ord('S'))
-server_create()
+steps_since_game_started += 1
 
-if keyboard_check_pressed(ord('C'))
+Event_Keyboard()
+
+Event_Mouse()    
+
+
+if am_client()
     {
-    var ip = "127.0.0.1"
-    var port = 5678
-    if client_create()
-    client_connect(ip,port)
+    if !(steps_since_game_started mod 30)
+        {
+        show("ping")
+        packet_write(packet.ping)
+        }
     }
-if keyboard_check_pressed(vk_escape)
+
+if am_server()
     {
-    game_end()
-    }
-if keyboard_check_pressed(vk_enter)
-    {
-    if keyboard_string != ""
-    console_add(keyboard_string)
-    packet_create(packet.chat,keyboard_string)
-    
-    keyboard_string = ""
+    if ds_list_size(socket_list)
+    and !(steps_since_game_started mod 30)
+        {
+        show("return ping")
+        packet_write(packet.ping_report)
+        }
     }
