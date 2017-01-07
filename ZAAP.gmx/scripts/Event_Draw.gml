@@ -4,9 +4,14 @@ draw_set_valign(fa_top)
 draw_text(room_width,8,"server: " + string(game_server))
 draw_text(room_width,24,"client: " + string(game_client))
 
+Draw_Main_Menu()
+
 Draw_Socket_List()
 
 Draw_Entities()
 
 
 Draw_Console()
+
+//draw_debug
+Draw_Debug()

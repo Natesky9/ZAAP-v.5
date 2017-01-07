@@ -5,42 +5,46 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
+        buffer_write(bout,buffer_u8,packet.update_sockets)
+        var get_update_socket = get_packet_array[data.arg_0]
         //update all the clients on the sockets
-        var sockets = ds_list_size(socket_list)
+        var sockets = ds_list_size(socket_list) -1
         
         //socket update packet
-        seek()
-        buffer_write(bout,buffer_u8,packet.update_sockets)
         buffer_write(bout,buffer_u8,sockets)
-        for (var i = 0;i < sockets;i += 1)
+        for (var i = 0;i < sockets+1;i += 1)
             {
             var get_socket = ds_list_find_value(socket_list,i)
-            buffer_write(bout,buffer_u8,get_socket)
+            
+            if get_socket != get_update_socket
+                {
+                var get_socket_map = ds_map_find_value(socket_map,get_socket)
+                var get_ping = ds_map_find_value(get_socket_map,"ping")
+                
+                buffer_write(bout,buffer_u8,get_socket)
+                buffer_write(bout,buffer_u16,get_ping)
+                }
             }
         
-        for (var i = 0;i < sockets;i += 1)
-            {
-            var get_socket = ds_list_find_value(socket_list,i)
-            var data_sent = network_send_packet(get_socket,bout,buffer_tell(bout))
-            if !data_sent
-            console_add("Packet failed to send")
-            if data_sent
-            show("Packet of size")
-            show("[" + string(data_sent) + "] sent")
-            }
+        packet_send(get_update_socket)
         break
         }
     //----------------//
     case "client read":
         {
-        seek()
         var sockets = buffer_read(bin,buffer_u8)
         
-        ds_list_clear(socket_list)
+        
         
         for (var i = 0;i < sockets;i += 1)
             {
             var get_socket = buffer_read(bin,buffer_u8)
+            var get_ping = buffer_read(bin,buffer_u16)
+            
+            var get_map = ds_create(ds_type_map)
+            ds_map_add(get_map,"ping",get_ping)
+            ds_map_add(socket_map,get_socket,get_map)
+            
             ds_list_add(socket_list,get_socket)
             }
         break

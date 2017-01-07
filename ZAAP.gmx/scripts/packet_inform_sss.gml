@@ -5,31 +5,40 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.null)
-        break
+        buffer_write(bout,buffer_u8,packet.inform_sss)
+        
+        var get_socket = get_packet_array[data.arg_0]
+        buffer_write(bout,buffer_u8,get_socket)
+        
+        packet_send(get_socket)
+        return true
         }
     //----------------//
     case "client read":
         {
-        break
+        var get_sss = buffer_read(bin,buffer_u8)
+        
+        SSS = get_sss
+        
+        console_add("You are Player[" + string(SSS) + "]")
+        return true
         }
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.null)
-        break
+        return true
         }
     //----------------//
     case "server read":
         {
-        break
+        return true
         }
     //----------------//
     default:
         {
         show("Error, no mode defined!")
         show("in packet_template")
-        break
+        return false
         }
     //----------------//
     }

@@ -16,7 +16,7 @@ switch get_network_type
         console_add("Client attempting to connect")
         show("Client attempting to connect")
         show("[" + string(get_network_ip) + ":" + string(get_network_port) + "]")
-        Network_Connect_Socket(get_network_id,get_network_type,get_network_ip)
+        Network_Connect_Socket()
         break
         }
     //----------------//
@@ -24,10 +24,10 @@ switch get_network_type
         {
         console_add("Client disconnected")
         console_add("[" + string(get_network_ip) + ":" + string(get_network_port) + "]")
-        var get_network_socket = ds_map_find_value(async_load,"socket")
+        var get_network_socket = ds_map_find_value(async_load,"id")
         var get_network_succeeded = ds_map_find_value(async_load,"succeeded")
         //remember to update script name as well
-        Network_Disconnect_Socket(get_network_id,get_network_type,get_network_ip)
+        Network_Disconnect_Socket()
         break
         }
     //----------------//

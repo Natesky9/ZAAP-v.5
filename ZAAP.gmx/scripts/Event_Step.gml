@@ -1,63 +1,25 @@
-if keyboard_check_pressed(ord('S'))
-server_create()
+steps_since_game_started += 1
+
+Event_Keyboard()
+
+Event_Mouse()    
 
 
-if keyboard_check_pressed(vk_escape)
+if am_client()
     {
-    game_end()
-    }
-if keyboard_check_pressed(vk_enter)
-    {
-    if game_server >= 0
-        or game_client >= 0
-            {
-            //console_add(keyboard_string)
-            packet_write(packet.chat,keyboard_string)
-            }
-    if keyboard_string != ""
+    if !(steps_since_game_started mod 30)
         {
-        if game_server == -1
-        and game_client == -1
-            {
-            var ip = keyboard_string
-            var port = 5678
-            var client_created = client_create()
-            if client_created
-                {
-                var client_connected = client_connect(ip,port)
-                if !client_connected
-                    {
-                    network_destroy(game_client)
-                    }
-                }
-            if !client_created
-                {
-                console_add("Error, client failed to create")
-                }
-            }
-
-        keyboard_string = ""
+        show("ping")
+        packet_write(packet.ping)
         }
     }
-if keyboard_check_pressed(vk_f4)
+
+if am_server()
     {
-    show_debug = !show_debug
-    show_debug_overlay(show_debug)
-    console_add("Toggled debug overlay")
-    }
-    
-if mouse_check_button_pressed(mb_left)
-    {
-    if game_server >= 0
+    if ds_list_size(socket_list)
+    and !(steps_since_game_started mod 30)
         {
-        //create an entity
-        var get_entity = create_entity(mouse_x,mouse_y)
-        packet_write(packet.entity_create,get_entity,mouse_x,mouse_y)
-        exit
-        }
-    if game_client >= 0
-        {
-        packet_write(packet.entity_create,mouse_x,mouse_y)
-        exit
+        show("return ping")
+        packet_write(packet.ping_report)
         }
     }

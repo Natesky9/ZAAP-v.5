@@ -8,7 +8,6 @@ switch get_packet_array[data.mode]
         var get_text = get_packet_array[data.arg_0]
         show("text: " + string(get_text))
         
-        seek()
         buffer_write(bout,buffer_u8,packet.chat)
         buffer_write(bout,buffer_string,get_text)
         
@@ -25,7 +24,6 @@ switch get_packet_array[data.mode]
         //----------------//
     case "client read":
         {
-        seek()
         var get_text = buffer_read(bin,buffer_string)
         console_add(get_text)
         show("received: " + string(get_text))
@@ -36,7 +34,6 @@ switch get_packet_array[data.mode]
         {
         var get_text = get_packet_array[data.arg_0]
         show("get text is : " + string(get_text))
-        seek()
         
         buffer_write(bout,buffer_u8,packet.chat)
         buffer_write(bout,buffer_string,get_text)
@@ -57,7 +54,6 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server read":
         {
-        seek()
         var get_text = buffer_read(bin,buffer_string)
         console_add(get_text)
         show("text: " + string(get_text))

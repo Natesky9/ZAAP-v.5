@@ -1,11 +1,22 @@
-if game_server >= 0
+if argument0 == "read"
+    {
+    bin = ds_map_find_value(async_load,"buffer")
+    seek(bin)
+    }
+if argument0 == "write"
+    {
+    seek(bout)
+    }
+
+
+if am_server()
     {
     if argument0 == "read"    
     return "server read"
     if argument0 == "write"
     return "server write"
     }
-if game_client >= 0
+if am_client()
     {
     if argument0 == "read"
     return "client read"
