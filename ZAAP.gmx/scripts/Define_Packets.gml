@@ -9,7 +9,7 @@ enum packet
     ping_report,
     chat,
     entity_create,
-    entity_delete,
+    entity_destroy,
     update_sockets,
     entity_command, 
     }

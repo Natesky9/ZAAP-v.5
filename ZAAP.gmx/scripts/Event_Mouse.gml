@@ -28,7 +28,14 @@ if mouse_check_button(mb_right)
         {
         var get_entity = find_rectangle(mouse_x,mouse_y)
             {
-            console_add("entity: " + string(get_entity))
+            if get_entity != undefined
+                {
+                console_add("get_entity is: " + string(get_entity))
+                packet_write(packet.entity_destroy,get_entity)
+                destroy_entity(get_entity)
+                console_add("destroyed " + string(get_entity))
+                exit
+                }
             }
         }
     }

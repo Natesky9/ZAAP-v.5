@@ -16,10 +16,23 @@
       <script>scripts\Event_Step.gml</script>
       <script>scripts\Event_Draw.gml</script>
       <script>scripts\Event_Keyboard.gml</script>
+      <scripts name="keyboard keys">
+        <script>scripts\keyboard_pressed_f4.gml</script>
+        <script>scripts\keyboard_pressed_f3.gml</script>
+        <script>scripts\keyboard_pressed_f1.gml</script>
+        <script>scripts\keyboard_pressed_escape.gml</script>
+        <script>scripts\keyboard_pressed_enter.gml</script>
+        <script>scripts\keyboard_pressed_v.gml</script>
+        <script>scripts\keyboard_pressed_w.gml</script>
+        <script>scripts\keyboard_pressed_a.gml</script>
+        <script>scripts\keyboard_pressed_s.gml</script>
+        <script>scripts\keyboard_pressed_d.gml</script>
+      </scripts>
       <script>scripts\Event_Mouse.gml</script>
       <script>scripts\Event_Network.gml</script>
-      <script>scripts\Network_Data.gml</script>
       <scripts name="Network">
+        <script>scripts\am_client.gml</script>
+        <script>scripts\am_server.gml</script>
         <script>scripts\server_create.gml</script>
         <script>scripts\client_create.gml</script>
         <script>scripts\client_destroy.gml</script>
@@ -29,17 +42,26 @@
         <script>scripts\packet_send_host.gml</script>
         <script>scripts\Network_Connect_Socket.gml</script>
         <script>scripts\Network_Disconnect_Socket.gml</script>
+        <script>scripts\Network_Data.gml</script>
       </scripts>
       <scripts name="Draw">
         <script>scripts\Draw_Entities.gml</script>
+        <script>scripts\Draw_Debug.gml</script>
+        <script>scripts\Draw_Main_Menu.gml</script>
+        <script>scripts\Draw_Console.gml</script>
+        <script>scripts\Draw_Socket_List.gml</script>
+        <script>scripts\Draw_Socket_List_Empty.gml</script>
       </scripts>
     </scripts>
     <scripts name="Helper Scripts">
       <script>scripts\font_align.gml</script>
       <script>scripts\show.gml</script>
+      <script>scripts\seek.gml</script>
     </scripts>
     <scripts name="packets">
       <script>scripts\packet_template.gml</script>
+      <script>scripts\packet_entity_destroy.gml</script>
+      <script>scripts\packet_entity_create.gml</script>
       <script>scripts\packet_entity_command.gml</script>
       <script>scripts\packet_mode.gml</script>
       <script>scripts\packet_add_socket.gml</script>
@@ -52,24 +74,15 @@
       <script>scripts\packet_type.gml</script>
       <script>scripts\packet_chat.gml</script>
       <script>scripts\packet_update_entities.gml</script>
-      <script>scripts\packet_entity_create.gml</script>
       <script>scripts\packet_inform_sss.gml</script>
     </scripts>
     <script>scripts\console_add.gml</script>
-    <script>scripts\Draw_Console.gml</script>
-    <script>scripts\Draw_Socket_List.gml</script>
     <script>scripts\create_entity.gml</script>
-    <script>scripts\seek.gml</script>
-    <script>scripts\keyboard_pressed_v.gml</script>
     <script>scripts\data_structure_clear_all.gml</script>
-    <script>scripts\data_structure_type.gml</script>
     <script>scripts\ds_create.gml</script>
-    <script>scripts\Draw_Debug.gml</script>
-    <script>scripts\Draw_Main_Menu.gml</script>
-    <script>scripts\Draw_Socket_List_Empty.gml</script>
+    <script>scripts\ds_delete.gml</script>
     <script>scripts\find_rectangle.gml</script>
-    <script>scripts\am_server.gml</script>
-    <script>scripts\am_client.gml</script>
+    <script>scripts\destroy_entity.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>
