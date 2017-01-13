@@ -23,9 +23,7 @@ if network_result >= 0
     socket_map = ds_create(ds_type_map)
     entity_list = ds_create(ds_type_list)
     show("done creating server data")
-    //entity_map = ds_map_create()
-    //server does not need to
-    //map entity to server entity
+    http_request_ip = http_get("http://ipv4bot.whatismyipaddress.com/")
     
     game_server = network_result
     return true

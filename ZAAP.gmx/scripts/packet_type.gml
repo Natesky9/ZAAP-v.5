@@ -22,3 +22,6 @@ or get_function == "client write"
 console_add("Error, no packet type defined!")
 show("Error, no packet type defined!")
 return -1
+
+//code by Natesky9
+//"Fire in the hole!"

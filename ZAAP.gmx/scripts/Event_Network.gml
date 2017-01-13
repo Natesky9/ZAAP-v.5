@@ -35,10 +35,12 @@ switch get_network_type
         {
         var get_network_size = ds_map_find_value(async_load,"size")
         show("Recieved packet, [" + string(get_network_size) + "] bytes")
-        //remember to update packet_read to accept these values
-        packet_read(get_network_id,get_network_type,get_network_ip)
+        packet_read()
         break
         }
     //----------------//
     }
 show("End Network")
+
+//code by Natesky9
+//"No one can hide from my sight"

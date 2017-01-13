@@ -20,3 +20,6 @@ show("Client " + string(get_socket) + " disconnected")
 
 packet_write(packet.remove_socket,get_socket)
 //packet_write(packet.update_sockets)
+
+//code by Natesky9
+//"DIE, DIE, DIE!"

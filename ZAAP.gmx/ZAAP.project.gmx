@@ -22,6 +22,7 @@
         <script>scripts\keyboard_pressed_f1.gml</script>
         <script>scripts\keyboard_pressed_escape.gml</script>
         <script>scripts\keyboard_pressed_enter.gml</script>
+        <script>scripts\keyboard_pressed_c.gml</script>
         <script>scripts\keyboard_pressed_v.gml</script>
         <script>scripts\keyboard_pressed_w.gml</script>
         <script>scripts\keyboard_pressed_a.gml</script>
@@ -83,6 +84,13 @@
     <script>scripts\ds_delete.gml</script>
     <script>scripts\find_rectangle.gml</script>
     <script>scripts\destroy_entity.gml</script>
+    <script>scripts\HTTP_Event.gml</script>
+    <script>scripts\convert_ip_to_integer.gml</script>
+    <script>scripts\convert_integer_to_alphabet.gml</script>
+    <script>scripts\convert_alphabet_to_integer.gml</script>
+    <script>scripts\convert_integer_to_ip.gml</script>
+    <script>scripts\find_ip.gml</script>
+    <script>scripts\script68.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>
