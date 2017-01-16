@@ -37,6 +37,7 @@ and not am_client()
             console_add("Error, client failed to create")
             }
         }
+    keyboard_string = ""
     }
 //end client creation
 

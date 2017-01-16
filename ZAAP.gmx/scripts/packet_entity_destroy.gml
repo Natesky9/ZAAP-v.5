@@ -6,24 +6,24 @@ switch get_packet_array[data.mode]
     case "server write":
         {
         buffer_write(bout,buffer_u8,packet.entity_destroy)
-        var get_entity = get_packet_array[data.arg_0]
+        var get_uuid = get_packet_array[data.arg_0]
         
-        buffer_write(bout,buffer_u32,get_entity)
+        buffer_write(bout,buffer_u32,get_uuid)
         packet_send_all()
         break
         }
     //----------------//
     case "client read":
         {
-        var get_ssn = buffer_read(bin,buffer_u32)
-        var get_map = ds_map_find_value(entity_map,get_ssn);
-        if get_map == undefined
+        var get_uuid = buffer_read(bin,buffer_u32)
+        var get_entity = ds_map_find_value(entity_map,get_uuid);
+        if get_entity == undefined
             {
             console_add("Error, destroyed entity did not exist")
             exit
             }
-        destroy_entity(get_map)
-        console_add("destroyed " + string(get_ssn))
+        destroy_entity(get_uuid)
+        console_add("destroyed " + string(get_uuid))
         
         break
         }

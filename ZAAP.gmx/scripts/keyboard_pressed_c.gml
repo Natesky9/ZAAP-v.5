@@ -8,11 +8,11 @@ if keyboard_check(vk_control)
         if IP != -1
             {
             //copy ip
-            keyboard_string = letter_IP
+            clipboard_set_text(letter_IP)
             if keyboard_check(vk_shift)
-            keyboard_string = IP
+            clipboard_set_text(IP)
             if keyboard_check(vk_alt)
-            keyboard_string = string(int_IP)
+            clipboard_set_text(string(int_IP))
             }
         if IP == -1
             {

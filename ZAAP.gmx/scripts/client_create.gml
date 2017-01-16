@@ -27,10 +27,9 @@ if network_result >= 0
     
     socket_list = ds_create(ds_type_list)
     socket_map = ds_create(ds_type_map)
+    
     entity_list = ds_create(ds_type_list)
     entity_map = ds_create(ds_type_map)
-    
-    
     
     return true
     }

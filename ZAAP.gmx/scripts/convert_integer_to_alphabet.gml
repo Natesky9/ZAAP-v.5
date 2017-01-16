@@ -7,7 +7,7 @@ while string_length(get_str)
     {
     var get_value = string_char_at(get_str,1);
     get_str = string_delete(get_str,1,1);
-    var get_letter = chr(64+real(get_value));
+    var get_letter = chr(65+real(get_value));
     //show("Letter is: " + get_letter)
     ip_string += get_letter;
     }

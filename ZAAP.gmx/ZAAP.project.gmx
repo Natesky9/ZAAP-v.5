@@ -91,6 +91,11 @@
     <script>scripts\convert_integer_to_ip.gml</script>
     <script>scripts\find_ip.gml</script>
     <script>scripts\script68.gml</script>
+    <script>scripts\script70.gml</script>
+    <script>scripts\script71.gml</script>
+    <script>scripts\random_32.gml</script>
+    <script>scripts\create_new_entity.gml</script>
+    <script>scripts\entity_from_uuid.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

@@ -14,11 +14,12 @@ switch get_packet_array[data.mode]
         
         for (var i = 0;i < list_size;i += 1)
             {
-            var get_entity = ds_list_find_value(entity_list,i)
+            var get_uuid = ds_list_find_value(entity_list,i)
+            var get_entity = entity_from_uuid(get_uuid)
             var get_x = ds_map_find_value(get_entity,"x")
             var get_y = ds_map_find_value(get_entity,"y")
             
-            buffer_write(bout,buffer_u32,get_entity)
+            buffer_write(bout,buffer_u32,get_uuid)
             buffer_write(bout,buffer_s32,get_x)
             buffer_write(bout,buffer_s32,get_y)
             }
@@ -35,15 +36,11 @@ switch get_packet_array[data.mode]
         
         for (var i = 0;i < list_size;i += 1)
             {
-            var get_entity = buffer_read(bin,buffer_u32)
+            var get_uuid = buffer_read(bin,buffer_u32)
             var get_x = buffer_read(bin,buffer_s32)
             var get_y = buffer_read(bin,buffer_s32)
             
-            var get_new_entity = create_entity(get_x,get_y)
-            ds_map_add(get_new_entity,"ssn",get_entity)
-            
-            //map entity to server's side
-            ds_map_add(entity_map,get_entity,get_new_entity)
+            var get_new_entity = create_entity(get_uuid,get_x,get_y)
             }
         }
     //----------------//

@@ -7,10 +7,10 @@ switch get_packet_array[data.mode]
         {
         buffer_write(bout,buffer_u8,packet.entity_command)
         var get_socket = get_packet_array[data.arg_0]
-        var get_entity = get_packet_array[data.arg_1]
+        var get_uuid = get_packet_array[data.arg_1]
         
         buffer_write(bout,buffer_s8,get_socket)
-        buffer_write(bout,buffer_u32,get_entity)
+        buffer_write(bout,buffer_u32,get_uuid)
         packet_send_all()
         break
         }
@@ -18,20 +18,20 @@ switch get_packet_array[data.mode]
     case "client read":
         {
         var get_socket = buffer_read(bin,buffer_s8)
-        var get_entity = buffer_read(bin,buffer_u32)
+        var get_uuid = buffer_read(bin,buffer_u32)
         
-        var get_entity_map = ds_map_find_value(entity_map,get_entity)
+        var get_entity = entity_from_uuid(get_uuid)
         
         if get_socket == -1
             {
-            ds_map_replace(get_entity_map,"pilot",undefined)
+            ds_map_replace(get_entity,"pilot",undefined)
             exit
             }
         
         var get_map = ds_map_find_value(socket_map,get_socket)
         
-        ds_map_replace(get_map,"ship",get_entity)
-        ds_map_replace(get_entity_map,"pilot",get_socket)
+        ds_map_replace(get_map,"ship",get_uuid)
+        ds_map_replace(get_entity,"pilot",get_socket)
         
         if get_socket == SSS
         Ship = get_entity
@@ -47,11 +47,9 @@ switch get_packet_array[data.mode]
         {
         buffer_write(bout,buffer_u8,packet.entity_command)
         
-        var get_client_entity = get_packet_array[data.arg_0]
+        var get_uuid = get_packet_array[data.arg_0]
         
-        var get_ssn = ds_map_find_value(get_client_entity,"ssn")
-        
-        buffer_write(bout,buffer_u32,get_ssn)
+        buffer_write(bout,buffer_u32,get_uuid)
         packet_send_host()
         
         break
@@ -59,7 +57,8 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server read":
         {
-        var get_entity = buffer_read(bin,buffer_u32)
+        var get_uuid = buffer_read(bin,buffer_u32)
+        var get_entity = entity_from_uuid(get_uuid)
         
         var get_socket = ds_map_find_value(async_load,"id")
         var get_map = ds_map_find_value(socket_map,get_socket)
@@ -71,10 +70,10 @@ switch get_packet_array[data.mode]
             ds_map_replace(previous_ship,"pilot",undefined)
             }
         
-        packet_write(packet.entity_command,get_socket,get_entity)
+        packet_write(packet.entity_command,get_socket,get_uuid)
         
         ds_map_replace(get_entity,"pilot",get_socket)
-        ds_map_replace(get_map,"ship",get_entity)
+        ds_map_replace(get_map,"ship",get_uuid)
         
         break
         }
