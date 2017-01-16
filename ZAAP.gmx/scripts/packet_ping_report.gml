@@ -71,7 +71,6 @@ switch get_packet_array[data.mode]
         
         var get_map = ds_map_find_value(socket_map,get_socket)
         ds_map_replace(get_map,"ping",get_ping)
-        console_add("get_map is: " + string(get_map))
         break
         }
     //----------------//

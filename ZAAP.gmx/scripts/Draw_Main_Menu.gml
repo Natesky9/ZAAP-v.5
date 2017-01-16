@@ -14,5 +14,5 @@ d3d_transform_add_translation(room_width/2,room_height/2,0)
 draw_text(0,0,"ZAAP")
 d3d_transform_set_identity()
 
-draw_text(room_width/2,room_height/2+100,"Hit 'S' to start server
+draw_text(room_width/2,room_height/2+100,"'F1' to start server
                 or type the ip and hit enter to join")

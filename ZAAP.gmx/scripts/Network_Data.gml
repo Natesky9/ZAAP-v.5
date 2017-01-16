@@ -37,6 +37,9 @@ switch get_packet
     case packet.entity_create:
         {packet_entity_create(get_packet_array);break}
     //----------------//
+    case packet.entity_destroy:
+        {packet_entity_destroy(get_packet_array);break}
+    //----------------//
     case packet.ping:
         {packet_ping(get_packet_array);break}
     //----------------//
@@ -48,5 +51,5 @@ switch get_packet
     //----------------//
     }
 
-
-
+//code by Natesky9
+//"I've got you in my sights!"

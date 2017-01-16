@@ -24,3 +24,6 @@ if am_client()
     return "client write"
     }
 console_add("Error, no packet mode!")
+
+//code by Natesky9
+//"Du do do doooo do DUUUU"

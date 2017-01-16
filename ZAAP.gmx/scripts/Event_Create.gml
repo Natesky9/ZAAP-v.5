@@ -2,6 +2,7 @@ steps_since_game_started = 0
 
 game_server = -1
 game_client = -1
+IP = -1
 
 console_list = ds_list_create()
 console_add("list is id of " + string(console_list))
