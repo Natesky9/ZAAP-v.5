@@ -3,10 +3,11 @@ var pos = ds_list_find_index(socket_list,get_socket)
 
 //clear the ship's pilot
 var get_map = ds_map_find_value(socket_map,get_socket)
-var get_entity = ds_map_find_value(get_map,"ship")
+var get_uuid = ds_map_find_value(get_map,"ship")
+var get_entity = entity_from_uuid(get_uuid)
 if get_entity != undefined
     {
-    packet_write(packet.entity_command,-1,get_entity)
+    packet_write(packet.entity_command,-1,get_uuid)
     ds_map_replace(get_entity,"pilot",undefined)
     }
 

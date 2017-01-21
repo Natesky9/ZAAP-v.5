@@ -1,5 +1,8 @@
 var get_id = ds_map_find_value(async_load,"id")
 var get_status = ds_map_find_value(async_load,"status")
+show("received http data")
+
+if true exit
 
 switch get_id
     {
@@ -8,6 +11,7 @@ switch get_id
         if get_status == 0
             {
             var result = ds_map_find_value(async_load,"result")
+            show("result is [" + result + "]")
             console_add("IP is [" + string(result) + "]")
             IP = result
             var int_ip = convert_ip_to_integer(result)

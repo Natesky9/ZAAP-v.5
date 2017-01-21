@@ -18,10 +18,14 @@ if get_map != undefined
     ds_map_replace(get_map,"packets in",packets_in++);
     var packet_bytes_in = ds_map_find_value(get_map,"packet bytes in");
     ds_map_replace(get_map,"packet bytes in",packet_bytes_in + get_size)
+    //reset the ping timeout
+    get_map[? "ping timeout"] = ping_timeout
     }
 
 //send this to the main network script
 Network_Data(get_packet_array)
+
+
 
 //code by Natesky9
 //"It's high noon"

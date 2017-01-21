@@ -43,6 +43,8 @@ switch get_packet_array[data.mode]
             
             var get_map = ds_create(ds_type_map)
             ds_map_add(get_map,"ping",get_ping)
+            ds_map_add(get_map,"ping timeout",ping_timeout)
+            show("added the ping timeout")
             ds_map_add(socket_map,get_socket,get_map)
             
             ds_list_add(socket_list,get_socket)

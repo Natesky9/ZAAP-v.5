@@ -11,6 +11,7 @@
   <scripts name="scripts">
     <script>scripts\Define_Data.gml</script>
     <script>scripts\Define_Packets.gml</script>
+    <script>scripts\Define_Attributes.gml</script>
     <scripts name="Events">
       <script>scripts\Event_Create.gml</script>
       <script>scripts\Event_Step.gml</script>
@@ -54,6 +55,15 @@
         <script>scripts\Draw_Socket_List_Empty.gml</script>
       </scripts>
     </scripts>
+    <scripts name="conversions">
+      <script>scripts\convert_integer_to_ip.gml</script>
+      <script>scripts\convert_integer_to_alphabet.gml</script>
+      <script>scripts\convert_ip_to_integer.gml</script>
+      <script>scripts\convert_alphabet_to_integer.gml</script>
+      <script>scripts\uuid_from_entity.gml</script>
+      <script>scripts\entity_from_uuid.gml</script>
+      <script>scripts\key_to_buffer_type.gml</script>
+    </scripts>
     <scripts name="Helper Scripts">
       <script>scripts\font_align.gml</script>
       <script>scripts\show.gml</script>
@@ -61,9 +71,11 @@
     </scripts>
     <scripts name="packets">
       <script>scripts\packet_template.gml</script>
+      <script>scripts\packet_entity_send.gml</script>
       <script>scripts\packet_entity_destroy.gml</script>
       <script>scripts\packet_entity_create.gml</script>
       <script>scripts\packet_entity_command.gml</script>
+      <script>scripts\packet_update_entities.gml</script>
       <script>scripts\packet_mode.gml</script>
       <script>scripts\packet_add_socket.gml</script>
       <script>scripts\packet_remove_socket.gml</script>
@@ -74,28 +86,23 @@
       <script>scripts\packet_read.gml</script>
       <script>scripts\packet_type.gml</script>
       <script>scripts\packet_chat.gml</script>
-      <script>scripts\packet_update_entities.gml</script>
       <script>scripts\packet_inform_sss.gml</script>
     </scripts>
     <script>scripts\console_add.gml</script>
+    <script>scripts\create_new_entity.gml</script>
     <script>scripts\create_entity.gml</script>
+    <script>scripts\destroy_entity.gml</script>
     <script>scripts\data_structure_clear_all.gml</script>
     <script>scripts\ds_create.gml</script>
     <script>scripts\ds_delete.gml</script>
     <script>scripts\find_rectangle.gml</script>
-    <script>scripts\destroy_entity.gml</script>
     <script>scripts\HTTP_Event.gml</script>
-    <script>scripts\convert_ip_to_integer.gml</script>
-    <script>scripts\convert_integer_to_alphabet.gml</script>
-    <script>scripts\convert_alphabet_to_integer.gml</script>
-    <script>scripts\convert_integer_to_ip.gml</script>
     <script>scripts\find_ip.gml</script>
-    <script>scripts\script68.gml</script>
-    <script>scripts\script70.gml</script>
-    <script>scripts\script71.gml</script>
+    <script>scripts\entity_add_new_key.gml</script>
+    <script>scripts\Event_Motion.gml</script>
     <script>scripts\random_32.gml</script>
-    <script>scripts\create_new_entity.gml</script>
-    <script>scripts\entity_from_uuid.gml</script>
+    <script>scripts\Event_Ping.gml</script>
+    <script>scripts\uuid_write_to_buffer.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

@@ -16,6 +16,8 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         var get_x = ds_map_find_value(get_entity,"x")
         var get_y = ds_map_find_value(get_entity,"y")
         
+        var get_pilot = ds_map_find_value(get_entity,"pilot")
+        
         //draw the entity
         draw_set_colour(c_blue)
         draw_rectangle(get_x-16,get_y-16,get_x+16,get_y+16,false)
@@ -28,10 +30,11 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         draw_text(get_x,get_y,get_uuid)
         
         //draw the pilot
-        draw_set_color(c_green)
-        var get_pilot = ds_map_find_value(get_entity,"pilot")
         if get_pilot != undefined
             {
+            draw_set_color(c_green)
+            draw_rectangle(get_x-16,get_y-16,get_x+16,get_y+16,true)
+            draw_set_color(c_black)
             draw_text(get_x,get_y+16,"[" + string(get_pilot) + "]")
             }
         }

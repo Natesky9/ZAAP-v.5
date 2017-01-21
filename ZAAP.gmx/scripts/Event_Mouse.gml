@@ -10,16 +10,26 @@ if mouse_check_button_pressed(mb_left)
         }
     if am_client()
         {
+        var get_entity = find_rectangle(mouse_x,mouse_y)
+        if get_entity != undefined
+        var get_uuid = uuid_from_entity(get_entity)
+        
         if keyboard_check(vk_shift)
         and keyboard_check(vk_control)
+        and get_entity != undefined
             {
-            var get_entity = find_rectangle(mouse_x,mouse_y)
             console_add("Requesting control of entity: " + string(get_entity))
             if get_entity != undefined
                 {
-                var get_uuid = ds_map_find_value(get_entity,"uuid")
                 packet_write(packet.entity_command,get_uuid)
                 }
+            exit
+            }
+        
+        if get_entity != undefined
+        and get_uuid != undefined
+            {
+            packet_write(packet.entity_send,get_uuid,"update")
             exit
             }
         //this is temporary
@@ -36,7 +46,7 @@ if mouse_check_button(mb_right)
             {
             if get_entity != undefined
                 {
-                var get_uuid = ds_map_find_value(get_entity,"uuid")
+                var get_uuid = uuid_from_entity(get_entity)
                 console_add("get_entity is: " + string(get_entity))
                 packet_write(packet.entity_destroy,get_uuid)
                 destroy_entity(get_uuid)

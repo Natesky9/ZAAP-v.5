@@ -1,5 +1,16 @@
 if show_debug_data_structures
     {
+    if SSS != -1
+        {
+        draw_set_color(c_black)
+        draw_set_alpha(1)
+        font_align(6)
+        var get_map = socket_map[? SSS]
+        var get_text = "until timeout: " + string(get_map[? "ping timeout"])
+        draw_text(room_width-20,200,get_text)
+        }
+    
+    
     font_align(1)
     draw_set_color(c_ltgray)
     draw_rectangle(room_width,room_height,room_width-200,room_height-16*6,false)

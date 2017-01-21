@@ -3,6 +3,7 @@ steps_since_game_started = 0
 game_server = -1
 game_client = -1
 IP = -1
+SSS = -1
 
 console_list = ds_list_create()
 console_add("list is id of " + string(console_list))
@@ -27,6 +28,8 @@ data_structure_stack_amount = 0
 show_debug = false
 show_debug_data_structures = false
 
-network_set_config(network_config_connect_timeout,1000)
+//ping_timeout is also the automatic disconnect
+ping_timeout = 180
+network_set_config(network_config_connect_timeout,ping_timeout)
 
 keyboard_string = "127.0.0.1"

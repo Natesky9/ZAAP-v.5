@@ -1,25 +1,11 @@
 steps_since_game_started += 1
+//show("step " + string(steps_since_game_started))
 
 Event_Keyboard()
 
-Event_Mouse()    
+Event_Mouse()
 
+Event_Motion()
 
-if am_client()
-    {
-    if !(steps_since_game_started mod 30)
-        {
-        show("ping")
-        packet_write(packet.ping)
-        }
-    }
+Event_Ping()
 
-if am_server()
-    {
-    if ds_list_size(socket_list)
-    and !(steps_since_game_started mod 30)
-        {
-        show("return ping")
-        packet_write(packet.ping_report)
-        }
-    }
