@@ -12,5 +12,6 @@ enum packet
     entity_destroy,
     update_sockets,
     entity_command, 
+    issue_command,
     entity_send,
     }

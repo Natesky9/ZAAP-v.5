@@ -11,7 +11,6 @@ switch get_packet_array[data.mode]
         var get_uuid_buffer_type = key_to_buffer_type("uuid")
         buffer_write(bout,get_uuid_buffer_type,get_uuid)
         uuid_write_to_buffer(get_uuid,bout)
-        console_add("sending update")
         
         packet_send_all()
         break
@@ -74,7 +73,7 @@ switch get_packet_array[data.mode]
             
             //update the entity
             var get_entity = entity_from_uuid(get_uuid)
-            if get_entity == undefined
+            if get_entity == 0
                 {
                 show("Entity command pointed to entity that does not exist!")
                 exit

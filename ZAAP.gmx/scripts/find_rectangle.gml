@@ -18,4 +18,4 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
             }
         }
     }
-return undefined
+return 0

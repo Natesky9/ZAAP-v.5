@@ -10,6 +10,8 @@ switch get_packet_array[data.mode]
         var get_socket = get_packet_array[data.arg_0]
         var get_uuid = get_packet_array[data.arg_1]
         
+
+        
         buffer_write(bout,buffer_s8,get_socket)
         buffer_write(bout,buffer_u32,get_uuid)
         packet_send_all()
@@ -26,7 +28,7 @@ switch get_packet_array[data.mode]
         var get_entity = entity_from_uuid(get_uuid)
         show("entity is [" + string(get_entity) + "]")
         
-        if get_entity == undefined
+        if get_entity == 0
             {
             //if the entity doesn't exist, skip?
             exit
@@ -34,15 +36,17 @@ switch get_packet_array[data.mode]
         
         if get_socket == -1
             {
-            ds_map_replace(get_entity,"pilot",undefined)
+            ds_map_replace(get_entity,"pilot",0)
             exit
             }
         
-            
-        var get_map = ds_map_find_value(socket_map,get_socket)
+        if get_socket != 0
+            {
+            var get_map = map_from_socket(get_socket)
+            ds_map_replace(get_map,"ship",get_uuid)
+            }
         
-        ds_map_replace(get_map,"ship",get_uuid)
-        ds_map_replace(get_entity,"pilot",get_socket)
+        get_entity[? "pilot"] = get_socket
         
         if get_socket == SSS
             {
@@ -70,23 +74,20 @@ switch get_packet_array[data.mode]
         var get_entity = entity_from_uuid(get_uuid)
         
         var get_socket = ds_map_find_value(async_load,"id")
-        var get_map = ds_map_find_value(socket_map,get_socket)
+        var get_map = map_from_socket(get_socket)
         
-        var previous_ship = ds_map_find_value(get_map,"ship")
-        if previous_ship != undefined
+        var previous_ship = get_map[? "ship"]
+        if previous_ship != 0
             {
-            packet_write(packet.entity_command,-1,previous_ship)
-            var get_ship = ds_map_find_value(entity_map,previous_ship)
-            
-            if get_ship == undefined
-            console_add("ERROR, previous ship nonexistant")
-            if get_ship != undefined
-            ds_map_replace(get_ship,"pilot",undefined)
+            //replace the previously controlled ship's pilot with nothing
+            packet_write(packet.entity_command,0,previous_ship)
+            var get_ship = entity_from_uuid(previous_ship)
+            ds_map_replace(get_ship,"pilot",0)
             }
         
         packet_write(packet.entity_command,get_socket,get_uuid)
         
-        ds_map_replace(get_entity,"pilot",get_socket)
+        get_entity[? "pilot"] = get_socket
         ds_map_replace(get_map,"ship",get_uuid)
         
         break

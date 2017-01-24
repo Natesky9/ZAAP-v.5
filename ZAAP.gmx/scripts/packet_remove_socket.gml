@@ -22,8 +22,8 @@ switch get_packet_array[data.mode]
         if !is_undefined(pos)
             {
             ds_list_delete(socket_list,pos)
-            var get_map = ds_map_find_value(socket_map,get_socket)
-            if !is_undefined(get_map)
+            var get_map = map_from_socket(get_socket)
+            if get_map != 0
                 {
                 //delete the map client side
                 ds_map_destroy(get_map)
@@ -35,12 +35,15 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.null)
+        buffer_write(bout,buffer_u8,packet.remove_socket)
+        packet_send_host()
         break
         }
     //----------------//
     case "server read":
         {
+        var get_socket = async_load[? "id"]
+        console_add("Client leaving")
         break
         }
     //----------------//

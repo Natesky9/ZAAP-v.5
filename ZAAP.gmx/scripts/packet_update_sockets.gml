@@ -8,21 +8,25 @@ switch get_packet_array[data.mode]
         buffer_write(bout,buffer_u8,packet.update_sockets)
         var get_update_socket = get_packet_array[data.arg_0]
         //update all the clients on the sockets
-        var sockets = ds_list_size(socket_list) -1
+        var get_list_size = ds_list_size(socket_list)
         
-        //socket update packet
-        buffer_write(bout,buffer_u8,sockets)
-        for (var i = 0;i < sockets+1;i += 1)
+        buffer_write(bout,buffer_u8,get_list_size-1)
+        
+        for (var i = 0;i < get_list_size;i += 1)
             {
             var get_socket = ds_list_find_value(socket_list,i)
+            show("list socket is: " + string(get_socket))
             
             if get_socket != get_update_socket
                 {
+                socket_write_to_buffer(get_socket,bout)
+                /*
                 var get_socket_map = ds_map_find_value(socket_map,get_socket)
                 var get_ping = ds_map_find_value(get_socket_map,"ping")
                 
                 buffer_write(bout,buffer_u8,get_socket)
                 buffer_write(bout,buffer_u16,get_ping)
+                */
                 }
             }
         
@@ -32,11 +36,34 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client read":
         {
-        var sockets = buffer_read(bin,buffer_u8)
         
+        var get_socket_list_size = buffer_read(bin,buffer_u8)
+        show("socket list is: " + string(get_socket_list_size))
+        repeat get_socket_list_size
+            {
+            var get_key_list_size = buffer_read(bin,buffer_u8)
+            show("key list is: " + string(get_key_list_size))
+            var get_map = create_socket()
+            
+            repeat get_key_list_size
+                {
+                var get_key = buffer_read(bin,buffer_string)
+                show("key is [" + get_key + "]")
+                var get_buffer_type = key_to_buffer_type(get_key)
+                var get_value = buffer_read(bin,get_buffer_type)
+                show("value is [" + string(get_value) + "]")
+                socket_add_new_key(get_map,get_key,get_value)
+                }
+            var get_socket = get_map[? "socket"]
+            ds_map_add(socket_map,get_socket,get_map)
+            show("mapped socket[" + string(get_socket) + "] to map[" + string(get_map) + "]")
+            ds_list_add(socket_list,get_socket)
+            }
+        //old code
+        /*
+        var get_list_size = buffer_read(bin,buffer_u8)
         
-        
-        for (var i = 0;i < sockets;i += 1)
+        for (var i = 0;i < get_list_size;i += 1)
             {
             var get_socket = buffer_read(bin,buffer_u8)
             var get_ping = buffer_read(bin,buffer_u16)
@@ -49,6 +76,7 @@ switch get_packet_array[data.mode]
             
             ds_list_add(socket_list,get_socket)
             }
+        */
         break
         }
     //----------------//

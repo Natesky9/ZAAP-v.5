@@ -3,14 +3,12 @@ exit
 
 if am_client()
     {
-    if true
+    var get_socket_map = socket_map[? SSS]
+    var get_uuid = get_socket_map[? "ship"]
+    var get_ship = entity_map[? get_uuid]
+
+    if get_ship != 0
         {
-        console_add("moving ship")
-        var get_map = ds_map_find_value(socket_map,SSS)
-        var get_ship = get_map[? "ship"]
-        var get_entity = entity_map[? get_ship]
-        var get_y = get_entity[? "y"]
-        
-        packet_write(packet.entity_send,get_ship,"y",get_y-5)
+        packet_write(packet.issue_command,"thrust",true)
         }
     }

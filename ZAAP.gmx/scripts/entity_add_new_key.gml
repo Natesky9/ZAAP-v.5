@@ -2,7 +2,7 @@ var get_entity = argument0
 var get_key = argument1
 var get_value = argument2;
 
-if get_entity == undefined
+if get_entity == 0
     {
     show("Error, entity is undefined!")
     exit

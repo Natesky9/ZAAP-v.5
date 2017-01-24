@@ -4,7 +4,12 @@ if am_client()
     if SSS != -1
         {
         //timeout script
-        var get_map = ds_map_find_value(socket_map,SSS);
+        var get_map = map_from_socket(SSS);
+        if get_map == 0
+            {
+            show("Error, socket is undefined")
+            exit
+            }
         get_map[? "ping timeout"] -= 1
         if get_map[? "ping timeout"] <= 0
             {
@@ -26,8 +31,8 @@ if am_server()
     {
     for (var i = 0;i < ds_list_size(socket_list);i += 1)
         {
-        var get_socket = ds_list_find_value(socket_list,i)
-        var get_map = ds_map_find_value(socket_map,get_socket);
+        var get_socket = ds_list_find_value(socket_list,i);
+        var get_map = map_from_socket(get_socket);
         
         get_map[? "ping timeout"] -= 1
         if get_map [? "ping timeout"] <= 0

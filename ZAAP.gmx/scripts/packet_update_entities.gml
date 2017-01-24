@@ -19,6 +19,7 @@ switch get_packet_array[data.mode]
             var get_uuid = ds_list_find_value(entity_list,i)
             
             uuid_write_to_buffer(get_uuid,bout)
+            //old code
             /*
             var get_entity = entity_from_uuid(get_uuid)
             var key_list = get_entity[? "key list"]
@@ -39,6 +40,7 @@ switch get_packet_array[data.mode]
                 buffer_write(bout,buffer_type,get_value)
                 }
             */
+            //end old code
             //end loop
             }
         
@@ -56,6 +58,7 @@ switch get_packet_array[data.mode]
             buffer_write(bout,buffer_s32,get_y)
             }
         */
+        //end old code
         packet_send(get_socket)
         return true
         }

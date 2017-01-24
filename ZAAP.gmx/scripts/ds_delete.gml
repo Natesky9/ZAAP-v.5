@@ -11,6 +11,7 @@ if get_type == ds_type_map
     }
 if get_type == ds_type_list
     {
+    show("id of list is: " + string(get_ds))
     ds_list_destroy(get_ds)
     data_structure_list_amount--
     var pos = ds_list_find_index(data_structure_list_list,get_ds)

@@ -6,13 +6,13 @@ var get_key_list = get_entity[? "key list"]
 ds_delete(ds_type_list,get_key_list)
 
 var get_pilot = get_entity[? "pilot"]
-if get_pilot != undefined
+if get_pilot != 0
     {
     //if the entity has a pilot
     var get_pilot = get_entity[? "pilot"]
     var get_socket_map = socket_map[? get_pilot];
     console_add("object deleted, clearing socket association")
-    get_socket_map[? "ship"] = undefined
+    get_socket_map[? "ship"] = 0
     //this line of code is redundant
     //packet_write(packet.entity_command,-1,get_uuid)
     }

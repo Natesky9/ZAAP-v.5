@@ -1,4 +1,4 @@
-if not keyboard_check_pressed(ord('D'))
+if not keyboard_check_released(ord('D'))
 exit
 
 if am_client()
@@ -11,8 +11,8 @@ if am_client()
         {
         var left = keyboard_check(ord('A'))
         if left
-        packet_write(packet.issue_command,"steer",0)
+        packet_write(packet.issue_command,"steer",+1)
         if not left
-        packet_write(packet.issue_command,"steer",-1)
+        packet_write(packet.issue_command,"steer",0)
         }
     }

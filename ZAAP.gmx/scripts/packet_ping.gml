@@ -49,7 +49,7 @@ switch get_packet_array[data.mode]
         //get the socket?
         var get_socket = ds_map_find_value(async_load,"id")
         
-        var get_socket_map = ds_map_find_value(socket_map,get_socket)
+        var get_socket_map = map_from_socket(get_socket)
         
         //don't send the ping yet
         //ds_map_replace(get_socket_map,"ping",get_ping)

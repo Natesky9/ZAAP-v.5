@@ -25,6 +25,9 @@ switch get_packet
     case packet.entity_send:
         {packet_entity_send(get_packet_array);break}
     //----------------//
+    case packet.issue_command:
+        {packet_issue_command(get_packet_array);break}
+    //----------------//
     case packet.remove_socket:
         {packet_remove_socket(get_packet_array);break}
     //----------------//

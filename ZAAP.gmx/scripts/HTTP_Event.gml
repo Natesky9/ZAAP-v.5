@@ -2,7 +2,6 @@ var get_id = ds_map_find_value(async_load,"id")
 var get_status = ds_map_find_value(async_load,"status")
 show("received http data")
 
-if true exit
 
 switch get_id
     {
