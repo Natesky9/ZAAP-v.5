@@ -5,8 +5,10 @@ if show_debug_data_structures
         draw_set_color(c_black)
         draw_set_alpha(1)
         font_align(6)
-        var get_map = socket_map[? SSS]
-        var get_text = "until timeout: " + string(get_map[? "ping timeout"])
+        var get_map = ds_get(socket_map,SSS)
+        if is_zero(get_map) exit
+        var get_ping_timeout = ds_get(get_map,"ping timeout")
+        var get_text = "until timeout: " + string(get_ping_timeout)
         draw_text(room_width-20,200,get_text)
         }
     

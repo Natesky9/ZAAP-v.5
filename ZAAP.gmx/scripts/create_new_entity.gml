@@ -12,11 +12,14 @@ entity_add_new_key(get_entity,"x",get_x)
 entity_add_new_key(get_entity,"y",get_y)
 entity_add_new_key(get_entity,"speed",0)
 entity_add_new_key(get_entity,"direction",90)
+entity_add_new_key(get_entity,"heading",90)
 
 entity_add_new_key(get_entity,"pilot",0)
 entity_add_new_key(get_entity,"steer",0)
 entity_add_new_key(get_entity,"thrust",0)
 entity_add_new_key(get_entity,"brake",0)
+//find a way to not initialize all variables
+//but instead intialize new ones as needed
 
 //add to entity list and map to uuid
 ds_map_add(entity_map,get_uuid,get_entity)

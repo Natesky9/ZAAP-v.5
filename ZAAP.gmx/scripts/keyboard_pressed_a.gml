@@ -3,9 +3,8 @@ exit
 
 if am_client()
     {
-    var get_socket_map = socket_map[? SSS]
-    var get_uuid = get_socket_map[? "ship"]
-    var get_ship = entity_map[? get_uuid]
+    var get_ship = get_ship_from_socket(SSS)
+    if is_zero(get_ship) exit
 
     if get_ship != 0
         {

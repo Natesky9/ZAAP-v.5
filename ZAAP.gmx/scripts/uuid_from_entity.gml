@@ -1,3 +1,4 @@
+//redundant version of ds_get
 var get_entity = argument0
 
 if !ds_exists(get_entity,ds_type_map)

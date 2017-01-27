@@ -7,23 +7,24 @@ switch get_key
     //
     case "pilot":
     case "steer":
-    case "speed":
         {
         show("buffer is s8")
+        //range is -128 - 127
         return buffer_s8
         }
     //
-    case "xspd":
-    case "yspd":
+    /*
         {
         show("buffer is s16")
         return buffer_s16
         }
+    */
     //
     case "x":
     case "y":
         {
         show("buffer is s32")
+        //range is -2,147,483,648 - 2,147,483,647
         return buffer_s32
         }
     //
@@ -34,13 +35,16 @@ switch get_key
     case "socket":
         {
         show("buffer is u8")
+        //range is 0 - 255
         return buffer_u8
         }
     //
     case "direction":
+    case "heading":
     case "ping":
         {
         show("buffer is u16")
+        //range is 0 - 65,535
         return buffer_u16
         }
     //
@@ -52,12 +56,19 @@ switch get_key
     case "packet bytes out":
         {
         show("buffer is u32")
+        //range is 0 - 4,294,967,295
         return buffer_u32
+        }
+    //
+    case "speed":
+        {
+        show("buffer is f32")
+        return buffer_f32
         }
     //
     default:
         {
         show("ERROR! Key [" + get_key + "] is not assigned a buffer type!")
-        exit
+        return false
         }
     }

@@ -1,6 +1,5 @@
 if not am_server()
 and not am_client()
-
 exit
 
 for (var i = 0;i < ds_list_size(entity_list);i += 1)
@@ -13,16 +12,17 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     if get_entity != 0
         {
         
-        var get_x = get_entity[? "x"]
-        var get_y = get_entity[? "y"]
-        var get_speed = get_entity[? "speed"]
-        var get_direction = get_entity[? "direction"]
+        var get_x = ds_get(get_entity,"x")
+        var get_y = ds_get(get_entity,"y")
+        var get_speed = ds_get(get_entity,"speed")
+        var get_direction = ds_get(get_entity,"direction")
+        var get_heading = ds_get(get_entity,"heading")
         
-        var get_pilot = get_entity[? "pilot"]
+        var get_pilot = ds_get(get_entity,"pilot")
         
         //draw the entity
         d3d_transform_add_translation(-get_x,-get_y,0)
-        d3d_transform_add_rotation_z(get_direction-90)
+        d3d_transform_add_rotation_z(get_heading-90)
         d3d_transform_add_translation(get_x,get_y,0)
         //ready to draw
         draw_set_colour(c_blue)
@@ -48,24 +48,6 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         //finished drawing
         d3d_transform_set_identity()
         //end drawing the entity
-        
-
-        
-
-/*
-        //draw thrust
-        var get_thrust = get_entity[? "thrust"]
-        draw_set_color(c_red)
-        if get_thrust
-        draw_set_color(c_green)
-        draw_text(get_x,get_y+32,"[" + string(get_thrust) + "]")
-        //end draw thrust
-        
-        //draw direction
-        draw_set_color(c_aqua)
-        var text = "(" + string(get_direction) + ")"
-        draw_text(get_x,get_y+48,text)
-*/
         }
     //end run if not undefined
     }

@@ -23,10 +23,11 @@ switch get_packet_array[data.mode]
         
         var get_ping = current_time - get_timestamp
         
-        var get_socket_map = socket_map[? SSS];
+        var get_socket_map = map_from_socket(SSS);
+        if is_zero(get_socket_map) exit
+        
         get_socket_map[? "ping timeout"] = ping_timeout
         
-        show("Ping of [" + string(get_ping) + "]")
         packet_write(packet.ping_report,get_ping)
         
         return true

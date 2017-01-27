@@ -5,13 +5,15 @@ enum packet
     remove_socket,
     update_entities,
     inform_sss,
-    ping,
+    ping,//5
     ping_report,
     chat,
     entity_create,
     entity_destroy,
-    update_sockets,
-    entity_command, 
+    update_sockets,//10
+    entity_command,
+    fire_weapon,
     issue_command,
     entity_send,
+    //15
     }

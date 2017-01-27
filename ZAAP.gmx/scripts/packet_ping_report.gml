@@ -17,7 +17,7 @@ switch get_packet_array[data.mode]
             
             var get_socket_map = map_from_socket(get_socket)
             
-            var get_ping = get_socket_map[? "ping"]
+            var get_ping = ds_get(get_socket_map,"ping")
             
             if get_ping > 9999
                 {

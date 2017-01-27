@@ -13,6 +13,7 @@ switch get_packet_array[data.mode]
 
         
         buffer_write(bout,buffer_s8,get_socket)
+        var get_uuid_buffer_type = key_to_buffer_type("uuid")
         buffer_write(bout,buffer_u32,get_uuid)
         packet_send_all()
         break

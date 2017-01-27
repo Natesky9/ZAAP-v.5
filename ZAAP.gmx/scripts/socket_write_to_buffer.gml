@@ -2,8 +2,7 @@ var get_socket = argument0
 var get_buffer = argument1
 
 var get_map = map_from_socket(get_socket)
-if get_map == 0
-show("ERRORRRRRRRRRRRRRRRRRRRRRRR")
+if is_zero(get_map) exit
 var key_list = get_map[? "key list"];
 
 var get_list_size = ds_list_size(key_list)

@@ -1,3 +1,5 @@
+//redundant version of ds_get
+
 var get_uuid = argument0
 
 if get_uuid == 0
@@ -6,7 +8,7 @@ if get_uuid == 0
     return 0
     }
 
-var get_entity = entity_map[? get_uuid]
+var get_entity = ds_get(entity_map,get_uuid)
 
 if get_entity == 0
     {

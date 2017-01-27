@@ -24,6 +24,7 @@
         <script>scripts\keyboard_pressed_f1.gml</script>
         <script>scripts\keyboard_pressed_escape.gml</script>
         <script>scripts\keyboard_pressed_enter.gml</script>
+        <script>scripts\keyboard_pressed_space.gml</script>
         <script>scripts\keyboard_pressed_c.gml</script>
         <script>scripts\keyboard_pressed_v.gml</script>
         <script>scripts\keyboard_pressed_w.gml</script>
@@ -68,6 +69,7 @@
       <script>scripts\uuid_from_entity.gml</script>
       <script>scripts\entity_from_uuid.gml</script>
       <script>scripts\key_to_buffer_type.gml</script>
+      <script>scripts\convert_to_buffer_type.gml</script>
     </scripts>
     <scripts name="Helper Scripts">
       <script>scripts\font_align.gml</script>
@@ -93,6 +95,7 @@
       <script>scripts\packet_type.gml</script>
       <script>scripts\packet_chat.gml</script>
       <script>scripts\packet_inform_sss.gml</script>
+      <script>scripts\packet_fire_weapon.gml</script>
     </scripts>
     <script>scripts\console_add.gml</script>
     <script>scripts\create_new_entity.gml</script>
@@ -116,7 +119,15 @@
     <script>scripts\map_from_socket.gml</script>
     <script>scripts\create_socket.gml</script>
     <script>scripts\socket_add_new_key.gml</script>
+    <script>scripts\ds_get.gml</script>
+    <script>scripts\is_zero.gml</script>
+    <script>scripts\get_ship_from_socket.gml</script>
+    <script>scripts\script97.gml</script>
+    <script>scripts\add_vector.gml</script>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shader0.shader</shader>
+  </shaders>
   <objects name="objects">
     <object>objects\obj_engine</object>
   </objects>

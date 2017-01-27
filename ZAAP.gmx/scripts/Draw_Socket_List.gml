@@ -32,7 +32,9 @@ if sockets > 0
         var get_socket = ds_list_find_value(socket_list,i)
         draw_text(8,16*i,"socket: " + string(get_socket))
         var get_map = map_from_socket(get_socket)
-        var get_ping = get_map[? "ping"]
+        if is_zero(get_map) continue
+        var get_ping = ds_get(get_map,"ping")
+        if is_zero(get_ping) continue
         
         if get_ping > 9999
             {

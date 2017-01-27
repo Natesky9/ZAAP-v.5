@@ -5,6 +5,7 @@ keyboard_pressed_f4()
 
 keyboard_pressed_escape()
 keyboard_pressed_enter()
+keyboard_pressed_space()
 
 keyboard_pressed_c()
 keyboard_pressed_v()

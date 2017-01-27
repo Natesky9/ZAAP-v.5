@@ -5,6 +5,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
+        //maybe add to sync just the command
         buffer_write(bout,buffer_u8,packet.null)
         break
         }
@@ -22,6 +23,7 @@ switch get_packet_array[data.mode]
         var get_value = get_packet_array[data.arg_1]
         
         buffer_write(bout,buffer_string,get_command)
+        
         var get_command_buffer_type = key_to_buffer_type(get_command)
         buffer_write(bout,get_command_buffer_type,get_value)
         
@@ -36,21 +38,20 @@ switch get_packet_array[data.mode]
         var get_value = buffer_read(bin,get_command_buffer_type)
         
         var get_socket = async_load[? "id"]
-        var get_socket_map = socket_map[? get_socket]
-        
-        var get_uuid = get_socket_map[? "ship"]
-        
-        if get_uuid == 0
+        //
+        var get_ship = get_ship_from_socket(get_socket)
+        if is_zero(get_ship)
             {
             show("player tried to issue a command without a ship!")
             exit
             }
+        //
         show("command is [" + get_command + "]")
         show("value is [" + string(get_value) + "]")
         
-        var get_entity = entity_from_uuid(get_uuid);
-        get_entity[? get_command] = get_value
+        get_ship[? get_command] = get_value
         
+        var get_uuid = uuid_from_entity(get_ship)
         packet_write(packet.entity_send,get_uuid)
         break
         }

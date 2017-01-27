@@ -38,7 +38,12 @@ switch get_packet_array[data.mode]
             var get_value = buffer_read(bin,get_buffer_type)
             entity_add_new_key(get_entity,get_key,get_value)
             }
-        var get_uuid = get_entity[? "uuid"]
+        var get_uuid = ds_get(get_entity,"uuid")
+        if is_zero(get_uuid)
+            {
+            show("ERROR, new entity has no uuid!")
+            exit
+            }
         ds_map_add(entity_map,get_uuid,get_entity)
         ds_list_add(entity_list,get_uuid)
         

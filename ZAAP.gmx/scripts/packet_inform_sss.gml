@@ -19,8 +19,9 @@ switch get_packet_array[data.mode]
         var get_sss = buffer_read(bin,buffer_u8)
         
         SSS = get_sss
-        var get_map = socket_map[? SSS];
+        var get_map = map_from_socket(SSS);
         get_map[? "ping timeout"] = ping_timeout
+        
         
         console_add("You are Player[" + string(SSS) + "]")
         return true
