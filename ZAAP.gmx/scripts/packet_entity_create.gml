@@ -7,28 +7,16 @@ switch get_packet_array[data.mode]
         buffer_write(bout,buffer_u8,packet.entity_create)
         
         var get_uuid = get_packet_array[data.arg_0]
-        uuid_write_to_buffer(get_uuid,bout)
+        uuid_write_to_buffer(get_uuid)
         
-        //old code
-        /*
-        var get_x = get_packet_array[data.arg_1]
-        var get_y = get_packet_array[data.arg_2]
-        
-        buffer_write(bout,buffer_u8,packet.entity_create)
-        buffer_write(bout,buffer_u32,get_uuid)
-        buffer_write(bout,buffer_s32,get_x)
-        buffer_write(bout,buffer_s32,get_y)
-        */
-        
-        //send to all
         packet_send_all()
-        
-        return true
+        exit
         }
     case "client read":
         {
+        buffer_read_to_uuid()
+        /*
         var get_list_size = buffer_read(bin,buffer_u8)
-        
         var get_entity = create_entity()
         
         repeat get_list_size
@@ -44,17 +32,9 @@ switch get_packet_array[data.mode]
             show("ERROR, new entity has no uuid!")
             exit
             }
-        ds_map_add(entity_map,get_uuid,get_entity)
-        ds_list_add(entity_list,get_uuid)
-        
-        //old code
-        /*
-        var get_uuid = buffer_read(bin,buffer_u32)
-        var get_x = buffer_read(bin,buffer_s32)
-        var get_y = buffer_read(bin,buffer_s32)
-        
-        var get_entity = create_entity(get_uuid,get_x,get_y)
         */
+        //moved to buffer_read_to_uuid
+        
         return true
         }
     case "client write":
@@ -79,7 +59,7 @@ switch get_packet_array[data.mode]
         var get_x = buffer_read(bin,buffer_s32)
         var get_y = buffer_read(bin,buffer_s32)
         
-        var get_uuid = create_new_entity(get_x,get_y)
+        var get_uuid = create_new_entity(get_x,get_y,entity.ship)
         packet_write(packet.entity_create,get_uuid,get_x,get_y)
         return true
         }

@@ -12,11 +12,14 @@
     <script>scripts\Define_Data.gml</script>
     <script>scripts\Define_Packets.gml</script>
     <script>scripts\Define_Attributes.gml</script>
+    <script>scripts\Define_Entities.gml</script>
     <scripts name="Events">
       <script>scripts\Event_Create.gml</script>
+      <script>scripts\Event_View.gml</script>
       <script>scripts\Event_Step.gml</script>
       <script>scripts\Event_Motion.gml</script>
       <script>scripts\Event_Draw.gml</script>
+      <script>scripts\Event_Draw_GUI.gml</script>
       <script>scripts\Event_Keyboard.gml</script>
       <scripts name="keyboard keys">
         <script>scripts\keyboard_pressed_f4.gml</script>
@@ -70,6 +73,8 @@
       <script>scripts\entity_from_uuid.gml</script>
       <script>scripts\key_to_buffer_type.gml</script>
       <script>scripts\convert_to_buffer_type.gml</script>
+      <script>scripts\get_ship_from_socket.gml</script>
+      <script>scripts\map_from_socket.gml</script>
     </scripts>
     <scripts name="Helper Scripts">
       <script>scripts\font_align.gml</script>
@@ -113,17 +118,20 @@
     <script>scripts\uuid_write_to_buffer.gml</script>
     <script>scripts\Draw_Grid.gml</script>
     <script>scripts\view_reset.gml</script>
-    <script>scripts\Event_View.gml</script>
     <script>scripts\view_center.gml</script>
     <script>scripts\socket_write_to_buffer.gml</script>
-    <script>scripts\map_from_socket.gml</script>
     <script>scripts\create_socket.gml</script>
     <script>scripts\socket_add_new_key.gml</script>
     <script>scripts\ds_get.gml</script>
     <script>scripts\is_zero.gml</script>
-    <script>scripts\get_ship_from_socket.gml</script>
-    <script>scripts\script97.gml</script>
     <script>scripts\add_vector.gml</script>
+    <script>scripts\script97.gml</script>
+    <script>scripts\Event_Collision.gml</script>
+    <script>scripts\Draw_Entity_Ship.gml</script>
+    <script>scripts\Draw_Entity_Bullet.gml</script>
+    <script>scripts\grid_write_to_buffer.gml</script>
+    <script>scripts\buffer_read_to_uuid.gml</script>
+    <script>scripts\buffer_read_to_grid.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader0.shader</shader>

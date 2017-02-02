@@ -9,4 +9,5 @@ if am_client()
     SSS = -1
     host_connection = -1
     game_client = -1
+    view_reset()
     }

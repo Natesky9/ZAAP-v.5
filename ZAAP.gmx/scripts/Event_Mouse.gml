@@ -3,9 +3,9 @@ if mouse_check_button_pressed(mb_left)
     if am_server()
         {
         //create an entity
-        var get_entity = create_new_entity(mouse_x,mouse_y)
+        var get_uuid = create_new_entity(mouse_x,mouse_y,entity.ship)
         
-        packet_write(packet.entity_create,get_entity,mouse_x,mouse_y)
+        packet_write(packet.entity_create,get_uuid,mouse_x,mouse_y)
         exit
         }
     if am_client()
@@ -29,7 +29,7 @@ if mouse_check_button_pressed(mb_left)
         if get_entity != 0
         and get_uuid != 0
             {
-            packet_write(packet.entity_send,get_uuid,"update")
+            //packet_write(packet.entity_send,get_uuid,"update")
             exit
             }
         //this is temporary

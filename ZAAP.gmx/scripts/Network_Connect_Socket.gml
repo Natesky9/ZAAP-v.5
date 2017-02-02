@@ -1,7 +1,9 @@
 //add the new socket to the server
 
 var get_socket = async_load[? "socket"]
+show("///Connected socket is: " + string(get_socket) + "///")
 var get_map = create_socket()
+show("///get_map is: " + string(get_map) + "///")
 
 //create/load a map and store it
 ds_map_add(socket_map,get_socket,get_map);

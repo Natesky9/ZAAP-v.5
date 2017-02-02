@@ -1,7 +1,7 @@
 if not keyboard_check_pressed(vk_f4)
 exit
 
-show_debug = !show_debug
-show_debug_overlay(show_debug)
+debug_draw = !debug_draw
+show_debug_overlay(debug_draw)
 console_add("Toggled debug overlay")
 

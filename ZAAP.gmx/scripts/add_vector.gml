@@ -18,11 +18,8 @@ var initial_vector_y = lengthdir_y(get_speed,get_direction);
 var combined_vector_x = initial_vector_x + vector_x;
 var combined_vector_y = initial_vector_y + vector_y;
 
-var changed_speed = point_distance(0,0,combined_vector_x,combined_vector_y)
-var changed_direction = point_direction(0,0,combined_vector_x,combined_vector_y);
-
-var final_speed = convert_to_buffer_type("speed",changed_speed);
-var final_direction = convert_to_buffer_type("direction",changed_direction);
+var final_speed = point_distance(0,0,combined_vector_x,combined_vector_y)
+var final_direction = point_direction(0,0,combined_vector_x,combined_vector_y);
 
 get_entity[? "speed"] = final_speed
 get_entity[? "direction"] = final_direction

@@ -18,11 +18,10 @@ if get_entity != 0
 ds_map_delete(socket_map,get_map)
 var get_key_list = get_map[? "key list"]
 //delete from memory
-ds_delete(ds_type_map,socket_map)
+ds_delete(ds_type_map,get_map)
 ds_delete(ds_type_list,get_key_list)
 //remove from list
 ds_list_delete(socket_list,pos)
-
 console_add("Client " + string(get_socket) + " disconnected")
 show("Client " + string(get_socket) + " disconnected")
 

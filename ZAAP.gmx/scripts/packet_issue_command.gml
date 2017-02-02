@@ -49,10 +49,18 @@ switch get_packet_array[data.mode]
         show("command is [" + get_command + "]")
         show("value is [" + string(get_value) + "]")
         
-        get_ship[? get_command] = get_value
-        
+        if not ds_map_exists(get_ship,get_command)
+            {
+            show("This key didn't exist, creating new key")
+            entity_add_new_key(get_ship,get_command,get_value)
+            }
+        else
+            {
+            get_ship[? get_command] = get_value
+            }
+            
         var get_uuid = uuid_from_entity(get_ship)
-        packet_write(packet.entity_send,get_uuid)
+        packet_write(packet.entity_send,get_uuid,get_command,get_value)
         break
         }
     //----------------//

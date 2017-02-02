@@ -1,4 +1,5 @@
 if not keyboard_check_released(ord('S'))
+or keyboard_focus == "console"
 exit
 
 if am_client()

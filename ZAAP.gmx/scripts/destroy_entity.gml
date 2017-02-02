@@ -3,6 +3,7 @@ var get_uuid = argument0
 var get_entity = entity_from_uuid(get_uuid)
 
 var get_key_list = get_entity[? "key list"]
+if not is_zero(get_key_list)
 ds_delete(ds_type_list,get_key_list)
 
 var get_pilot = ds_get(get_entity,"pilot")
@@ -12,6 +13,14 @@ if not is_zero(get_pilot)
     var get_socket_map = socket_map[? get_pilot];
     console_add("object deleted, clearing socket association")
     get_socket_map[? "ship"] = 0
+    }
+
+var get_grid = ds_get(get_entity,"grid")
+if not is_zero(get_grid)
+    {
+    show("get grid is: " + string(get_grid))
+    //delete the grid
+    ds_delete(ds_type_grid,get_grid)
     }
 
 

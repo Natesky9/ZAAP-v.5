@@ -41,6 +41,7 @@ switch get_packet_array[data.mode]
         show("socket list is: " + string(get_socket_list_size))
         repeat get_socket_list_size
             {
+            
             var get_key_list_size = buffer_read(bin,buffer_u8)
             show("key list is: " + string(get_key_list_size))
             var get_map = create_socket()

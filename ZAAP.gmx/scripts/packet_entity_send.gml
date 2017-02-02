@@ -7,10 +7,18 @@ switch get_packet_array[data.mode]
         {
         buffer_write(bout,buffer_u8,packet.entity_send)
         var get_uuid = get_packet_array[data.arg_0]
+        var get_key = get_packet_array[data.arg_1]
+        var get_value = get_packet_array[data.arg_2]
+        
         show("uuid is [" + string(get_uuid) + "]")
-        var get_uuid_buffer_type = key_to_buffer_type("uuid")
-        buffer_write(bout,get_uuid_buffer_type,get_uuid)
-        uuid_write_to_buffer(get_uuid,bout)
+        //uuid_write_to_buffer(get_uuid)
+        var uuid_buffer_type = key_to_buffer_type("uuid")
+        buffer_write(bout,uuid_buffer_type,get_uuid)
+        
+        buffer_write(bout,buffer_string,get_key)
+        
+        var get_buffer_type = key_to_buffer_type(get_key)
+        buffer_write(bout,get_buffer_type,get_value)
         
         packet_send_all()
         break
@@ -18,20 +26,22 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client read":
         {
-        var get_uuid_buffer_type = key_to_buffer_type("uuid")
-        var get_uuid = buffer_read(bin,get_uuid_buffer_type)
-        var get_entity = entity_from_uuid(get_uuid)
-        var get_list_size = buffer_read(bin,buffer_u8)
+        var uuid_buffer_type = key_to_buffer_type("uuid")
+        var get_uuid = buffer_read(bin,uuid_buffer_type)
+        var get_key = buffer_read(bin,buffer_string)
         
-        show("updating entity with uuid of [" + string(get_uuid) + "]")
-        repeat get_list_size
+        var get_buffer_type = key_to_buffer_type(get_key)
+        var get_value = buffer_read(bin,get_buffer_type)
+        
+        var get_entity = entity_from_uuid(get_uuid)
+        if not is_zero(get_entity)
             {
-            var get_key = buffer_read(bin,buffer_string)
-            var get_buffer_type = key_to_buffer_type(get_key)
-            var get_value = buffer_read(bin,get_buffer_type);
             get_entity[? get_key] = get_value
-            show("updated key [" + get_key + "] with value of [" + string(get_value) + "]")
+            //we're done here?
             }
+        
+        //buffer_read_to_uuid()
+
         break
         }
     //----------------//
@@ -60,6 +70,8 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server read":
         {
+        //removed
+        /*
         var get_uuid_buffer_type = key_to_buffer_type("uuid")
         var get_uuid = buffer_read(bin,get_uuid_buffer_type)
         
@@ -82,6 +94,7 @@ switch get_packet_array[data.mode]
             }
         
         packet_write(packet.entity_send,get_uuid)
+        */
         break
         }
     //----------------//

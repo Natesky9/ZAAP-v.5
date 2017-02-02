@@ -1,3 +1,4 @@
+///ds_get(get_map,get_key)
 var get_map = argument0
 var get_key = argument1
 

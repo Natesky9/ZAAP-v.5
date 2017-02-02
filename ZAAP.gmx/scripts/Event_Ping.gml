@@ -33,8 +33,8 @@ if am_server()
         {
         var get_socket = ds_list_find_value(socket_list,i);
         var get_map = map_from_socket(get_socket);
-        
-        get_map[? "ping timeout"] -= 1
+        var get_ping_timeout = ds_get(get_map,"ping timeout");
+        get_map[? "ping timeout"] = get_ping_timeout - 1
         if get_map [? "ping timeout"] <= 0
             {
             console_add("Can't communicate with socket[" + string(get_socket) + "]")

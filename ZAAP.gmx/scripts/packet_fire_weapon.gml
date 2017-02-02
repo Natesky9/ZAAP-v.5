@@ -36,12 +36,16 @@ switch get_packet_array[data.mode]
         var get_y = ds_get(get_ship,"y")
         var get_direction = ds_get(get_ship,"direction")
         var get_speed = ds_get(get_ship,"speed")
+        var get_heading = ds_get(get_ship,"heading")
         //create the bullet
-        var get_uuid = create_new_entity(get_x,get_y)
+        var get_uuid = create_new_entity(get_x,get_y,entity.bullet)
         var get_entity = entity_from_uuid(get_uuid);
         get_entity[? "speed"] = get_speed + 10
-        get_entity[? "thrust"] = true
-        get_entity[? "direction"] = get_direction
+        get_entity[? "direction"] = get_heading
+        get_entity[? "heading"] = get_heading
+        entity_add_new_key(get_entity,"source",get_ship)
+        entity_add_new_key(get_entity,"lifetime",60)
+        
         packet_write(packet.entity_create,get_uuid)
         break
         }

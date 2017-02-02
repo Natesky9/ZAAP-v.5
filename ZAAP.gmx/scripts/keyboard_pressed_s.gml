@@ -1,4 +1,5 @@
 if not keyboard_check_pressed(ord('S'))
+or keyboard_focus == "console"
 exit
 
 if am_client()
@@ -8,8 +9,6 @@ if am_client()
 
     if get_ship != 0
         {
-        console_add("moving ship")
-        
         packet_write(packet.issue_command,"brake",-1)
         }
     }

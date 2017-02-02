@@ -18,7 +18,7 @@ switch get_packet_array[data.mode]
             //loop
             var get_uuid = ds_list_find_value(entity_list,i)
             
-            uuid_write_to_buffer(get_uuid,bout)
+            uuid_write_to_buffer(get_uuid)
             //old code
             /*
             var get_entity = entity_from_uuid(get_uuid)
@@ -69,6 +69,9 @@ switch get_packet_array[data.mode]
         show("entity list size is [" + string(get_entity_list_size) + "]")
         repeat get_entity_list_size
             {
+            buffer_read_to_uuid()
+            //newer old code
+            /*
             var get_list_size = buffer_read(bin,buffer_u8)
             show("key list size is [" + string(get_list_size) + "]")
             var get_entity = create_entity()
@@ -90,6 +93,7 @@ switch get_packet_array[data.mode]
                 }
             ds_map_add(entity_map,get_uuid,get_entity)
             ds_list_add(entity_list,get_uuid)
+            */
             }
         //old code
         /*

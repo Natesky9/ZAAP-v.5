@@ -30,17 +30,17 @@ switch get_key
     //
     //unsigned//
     //
+    case "type":
     case "thrust":
     case "brake":
     case "socket":
+    case "lifetime":
         {
         show("buffer is u8")
         //range is 0 - 255
         return buffer_u8
         }
     //
-    case "direction":
-    case "heading":
     case "ping":
         {
         show("buffer is u16")
@@ -61,6 +61,8 @@ switch get_key
         }
     //
     case "speed":
+    case "direction":
+    case "heading":
         {
         show("buffer is f32")
         return buffer_f32

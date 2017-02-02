@@ -6,6 +6,8 @@ if game_server < 0
 and game_client < 0
 exit
 
+
+
 //draw the list of sockets
 font_align(7)
 
