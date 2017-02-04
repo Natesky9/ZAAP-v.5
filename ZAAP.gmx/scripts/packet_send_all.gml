@@ -6,4 +6,4 @@ for (var i = 0;i < ds_list_size(socket_list);i += 1)
     bytes += packet_send(get_socket)
     }
 
-show(string(bytes) + " bytes sent")
+console_add(string(bytes) + " bytes sent")

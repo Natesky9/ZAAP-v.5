@@ -16,8 +16,8 @@ switch get_packet_array[data.mode]
     case "client read":
         {
         var get_uuid = buffer_read(bin,buffer_u32)
-        var get_entity = ds_map_find_value(entity_map,get_uuid);
-        if get_entity == undefined
+        var get_entity = entity_from_uuid(get_uuid);
+        if get_entity == 0
             {
             console_add("Error, destroyed entity did not exist")
             exit

@@ -1,3 +1,3 @@
-var bytes = network_send_packet(host_connection,bout,buffer_tell(bout))
+var bytes = packet_send(host_connection)
 
 show(string(bytes) + " bytes sent")

@@ -1,3 +1,3 @@
 //sends the packet to a specific socket
-
-return network_send_packet(argument0,bout,buffer_tell(bout))
+packets_out++
+packet_bytes_out += network_send_packet(argument0,bout,buffer_tell(bout))

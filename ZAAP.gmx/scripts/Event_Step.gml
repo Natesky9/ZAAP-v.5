@@ -1,25 +1,23 @@
 steps_since_game_started += 1
+step_time = get_timer()
 
+
+//input
 Event_Keyboard()
+Event_Mouse()
+//end input
 
-Event_Mouse()    
+//action
+Event_Motion()
+Event_Update()
+//end action
 
+//detection
+Event_Collision()
+//end detection
 
-if am_client()
-    {
-    if !(steps_since_game_started mod 30)
-        {
-        show("ping")
-        packet_write(packet.ping)
-        }
-    }
+Event_Ping()
 
-if am_server()
-    {
-    if ds_list_size(socket_list)
-    and !(steps_since_game_started mod 30)
-        {
-        show("return ping")
-        packet_write(packet.ping_report)
-        }
-    }
+step_time = get_timer() - step_time
+
+//show("step time: " + string(step_time))

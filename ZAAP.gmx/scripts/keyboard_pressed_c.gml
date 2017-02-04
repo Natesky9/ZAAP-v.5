@@ -1,6 +1,7 @@
 if not keyboard_check_pressed(ord('C'))
+or keyboard_focus == "game"
 exit
-
+//add in case for console and game
 if keyboard_check(vk_control)
     {
     if am_server()
@@ -8,11 +9,22 @@ if keyboard_check(vk_control)
         if IP != -1
             {
             //copy ip
-            clipboard_set_text(letter_IP)
-            if keyboard_check(vk_shift)
-            clipboard_set_text(IP)
             if keyboard_check(vk_alt)
-            clipboard_set_text(string(int_IP))
+                {
+                console_add("IP copied to clipboard")
+                console_add("Be careful, as this is your public IP")
+                clipboard_set_text(IP)
+                exit
+                }
+            if keyboard_check(vk_shift)
+                {
+                console_add("Integer IP copied to clipboard")
+                clipboard_set_text(string(int_IP))
+                exit
+                }
+            console_add("Letter IP copied to clipboard")
+            clipboard_set_text(letter_IP)
+            exit
             }
         if IP == -1
             {

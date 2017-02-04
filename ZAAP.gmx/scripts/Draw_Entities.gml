@@ -1,6 +1,5 @@
 if not am_server()
 and not am_client()
-
 exit
 
 for (var i = 0;i < ds_list_size(entity_list);i += 1)
@@ -10,29 +9,55 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     var get_entity = entity_from_uuid(get_uuid)
     
     //run if not undefined
-    if !is_undefined(get_entity)
+    if not is_zero(get_entity)
         {
+        //get the type of entity then filter from there
+        var get_type = ds_get(get_entity,"type")
         
-        var get_x = ds_map_find_value(get_entity,"x")
-        var get_y = ds_map_find_value(get_entity,"y")
-        
-        //draw the entity
-        draw_set_colour(c_blue)
-        draw_rectangle(get_x-16,get_y-16,get_x+16,get_y+16,false)
-        draw_set_colour(c_black)
-        draw_rectangle(get_x-16,get_y-16,get_x+16,get_y+16,true)
-        
-        //draw the id
-        font_align(5)
-        draw_set_color(c_black)
-        draw_text(get_x,get_y,get_uuid)
-        
-        //draw the pilot
-        draw_set_color(c_green)
-        var get_pilot = ds_map_find_value(get_entity,"pilot")
-        if get_pilot != undefined
+        switch get_type
             {
-            draw_text(get_x,get_y+16,"[" + string(get_pilot) + "]")
+            //
+            case entity.ship:
+                {
+                Draw_Entity_Ship(get_entity)
+                break
+                }
+            //
+            case entity.bullet:
+                {
+                Draw_Entity_Bullet(get_entity)
+
+                break
+                }
+            //
+            }
+        //draw the entity
+        
+        //debug get
+        var get_speed = ds_get(get_entity,"speed")
+        var get_direction = ds_get(get_entity,"direction")
+        var get_x = ds_get(get_entity,"x")
+        var get_y = ds_get(get_entity,"y")
+        //end debug get
+        
+        if debug_draw
+            {
+            //draw the id
+            font_align(5)
+            draw_set_color(c_black)
+            draw_text(get_x,get_y,get_uuid)
+            //end drawing the id
+            }
+        
+
+        if get_type == entity.ship
+            {
+            //draw debug
+            var vector_x = lengthdir_x(get_speed*4,get_direction)
+            var vector_y = lengthdir_y(get_speed*4,get_direction)
+            draw_set_color(c_red)
+            draw_line(get_x,get_y,get_x+vector_x,get_y+vector_y)
+            //end draw debug
             }
         }
     //end run if not undefined

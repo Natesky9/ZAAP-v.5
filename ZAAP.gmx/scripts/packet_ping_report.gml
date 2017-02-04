@@ -15,12 +15,11 @@ switch get_packet_array[data.mode]
             {
             var get_socket = ds_list_find_value(socket_list,i)
             
-            var get_socket_map = ds_map_find_value(socket_map,get_socket)
+            var get_socket_map = map_from_socket(get_socket)
             
-            var get_ping = ds_map_find_value(get_socket_map,"ping")
+            var get_ping = ds_get(get_socket_map,"ping")
             
             if get_ping > 9999
-            or get_ping == undefined
                 {
                 get_ping = 9999
                 }
@@ -40,13 +39,13 @@ switch get_packet_array[data.mode]
             var get_socket = buffer_read(bin,buffer_u8)
             var get_ping = buffer_read(bin,buffer_u16)
             
-            var get_socket_map = ds_map_find_value(socket_map,get_socket)
+            var get_socket_map = map_from_socket(get_socket)
             
-            if !is_undefined(get_socket_map)
+            if get_socket_map != 0
                 {//check for existence
-                ds_map_replace(get_socket_map,"ping",get_ping)
+                get_socket_map[? "ping"] = get_ping
                 }
-            if is_undefined(get_socket_map)
+            if get_socket_map == 0
             console_add("error")
             }
             
@@ -69,8 +68,8 @@ switch get_packet_array[data.mode]
         var get_socket = ds_map_find_value(async_load,"id")
         var get_ping = buffer_read(bin,buffer_u16)
         
-        var get_map = ds_map_find_value(socket_map,get_socket)
-        ds_map_replace(get_map,"ping",get_ping)
+        var get_map = map_from_socket(get_socket);
+        get_map[? "ping"] = get_ping
         break
         }
     //----------------//

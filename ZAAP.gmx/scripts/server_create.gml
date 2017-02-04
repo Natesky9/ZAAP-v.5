@@ -29,5 +29,7 @@ if network_result >= 0
     http_request_ip = http_get("http://ipv4bot.whatismyipaddress.com/")
     
     game_server = network_result
+    keyboard_string = ""
+    keyboard_focus = "game"
     return true
     }

@@ -1,11 +1,21 @@
 if not keyboard_check_pressed(vk_enter)
 exit
 
+if keyboard_focus != "console"
+    {
+    keyboard_focus = "console"
+    keyboard_string = ""
+    exit
+    }
+
+
 if am_server()
 or am_client()
     {
     //console_add(keyboard_string)
     packet_write(packet.chat,keyboard_string)
+    keyboard_focus = "game"
+    keyboard_string = ""
     }
 
     
@@ -38,6 +48,7 @@ and not am_client()
             }
         }
     keyboard_string = ""
+    keyboard_focus = "game"
     }
 //end client creation
 

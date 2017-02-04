@@ -6,40 +6,64 @@ switch get_packet_array[data.mode]
     case "server write":
         {
         buffer_write(bout,buffer_u8,packet.entity_command)
-        var get_socket = get_packet_array[data.arg_0]
+        
+        var get_pilot = get_packet_array[data.arg_0]
         var get_uuid = get_packet_array[data.arg_1]
         
-        buffer_write(bout,buffer_s8,get_socket)
-        buffer_write(bout,buffer_u32,get_uuid)
+        var pilot_buffer_type = key_to_buffer_type("pilot")
+        var uuid_buffer_type = key_to_buffer_type("uuid")
+        
+        buffer_write(bout,pilot_buffer_type,get_pilot)
+        buffer_write(bout,uuid_buffer_type,get_uuid)
         packet_send_all()
         break
         }
     //----------------//
     case "client read":
         {
-        var get_socket = buffer_read(bin,buffer_s8)
+        var get_pilot = buffer_read(bin,buffer_s8)
+        show("pilot is [" + string(get_pilot) + "]")
         var get_uuid = buffer_read(bin,buffer_u32)
+        show("uuid is [" + string(get_uuid) + "]")
+        
+        var current_map = map_from_socket(SSS)
+        var current_ship = ds_get(current_map,"ship")
         
         var get_entity = entity_from_uuid(get_uuid)
+        show("entity is [" + string(get_entity) + "]")
         
-        if get_socket == -1
+        if is_zero(get_pilot)
             {
-            ds_map_replace(get_entity,"pilot",undefined)
+            if get_uuid == current_ship
+                {
+                //my ship lost control
+                //reset view for now
+                current_map[? "ship"] = 0
+                view_reset()
+                }
+            }
+        
+        if is_zero(get_entity)
+            {
+            //if the entity doesn't exist, skip?
             exit
             }
         
-        var get_map = ds_map_find_value(socket_map,get_socket)
-        
-        ds_map_replace(get_map,"ship",get_uuid)
-        ds_map_replace(get_entity,"pilot",get_socket)
-        
-        if get_socket == SSS
-        Ship = get_entity
-        if Ship == undefined
+        if not is_zero(get_pilot)
             {
-            console_add("Ship was undefined")
+            //update the pilot's ship
+            var get_map = map_from_socket(get_pilot)
+            ds_map_replace(get_map,"ship",get_uuid)
             }
-        console_add("Taken control of entity[" + string(Ship) + "]")
+        
+        get_entity[? "pilot"] = get_pilot
+        
+        if get_pilot == SSS
+            {
+            //if this is you, do something?
+            console_add("This is me")
+            }
+
         break
         }
     //----------------//
@@ -60,19 +84,28 @@ switch get_packet_array[data.mode]
         var get_uuid = buffer_read(bin,buffer_u32)
         var get_entity = entity_from_uuid(get_uuid)
         
-        var get_socket = ds_map_find_value(async_load,"id")
-        var get_map = ds_map_find_value(socket_map,get_socket)
-        
-        var previous_ship = ds_map_find_value(get_map,"ship")
-        if previous_ship != undefined
+        var get_current_pilot = ds_get(get_entity,"pilot")
+        if not is_zero(get_current_pilot)
             {
-            packet_write(packet.entity_command,-1,previous_ship)
-            ds_map_replace(previous_ship,"pilot",undefined)
+            //this ship is already piloted
+            exit
+            }
+        
+        var get_socket = ds_map_find_value(async_load,"id")
+        var get_map = map_from_socket(get_socket)
+        
+        var previous_ship = get_map[? "ship"]
+        if not is_zero(previous_ship)
+            {
+            //replace the previously controlled ship's pilot with nothing
+            packet_write(packet.entity_command,0,previous_ship)
+            var get_ship = entity_from_uuid(previous_ship)
+            ds_map_replace(get_ship,"pilot",0)
             }
         
         packet_write(packet.entity_command,get_socket,get_uuid)
         
-        ds_map_replace(get_entity,"pilot",get_socket)
+        ds_set(get_entity,"pilot",get_socket)
         ds_map_replace(get_map,"ship",get_uuid)
         
         break

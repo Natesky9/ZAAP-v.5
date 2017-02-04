@@ -4,38 +4,48 @@ switch get_packet_array[data.mode]
     {
     case "server write":
         {
-        var get_uuid = get_packet_array[data.arg_0]
-        var get_x = get_packet_array[data.arg_1]
-        var get_y = get_packet_array[data.arg_2]
-        
         buffer_write(bout,buffer_u8,packet.entity_create)
-        buffer_write(bout,buffer_u32,get_uuid)
-        buffer_write(bout,buffer_s32,get_x)
-        buffer_write(bout,buffer_s32,get_y)
         
-        //send to all
+        var get_uuid = get_packet_array[data.arg_0]
+        uuid_write_to_buffer(get_uuid)
+        
         packet_send_all()
-        
-        return true
+        exit
         }
     case "client read":
         {
-        var get_uuid = buffer_read(bin,buffer_u32)
-        var get_x = buffer_read(bin,buffer_s32)
-        var get_y = buffer_read(bin,buffer_s32)
+        read_buffer_to_uuid()
+        /*
+        var get_list_size = buffer_read(bin,buffer_u8)
+        var get_entity = create_entity()
         
-        var get_entity = create_entity(get_uuid,get_x,get_y)
+        repeat get_list_size
+            {
+            var get_key = buffer_read(bin,buffer_string)
+            var get_buffer_type = key_to_buffer_type(get_key)
+            var get_value = buffer_read(bin,get_buffer_type)
+            map_add_new_key(get_entity,get_key,get_value)
+            }
+        var get_uuid = ds_get(get_entity,"uuid")
+        if is_zero(get_uuid)
+            {
+            show("ERROR, new entity has no uuid!")
+            exit
+            }
+        */
+        //moved to read_buffer_to_uuid
         
         return true
         }
     case "client write":
         {
+        buffer_write(bout,buffer_u8,packet.entity_create)
+        
         //request an object to be created
         //most likely not to be used later
         var get_x = get_packet_array[data.arg_0]
         var get_y = get_packet_array[data.arg_1]
         
-        buffer_write(bout,buffer_u8,packet.entity_create)
         buffer_write(bout,buffer_s32,get_x)
         buffer_write(bout,buffer_s32,get_y)
         
@@ -49,7 +59,7 @@ switch get_packet_array[data.mode]
         var get_x = buffer_read(bin,buffer_s32)
         var get_y = buffer_read(bin,buffer_s32)
         
-        var get_uuid = create_new_entity(get_x,get_y)
+        var get_uuid = create_new_entity(get_x,get_y,entity.ship)
         packet_write(packet.entity_create,get_uuid,get_x,get_y)
         return true
         }

@@ -1,17 +1,15 @@
-draw_set_color(c_black)
-draw_set_halign(fa_right)
-draw_set_valign(fa_top)
-draw_text(room_width,8,"server: " + string(game_server))
-draw_text(room_width,24,"client: " + string(game_client))
+draw_time = get_timer()
+
+Event_View()
+
+Draw_Navigation_Grid()
 
 Draw_Main_Menu()
 
-Draw_Socket_List()
+
 
 Draw_Entities()
 
+draw_time = get_timer() - draw_time
 
-Draw_Console()
-
-//draw_debug
-Draw_Debug()
+//show("draw_time: " + string(draw_time))

@@ -23,7 +23,7 @@ if network_result >= 0
     game_client = network_result
     //initialize client variables
     SSS = -1
-    Ship = -1
+    Ship = 0
     
     socket_list = ds_create(ds_type_list)
     socket_map = ds_create(ds_type_map)
