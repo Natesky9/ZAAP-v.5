@@ -20,13 +20,6 @@ switch get_packet_array[data.mode]
             if get_socket != get_update_socket
                 {
                 socket_write_to_buffer(get_socket,bout)
-                /*
-                var get_socket_map = ds_map_find_value(socket_map,get_socket)
-                var get_ping = ds_map_find_value(get_socket_map,"ping")
-                
-                buffer_write(bout,buffer_u8,get_socket)
-                buffer_write(bout,buffer_u16,get_ping)
-                */
                 }
             }
         
@@ -60,24 +53,6 @@ switch get_packet_array[data.mode]
             show("mapped socket[" + string(get_socket) + "] to map[" + string(get_map) + "]")
             ds_list_add(socket_list,get_socket)
             }
-        //old code
-        /*
-        var get_list_size = buffer_read(bin,buffer_u8)
-        
-        for (var i = 0;i < get_list_size;i += 1)
-            {
-            var get_socket = buffer_read(bin,buffer_u8)
-            var get_ping = buffer_read(bin,buffer_u16)
-            
-            var get_map = ds_create(ds_type_map)
-            ds_map_add(get_map,"ping",get_ping)
-            ds_map_add(get_map,"ping timeout",ping_timeout)
-            show("added the ping timeout")
-            ds_map_add(socket_map,get_socket,get_map)
-            
-            ds_list_add(socket_list,get_socket)
-            }
-        */
         break
         }
     //----------------//

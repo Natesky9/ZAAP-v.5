@@ -1,0 +1,28 @@
+///write_key_to_buffer(get_key,get_value)
+//writes the key as string
+//writes the value as the correct value
+var get_key = argument0
+var get_value = argument1
+
+buffer_write(bout,buffer_string,get_key)
+
+switch get_key
+    {
+    //
+    case "grid":
+        {
+        //do something special here
+        console_add("write grid")
+        write_grid_to_buffer(get_value)
+        exit
+        }
+    //
+    default:
+        {
+        var get_buffer_type = key_to_buffer_type(get_key)
+        buffer_write(bout,get_buffer_type,get_value)
+        exit
+        //we're done here
+        }
+    //
+    }

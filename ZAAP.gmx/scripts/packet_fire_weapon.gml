@@ -40,11 +40,11 @@ switch get_packet_array[data.mode]
         //create the bullet
         var get_uuid = create_new_entity(get_x,get_y,entity.bullet)
         var get_entity = entity_from_uuid(get_uuid);
-        get_entity[? "speed"] = get_speed + 10
-        get_entity[? "direction"] = get_heading
-        get_entity[? "heading"] = get_heading
-        entity_add_new_key(get_entity,"source",get_ship)
-        entity_add_new_key(get_entity,"lifetime",60)
+        map_add_new_key(get_entity,"speed",get_speed + 10)
+        map_add_new_key(get_entity,"direction",get_heading)
+        map_add_new_key(get_entity,"heading",get_heading)
+        map_add_new_key(get_entity,"source",get_ship)
+        map_add_new_key(get_entity,"lifetime",60)
         
         packet_write(packet.entity_create,get_uuid)
         break

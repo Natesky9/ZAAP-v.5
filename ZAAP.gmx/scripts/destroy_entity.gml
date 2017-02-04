@@ -2,29 +2,22 @@ var get_uuid = argument0
 
 var get_entity = entity_from_uuid(get_uuid)
 
-var get_key_list = get_entity[? "key list"]
+var get_key_list = ds_get(get_entity,"key list")
+
 if not is_zero(get_key_list)
-ds_delete(ds_type_list,get_key_list)
-
-var get_pilot = ds_get(get_entity,"pilot")
-if not is_zero(get_pilot)
     {
-    //if the entity has a pilot
-    var get_socket_map = socket_map[? get_pilot];
-    console_add("object deleted, clearing socket association")
-    get_socket_map[? "ship"] = 0
+    //if it has a key list
+    for (var i = 0;i < ds_list_size(get_key_list);i += 1)
+        {
+        var get_key = ds_list_find_value(get_key_list,i)
+        map_delete_key(get_entity,get_key)
+        }
+    
+    ds_delete(ds_type_list,get_key_list)
+    //
     }
-
-var get_grid = ds_get(get_entity,"grid")
-if not is_zero(get_grid)
-    {
-    show("get grid is: " + string(get_grid))
-    //delete the grid
-    ds_delete(ds_type_grid,get_grid)
-    }
-
-
-
+if is_zero(get_key_list)
+console_add("deleted object does not have a key list")
 
 //clear it from the list
 var pos = ds_list_find_index(entity_list,get_uuid)

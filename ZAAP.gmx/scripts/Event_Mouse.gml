@@ -10,7 +10,7 @@ if mouse_check_button_pressed(mb_left)
         }
     if am_client()
         {
-        var get_entity = find_rectangle(mouse_x,mouse_y)
+        var get_entity = find_entity_from_point(mouse_x,mouse_y)
         if get_entity != 0
         var get_uuid = uuid_from_entity(get_entity)
         
@@ -42,7 +42,7 @@ if mouse_check_button(mb_right)
     {
     if am_server()
         {
-        var get_entity = find_rectangle(mouse_x,mouse_y)
+        var get_entity = find_entity_from_point(mouse_x,mouse_y)
             {
             if get_entity != 0
                 {

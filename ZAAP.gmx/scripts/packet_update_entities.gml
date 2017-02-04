@@ -69,7 +69,7 @@ switch get_packet_array[data.mode]
         show("entity list size is [" + string(get_entity_list_size) + "]")
         repeat get_entity_list_size
             {
-            buffer_read_to_uuid()
+            read_buffer_to_uuid()
             //newer old code
             /*
             var get_list_size = buffer_read(bin,buffer_u8)
@@ -83,7 +83,7 @@ switch get_packet_array[data.mode]
                 var get_buffer_type = key_to_buffer_type(get_key)
                 var get_value = buffer_read(bin,get_buffer_type)
                 show("value is [" + string(get_value) + "]")
-                entity_add_new_key(get_entity,get_key,get_value)
+                map_add_new_key(get_entity,get_key,get_value)
                 }
             var get_uuid = ds_get(get_entity,"uuid")
             if is_zero(get_uuid)

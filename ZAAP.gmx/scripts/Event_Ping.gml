@@ -43,7 +43,7 @@ if am_server()
     
     //report ping to clients
     if ds_list_size(socket_list)
-    and !(steps_since_game_started mod 30)
+    and !(steps_since_game_started mod 15)
         {
         show("return ping")
         packet_write(packet.ping_report)

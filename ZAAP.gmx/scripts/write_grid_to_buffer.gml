@@ -1,5 +1,5 @@
-var get_entity = argument0
-var get_grid = ds_get(get_entity,"grid")
+//write_grid_to_buffer(get_grid)
+var get_grid = argument0
 
 if is_zero(get_grid)
 exit

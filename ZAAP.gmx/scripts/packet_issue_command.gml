@@ -52,7 +52,7 @@ switch get_packet_array[data.mode]
         if not ds_map_exists(get_ship,get_command)
             {
             show("This key didn't exist, creating new key")
-            entity_add_new_key(get_ship,get_command,get_value)
+            map_add_new_key(get_ship,get_command,get_value)
             }
         else
             {

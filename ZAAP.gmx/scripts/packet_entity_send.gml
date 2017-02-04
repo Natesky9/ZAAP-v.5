@@ -10,16 +10,20 @@ switch get_packet_array[data.mode]
         var get_key = get_packet_array[data.arg_1]
         var get_value = get_packet_array[data.arg_2]
         
+        var get_buffer_type = key_to_buffer_type("uuid")
+        buffer_write(bout,get_buffer_type,get_uuid)
+        
+        write_key_to_buffer(get_key,get_value)
+        /*
         show("uuid is [" + string(get_uuid) + "]")
         //uuid_write_to_buffer(get_uuid)
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        buffer_write(bout,uuid_buffer_type,get_uuid)
+        var uuid_buffer_type 
         
         buffer_write(bout,buffer_string,get_key)
         
         var get_buffer_type = key_to_buffer_type(get_key)
         buffer_write(bout,get_buffer_type,get_value)
-        
+        */
         packet_send_all()
         break
         }
@@ -28,20 +32,25 @@ switch get_packet_array[data.mode]
         {
         var uuid_buffer_type = key_to_buffer_type("uuid")
         var get_uuid = buffer_read(bin,uuid_buffer_type)
+        
+        var get_entity = entity_from_uuid(get_uuid)
+        
+        read_buffer_to_key(get_entity)
+        /*
         var get_key = buffer_read(bin,buffer_string)
         
         var get_buffer_type = key_to_buffer_type(get_key)
         var get_value = buffer_read(bin,get_buffer_type)
         
-        var get_entity = entity_from_uuid(get_uuid)
+        
         if not is_zero(get_entity)
             {
             get_entity[? get_key] = get_value
             //we're done here?
             }
         
-        //buffer_read_to_uuid()
-
+        //read_buffer_to_uuid()
+        */
         break
         }
     //----------------//

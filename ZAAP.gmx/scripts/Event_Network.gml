@@ -1,4 +1,4 @@
-show("Received network data")
+console_add("Received network data")
 
 //retrieve the info
 var get_network_id = async_load[? "id"]
@@ -38,7 +38,7 @@ switch get_network_type
         }
     //----------------//
     }
-show("End Network")
+console_add("End Network")
 
 //code by Natesky9
 //"No one can hide from my sight"

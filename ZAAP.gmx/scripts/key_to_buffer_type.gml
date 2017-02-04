@@ -5,7 +5,6 @@ show("key is [" + get_key + "]")
 switch get_key
     {
     //
-    case "pilot":
     case "steer":
         {
         show("buffer is s8")
@@ -30,6 +29,7 @@ switch get_key
     //
     //unsigned//
     //
+    case "pilot":
     case "type":
     case "thrust":
     case "brake":
@@ -49,6 +49,7 @@ switch get_key
         }
     //
     case "uuid":
+    case "source":
     case "ship":
     case "packets in":
     case "packets out":

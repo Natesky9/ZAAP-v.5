@@ -1,5 +1,6 @@
 steps_since_game_started += 1
-//show("step " + string(steps_since_game_started))
+step_time = get_timer()
+
 
 //input
 Event_Keyboard()
@@ -8,6 +9,7 @@ Event_Mouse()
 
 //action
 Event_Motion()
+Event_Update()
 //end action
 
 //detection
@@ -16,3 +18,6 @@ Event_Collision()
 
 Event_Ping()
 
+step_time = get_timer() - step_time
+
+//show("step time: " + string(step_time))
