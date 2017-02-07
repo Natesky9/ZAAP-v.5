@@ -19,9 +19,9 @@ d3d_transform_add_translation(get_x,get_y,0)
 draw_set_color(c_red)
 draw_circle(get_x,get_y,8,false)
 draw_set_color(c_black)
-draw_circle(get_x,get_y,8,false)
+draw_circle(get_x,get_y,8,true)
 //draw the tail
-draw_line(get_x,get_y,get_x,get_y+get_speed*4)
+effect_create_above(ef_spark,get_x,get_y,0,c_red)
 
 //we're done here
 d3d_transform_set_identity()

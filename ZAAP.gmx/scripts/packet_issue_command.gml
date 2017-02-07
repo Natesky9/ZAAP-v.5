@@ -46,12 +46,12 @@ switch get_packet_array[data.mode]
             exit
             }
         //
-        show("command is [" + get_command + "]")
-        show("value is [" + string(get_value) + "]")
+        //show("command is [" + get_command + "]")
+        //show("value is [" + string(get_value) + "]")
         
         if not ds_map_exists(get_ship,get_command)
             {
-            show("This key didn't exist, creating new key")
+            //show("This key didn't exist, creating new key")
             map_add_new_key(get_ship,get_command,get_value)
             }
         else

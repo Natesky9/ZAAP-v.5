@@ -26,6 +26,7 @@ switch get_packet_array[data.mode]
         {
         var get_socket = async_load[? "id"]
         var get_ship = get_ship_from_socket(get_socket)
+        var get_ship_uuid = uuid_from_entity(get_ship)
         if is_zero(get_ship)
             {
             console_add("player tried to issue a command without a ship!")
@@ -43,7 +44,7 @@ switch get_packet_array[data.mode]
         map_add_new_key(get_entity,"speed",get_speed + 10)
         map_add_new_key(get_entity,"direction",get_heading)
         map_add_new_key(get_entity,"heading",get_heading)
-        map_add_new_key(get_entity,"source",get_ship)
+        map_add_new_key(get_entity,"source",get_ship_uuid)
         map_add_new_key(get_entity,"lifetime",60)
         
         packet_write(packet.entity_create,get_uuid)

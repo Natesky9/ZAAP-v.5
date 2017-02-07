@@ -12,6 +12,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         show("Error, entity does not exist!")
         continue
         }
+        
     //pre movement get
     var get_thrust = ds_get(get_entity,"thrust");
     var get_steer = ds_get(get_entity,"steer");
@@ -24,7 +25,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     //end pre movement get
     if get_steer != 0
         {
-        get_entity[? "heading"] += get_steer*5
+        get_entity[? "heading"] += get_steer*4
         }
     if get_thrust != 0
         {
@@ -34,6 +35,11 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         
         //add the vector
         add_vector(get_entity,get_vector_thrust,get_heading)
+        //thrust effect
+        var thrust_x = get_x + lengthdir_x(16,get_heading+180)
+        var thrust_y = get_y + lengthdir_y(16,get_heading+180)
+        effect_create_above(ef_spark,thrust_x,thrust_y,1,c_white)
+        //end thrust effect
         }
     if get_brake != 0
         {
@@ -48,7 +54,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     
     //clamp it
     //get_entity[? "speed"] = min(get_speed,20)
-    get_speed = clamp(get_speed,0,20)
+    get_speed = clamp(get_speed,0,8)
     get_heading = (get_heading + 360) mod 360
     get_entity[? "speed"] = get_speed
     get_entity[? "heading"] = get_heading

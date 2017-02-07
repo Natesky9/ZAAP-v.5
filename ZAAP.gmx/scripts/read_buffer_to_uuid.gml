@@ -22,4 +22,19 @@ if is_zero(get_uuid)
 ds_map_add(entity_map,get_uuid,get_entity)
 ds_list_add(entity_list,get_uuid)
 show("created entity with uuid of [" + string(get_uuid) + "]")
+
+//effect bits
+var get_type = ds_get(get_entity,"type")
+var get_x = ds_get(get_entity,"x")
+var get_y = ds_get(get_entity,"y")
+
+if get_type == entity.bullet
+    {
+    effect_create_above(ef_ring,get_x,get_y,1,c_blue)
+    }
+if get_type == entity.ship
+    {
+    effect_create_above(ef_firework,get_x,get_y,2,c_green)
+    }
+
 //we're done here

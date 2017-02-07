@@ -10,7 +10,7 @@ ds_stack_create()
 ds_queue_create()
 ds_priority_create()
 
-
+create_vertex_buffer_format()
 
 game_server = -1
 game_client = -1

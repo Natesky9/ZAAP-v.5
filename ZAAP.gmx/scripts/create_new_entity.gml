@@ -22,7 +22,19 @@ map_add_new_key(get_entity,"heading",90)
 if get_type == entity.ship
     {
     var get_grid = ds_create(ds_type_grid,5,5);
-    get_grid[# 2, 2] = true
+    get_grid[# 2, 0] = 5
+    get_grid[# 1, 1] = true
+    get_grid[# 2, 1] = 2
+    get_grid[# 3, 1] = true
+    get_grid[# 1, 2] = 3
+    get_grid[# 2, 2] = 4
+    get_grid[# 3, 2] = 3
+    get_grid[# 0, 3] = 8
+    get_grid[# 1, 3] = 2
+    get_grid[# 3, 3] = 2
+    get_grid[# 4, 3] = 8
+    get_grid[# 0, 4] = true
+    get_grid[# 4, 4] = true
     map_add_new_key(get_entity,"grid",get_grid)
     show("grid added with an id of: " + string(get_grid))
     }

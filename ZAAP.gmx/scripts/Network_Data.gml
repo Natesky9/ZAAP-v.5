@@ -1,15 +1,15 @@
 //get_packet_array is the filled out packet
 get_packet_array = argument[0]
-show("Packet [" + string(get_packet_array) + "]")
+//show("Packet [" + string(get_packet_array) + "]")
 
 //seek to the begining of the packet
 //seek(bin)
 
 //get the packet type
 var get_packet = packet_type(get_packet_array)
-show("//")
-show("packet type is: " + string(get_packet))
-show("//")
+//show("//")
+//show("packet type is: " + string(get_packet))
+//show("//")
 switch get_packet
     {
     //----------------//
@@ -30,6 +30,9 @@ switch get_packet
     //----------------//
     case packet.issue_command:
         {packet_issue_command(get_packet_array);break}
+    //----------------//
+    case packet.rubberband_entity:
+        {packet_rubberband_entity(get_packet_array);break}
     //----------------//
     case packet.remove_socket:
         {packet_remove_socket(get_packet_array);break}

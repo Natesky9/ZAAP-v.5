@@ -1,4 +1,4 @@
-console_add("Received network data")
+//show("Received network data")
 
 //retrieve the info
 var get_network_id = async_load[? "id"]
@@ -32,13 +32,13 @@ switch get_network_type
     case network_type_data:
         {
         var get_network_size = async_load[? "size"]
-        show("Recieved packet, [" + string(get_network_size) + "] bytes")
+        //show("Recieved packet, [" + string(get_network_size) + "] bytes")
         packet_read()
         break
         }
     //----------------//
     }
-console_add("End Network")
+//show("End Network")
 
 //code by Natesky9
 //"No one can hide from my sight"

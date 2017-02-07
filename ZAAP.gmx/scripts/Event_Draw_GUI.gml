@@ -1,5 +1,7 @@
 draw_gui_time = get_timer()
 
+Draw_Nearby_Entities()
+
 Draw_Socket_List()
 
 Draw_Console()

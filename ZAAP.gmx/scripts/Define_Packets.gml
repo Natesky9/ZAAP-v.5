@@ -15,5 +15,5 @@ enum packet
     fire_weapon,
     issue_command,
     entity_send,
-    //15
+    rubberband_entity//15
     }

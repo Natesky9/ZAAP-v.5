@@ -1,13 +1,13 @@
 var get_key = argument0
-show("converting key to buffer type")
-show("key is [" + get_key + "]")
+//show("converting key to buffer type")
+//show("key is [" + get_key + "]")
 
 switch get_key
     {
     //
     case "steer":
         {
-        show("buffer is s8")
+        //show("buffer is s8")
         //range is -128 - 127
         return buffer_s8
         }
@@ -22,7 +22,7 @@ switch get_key
     case "x":
     case "y":
         {
-        show("buffer is s32")
+        //show("buffer is s32")
         //range is -2,147,483,648 - 2,147,483,647
         return buffer_s32
         }
@@ -36,14 +36,14 @@ switch get_key
     case "socket":
     case "lifetime":
         {
-        show("buffer is u8")
+        //show("buffer is u8")
         //range is 0 - 255
         return buffer_u8
         }
     //
     case "ping":
         {
-        show("buffer is u16")
+        //show("buffer is u16")
         //range is 0 - 65,535
         return buffer_u16
         }
@@ -56,7 +56,7 @@ switch get_key
     case "packet bytes in":
     case "packet bytes out":
         {
-        show("buffer is u32")
+        //show("buffer is u32")
         //range is 0 - 4,294,967,295
         return buffer_u32
         }
@@ -65,7 +65,7 @@ switch get_key
     case "direction":
     case "heading":
         {
-        show("buffer is f32")
+        //show("buffer is f32")
         return buffer_f32
         }
     //

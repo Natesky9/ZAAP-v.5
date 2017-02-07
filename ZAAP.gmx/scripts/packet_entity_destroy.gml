@@ -22,8 +22,9 @@ switch get_packet_array[data.mode]
             console_add("Error, destroyed entity did not exist")
             exit
             }
+        
         destroy_entity(get_uuid)
-        console_add("destroyed " + string(get_uuid))
+        show("destroyed " + string(get_uuid))
         
         break
         }

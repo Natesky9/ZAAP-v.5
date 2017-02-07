@@ -38,6 +38,7 @@ if mouse_check_button_pressed(mb_left)
         //end temporary
         }
     }
+
 if mouse_check_button(mb_right)
     {
     if am_server()

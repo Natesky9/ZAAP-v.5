@@ -56,6 +56,7 @@
         <script>scripts\Network_Data.gml</script>
       </scripts>
       <scripts name="Draw">
+        <script>scripts\Draw_Entity_Ship.gml</script>
         <script>scripts\Draw_Entity_Bullet.gml</script>
         <script>scripts\Draw_Entities.gml</script>
         <script>scripts\Draw_Debug.gml</script>
@@ -66,9 +67,9 @@
         <script>scripts\Draw_Console.gml</script>
         <script>scripts\Draw_Socket_List.gml</script>
         <script>scripts\Draw_Socket_List_Empty.gml</script>
-        <script>scripts\Draw_Entity_Ship.gml</script>
         <script>scripts\Draw_Ship_Grid.gml</script>
         <script>scripts\Draw_Navigation_Grid.gml</script>
+        <script>scripts\Draw_Nearby_Entities.gml</script>
       </scripts>
     </scripts>
     <scripts name="conversions">
@@ -91,6 +92,7 @@
     </scripts>
     <scripts name="packets">
       <script>scripts\packet_template.gml</script>
+      <script>scripts\packet_rubberband_entity.gml</script>
       <script>scripts\packet_issue_command.gml</script>
       <script>scripts\packet_entity_send.gml</script>
       <script>scripts\packet_entity_destroy.gml</script>
@@ -137,14 +139,19 @@
     <script>scripts\socket_write_to_buffer.gml</script>
     <script>scripts\uuid_write_to_buffer.gml</script>
     <script>scripts\write_grid_to_buffer.gml</script>
-    <script>scripts\read_buffer_to_uuid.gml</script>
     <script>scripts\buffer_read_to_grid.gml</script>
     <script>scripts\write_key_to_buffer.gml</script>
     <script>scripts\read_buffer_to_key.gml</script>
+    <script>scripts\read_buffer_to_uuid.gml</script>
     <script>scripts\read_buffer_to_grid.gml</script>
     <script>scripts\Event_Update.gml</script>
     <script>scripts\map_delete_key.gml</script>
     <script>scripts\ds_set.gml</script>
+    <script>scripts\Draw_Ship_Grid_Vertex_Buffer.gml</script>
+    <script>scripts\create_vertex_buffer_format.gml</script>
+    <script>scripts\grid_value_to_color.gml</script>
+    <script>scripts\vertex_buffer_draw_rectangle.gml</script>
+    <script>scripts\transform_set_ship_orientation.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader0.shader</shader>

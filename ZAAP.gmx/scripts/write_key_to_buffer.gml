@@ -12,8 +12,14 @@ switch get_key
     case "grid":
         {
         //do something special here
-        console_add("write grid")
+        show("write grid")
         write_grid_to_buffer(get_value)
+        exit
+        }
+    //
+    case "grid vertex buffer":
+        {
+        show("nothing special here, just the vertex buffer")
         exit
         }
     //

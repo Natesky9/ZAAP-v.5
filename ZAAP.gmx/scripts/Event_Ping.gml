@@ -20,7 +20,7 @@ if am_client()
         //send a ping
         if !(steps_since_game_started mod 30)
             {
-            show("ping")
+            //show("ping")
             packet_write(packet.ping)
             }
         //end send ping
@@ -45,7 +45,7 @@ if am_server()
     if ds_list_size(socket_list)
     and !(steps_since_game_started mod 15)
         {
-        show("return ping")
+        //show("return ping")
         packet_write(packet.ping_report)
         }
     }
