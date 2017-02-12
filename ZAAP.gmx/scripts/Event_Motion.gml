@@ -19,6 +19,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     var get_brake = ds_get(get_entity,"brake");
     var get_x = ds_get(get_entity,"x");
     var get_y = ds_get(get_entity,"y");
+    var get_type = ds_get(get_entity,"type");
     var get_direction = ds_get(get_entity,"direction");
     var get_speed = ds_get(get_entity,"speed");
     var get_heading = ds_get(get_entity,"heading");
@@ -34,7 +35,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         
         
         //add the vector
-        add_vector(get_entity,get_vector_thrust,get_heading)
+        entity_add_vector(get_entity,get_vector_thrust,get_heading)
         //thrust effect
         var thrust_x = get_x + lengthdir_x(16,get_heading+180)
         var thrust_y = get_y + lengthdir_y(16,get_heading+180)
@@ -45,21 +46,15 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         {
         get_entity[? "speed"] -= 1
         }
-    
-    //post movement get
-    get_direction = ds_get(get_entity,"direction");
-    get_speed = ds_get(get_entity,"speed");
-    get_heading = ds_get(get_entity,"heading");
-    //end post movement get
-    
+        
     //clamp it
-    //get_entity[? "speed"] = min(get_speed,20)
-    get_speed = clamp(get_speed,0,8)
-    get_heading = (get_heading + 360) mod 360
-    get_entity[? "speed"] = get_speed
-    get_entity[? "heading"] = get_heading
+    Event_Motion_Clamp(get_entity)
+    //end clamp it
     
     //move it
+    get_speed = ds_get(get_entity,"speed")
+    get_direction = ds_get(get_entity,"direction")
+    
     get_entity[? "x"] += lengthdir_x(get_speed,get_direction)
     get_entity[? "y"] += lengthdir_y(get_speed,get_direction)
     

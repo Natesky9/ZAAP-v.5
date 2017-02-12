@@ -1,7 +1,7 @@
 ///read_buffer_to_uuid(get_uuid)
 
 //create the entity
-get_entity = create_entity()
+get_entity = entity_create_basic()
 
 //find out how many keys are to be read
 var get_list_size = buffer_read(bin,buffer_u8)
@@ -30,7 +30,7 @@ var get_y = ds_get(get_entity,"y")
 
 if get_type == entity.bullet
     {
-    effect_create_above(ef_ring,get_x,get_y,1,c_blue)
+    effect_create_above(ef_ring,get_x,get_y,0,c_blue)
     }
 if get_type == entity.ship
     {

@@ -5,27 +5,12 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.entity_destroy)
-        var get_uuid = get_packet_array[data.arg_0]
-        
-        buffer_write(bout,buffer_u32,get_uuid)
-        packet_send_all()
+        buffer_write(bout,buffer_u8,packet.entity_set_pilot)
         break
         }
     //----------------//
     case "client read":
         {
-        var get_uuid = buffer_read(bin,buffer_u32)
-        var get_entity = entity_from_uuid(get_uuid);
-        if get_entity == 0
-            {
-            console_add("Error, destroyed entity did not exist")
-            exit
-            }
-        
-        entity_destroy_basic(get_uuid)
-        show("destroyed " + string(get_uuid))
-        
         break
         }
     //----------------//

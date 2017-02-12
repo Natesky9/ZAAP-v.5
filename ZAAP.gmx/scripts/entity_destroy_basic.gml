@@ -24,7 +24,7 @@ if not is_zero(get_key_list)
     for (var i = 0;i < ds_list_size(get_key_list);i += 1)
         {
         var get_key = ds_list_find_value(get_key_list,i)
-        map_delete_key(get_entity,get_key)
+        ds_map_delete_key(get_entity,get_key)
         }
     
     ds_delete(ds_type_list,get_key_list)

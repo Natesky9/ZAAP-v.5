@@ -1,3 +1,6 @@
+///entity_create_advanced(get_x,get_y,get_type)
+//creates a serverside entity
+
 var get_x = argument0
 var get_y = argument1
 var get_type = argument2
@@ -6,7 +9,7 @@ var get_type = argument2
 var get_uuid = random_32()
 
 //create it and get it's id
-var get_entity = create_entity()
+var get_entity = entity_create_basic()
 
 map_add_new_key(get_entity,"uuid",get_uuid)
 map_add_new_key(get_entity,"x",get_x)

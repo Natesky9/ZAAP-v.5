@@ -1,4 +1,4 @@
-//find_entity_from_point(get_x,get_y)
+//entity_find_from_point(get_x,get_y)
 
 var get_x = argument0
 var get_y = argument1

@@ -42,7 +42,7 @@ switch get_packet_array[data.mode]
         var get_ship = get_ship_from_socket(get_socket)
         if is_zero(get_ship)
             {
-            show("player tried to issue a command without a ship!")
+            console_add("player tried to issue a command without a ship!")
             exit
             }
         //

@@ -46,6 +46,12 @@ if sockets > 0
         var get_custom_color = make_colour_hsv((9999-get_ping)/55.55,128,128)
         draw_set_color(get_custom_color)
         draw_text(88,16*i,"[" + string(get_ping) + "]")
+        //done drawing ping
+        
+        //draw the ship
+        var get_ship = ds_get(get_map,"ship")
+        draw_set_colour(c_blue)
+        draw_text(120,16*i,"[" + string(get_ship) + "]")
         }
     }
 //end drawing populated socket list
