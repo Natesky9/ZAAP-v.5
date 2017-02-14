@@ -1,4 +1,4 @@
-//find_entity_from_point(get_x,get_y)
+//entity_find_from_point(get_x,get_y)
 
 var get_x = argument0
 var get_y = argument1
@@ -39,7 +39,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         if is_found return get_entity
         if not is_found continue
         }
-    
+    /*
     if is_zero(get_grid)
         {
         //search based off of a 32 pixel square if no grid
@@ -53,5 +53,6 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
                 }
             }
         }
+    */
     }
-return 0
+return false

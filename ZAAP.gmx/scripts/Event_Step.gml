@@ -5,6 +5,7 @@ step_time = get_timer()
 //input
 Event_Keyboard()
 Event_Mouse()
+Event_Autopilot()
 //end input
 
 //action

@@ -2,6 +2,7 @@ var get_packet_array = argument0
 
 switch get_packet_array[data.mode]
     {
+    //
     case "server write":
         {
         buffer_write(bout,buffer_u8,packet.entity_create)
@@ -12,55 +13,45 @@ switch get_packet_array[data.mode]
         packet_send_all()
         exit
         }
+    //
     case "client read":
         {
         read_buffer_to_uuid()
-        /*
-        var get_list_size = buffer_read(bin,buffer_u8)
-        var get_entity = create_entity()
-        
-        repeat get_list_size
-            {
-            var get_key = buffer_read(bin,buffer_string)
-            var get_buffer_type = key_to_buffer_type(get_key)
-            var get_value = buffer_read(bin,get_buffer_type)
-            map_add_new_key(get_entity,get_key,get_value)
-            }
-        var get_uuid = ds_get(get_entity,"uuid")
-        if is_zero(get_uuid)
-            {
-            show("ERROR, new entity has no uuid!")
-            exit
-            }
-        */
-        //moved to read_buffer_to_uuid
-        
         return true
         }
+    //
     case "client write":
         {
         buffer_write(bout,buffer_u8,packet.entity_create)
-        
-        //request an object to be created
-        //most likely not to be used later
+        //placeholder
         var get_x = get_packet_array[data.arg_0]
         var get_y = get_packet_array[data.arg_1]
         
-        buffer_write(bout,buffer_s32,get_x)
-        buffer_write(bout,buffer_s32,get_y)
+        var coordinate_buffer_type = key_to_buffer_type("x")
+        
+        buffer_write(bout,coordinate_buffer_type,get_x)
+        buffer_write(bout,coordinate_buffer_type,get_y)
         
         packet_send_host()
         return true
         }
+    //
     case "server read":
         {
-        //most likely not going to be used
-        //since clients shouldn't request objects
-        var get_x = buffer_read(bin,buffer_s32)
-        var get_y = buffer_read(bin,buffer_s32)
+        var get_socket = ds_map_find_value(async_load,"id")
+        var coordinate_buffer_type = key_to_buffer_type("x")
         
-        var get_uuid = create_new_entity(get_x,get_y,entity.ship)
-        packet_write(packet.entity_create,get_uuid,get_x,get_y)
+        var get_x = buffer_read(bin,coordinate_buffer_type)
+        var get_y = buffer_read(bin,coordinate_buffer_type)
+        
+        var get_uuid = entity_create_advanced(get_x,get_y,entity.ship)
+        var get_socket_map = map_from_socket(get_socket)
+        ds_set(get_socket_map,"ship",get_uuid)
+        
+        packet_write(packet.entity_create,get_uuid)
+        
+        packet_write(packet.entity_command,get_socket,get_uuid)
+        
         return true
         }
     default:

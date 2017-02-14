@@ -42,23 +42,12 @@ switch get_packet_array[data.mode]
         var get_ship = get_ship_from_socket(get_socket)
         if is_zero(get_ship)
             {
-            show("player tried to issue a command without a ship!")
+            console_add("player tried to issue a command without a ship!")
             exit
             }
-        //
-        show("command is [" + get_command + "]")
-        show("value is [" + string(get_value) + "]")
-        
-        if not ds_map_exists(get_ship,get_command)
-            {
-            show("This key didn't exist, creating new key")
-            map_add_new_key(get_ship,get_command,get_value)
-            }
-        else
-            {
-            get_ship[? get_command] = get_value
-            }
-            
+
+        ds_set(get_ship,get_command,get_value)
+                    
         var get_uuid = uuid_from_entity(get_ship)
         packet_write(packet.entity_send,get_uuid,get_command,get_value)
         break

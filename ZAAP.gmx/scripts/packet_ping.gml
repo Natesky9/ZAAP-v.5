@@ -8,7 +8,7 @@ switch get_packet_array[data.mode]
         var get_socket = get_packet_array[data.arg_0]
         var get_ping = get_packet_array[data.arg_1]
         
-        show("received ping of: " + string(get_ping))
+        //show("received ping of: " + string(get_ping))
         
         buffer_write(bout,buffer_u8,packet.ping)
         buffer_write(bout,buffer_u32,get_ping)

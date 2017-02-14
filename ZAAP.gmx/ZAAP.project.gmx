@@ -18,6 +18,10 @@
       <script>scripts\Event_View.gml</script>
       <script>scripts\Event_Step.gml</script>
       <script>scripts\Event_Motion.gml</script>
+      <script>scripts\Event_Motion_Clamp.gml</script>
+      <script>scripts\Event_Collision.gml</script>
+      <script>scripts\Event_Update.gml</script>
+      <script>scripts\Event_Ping.gml</script>
       <script>scripts\Event_Draw.gml</script>
       <script>scripts\Event_Draw_GUI.gml</script>
       <script>scripts\Event_Keyboard.gml</script>
@@ -28,6 +32,7 @@
         <script>scripts\keyboard_pressed_escape.gml</script>
         <script>scripts\keyboard_pressed_enter.gml</script>
         <script>scripts\keyboard_pressed_space.gml</script>
+        <script>scripts\keyboard_pressed_control.gml</script>
         <script>scripts\keyboard_pressed_c.gml</script>
         <script>scripts\keyboard_pressed_v.gml</script>
         <script>scripts\keyboard_pressed_w.gml</script>
@@ -54,9 +59,14 @@
         <script>scripts\Network_Connect_Socket.gml</script>
         <script>scripts\Network_Disconnect_Socket.gml</script>
         <script>scripts\Network_Data.gml</script>
+        <script>scripts\HTTP_Event.gml</script>
+        <script>scripts\create_socket.gml</script>
       </scripts>
       <scripts name="Draw">
+        <script>scripts\Draw_Entity_Ship.gml</script>
+        <script>scripts\Draw_Ship_Grid_Vertex_Buffer.gml</script>
         <script>scripts\Draw_Entity_Bullet.gml</script>
+        <script>scripts\Draw_Entity_Shipyard.gml</script>
         <script>scripts\Draw_Entities.gml</script>
         <script>scripts\Draw_Debug.gml</script>
         <script>scripts\Draw_Debug_DS_Amount.gml</script>
@@ -66,10 +76,26 @@
         <script>scripts\Draw_Console.gml</script>
         <script>scripts\Draw_Socket_List.gml</script>
         <script>scripts\Draw_Socket_List_Empty.gml</script>
-        <script>scripts\Draw_Entity_Ship.gml</script>
         <script>scripts\Draw_Ship_Grid.gml</script>
         <script>scripts\Draw_Navigation_Grid.gml</script>
+        <script>scripts\Draw_Nearby_Entities.gml</script>
+        <script>scripts\grid_value_to_color.gml</script>
+        <scripts name="Vertex Buffer">
+          <script>scripts\vertex_buffer_draw_rectangle.gml</script>
+          <script>scripts\create_vertex_buffer_format.gml</script>
+          <script>scripts\vertex_buffer_draw_square_tile.gml</script>
+        </scripts>
       </scripts>
+    </scripts>
+    <scripts name="Buffer Functions">
+      <script>scripts\read_buffer_to_grid.gml</script>
+      <script>scripts\read_buffer_to_uuid.gml</script>
+      <script>scripts\read_buffer_to_key.gml</script>
+      <script>scripts\write_key_to_buffer.gml</script>
+      <script>scripts\buffer_read_to_grid.gml</script>
+      <script>scripts\uuid_write_to_buffer.gml</script>
+      <script>scripts\socket_write_to_buffer.gml</script>
+      <script>scripts\write_grid_to_buffer.gml</script>
     </scripts>
     <scripts name="conversions">
       <script>scripts\convert_integer_to_ip.gml</script>
@@ -88,9 +114,14 @@
       <script>scripts\show.gml</script>
       <script>scripts\seek.gml</script>
       <script>scripts\string_argument_get.gml</script>
+      <script>scripts\random_32.gml</script>
+      <script>scripts\is_zero.gml</script>
+      <script>scripts\find_ip.gml</script>
     </scripts>
     <scripts name="packets">
       <script>scripts\packet_template.gml</script>
+      <script>scripts\packet_entity_set_pilot.gml</script>
+      <script>scripts\packet_rubberband_entity.gml</script>
       <script>scripts\packet_issue_command.gml</script>
       <script>scripts\packet_entity_send.gml</script>
       <script>scripts\packet_entity_destroy.gml</script>
@@ -114,37 +145,30 @@
       <script>scripts\view_center.gml</script>
       <script>scripts\view_reset.gml</script>
     </scripts>
+    <scripts name="Data Structures">
+      <script>scripts\ds_create.gml</script>
+      <script>scripts\ds_destroy.gml</script>
+      <script>scripts\data_structure_clear_all.gml</script>
+      <script>scripts\ds_set.gml</script>
+      <script>scripts\ds_get.gml</script>
+      <script>scripts\ds_map_delete_key.gml</script>
+    </scripts>
+    <scripts name="Entity">
+      <script>scripts\entity_create_advanced.gml</script>
+      <script>scripts\entity_create_basic.gml</script>
+      <script>scripts\entity_destroy_basic.gml</script>
+      <script>scripts\entity_add_vector.gml</script>
+      <script>scripts\entity_find_from_point.gml</script>
+    </scripts>
     <script>scripts\console_add.gml</script>
-    <script>scripts\create_new_entity.gml</script>
-    <script>scripts\create_entity.gml</script>
-    <script>scripts\destroy_entity.gml</script>
-    <script>scripts\data_structure_clear_all.gml</script>
-    <script>scripts\ds_create.gml</script>
-    <script>scripts\ds_delete.gml</script>
-    <script>scripts\find_entity_from_point.gml</script>
-    <script>scripts\HTTP_Event.gml</script>
-    <script>scripts\find_ip.gml</script>
-    <script>scripts\random_32.gml</script>
-    <script>scripts\Event_Ping.gml</script>
-    <script>scripts\create_socket.gml</script>
-    <script>scripts\ds_get.gml</script>
-    <script>scripts\is_zero.gml</script>
-    <script>scripts\add_vector.gml</script>
-    <script>scripts\script97.gml</script>
-    <script>scripts\Event_Collision.gml</script>
     <script>scripts\map_add_new_key.gml</script>
     <script>scripts\socket_add_new_key.gml</script>
-    <script>scripts\socket_write_to_buffer.gml</script>
-    <script>scripts\uuid_write_to_buffer.gml</script>
-    <script>scripts\write_grid_to_buffer.gml</script>
-    <script>scripts\read_buffer_to_uuid.gml</script>
-    <script>scripts\buffer_read_to_grid.gml</script>
-    <script>scripts\write_key_to_buffer.gml</script>
-    <script>scripts\read_buffer_to_key.gml</script>
-    <script>scripts\read_buffer_to_grid.gml</script>
-    <script>scripts\Event_Update.gml</script>
-    <script>scripts\map_delete_key.gml</script>
-    <script>scripts\ds_set.gml</script>
+    <script>scripts\transform_set_ship_orientation.gml</script>
+    <script>scripts\keyboard_pressed_x.gml</script>
+    <script>scripts\entity_find_nearest.gml</script>
+    <script>scripts\Event_Autopilot.gml</script>
+    <script>scripts\autopilot_start.gml</script>
+    <script>scripts\autopilot_stop.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader0.shader</shader>

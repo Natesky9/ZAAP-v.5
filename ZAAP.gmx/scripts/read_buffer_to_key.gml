@@ -12,8 +12,14 @@ switch get_key
         //do something special here
         var get_grid = ds_create(ds_type_grid,1,1)
         read_buffer_to_grid(get_grid)
-        console_add("read grid")
-        map_add_new_key(get_entity,"grid",get_grid)
+        show("read grid")
+        ds_set(get_entity,"grid",get_grid)
+        exit
+        }
+    //
+    case "grid vertex buffer":
+        {
+        show("how did you even get here?")
         exit
         }
     //
@@ -23,7 +29,7 @@ switch get_key
         var get_value = buffer_read(bin,get_buffer_type);
         
         if not is_zero(get_entity)
-        get_entity[? get_key] = get_value
+        ds_set(get_entity,get_key,get_value)
         
         //we're done here
         exit

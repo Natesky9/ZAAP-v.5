@@ -6,7 +6,7 @@ var new_grid = ds_grid_create(get_width,get_height)
 
 for (var h = 0;h < get_height;h += 1)
     {
-    for (var w = 0;w < grid_width;w += 1)
+    for (var w = 0;w < get_width;w += 1)
         {
         show("reading cell")
         //read the cell at the current position

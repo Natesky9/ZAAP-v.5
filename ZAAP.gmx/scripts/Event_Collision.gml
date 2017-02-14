@@ -21,15 +21,37 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
             if not am_server()
             break
             
+            //timeout
             var get_lifetime = ds_get(get_entity,"lifetime")
             if get_lifetime == 1
                 {
                 packet_write(packet.entity_destroy,get_uuid)
-                destroy_entity(get_uuid)
+                entity_destroy_basic(get_uuid)
                 break
                 }
             get_entity[? "lifetime"] = get_lifetime - 1
-            break
+            //end timeout
+            
+            //collision
+            var get_x = ds_get(get_entity,"x")
+            var get_y = ds_get(get_entity,"y")
+            var get_source = ds_get(get_entity,"source")
+            //show("source is: " + string(get_source))
+//something here is broken
+            var collision_entity = entity_find_from_point(get_x,get_y)
+            var collision_uuid = uuid_from_entity(collision_entity)
+            //show("collision is: " + string(collision_uuid))
+            
+            if not is_zero(collision_entity)
+            and collision_uuid != get_source
+            and collision_uuid != get_uuid
+                {
+                packet_write(packet.entity_destroy,collision_uuid)
+                packet_write(packet.entity_destroy,get_uuid)
+                entity_destroy_basic(collision_uuid)
+                entity_destroy_basic(get_uuid)
+                }
+            //end collision
             }
         //
         }
