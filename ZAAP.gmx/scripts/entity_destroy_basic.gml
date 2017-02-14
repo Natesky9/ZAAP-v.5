@@ -27,7 +27,7 @@ if not is_zero(get_key_list)
         ds_map_delete_key(get_entity,get_key)
         }
     
-    ds_delete(ds_type_list,get_key_list)
+    ds_destroy(ds_type_list,get_key_list)
     //
     }
 if is_zero(get_key_list)
@@ -40,5 +40,5 @@ ds_list_delete(entity_list,pos)
 //clear it from the entity map
 ds_map_delete(entity_map,get_uuid)
 
-ds_delete(ds_type_map,get_entity)
+ds_destroy(ds_type_map,get_entity)
 

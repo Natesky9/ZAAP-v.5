@@ -26,10 +26,13 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
             case entity.bullet:
                 {
                 Draw_Entity_Bullet(get_entity)
-
                 break
                 }
             //
+            case entity.shipyard:
+                {
+                Draw_Entity_Shipyard(get_entity)
+                }
             }
         //draw the entity
         

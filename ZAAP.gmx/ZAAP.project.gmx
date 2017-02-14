@@ -66,6 +66,7 @@
         <script>scripts\Draw_Entity_Ship.gml</script>
         <script>scripts\Draw_Ship_Grid_Vertex_Buffer.gml</script>
         <script>scripts\Draw_Entity_Bullet.gml</script>
+        <script>scripts\Draw_Entity_Shipyard.gml</script>
         <script>scripts\Draw_Entities.gml</script>
         <script>scripts\Draw_Debug.gml</script>
         <script>scripts\Draw_Debug_DS_Amount.gml</script>
@@ -82,6 +83,7 @@
         <scripts name="Vertex Buffer">
           <script>scripts\vertex_buffer_draw_rectangle.gml</script>
           <script>scripts\create_vertex_buffer_format.gml</script>
+          <script>scripts\vertex_buffer_draw_square_tile.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -145,7 +147,7 @@
     </scripts>
     <scripts name="Data Structures">
       <script>scripts\ds_create.gml</script>
-      <script>scripts\ds_delete.gml</script>
+      <script>scripts\ds_destroy.gml</script>
       <script>scripts\data_structure_clear_all.gml</script>
       <script>scripts\ds_set.gml</script>
       <script>scripts\ds_get.gml</script>
@@ -162,6 +164,11 @@
     <script>scripts\map_add_new_key.gml</script>
     <script>scripts\socket_add_new_key.gml</script>
     <script>scripts\transform_set_ship_orientation.gml</script>
+    <script>scripts\keyboard_pressed_x.gml</script>
+    <script>scripts\entity_find_nearest.gml</script>
+    <script>scripts\Event_Autopilot.gml</script>
+    <script>scripts\autopilot_start.gml</script>
+    <script>scripts\autopilot_stop.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader0.shader</shader>

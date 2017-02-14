@@ -8,7 +8,7 @@ switch get_key
     //
     case "grid":
         {
-        ds_delete(ds_type_grid,get_value)
+        ds_destroy(ds_type_grid,get_value)
         break
         }
     //

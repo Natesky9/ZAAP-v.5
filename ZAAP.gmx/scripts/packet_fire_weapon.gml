@@ -76,11 +76,11 @@ switch get_packet_array[data.mode]
         //create the bullet
         var get_uuid = entity_create_advanced(get_x,get_y,entity.bullet)
         var get_entity = entity_from_uuid(get_uuid);
-        map_add_new_key(get_entity,"speed",get_speed + 10)
-        map_add_new_key(get_entity,"direction",get_heading)
-        map_add_new_key(get_entity,"heading",get_heading)
-        map_add_new_key(get_entity,"source",get_ship_uuid)
-        map_add_new_key(get_entity,"lifetime",60)
+        ds_set(get_entity,"speed",get_speed + 10)
+        ds_set(get_entity,"direction",get_heading)
+        ds_set(get_entity,"heading",get_heading)
+        ds_set(get_entity,"source",get_ship_uuid)
+        ds_set(get_entity,"lifetime",60)
         
         packet_write(packet.fire_weapon,get_ship_uuid,get_uuid)
         break

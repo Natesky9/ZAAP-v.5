@@ -3,7 +3,7 @@ if mouse_check_button_pressed(mb_left)
     if am_server()
         {
         //create an entity
-        var get_uuid = entity_create_advanced(mouse_x,mouse_y,entity.ship)
+        var get_uuid = entity_create_advanced(mouse_x,mouse_y,entity.shipyard)
         
         packet_write(packet.entity_create,get_uuid,mouse_x,mouse_y)
         exit

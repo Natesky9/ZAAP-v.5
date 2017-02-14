@@ -1,4 +1,4 @@
-///ds_delete(get_type,get_ds)
+///ds_destroy(get_type,get_ds)
 var get_type = argument0
 var get_ds = argument1
 

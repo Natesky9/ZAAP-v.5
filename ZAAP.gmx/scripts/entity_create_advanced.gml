@@ -11,15 +11,11 @@ var get_uuid = random_32()
 //create it and get it's id
 var get_entity = entity_create_basic()
 
-map_add_new_key(get_entity,"uuid",get_uuid)
-map_add_new_key(get_entity,"x",get_x)
-map_add_new_key(get_entity,"y",get_y)
-map_add_new_key(get_entity,"type",get_type)
-/*
-map_add_new_key(get_entity,"speed",0)
-map_add_new_key(get_entity,"direction",90)
-map_add_new_key(get_entity,"heading",90)
-*/
+ds_set(get_entity,"uuid",get_uuid)
+ds_set(get_entity,"x",get_x)
+ds_set(get_entity,"y",get_y)
+ds_set(get_entity,"type",get_type)
+
 
 
 if get_type == entity.ship
@@ -38,7 +34,7 @@ if get_type == entity.ship
     get_grid[# 4, 3] = 8
     get_grid[# 0, 4] = true
     get_grid[# 4, 4] = true
-    map_add_new_key(get_entity,"grid",get_grid)
+    ds_set(get_entity,"grid",get_grid)
     show("grid added with an id of: " + string(get_grid))
     }
 

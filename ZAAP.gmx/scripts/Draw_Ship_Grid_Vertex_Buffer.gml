@@ -32,11 +32,12 @@ if is_zero(get_vertex_buffer)
             var get_grid_color = grid_value_to_color(get_grid_value)
             
             if not is_zero(get_grid_value)
-            vertex_buffer_draw_rectangle(new_vertex_buffer,get_x1,get_y1,get_x2,get_y2,get_grid_color)
+            vertex_buffer_draw_square_tile(new_vertex_buffer,get_x1,get_y1,get_x2,get_y2,get_grid_color)
+            //vertex_buffer_draw_rectangle(new_vertex_buffer,get_x1,get_y1,get_x2,get_y2,get_grid_color)
             }
         }
     vertex_end(new_vertex_buffer)
-    map_add_new_key(get_entity,"vertex buffer",new_vertex_buffer)
+    ds_set(get_entity,"vertex buffer",new_vertex_buffer)
     //done creating the vertex buffer
     }
 

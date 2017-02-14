@@ -7,7 +7,7 @@ var get_buffer_type = key_to_buffer_type(get_key)
 if is_zero(get_buffer_type)
     {
     show("Error, this value isn't assigned a buffer type")
-    return value
+    return false
     }
 
 switch get_buffer_type

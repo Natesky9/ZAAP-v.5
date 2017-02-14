@@ -26,7 +26,7 @@ switch get_packet_array[data.mode]
             if get_map != 0
                 {
                 //delete the map client side
-                ds_delete(ds_type_map,get_map)
+                ds_destroy(ds_type_map,get_map)
                 }
             }
         
