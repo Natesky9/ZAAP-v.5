@@ -65,7 +65,6 @@ switch get_packet_array[data.mode]
         if get_pilot == SSS
             {
             //if this is you, do something?
-            console_add("This is me")
             }
 
         break

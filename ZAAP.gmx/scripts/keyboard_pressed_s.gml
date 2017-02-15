@@ -9,6 +9,6 @@ if am_client()
 
     if get_ship != 0
         {
-        packet_write(packet.issue_command,"brake",-1)
+        packet_write(packet.issue_command,"brake",1)
         }
     }

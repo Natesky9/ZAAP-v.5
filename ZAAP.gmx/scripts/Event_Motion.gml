@@ -44,7 +44,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         }
     if get_brake != 0
         {
-        get_entity[? "speed"] -= 1
+        get_entity[? "speed"] -= .1
         }
         
     //clamp it

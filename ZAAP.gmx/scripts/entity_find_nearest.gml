@@ -34,4 +34,4 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         nearest_distance = get_distance
         }
     }
-return false
+return nearest_entity

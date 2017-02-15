@@ -1,5 +1,8 @@
-var get_packet_array = argument0
+///DISCONTINUED
+//pls delete
 
+
+var get_packet_array = argument0
 switch get_packet_array[data.mode]
     {
     //----------------//
@@ -14,16 +17,7 @@ switch get_packet_array[data.mode]
         buffer_write(bout,get_buffer_type,get_uuid)
         
         write_key_to_buffer(get_key,get_value)
-        /*
-        show("uuid is [" + string(get_uuid) + "]")
-        //uuid_write_to_buffer(get_uuid)
-        var uuid_buffer_type 
-        
-        buffer_write(bout,buffer_string,get_key)
-        
-        var get_buffer_type = key_to_buffer_type(get_key)
-        buffer_write(bout,get_buffer_type,get_value)
-        */
+
         packet_send_all()
         break
         }

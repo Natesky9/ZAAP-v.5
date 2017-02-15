@@ -51,3 +51,15 @@ if get_pilot != 0
 //finished drawing
 d3d_transform_set_identity()
 //end drawing the entity
+
+//debug draw
+var autopilot_status = ds_get(get_entity,"autopilot")
+if not is_zero(autopilot_status)
+    {
+    draw_set_color(c_red)
+    draw_text(get_x,get_y+40,"Autopilot")
+    var get_dest_x = ds_get(get_entity,"dest x")
+    var get_dest_y = ds_get(get_entity,"dest y")
+    
+    draw_line(get_x,get_y,get_dest_x,get_dest_y)
+    }

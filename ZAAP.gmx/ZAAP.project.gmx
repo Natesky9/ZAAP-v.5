@@ -17,6 +17,7 @@
       <script>scripts\Event_Create.gml</script>
       <script>scripts\Event_View.gml</script>
       <script>scripts\Event_Step.gml</script>
+      <script>scripts\Event_Autopilot.gml</script>
       <script>scripts\Event_Motion.gml</script>
       <script>scripts\Event_Motion_Clamp.gml</script>
       <script>scripts\Event_Collision.gml</script>
@@ -35,6 +36,7 @@
         <script>scripts\keyboard_pressed_control.gml</script>
         <script>scripts\keyboard_pressed_c.gml</script>
         <script>scripts\keyboard_pressed_v.gml</script>
+        <script>scripts\keyboard_pressed_x.gml</script>
         <script>scripts\keyboard_pressed_w.gml</script>
         <script>scripts\keyboard_pressed_a.gml</script>
         <script>scripts\keyboard_pressed_s.gml</script>
@@ -164,9 +166,7 @@
     <script>scripts\map_add_new_key.gml</script>
     <script>scripts\socket_add_new_key.gml</script>
     <script>scripts\transform_set_ship_orientation.gml</script>
-    <script>scripts\keyboard_pressed_x.gml</script>
     <script>scripts\entity_find_nearest.gml</script>
-    <script>scripts\Event_Autopilot.gml</script>
     <script>scripts\autopilot_start.gml</script>
     <script>scripts\autopilot_stop.gml</script>
   </scripts>

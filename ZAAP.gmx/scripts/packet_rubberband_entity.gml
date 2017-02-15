@@ -49,7 +49,7 @@ switch get_packet_array[data.mode]
         var get_speed = buffer_read(bin,speed_buffer_type)
         var get_heading = buffer_read(bin,heading_buffer_type)
         
-        var magnitude = 60
+        var magnitude = 15
         
         var get_entity = entity_from_uuid(get_uuid)
         if is_zero(get_entity)

@@ -5,6 +5,15 @@ var get_key = argument0
 switch get_key
     {
     //
+    case "autopilot":
+    case "thrust":
+    case "brake":
+        {
+        //show("buffer is bool")
+        //range is 0 - 1
+        return buffer_bool
+        }
+    //
     case "steer":
         {
         //show("buffer is s8")
@@ -31,8 +40,6 @@ switch get_key
     //
     case "pilot":
     case "type":
-    case "thrust":
-    case "brake":
     case "socket":
     case "lifetime":
         {
