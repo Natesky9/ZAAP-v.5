@@ -57,4 +57,19 @@ if mouse_check_button(mb_right)
                 }
             }
         }
+    //
+    if am_client()
+        {
+        var get_entity = entity_find_from_point(mouse_x,mouse_y)
+        if is_zero(get_entity) exit
+        
+        var grid_x = x_to_grid_x(mouse_x,mouse_y,get_entity)
+        var grid_y = y_to_grid_y(mouse_x,mouse_y,get_entity)
+        
+        if grid_x == -1
+        or grid_y == -1
+        exit
+        
+        console_add(string(grid_x) + ":" + string(grid_y))
+        }
     }

@@ -27,14 +27,15 @@ if is_zero(get_grid)
     }
 if not is_zero(get_grid)
     {
+    //if not is_zero(vertex_buffer)
+    Draw_Ship_Grid_Vertex_Buffer(get_entity)
     //draw the grid
-    if false//is_zero(vertex_buffer)
+    if true//is_zero(vertex_buffer)
         {
         Draw_Ship_Grid(get_grid)
         }
     
-    //if not is_zero(vertex_buffer)
-    Draw_Ship_Grid_Vertex_Buffer(get_entity)
+
     //draw the grid
     }
     
