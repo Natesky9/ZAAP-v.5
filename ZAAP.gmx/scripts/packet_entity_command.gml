@@ -57,7 +57,6 @@ switch get_packet_array[data.mode]
             //update the pilot's ship
             var get_map = map_from_socket(get_pilot)
             ds_map_replace(get_map,"ship",get_uuid)
-            console_add("My ship is: " + string(get_uuid))
             }
         
         get_entity[? "pilot"] = get_pilot

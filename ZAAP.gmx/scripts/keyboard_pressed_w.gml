@@ -10,6 +10,9 @@ if am_client()
         console_add("You don't have a ship! Press Control to make one")
         exit
         }
+    var brake = keyboard_check(ord('S'))
+    if brake
+    entity_issue_command(get_ship,"brake",false)
     
-    packet_write(packet.issue_command,"thrust",true)
+    entity_issue_command(get_ship,"thrust",true)
     }

@@ -10,33 +10,25 @@ if mouse_check_button_pressed(mb_left)
         }
     if am_client()
         {
-        exit
-        //removed
         var get_entity = entity_find_from_point(mouse_x,mouse_y)
-        if get_entity != 0
-        var get_uuid = uuid_from_entity(get_entity)
-        
-        if keyboard_check(vk_shift)
-        and keyboard_check(vk_control)
-        and get_entity != 0
-            {
-            console_add("Requesting control of entity: " + string(get_entity))
-            if get_entity != 0
-                {
-                packet_write(packet.entity_command,get_uuid)
-                }
-            exit
-            }
-        
-        if get_entity != 0
-        and get_uuid != 0
-            {
-            //packet_write(packet.entity_send,get_uuid,"update")
-            exit
-            }
-        //this is temporary
+        if is_zero(get_entity)
         exit
-        //end temporary
+        
+        var get_uuid = uuid_from_entity(get_entity)
+        if is_zero(get_uuid)
+        exit
+        
+        var get_grid = ds_get(get_entity,"grid")
+        if is_zero(get_grid)
+        exit
+        
+        var grid_x = x_to_grid_x(mouse_x,mouse_y,get_entity)
+        var grid_y = y_to_grid_y(mouse_x,mouse_y,get_entity)
+        
+        var get_value = grid_get_value(get_grid,grid_x,grid_y)
+        var new_value = irandom(10)
+        
+        packet_write(packet.grid_set,get_uuid,grid_x,grid_y,new_value)
         }
     }
 
@@ -58,18 +50,4 @@ if mouse_check_button(mb_right)
             }
         }
     //
-    if am_client()
-        {
-        var get_entity = entity_find_from_point(mouse_x,mouse_y)
-        if is_zero(get_entity) exit
-        
-        var grid_x = x_to_grid_x(mouse_x,mouse_y,get_entity)
-        var grid_y = y_to_grid_y(mouse_x,mouse_y,get_entity)
-        
-        if grid_x == -1
-        or grid_y == -1
-        exit
-        
-        console_add(string(grid_x) + ":" + string(grid_y))
-        }
     }

@@ -24,7 +24,6 @@ var new_target_y = get_y + lengthdir_y(get_distance,new_direction)
 var grid_corner = get_y-grid_offset
 
 var y_result = new_target_y - grid_corner
-console_add("y result: " + string(y_result))
 var y_div = y_result div ship_grid_size
 
 if y_div < 0

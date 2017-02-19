@@ -11,6 +11,7 @@ if is_zero(get_grid)
 
 if is_zero(get_vertex_buffer)
     {
+    console_add("Creating vertex buffer")
     //create the vertex buffer
     var get_width = ds_grid_width(get_grid)
     var get_height = ds_grid_height(get_grid)
@@ -37,8 +38,10 @@ if is_zero(get_vertex_buffer)
             }
         }
     vertex_end(new_vertex_buffer)
+    vertex_freeze(new_vertex_buffer)
     ds_set(get_entity,"vertex buffer",new_vertex_buffer)
     //done creating the vertex buffer
+    get_vertex_buffer = new_vertex_buffer
     }
 
 vertex_submit(get_vertex_buffer,pr_trianglelist,-1)

@@ -18,4 +18,4 @@ ds_list_add(autopilot_list,get_uuid)
 
 console_add("Autopilot initiated")
 
-packet_write(packet.issue_command,"autopilot",true)
+entity_issue_command(get_entity,"autopilot",true)

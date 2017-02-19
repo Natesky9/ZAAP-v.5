@@ -7,9 +7,7 @@ var get_direction = ds_get(get_entity,"direction")
 var get_heading = ds_get(get_entity,"heading")
 
 var vertex_buffer = ds_get(get_entity,"grid vertex buffer")
-
 var get_grid = ds_get(get_entity,"grid")
-
 var get_pilot = ds_get(get_entity,"pilot")
 
 //get ready to draw
@@ -30,7 +28,7 @@ if not is_zero(get_grid)
     //if not is_zero(vertex_buffer)
     Draw_Ship_Grid_Vertex_Buffer(get_entity)
     //draw the grid
-    if true//is_zero(vertex_buffer)
+    if debug_draw
         {
         Draw_Ship_Grid(get_grid)
         }

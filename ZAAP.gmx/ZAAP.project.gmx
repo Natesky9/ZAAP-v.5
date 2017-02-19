@@ -142,6 +142,7 @@
       <script>scripts\packet_chat.gml</script>
       <script>scripts\packet_inform_sss.gml</script>
       <script>scripts\packet_fire_weapon.gml</script>
+      <script>scripts\packet_grid_set.gml</script>
     </scripts>
     <scripts name="view">
       <script>scripts\view_center.gml</script>
@@ -171,6 +172,11 @@
     <script>scripts\autopilot_stop.gml</script>
     <script>scripts\x_to_grid_x.gml</script>
     <script>scripts\y_to_grid_y.gml</script>
+    <script>scripts\additional_sum.gml</script>
+    <script>scripts\entity_issue_command.gml</script>
+    <script>scripts\grid_get_value.gml</script>
+    <script>scripts\grid_set_value.gml</script>
+    <script>scripts\script143.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader0.shader</shader>

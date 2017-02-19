@@ -6,8 +6,6 @@ Draw_Navigation_Grid()
 
 Draw_Main_Menu()
 
-
-
 Draw_Entities()
 
 

@@ -17,4 +17,5 @@ enum packet
     entity_send,
     rubberband_entity,//15
     entity_set_pilot,
+    grid_set,
     }
