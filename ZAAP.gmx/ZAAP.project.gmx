@@ -68,6 +68,7 @@
         <script>scripts\Draw_Entity_Ship.gml</script>
         <script>scripts\Draw_Ship_Grid_Vertex_Buffer.gml</script>
         <script>scripts\Draw_Entity_Bullet.gml</script>
+        <script>scripts\Draw_Entity_Asteroid.gml</script>
         <script>scripts\Draw_Entity_Shipyard.gml</script>
         <script>scripts\Draw_Entities.gml</script>
         <script>scripts\Draw_Debug.gml</script>
@@ -122,6 +123,7 @@
     </scripts>
     <scripts name="packets">
       <script>scripts\packet_template.gml</script>
+      <script>scripts\packet_entity_damage.gml</script>
       <script>scripts\packet_entity_set_pilot.gml</script>
       <script>scripts\packet_rubberband_entity.gml</script>
       <script>scripts\packet_issue_command.gml</script>
@@ -162,21 +164,23 @@
       <script>scripts\entity_destroy_basic.gml</script>
       <script>scripts\entity_add_vector.gml</script>
       <script>scripts\entity_find_from_point.gml</script>
+      <script>scripts\entity_find_nearest.gml</script>
+      <script>scripts\entity_issue_command.gml</script>
     </scripts>
     <script>scripts\console_add.gml</script>
     <script>scripts\map_add_new_key.gml</script>
     <script>scripts\socket_add_new_key.gml</script>
     <script>scripts\transform_set_ship_orientation.gml</script>
-    <script>scripts\entity_find_nearest.gml</script>
     <script>scripts\autopilot_start.gml</script>
     <script>scripts\autopilot_stop.gml</script>
+    <script>scripts\autopilot_add_node.gml</script>
     <script>scripts\x_to_grid_x.gml</script>
     <script>scripts\y_to_grid_y.gml</script>
     <script>scripts\additional_sum.gml</script>
-    <script>scripts\entity_issue_command.gml</script>
     <script>scripts\grid_get_value.gml</script>
     <script>scripts\grid_set_value.gml</script>
     <script>scripts\script143.gml</script>
+    <script>scripts\uuid_damage.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader0.shader</shader>

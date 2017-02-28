@@ -32,7 +32,15 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
             case entity.shipyard:
                 {
                 Draw_Entity_Shipyard(get_entity)
+                break
                 }
+            //
+            case entity.asteroid:
+                {
+                Draw_Entity_Asteroid(get_entity)
+                break
+                }
+            //
             }
         //draw the entity
         

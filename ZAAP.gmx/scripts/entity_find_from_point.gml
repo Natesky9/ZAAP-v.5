@@ -1,7 +1,8 @@
-//entity_find_from_point(get_x,get_y)
+//entity_find_from_point(get_x,get_y,blacklist)
 
 var get_x = argument0
 var get_y = argument1
+var get_blacklist = argument2
 
 for (var i = 0;i < ds_list_size(entity_list);i += 1)
     {
@@ -9,7 +10,9 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     var get_uuid = ds_list_find_value(entity_list,i)
     var get_entity = entity_from_uuid(get_uuid)
     //early exit if the entity does not exist
-    if is_zero(get_entity) exit
+    if is_zero(get_entity)
+    or get_entity == get_blacklist
+    continue
     
     //get the entity's values
     var get_entity_x = ds_get(get_entity,"x")
@@ -39,7 +42,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         if is_found return get_entity
         if not is_found continue
         }
-    /*
+    //
     if is_zero(get_grid)
         {
         //search based off of a 32 pixel square if no grid
@@ -53,6 +56,5 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
                 }
             }
         }
-    */
     }
 return false

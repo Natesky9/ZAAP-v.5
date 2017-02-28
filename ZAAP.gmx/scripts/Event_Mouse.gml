@@ -10,7 +10,7 @@ if mouse_check_button_pressed(mb_left)
         }
     if am_client()
         {
-        var get_entity = entity_find_from_point(mouse_x,mouse_y)
+        var get_entity = entity_find_from_point(mouse_x,mouse_y,false)
         if is_zero(get_entity)
         exit
         
@@ -36,7 +36,7 @@ if mouse_check_button(mb_right)
     {
     if am_server()
         {
-        var get_entity = entity_find_from_point(mouse_x,mouse_y)
+        var get_entity = entity_find_from_point(mouse_x,mouse_y,false)
             {
             if get_entity != 0
                 {

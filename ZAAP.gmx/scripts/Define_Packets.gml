@@ -18,4 +18,5 @@ enum packet
     rubberband_entity,//15
     entity_set_pilot,
     grid_set,
+    entity_damage,
     }

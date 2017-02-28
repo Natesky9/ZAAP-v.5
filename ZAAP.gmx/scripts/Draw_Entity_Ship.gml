@@ -55,10 +55,18 @@ d3d_transform_set_identity()
 var autopilot_status = ds_get(get_entity,"autopilot")
 if not is_zero(autopilot_status)
     {
+    var get_autopilot_list = ds_get(get_entity,"autopilot list")
+    var get_node,get_dest_x,get_dest_y
+    for (var i = 0;i < ds_list_size(get_autopilot_list);i += 1)
+        {
+        get_node = ds_list_find_value(get_autopilot_list,i)
+        
+        get_dest_x = ds_get(get_node,"dest x")
+        get_dest_y = ds_get(get_node,"dest y")
+        
+        draw_line(get_x,get_y,get_dest_x,get_dest_y)
+        }
     draw_set_color(c_red)
     draw_text(get_x,get_y+40,"Autopilot")
-    var get_dest_x = ds_get(get_entity,"dest x")
-    var get_dest_y = ds_get(get_entity,"dest y")
     
-    draw_line(get_x,get_y,get_dest_x,get_dest_y)
     }

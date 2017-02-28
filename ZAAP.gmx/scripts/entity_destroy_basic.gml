@@ -12,7 +12,7 @@ if get_type == entity.ship
     }
 if get_type == entity.bullet
     {
-    effect_create_above(ef_explosion,get_x,get_y,2,c_red)
+    effect_create_above(ef_spark,get_x,get_y,1,c_red)
     }
 //end effect
 

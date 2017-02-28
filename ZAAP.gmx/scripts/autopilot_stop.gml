@@ -6,8 +6,8 @@ ds_set(get_entity,"autopilot",false)
 
 
 
-var pos = ds_list_find_index(autopilot_list,get_uuid)
-ds_list_delete(autopilot_list,pos)
+var pos = ds_list_find_index(autopilot_controller_list,get_uuid)
+ds_list_delete(autopilot_controller_list,pos)
 
 console_add("Autopilot canceled")
 entity_issue_command(get_entity,"autopilot",false)

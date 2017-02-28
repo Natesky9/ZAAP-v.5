@@ -45,6 +45,13 @@ switch get_packet_array[data.mode]
         var get_y = buffer_read(bin,coordinate_buffer_type)
         
         var get_uuid = entity_create_advanced(get_x,get_y,entity.ship)
+        //set the grid
+        var basic_grid = ds_create(ds_type_grid,9,9);
+        basic_grid[# 4,4] = true
+        var get_entity = entity_from_uuid(get_uuid)
+        ds_set(get_entity,"grid",basic_grid)
+        //end setting the grid
+        
         var get_socket_map = map_from_socket(get_socket)
         ds_set(get_socket_map,"ship",get_uuid)
         

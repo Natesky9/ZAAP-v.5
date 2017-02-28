@@ -5,6 +5,7 @@ enum entity
     ship,
     bullet,
     shipyard,
+    asteroid,
     }
     
 ///fucktouple

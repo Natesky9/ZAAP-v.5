@@ -25,7 +25,7 @@ if network_result >= 0
     entity_list = ds_create(ds_type_list)
     entity_map = ds_create(ds_type_map)
     
-    autopilot_list = ds_create(ds_type_list)
+    autopilot_controller_list = ds_create(ds_type_list)
     
     show("done creating server data")
     http_request_ip = http_get("http://ipv4bot.whatismyipaddress.com/")

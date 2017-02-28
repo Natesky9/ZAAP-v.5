@@ -8,6 +8,7 @@ switch get_key
     case "autopilot":
     case "thrust":
     case "brake":
+    case "docked":
         {
         //show("buffer is bool")
         //range is 0 - 1
@@ -42,6 +43,7 @@ switch get_key
     case "type":
     case "socket":
     case "lifetime":
+    case "health":
         {
         //show("buffer is u8")
         //range is 0 - 255

@@ -56,8 +56,9 @@ switch get_packet_array[data.mode]
         exit
         
         //sloppy code here
-        var get_current_x = get_entity[? "x"]
-        var get_current_y = get_entity[? "y"]
+        var get_current_x = ds_get(get_entity,"x")
+        var get_current_y = ds_get(get_entity,"y")
+        var get_current_heading = ds_get(get_entity,"heading")
         
         var get_x2 = get_x + lengthdir_x(get_speed*magnitude,get_direction);
         var get_y2 = get_y + lengthdir_y(get_speed*magnitude,get_direction);
@@ -65,9 +66,11 @@ switch get_packet_array[data.mode]
         var updated_direction = point_direction(get_current_x,get_current_y,get_x2,get_y2);
         var updated_speed = point_distance(get_current_x,get_current_y,get_x2,get_y2)/magnitude;
         
+        var updated_heading = get_heading;
+        
         get_entity[? "direction"] = updated_direction
         get_entity[? "speed"] = updated_speed
-        get_entity[? "heading"] = get_heading
+        get_entity[? "heading"] = updated_heading
         //end sloppy code
         
         break
