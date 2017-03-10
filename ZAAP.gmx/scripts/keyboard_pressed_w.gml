@@ -16,3 +16,14 @@ if am_client()
     
     entity_issue_command(get_ship,"thrust",true)
     }
+
+if am_server()
+    {
+    value_selected_entity_type = (value_selected_entity_type + 1)
+                                mod (entity.types)
+    //output the entity type and name
+    console_add("entity type is now: " + string(value_selected_entity_type))
+    show("entity type is now: " + string(value_selected_entity_type))
+    var name = localized_entity_name[? value_selected_entity_type]
+    console_add("entity name is now: " + name)
+    }

@@ -1,4 +1,4 @@
-draw_time = get_timer()
+var draw_time_start = get_timer()
 
 Event_View()
 
@@ -9,6 +9,5 @@ Draw_Main_Menu()
 Draw_Entities()
 
 
-draw_time = get_timer() - draw_time
 
-//show("draw_time: " + string(draw_time))
+ds_set(environment,"draw time",get_timer() - draw_time_start)

@@ -26,7 +26,7 @@ if am_client()
         //end timeout scrip
         
         //send a ping
-        if !(steps_since_game_started mod 30)
+        if !(ds_get(environment,"steps since start") mod 30)
             {
             //show("ping")
             packet_write(packet.ping)
@@ -54,7 +54,7 @@ if am_server()
     
     //report ping to clients
     if ds_list_size(socket_list)
-    and !(steps_since_game_started mod 15)
+    and !(ds_get(environment,"steps since start") mod 15)
         {
         //show("return ping")
         packet_write(packet.ping_report)

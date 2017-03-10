@@ -15,11 +15,27 @@ if am_client()
         }
     //
     }
-/*
-frame_x1 = view_xview[0]
-frame_y1 = view_yview[0]
-frame_x2 = frame_x1 + view_wview[0]
-frame_y2 = frame_y1 + view_hview[0]
-*/
-if keyboard_check(vk_f2)
-view_reset()
+
+if am_server()
+    {
+    if keyboard_check(vk_f2)
+        {//reset the focus if F2 is pressed
+        entity_focus = 0
+        view_reset()
+        }
+    if entity_focus
+        {//focus on this entity
+        var get_entity = entity_from_uuid(entity_focus)
+        if is_zero(get_entity)
+            {
+            entity_focus = 0
+            exit
+            }
+        
+        var get_x = ds_get(get_entity,"x")
+        var get_y = ds_get(get_entity,"y")
+        view_center(get_x,get_y)
+        }
+    }
+
+

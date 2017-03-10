@@ -10,5 +10,5 @@ if not ds_map_exists(get_map,get_key)
     
     exit
     }
-get_map[? get_key] = get_value
+get_map[? get_key] += get_value
 

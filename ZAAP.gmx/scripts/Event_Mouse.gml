@@ -2,10 +2,16 @@ if mouse_check_button_pressed(mb_left)
     {
     if am_server()
         {
-        //create an entity
-        var get_uuid = entity_create_advanced(mouse_x,mouse_y,entity.shipyard)
+        var done
+        //do done checks
         
-        packet_write(packet.entity_create,get_uuid,mouse_x,mouse_y)
+        done = mouse_left_click_entity_list()
+        if done exit
+        
+        done = mouse_create()
+        if done exit
+        
+
         exit
         }
     if am_client()
@@ -32,10 +38,14 @@ if mouse_check_button_pressed(mb_left)
         }
     }
 
-if mouse_check_button(mb_right)
+if mouse_check_button_pressed(mb_right)
     {
     if am_server()
         {
+        done = mouse_right_click_entity_list()
+        if done exit
+        
+        
         var get_entity = entity_find_from_point(mouse_x,mouse_y,false)
             {
             if get_entity != 0

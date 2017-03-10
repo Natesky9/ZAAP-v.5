@@ -11,7 +11,6 @@
   <scripts name="scripts">
     <script>scripts\Define_Data.gml</script>
     <script>scripts\Define_Packets.gml</script>
-    <script>scripts\Define_Attributes.gml</script>
     <script>scripts\Define_Entities.gml</script>
     <scripts name="Events">
       <script>scripts\Event_Create.gml</script>
@@ -67,10 +66,12 @@
       <scripts name="Draw">
         <script>scripts\Draw_Entity_Ship.gml</script>
         <script>scripts\Draw_Ship_Grid_Vertex_Buffer.gml</script>
+        <script>scripts\Draw_Entity_Item.gml</script>
         <script>scripts\Draw_Entity_Bullet.gml</script>
         <script>scripts\Draw_Entity_Asteroid.gml</script>
         <script>scripts\Draw_Entity_Shipyard.gml</script>
         <script>scripts\Draw_Entities.gml</script>
+        <script>scripts\Draw_Entity_Lists.gml</script>
         <script>scripts\Draw_Debug.gml</script>
         <script>scripts\Draw_Debug_DS_Amount.gml</script>
         <script>scripts\Draw_Debug_Step_Time.gml</script>
@@ -155,7 +156,9 @@
       <script>scripts\ds_destroy.gml</script>
       <script>scripts\data_structure_clear_all.gml</script>
       <script>scripts\ds_set.gml</script>
+      <script>scripts\ds_add.gml</script>
       <script>scripts\ds_get.gml</script>
+      <script>scripts\ds_add_key_list.gml</script>
       <script>scripts\ds_map_delete_key.gml</script>
     </scripts>
     <scripts name="Entity">
@@ -181,6 +184,11 @@
     <script>scripts\grid_set_value.gml</script>
     <script>scripts\script143.gml</script>
     <script>scripts\uuid_damage.gml</script>
+    <script>scripts\keyboard_pressed_f2.gml</script>
+    <script>scripts\mouse_left_click_entity_list.gml</script>
+    <script>scripts\entity_list_index_from_mouse.gml</script>
+    <script>scripts\mouse_create.gml</script>
+    <script>scripts\mouse_right_click_entity_list.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader0.shader</shader>

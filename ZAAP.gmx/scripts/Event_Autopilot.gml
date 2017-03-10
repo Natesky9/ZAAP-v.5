@@ -31,21 +31,21 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     var target_distance = point_distance(get_x,get_y,get_dest_x,get_dest_y)
     
     //vector correction
-    var entity_vector_x = lengthdir_x(target_distance/2,get_direction)
-    var entity_vector_y = lengthdir_y(target_distance/2,get_direction)
+    var entity_vector_x = lengthdir_x(get_speed,get_direction)
+    var entity_vector_y = lengthdir_y(get_speed,get_direction)
     
-    var target_vector_x = lengthdir_x(target_distance,target_direction)
-    var target_vector_y = lengthdir_y(target_distance,target_direction)
+    var target_vector_x = lengthdir_x(target_distance/2,target_direction)
+    var target_vector_y = lengthdir_y(target_distance/2,target_direction)
     
-    var corrected_vector_x = target_vector_x - entity_vector_x
-    var corrected_vector_y = target_vector_y - entity_vector_y
+    var corrected_vector_x = entity_vector_x - target_vector_x
+    var corrected_vector_y = entity_vector_y - target_vector_y
     
     effect_create_above(ef_spark,get_x+corrected_vector_x,get_y+corrected_vector_y,0,c_orange)
     
     var corrected_vector_direction = point_direction(0,0,corrected_vector_x,corrected_vector_y)
     //end vector correction
     
-    var target_angle_difference = angle_difference(corrected_vector_direction,get_heading)
+    var target_angle_difference = angle_difference(get_heading,corrected_vector_direction)
     var abs_difference = abs(target_angle_difference)
     
     //steer
@@ -53,10 +53,17 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
         {
         var steer_angle = sign(target_angle_difference)
         entity_issue_command(get_entity,"steer",steer_angle)
+        entity_issue_command(get_entity,"brake",true)
         }
     //steer done
     
     var brake_distance = additional_sum(get_speed,get_brake_speed) + get_speed
+    //draw the brake distance
+    var brake_x = get_x + lengthdir_x(brake_distance,get_direction)
+    var brake_y = get_y + lengthdir_y(brake_distance,get_direction)
+    
+    effect_create_above(ef_spark,brake_x,brake_y,0,c_blue)
+    //
     
     //thrust
     if abs_difference < 3
@@ -64,6 +71,7 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
         //stop steering
         entity_issue_command(get_entity,"steer",0)
         if target_distance > brake_distance//
+        and get_speed < 10
             {
             entity_issue_command(get_entity,"thrust",1)
             entity_issue_command(get_entity,"brake",0)

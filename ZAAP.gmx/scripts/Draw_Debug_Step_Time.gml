@@ -6,8 +6,8 @@ var get_text
 font_align(6)
 draw_set_color(c_black)
 
-get_text = "step time [" + string(step_time) + "]"
+get_text = "step time [" + string(ds_get(environment,"step time")) + "]"
 draw_text(view_width,400,get_text)
 
-get_text = "draw time [" + string(draw_time) + "]"
+get_text = "draw time [" + string(ds_get(environment,"draw time")) + "]"
 draw_text(view_width,416,get_text)

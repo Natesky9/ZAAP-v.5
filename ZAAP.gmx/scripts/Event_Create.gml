@@ -1,7 +1,13 @@
-steps_since_game_started = 0
-step_time = 0
-draw_time = 0
-draw_gui_time = 0
+//environment is the game map
+//it replaces all local/global variables
+
+environment = ds_map_create();
+ds_add_key_list(environment)
+
+ds_set(environment,"steps since start",0)
+ds_set(environment,"step time",0)
+ds_set(environment,"draw time",0)
+ds_set(environment,"draw gui time",0)
 
 ds_map_create()
 ds_list_create()
@@ -43,6 +49,7 @@ data_structure_stack_amount = 0
 
 
 debug_draw = false
+draw_debug_entity_list = false
 show_debug_data_structures = false
 
 //ping_timeout is also the automatic disconnect
@@ -51,8 +58,15 @@ network_set_config(network_config_connect_timeout,ping_timeout)
 
 keyboard_string = "127.0.0.1"
 keyboard_focus = "console"
+entity_focus = 0
+value_selected_entity_type = entity.asteroid
 
 ship_grid_size = 16
+
+Define_Data()
+Define_Packets()
+Define_Entities()
+
 
 build = date_time_string(GM_build_date)
 console_add("{" + build + "}")
