@@ -27,6 +27,7 @@
       <script>scripts\Event_Keyboard.gml</script>
       <scripts name="keyboard keys">
         <script>scripts\keyboard_pressed_f4.gml</script>
+        <script>scripts\keyboard_pressed_f2.gml</script>
         <script>scripts\keyboard_pressed_f3.gml</script>
         <script>scripts\keyboard_pressed_f1.gml</script>
         <script>scripts\keyboard_pressed_escape.gml</script>
@@ -46,6 +47,12 @@
         <script>scripts\keyboard_released_d.gml</script>
       </scripts>
       <script>scripts\Event_Mouse.gml</script>
+      <scripts name="Mouse Functions">
+        <script>scripts\entity_list_index_from_mouse.gml</script>
+        <script>scripts\mouse_right_click_entity_list.gml</script>
+        <script>scripts\mouse_left_click_entity_list.gml</script>
+        <script>scripts\mouse_create.gml</script>
+      </scripts>
       <script>scripts\Event_Network.gml</script>
       <scripts name="Network">
         <script>scripts\am_client.gml</script>
@@ -153,8 +160,12 @@
     </scripts>
     <scripts name="Data Structures">
       <script>scripts\ds_create.gml</script>
+      <script>scripts\grid_get_value.gml</script>
+      <script>scripts\grid_set_value.gml</script>
       <script>scripts\ds_destroy.gml</script>
       <script>scripts\data_structure_clear_all.gml</script>
+      <script>scripts\x_to_grid_x.gml</script>
+      <script>scripts\y_to_grid_y.gml</script>
       <script>scripts\ds_set.gml</script>
       <script>scripts\ds_add.gml</script>
       <script>scripts\ds_get.gml</script>
@@ -177,18 +188,11 @@
     <script>scripts\autopilot_start.gml</script>
     <script>scripts\autopilot_stop.gml</script>
     <script>scripts\autopilot_add_node.gml</script>
-    <script>scripts\x_to_grid_x.gml</script>
-    <script>scripts\y_to_grid_y.gml</script>
     <script>scripts\additional_sum.gml</script>
-    <script>scripts\grid_get_value.gml</script>
-    <script>scripts\grid_set_value.gml</script>
     <script>scripts\script143.gml</script>
     <script>scripts\uuid_damage.gml</script>
-    <script>scripts\keyboard_pressed_f2.gml</script>
-    <script>scripts\mouse_left_click_entity_list.gml</script>
-    <script>scripts\entity_list_index_from_mouse.gml</script>
-    <script>scripts\mouse_create.gml</script>
-    <script>scripts\mouse_right_click_entity_list.gml</script>
+    <script>scripts\Event_Collect_Item.gml</script>
+    <script>scripts\Draw_Shipyard_GUI.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader0.shader</shader>

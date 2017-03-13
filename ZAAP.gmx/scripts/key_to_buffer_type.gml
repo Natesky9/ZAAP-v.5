@@ -12,6 +12,7 @@ switch get_key
         {
         //show("buffer is bool")
         //range is 0 - 1
+        console_add("key is: " + get_key)
         return buffer_bool
         }
     //

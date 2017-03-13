@@ -1,8 +1,8 @@
 if not keyboard_check_pressed(ord('C'))
-or keyboard_focus == "game"
 exit
 //add in case for console and game
 if keyboard_check(vk_control)
+and am_server()
     {
     if am_server()
         {
@@ -31,4 +31,17 @@ if keyboard_check(vk_control)
             console_add("Error, server not connected!")
             }
         }
+    }
+if am_client()
+    {
+    var get_uuid = get_ship_from_socket(SSS)
+    if is_zero(get_uuid)
+    exit
+    
+    var get_entity = entity_from_uuid(get_uuid)
+    
+    var is_docked = ds_get(get_entity,"docked")
+    
+    entity_issue_command(get_entity,"docked",not is_docked)
+    console_add("manual test dock")
     }
