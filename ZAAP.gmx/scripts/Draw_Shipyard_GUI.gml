@@ -1,11 +1,9 @@
 if not am_client()
 exit
 
-var get_uuid = get_ship_from_socket(SSS)
-if is_zero(get_uuid)
+var get_entity = get_ship_from_socket(SSS)
+if is_zero(get_entity)
 exit
-
-var get_entity = entity_from_uuid(get_uuid)
 
 var is_docked = ds_get(get_entity,"docked")
 //this isn't working correctly

@@ -1,4 +1,4 @@
-///autopilot_start(uuid,x,y)
+///autopilot_start(uuid)
 var get_uuid = argument0
 
 var get_entity = entity_from_uuid(get_uuid)
@@ -14,4 +14,6 @@ ds_set(get_entity,"autopilot list",new_waypoint_list)
 
 console_add("Autopilot initiated")
 
+entity_issue_command(get_entity,"docked",false)
 entity_issue_command(get_entity,"autopilot",true)
+

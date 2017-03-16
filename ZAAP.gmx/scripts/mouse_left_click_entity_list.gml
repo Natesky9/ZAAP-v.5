@@ -1,3 +1,6 @@
+if not draw_debug_entity_list
+return false//early exit if the list isn't being drawn
+
 var get_pos = entity_list_index_from_mouse()
 if is_zero(get_pos) return false
 get_pos -= 1

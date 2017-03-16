@@ -1,4 +1,5 @@
 if not am_server()
+and not am_client()
 exit
 //only the server draws this.
 //for now...

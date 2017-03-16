@@ -3,7 +3,7 @@ exit
 
 if am_client()
     {
-    console_add("Started Autopilot")
+    //console_add("Started Autopilot")
     var get_ship = get_ship_from_socket(SSS)
     if is_zero(get_ship)
         {
@@ -17,6 +17,13 @@ if am_client()
     if autopilot_status == true
         {
         autopilot_stop(get_uuid)
+        exit
+        }
+    var is_docked = ds_get(get_ship,"docked")
+    if is_docked
+        {
+        entity_issue_command(get_ship,"docked",false)
+        entity_issue_command(get_ship,"brake",false)
         exit
         }
     
@@ -35,9 +42,9 @@ if am_client()
     var get_shipyard_y = ds_get(nearest_shipyard,"y")
     
     autopilot_start(get_uuid)
-    autopilot_add_node(get_uuid,"waypoint",get_shipyard_x-128,get_shipyard_y)
-    autopilot_add_node(get_uuid,"checkpoint",get_shipyard_x,get_shipyard_y-128)
-    autopilot_add_node(get_uuid,"checkpoint",get_shipyard_x+128,get_shipyard_y)
+    //autopilot_add_node(get_uuid,"waypoint",get_shipyard_x-128,get_shipyard_y)
+    //autopilot_add_node(get_uuid,"checkpoint",get_shipyard_x,get_shipyard_y-128)
+    //autopilot_add_node(get_uuid,"checkpoint",get_shipyard_x+128,get_shipyard_y)
     autopilot_add_node(get_uuid,"waypoint",get_shipyard_x,get_shipyard_y+128)
     autopilot_add_node(get_uuid,"waypoint",get_shipyard_x,get_shipyard_y)
     }

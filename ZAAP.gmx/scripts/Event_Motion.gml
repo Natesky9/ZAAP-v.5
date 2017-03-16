@@ -23,6 +23,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     var get_direction = ds_get(get_entity,"direction");
     var get_speed = ds_get(get_entity,"speed");
     var get_heading = ds_get(get_entity,"heading");
+    var is_docked = ds_get(get_entity,"docked");
     //end pre movement get
     if get_steer != 0
         {
@@ -31,7 +32,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     if get_thrust != 0
         {
         //multiply by thrust amount
-        var get_vector_thrust = 1/10
+        var get_vector_thrust = 1
         
         
         //add the vector
@@ -44,7 +45,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         }
     if get_brake != 0
         {
-        get_entity[? "speed"] -= 1/10
+        get_entity[? "speed"] -= 1/2
         }
         
     //clamp it

@@ -12,3 +12,4 @@ if not ds_map_exists(get_map,get_key)
     }
 get_map[? get_key] = get_value
 
+//show("key: " + string(get_key) + " set to: " + string(get_value))

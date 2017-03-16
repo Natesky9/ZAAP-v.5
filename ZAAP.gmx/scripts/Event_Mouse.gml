@@ -16,25 +16,30 @@ if mouse_check_button_pressed(mb_left)
         }
     if am_client()
         {
-        var get_entity = entity_find_from_point(mouse_x,mouse_y,false)
-        if is_zero(get_entity)
-        exit
+        //
+        done = mouse_left_click_entity_list()
+        if done exit
         
-        var get_uuid = uuid_from_entity(get_entity)
-        if is_zero(get_uuid)
-        exit
+        done = mouse_left_click_ship_grid()
+        if done exit
+        //
+        var get_ship = get_ship_from_socket(SSS)
+        if not get_ship exit
         
-        var get_grid = ds_get(get_entity,"grid")
-        if is_zero(get_grid)
-        exit
+        var get_uuid = uuid_from_entity(get_ship)
         
-        var grid_x = x_to_grid_x(mouse_x,mouse_y,get_entity)
-        var grid_y = y_to_grid_y(mouse_x,mouse_y,get_entity)
+        var autopilot_status = ds_get(get_ship,"autopilot")
         
-        var get_value = grid_get_value(get_grid,grid_x,grid_y)
-        var new_value = irandom(10)
-        
-        packet_write(packet.grid_set,get_uuid,grid_x,grid_y,new_value)
+        if autopilot_status
+            {
+            autopilot_add_node(get_uuid,"waypoint",mouse_x,mouse_y)
+            exit
+            }
+        if not autopilot_status
+            {
+            autopilot_start(get_uuid)
+            autopilot_add_node(get_uuid,"waypoint",mouse_x,mouse_y)
+            }
         }
     }
 

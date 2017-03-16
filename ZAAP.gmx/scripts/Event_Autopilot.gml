@@ -17,7 +17,7 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     var get_speed = ds_get(get_entity,"speed")
     var get_direction = ds_get(get_entity,"direction")
     
-    var get_brake_speed = 1/10 //braking speed, set to ship's braking speed later
+    var get_brake_speed = 1/2 //braking speed, set to ship's braking speed later
     
     //
     var get_autopilot_list = ds_get(get_entity,"autopilot list")
@@ -63,12 +63,12 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
         }
     //steer done
     
-    var brake_distance = additional_sum(get_speed,get_brake_speed) + get_speed
+    var brake_distance = additional_sum(get_speed,get_brake_speed)
     //draw the brake distance
     var brake_x = get_x + lengthdir_x(brake_distance,get_direction)
     var brake_y = get_y + lengthdir_y(brake_distance,get_direction)
     
-    //effect_create_above(ef_spark,brake_x,brake_y,0,c_blue)
+    effect_create_above(ef_spark,brake_x,brake_y,0,c_blue)
     //
     
     //thrust
