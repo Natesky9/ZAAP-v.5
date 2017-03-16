@@ -11,8 +11,8 @@ if am_client()
         {
         var left = keyboard_check(ord('A'))
         if left
-        packet_write(packet.issue_command,"steer",0)
+        entity_issue_command(get_ship,"steer",0)
         if not left
-        packet_write(packet.issue_command,"steer",-1)
+        entity_issue_command(get_ship,"steer",-1)
         }
     }

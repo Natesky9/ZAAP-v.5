@@ -9,6 +9,6 @@ if am_client()
 
     if get_ship != 0
         {
-        packet_write(packet.issue_command,"thrust",false)
+        entity_issue_command(get_ship,"thrust",false)
         }
     }

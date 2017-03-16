@@ -6,7 +6,7 @@ switch get_packet_array[data.mode]
     case "server write":
         {
         var get_text = get_packet_array[data.arg_0]
-        show("text: " + string(get_text))
+        console_add(get_text)
         
         buffer_write(bout,buffer_u8,packet.chat)
         buffer_write(bout,buffer_string,get_text)
@@ -40,7 +40,7 @@ switch get_packet_array[data.mode]
         
         var bytes = network_send_packet(host_connection,bout,buffer_tell(bout))
         //console_add(string(bytes) + " bytes sent")
-        show("Sent: " + string(bytes) + " bytes sent")
+        //show("Sent: " + string(bytes) + " bytes sent")
         //error case for packet not sent
         if bytes == -1
             {

@@ -2,17 +2,19 @@ if not am_server()
 and not am_client()
 exit
 
+var get_uuid,get_entity,get_type
+
 for (var i = 0;i < ds_list_size(entity_list);i += 1)
     {
-    var get_uuid = ds_list_find_value(entity_list,i)
+    get_uuid = ds_list_find_value(entity_list,i)
     
-    var get_entity = entity_from_uuid(get_uuid)
+    get_entity = entity_from_uuid(get_uuid)
     
     //run if not undefined
     if not is_zero(get_entity)
         {
         //get the type of entity then filter from there
-        var get_type = ds_get(get_entity,"type")
+        get_type = ds_get(get_entity,"type")
         
         switch get_type
             {
@@ -32,7 +34,21 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
             case entity.shipyard:
                 {
                 Draw_Entity_Shipyard(get_entity)
+                break
                 }
+            //
+            case entity.asteroid:
+                {
+                Draw_Entity_Asteroid(get_entity)
+                break
+                }
+            //
+            case entity.item:
+                {
+                Draw_Entity_Item(get_entity)
+                break
+                }
+            //
             }
         //draw the entity
         

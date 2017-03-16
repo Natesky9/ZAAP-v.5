@@ -2,49 +2,56 @@ if mouse_check_button_pressed(mb_left)
     {
     if am_server()
         {
-        //create an entity
-        var get_uuid = entity_create_advanced(mouse_x,mouse_y,entity.shipyard)
+        var done
+        //do done checks
         
-        packet_write(packet.entity_create,get_uuid,mouse_x,mouse_y)
+        done = mouse_left_click_entity_list()
+        if done exit
+        
+        done = mouse_create()
+        if done exit
+        
+
         exit
         }
     if am_client()
         {
-        exit
-        //removed
-        var get_entity = entity_find_from_point(mouse_x,mouse_y)
-        if get_entity != 0
-        var get_uuid = uuid_from_entity(get_entity)
+        //
+        done = mouse_left_click_entity_list()
+        if done exit
         
-        if keyboard_check(vk_shift)
-        and keyboard_check(vk_control)
-        and get_entity != 0
+        done = mouse_left_click_ship_grid()
+        if done exit
+        //
+        var get_ship = get_ship_from_socket(SSS)
+        if not get_ship exit
+        
+        var get_uuid = uuid_from_entity(get_ship)
+        
+        var autopilot_status = ds_get(get_ship,"autopilot")
+        
+        if autopilot_status
             {
-            console_add("Requesting control of entity: " + string(get_entity))
-            if get_entity != 0
-                {
-                packet_write(packet.entity_command,get_uuid)
-                }
+            autopilot_add_node(get_uuid,"waypoint",mouse_x,mouse_y)
             exit
             }
-        
-        if get_entity != 0
-        and get_uuid != 0
+        if not autopilot_status
             {
-            //packet_write(packet.entity_send,get_uuid,"update")
-            exit
+            autopilot_start(get_uuid)
+            autopilot_add_node(get_uuid,"waypoint",mouse_x,mouse_y)
             }
-        //this is temporary
-        exit
-        //end temporary
         }
     }
 
-if mouse_check_button(mb_right)
+if mouse_check_button_pressed(mb_right)
     {
     if am_server()
         {
-        var get_entity = entity_find_from_point(mouse_x,mouse_y)
+        done = mouse_right_click_entity_list()
+        if done exit
+        
+        
+        var get_entity = entity_find_from_point(mouse_x,mouse_y,false)
             {
             if get_entity != 0
                 {
@@ -57,4 +64,5 @@ if mouse_check_button(mb_right)
                 }
             }
         }
+    //
     }

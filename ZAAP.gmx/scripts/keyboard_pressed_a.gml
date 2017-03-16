@@ -11,8 +11,19 @@ if am_client()
         {
         var right = keyboard_check(ord('D'))
         if right
-        packet_write(packet.issue_command,"steer",0)
+        entity_issue_command(get_ship,"steer",0)
         if not right
-        packet_write(packet.issue_command,"steer",+1)
+        entity_issue_command(get_ship,"steer",+1)
         }
+    }
+//
+if am_server()
+    {
+    //create an asteroid
+    var get_uuid = entity_create_advanced(mouse_x,mouse_y,entity.asteroid)
+    var get_entity = entity_from_uuid(get_uuid)
+    ds_set(get_entity,"speed",irandom(6))
+    ds_set(get_entity,"direction",irandom(360))
+    packet_write(packet.entity_create,get_uuid,mouse_x,mouse_y)
+    //create an asteroid
     }

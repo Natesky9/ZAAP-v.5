@@ -7,9 +7,7 @@ var get_direction = ds_get(get_entity,"direction")
 var get_heading = ds_get(get_entity,"heading")
 
 var vertex_buffer = ds_get(get_entity,"grid vertex buffer")
-
 var get_grid = ds_get(get_entity,"grid")
-
 var get_pilot = ds_get(get_entity,"pilot")
 
 //get ready to draw
@@ -27,14 +25,15 @@ if is_zero(get_grid)
     }
 if not is_zero(get_grid)
     {
+    //if not is_zero(vertex_buffer)
+    Draw_Ship_Grid_Vertex_Buffer(get_entity)
     //draw the grid
-    if false//is_zero(vertex_buffer)
+    if debug_draw
         {
         Draw_Ship_Grid(get_grid)
         }
     
-    //if not is_zero(vertex_buffer)
-    Draw_Ship_Grid_Vertex_Buffer(get_entity)
+
     //draw the grid
     }
     
@@ -51,3 +50,40 @@ if get_pilot != 0
 //finished drawing
 d3d_transform_set_identity()
 //end drawing the entity
+
+//debug draw
+
+var autopilot_status = ds_get(get_entity,"autopilot")
+if not is_zero(autopilot_status)
+    {
+    var get_autopilot_list = ds_get(get_entity,"autopilot list")
+    if is_zero(get_autopilot_list)
+    exit
+    var prev_x = get_x
+    var prev_y = get_y
+    var get_node,get_type,get_dest_x,get_dest_y
+    for (var i = 0;i < ds_list_size(get_autopilot_list);i += 1)
+        {
+        get_node = ds_list_find_value(get_autopilot_list,i)
+        
+        get_type = ds_get(get_node,"type")
+        get_dest_x = ds_get(get_node,"x")
+        get_dest_y = ds_get(get_node,"y")
+        
+        if get_type == "checkpoint"
+            {
+            draw_rectangle(get_dest_x-4,get_dest_y-4,get_dest_x+4,get_dest_y+4,true)
+            }
+        if get_type == "waypoint"
+            {
+            draw_circle(get_dest_x,get_dest_y,4,true)
+            }
+        
+        draw_line(prev_x,prev_y,get_dest_x,get_dest_y)
+        prev_x = get_dest_x
+        prev_y = get_dest_y
+        }
+    draw_set_color(c_red)
+    draw_text(get_x,get_y+40,"Autopilot")
+    
+    }

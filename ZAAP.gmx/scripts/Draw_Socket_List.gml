@@ -2,11 +2,9 @@
 //client and server
 //socket list?
 
-if game_server < 0
-and game_client < 0
+if not am_server()
+and not am_client()
 exit
-
-
 
 //draw the list of sockets
 font_align(7)

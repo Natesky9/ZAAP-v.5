@@ -38,7 +38,7 @@ if keyboard_focus == "console"
     
     draw_text(0,view_height,get_text)
     if keyboard_focus == "console"
-    and ((steps_since_game_started mod 10) < 5)
+    and ((ds_get(environment,"steps since start") mod 10) < 5)
         {
         var cursor_x = string_width(get_text)
         draw_rectangle(cursor_x,view_height,cursor_x+2,view_height-16,false)

@@ -14,11 +14,19 @@ if am_client()
         if get_map[? "ping timeout"] <= 0
             {
             console_add("Can't communicate with Server")
+            //disconnect
+            data_structure_clear_all()
+            network_destroy(game_client)
+            SSS = -1
+            host_connection = -1
+            game_client = -1
+            view_reset()
+            console_add("You have been disconnected")
             }
         //end timeout scrip
         
         //send a ping
-        if !(steps_since_game_started mod 30)
+        if !(ds_get(environment,"steps since start") mod 30)
             {
             //show("ping")
             packet_write(packet.ping)
@@ -35,15 +43,18 @@ if am_server()
         var get_map = map_from_socket(get_socket);
         var get_ping_timeout = ds_get(get_map,"ping timeout");
         get_map[? "ping timeout"] = get_ping_timeout - 1
+        var text = "Can't communicate with socket[" + string(get_socket) + "]"
+        var console_text = ds_list_find_index(console_list,text)
         if get_map [? "ping timeout"] <= 0
+        and console_text != -1
             {
-            console_add("Can't communicate with socket[" + string(get_socket) + "]")
+            console_add(text)
             }
         }
     
     //report ping to clients
     if ds_list_size(socket_list)
-    and !(steps_since_game_started mod 15)
+    and !(ds_get(environment,"steps since start") mod 15)
         {
         //show("return ping")
         packet_write(packet.ping_report)

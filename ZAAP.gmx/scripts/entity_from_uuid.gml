@@ -12,7 +12,6 @@ var get_entity = ds_get(entity_map,get_uuid)
 
 if get_entity == 0
     {
-    show("Error, tried to get entity with uuid of [" + string(get_uuid) + "]")
     return false
     }
 return get_entity

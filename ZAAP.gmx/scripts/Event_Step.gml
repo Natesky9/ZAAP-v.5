@@ -1,5 +1,5 @@
-steps_since_game_started += 1
-step_time = get_timer()
+ds_add(environment,"steps since start",1)
+var step_time_start = get_timer()
 
 
 //input
@@ -19,6 +19,4 @@ Event_Collision()
 
 Event_Ping()
 
-step_time = get_timer() - step_time
-
-//show("step time: " + string(step_time))
+ds_set(environment,"step time",get_timer() - step_time_start)

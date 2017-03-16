@@ -1,13 +1,16 @@
-draw_gui_time = get_timer()
+draw_gui_time_start = get_timer()
 
 Draw_Nearby_Entities()
 
 Draw_Socket_List()
 
+Draw_Entity_Lists()
+
 Draw_Console()
+
+Draw_Shipyard_GUI()
+
 
 Draw_Debug()
 
-draw_gui_time = get_timer() - draw_gui_time
-
-//show("draw_gui_time: " + string(draw_gui_time))
+ds_set(environment,"draw gui time",get_timer() - draw_gui_time_start)

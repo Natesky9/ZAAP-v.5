@@ -20,8 +20,9 @@ switch get_packet_array[data.mode]
         
         SSS = get_sss
         var get_map = map_from_socket(SSS);
+ 
         get_map[? "ping timeout"] = ping_timeout
-        
+ 
         
         console_add("You are Player[" + string(SSS) + "]")
         return true

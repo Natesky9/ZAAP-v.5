@@ -31,7 +31,6 @@ and not am_client()
         if client_created
             {
             var client_connected = client_connect(ip,port)
-            console_add("client connected is: " + string(client_connected))
             
             if client_connected == -1
                 {

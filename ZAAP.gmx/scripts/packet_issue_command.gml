@@ -6,12 +6,31 @@ switch get_packet_array[data.mode]
     case "server write":
         {
         //maybe add to sync just the command
-        buffer_write(bout,buffer_u8,packet.null)
+        buffer_write(bout,buffer_u8,packet.issue_command)
+        var get_entity = get_packet_array[data.arg_0]
+        var get_key = get_packet_array[data.arg_1]
+        var get_value = get_packet_array[data.arg_2]
+        
+        var get_uuid = uuid_from_entity(get_entity)
+        if is_zero(get_uuid)
+        exit
+        
+        var uuid_buffer_type = key_to_buffer_type("uuid")
+        buffer_write(bout,uuid_buffer_type,get_uuid)
+        
+        write_key_to_buffer(get_key,get_value)
+        packet_send_all()
         break
         }
     //----------------//
     case "client read":
         {
+        var uuid_buffer_type = key_to_buffer_type("uuid")
+        var get_uuid = buffer_read(bin,uuid_buffer_type)
+        show("uuid is: " + string(get_uuid))
+        var get_entity = entity_from_uuid(get_uuid)
+        
+        read_buffer_to_key(get_entity)
         break
         }
     //----------------//
@@ -45,11 +64,8 @@ switch get_packet_array[data.mode]
             console_add("player tried to issue a command without a ship!")
             exit
             }
-
-        ds_set(get_ship,get_command,get_value)
-                    
-        var get_uuid = uuid_from_entity(get_ship)
-        packet_write(packet.entity_send,get_uuid,get_command,get_value)
+        //pass this to the entity
+        entity_issue_command(get_ship,get_command,get_value)
         break
         }
     //----------------//

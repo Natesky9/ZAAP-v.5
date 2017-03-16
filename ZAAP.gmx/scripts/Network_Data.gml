@@ -22,6 +22,9 @@ switch get_packet
     case packet.entity_command:
         {packet_entity_command(get_packet_array);break}
     //----------------//
+    case packet.entity_damage:
+        {packet_entity_damage(get_packet_array);break}
+    //----------------//
     case packet.entity_send:
         {packet_entity_send(get_packet_array);break}
     //----------------//
@@ -54,6 +57,9 @@ switch get_packet
     //----------------//
     case packet.entity_destroy:
         {packet_entity_destroy(get_packet_array);break}
+    //----------------//
+    case packet.grid_set:
+        {packet_grid_set(get_packet_array);break}
     //----------------//
     case packet.ping:
         {packet_ping(get_packet_array);break}
