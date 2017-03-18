@@ -1,3 +1,5 @@
+///Event_Step()
+
 ds_add(environment,"steps since start",1)
 var step_time_start = get_timer()
 

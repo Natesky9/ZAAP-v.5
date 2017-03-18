@@ -1,4 +1,5 @@
-//write_grid_to_buffer(get_grid)
+//write_grid_to_buffer(grid)
+
 var get_grid = argument0
 
 if is_zero(get_grid)

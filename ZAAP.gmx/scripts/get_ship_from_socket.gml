@@ -1,3 +1,6 @@
+///get_ship_from_socket(socket)
+//returns entity
+
 //this gives me the entity map of the ship that the socket is controlling
 var get_socket = argument0
 

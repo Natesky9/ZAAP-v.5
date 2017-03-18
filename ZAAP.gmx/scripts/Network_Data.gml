@@ -1,3 +1,5 @@
+///Network_Data(packet_array)
+
 //get_packet_array is the filled out packet
 get_packet_array = argument[0]
 //show("Packet [" + string(get_packet_array) + "]")

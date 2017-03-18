@@ -1,3 +1,4 @@
+///Event_Ping()
 if am_client()
     {
     

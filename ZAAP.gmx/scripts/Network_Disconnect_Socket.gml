@@ -1,3 +1,5 @@
+///Network_Disconnect_Socket()
+
 var get_socket = ds_map_find_value(async_load,"socket")
 var get_map = ds_map_find_value(socket_map,get_socket)
 var pos = ds_list_find_index(socket_list,get_socket)

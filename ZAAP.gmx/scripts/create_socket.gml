@@ -1,3 +1,5 @@
+///create_socket()
+
 var get_map = ds_create(ds_type_map)
 
 var key_list = ds_create(ds_type_list)

@@ -1,3 +1,5 @@
+///Draw_Entity_Item(entity)
+
 var get_entity = argument0
 
 var get_x = ds_get(get_entity,"x")

@@ -1,3 +1,4 @@
+///Event_Motion_Clamp(entity)
 var get_entity = argument0
 
 var get_type = ds_get(get_entity,"type")

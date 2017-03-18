@@ -1,3 +1,5 @@
+///keyboard_pressed_control()
+
 if not keyboard_check_pressed(vk_control)
 exit
 

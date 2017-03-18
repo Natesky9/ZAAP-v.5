@@ -1,4 +1,5 @@
-//redundant version of ds_get
+///map_from_socket(socket)
+
 
 var get_socket = argument0
 

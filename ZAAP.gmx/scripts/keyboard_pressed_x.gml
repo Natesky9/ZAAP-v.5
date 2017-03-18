@@ -1,3 +1,5 @@
+///keyboard_pressed_x()
+
 if not keyboard_check_pressed(ord('X'))
 exit
 

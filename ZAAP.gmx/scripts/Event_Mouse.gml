@@ -1,3 +1,5 @@
+///Event_Mouse()
+
 if mouse_check_button_pressed(mb_left)
     {
     if am_server()
@@ -32,7 +34,7 @@ if mouse_check_button_pressed(mb_left)
         
         if autopilot_status
             {
-            autopilot_add_node(get_uuid,"waypoint",mouse_x,mouse_y)
+            autopilot_add_node(get_uuid,"checkpoint",mouse_x,mouse_y)
             exit
             }
         if not autopilot_status

@@ -1,3 +1,5 @@
+///keyboard_released_s()
+
 if not keyboard_check_released(ord('S'))
 or keyboard_focus == "console"
 exit

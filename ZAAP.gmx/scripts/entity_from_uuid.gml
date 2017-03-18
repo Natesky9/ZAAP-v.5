@@ -1,4 +1,4 @@
-//redundant version of ds_get
+///entity_from_uuid(uuid)
 
 var get_uuid = argument0
 

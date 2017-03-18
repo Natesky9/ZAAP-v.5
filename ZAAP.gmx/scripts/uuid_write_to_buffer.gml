@@ -1,3 +1,5 @@
+///uuid_write_to_buffer(uuid)
+
 var get_uuid = argument0
 
 var get_entity = entity_from_uuid(get_uuid)

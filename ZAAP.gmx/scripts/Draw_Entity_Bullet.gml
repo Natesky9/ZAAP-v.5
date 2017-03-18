@@ -1,4 +1,5 @@
 ///Draw_Entity_Bullet(get_entity)
+
 var get_entity = argument0
 
 //get the map data

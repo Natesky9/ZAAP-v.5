@@ -26,10 +26,10 @@
       <script>scripts\Event_Draw_GUI.gml</script>
       <script>scripts\Event_Keyboard.gml</script>
       <scripts name="keyboard keys">
-        <script>scripts\keyboard_pressed_f4.gml</script>
+        <script>scripts\keyboard_pressed_f1.gml</script>
         <script>scripts\keyboard_pressed_f2.gml</script>
         <script>scripts\keyboard_pressed_f3.gml</script>
-        <script>scripts\keyboard_pressed_f1.gml</script>
+        <script>scripts\keyboard_pressed_f4.gml</script>
         <script>scripts\keyboard_pressed_escape.gml</script>
         <script>scripts\keyboard_pressed_enter.gml</script>
         <script>scripts\keyboard_pressed_space.gml</script>
@@ -116,7 +116,6 @@
       <script>scripts\uuid_from_entity.gml</script>
       <script>scripts\entity_from_uuid.gml</script>
       <script>scripts\key_to_buffer_type.gml</script>
-      <script>scripts\convert_to_buffer_type.gml</script>
       <script>scripts\get_ship_from_socket.gml</script>
       <script>scripts\map_from_socket.gml</script>
     </scripts>
@@ -189,11 +188,15 @@
     <script>scripts\autopilot_stop.gml</script>
     <script>scripts\autopilot_add_node.gml</script>
     <script>scripts\additional_sum.gml</script>
-    <script>scripts\script143.gml</script>
+    <script>scripts\entity_create_vertex_buffer.gml</script>
     <script>scripts\uuid_damage.gml</script>
     <script>scripts\Event_Collect_Item.gml</script>
     <script>scripts\Draw_Shipyard_GUI.gml</script>
     <script>scripts\mouse_left_click_ship_grid.gml</script>
+    <script>scripts\Event_Bullet_Collision.gml</script>
+    <script>scripts\draw_asteroid_hex.gml</script>
+    <script>scripts\bullet_collide_with_ship.gml</script>
+    <script>scripts\bullet_collide_with_other.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader0.shader</shader>

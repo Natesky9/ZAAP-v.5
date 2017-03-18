@@ -1,8 +1,15 @@
+///font_align(numpad)
+
 var numpad = argument0
+
 if numpad < 1
 or numpad > 9
 or numpad mod 1 != 0
-show("Error, number out of range")
+    {
+    show("Error, number out of range")
+    font_align(5)
+    exit
+    }
 
 
 switch numpad mod 3

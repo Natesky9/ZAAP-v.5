@@ -1,7 +1,9 @@
+///Draw_Nearby_Entities()
+
 if not am_client()
 exit
 
-var range = 2560
+var range = 10000
 
 var view_center_x = view_wview[0]/2
 var view_center_y = view_hview[0]/2

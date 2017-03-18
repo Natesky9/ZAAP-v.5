@@ -1,3 +1,4 @@
+///Event_Create()
 //environment is the game map
 //it replaces all local/global variables
 

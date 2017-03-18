@@ -1,3 +1,5 @@
+///mouse_left_click_entity_list()
+
 if not draw_debug_entity_list
 return false//early exit if the list isn't being drawn
 

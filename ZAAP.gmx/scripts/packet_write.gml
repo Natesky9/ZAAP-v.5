@@ -1,3 +1,4 @@
+///packet_write(packet.id,arg0,arg1,...)
 //sends a packet
 
 //reset the packet array

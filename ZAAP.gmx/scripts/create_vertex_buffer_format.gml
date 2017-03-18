@@ -1,3 +1,5 @@
+///create_vertex_buffer_format()
+
 //create a vertex buffer format
 vertex_format_begin()
 vertex_format_add_position()

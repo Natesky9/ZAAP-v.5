@@ -1,3 +1,7 @@
+///Draw_Console()
+
+///change this to use a surface instead
+
 var get_text
 var is_focused = (keyboard_focus == "console")
 

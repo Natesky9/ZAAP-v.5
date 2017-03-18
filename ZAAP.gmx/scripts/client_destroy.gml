@@ -1,3 +1,5 @@
+///client_destroy()
+
 network_destroy(game_client)
 //reset stored variables
 game_client = -1

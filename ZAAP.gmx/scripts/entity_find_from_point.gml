@@ -31,13 +31,15 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         var x_start = (get_width*ship_grid_size)/2
         var y_start = (get_height*ship_grid_size)/2
         
-        //var get_radius = point_distance(0,0,x_start,y_start)
+        var is_found = false
         
-        //var get_distance = point_distance(get_x,get_y,get_entity_x,get_entity_y)
-        
-        var is_found = (sqr(get_entity_x - get_x) + sqr(get_entity_y - get_y)
-                        <
-                        (sqr(x_start) + sqr(y_start)))
+        if abs(get_x - get_entity_x) <= x_start
+            {
+            if abs(get_y - get_entity_y) <= y_start
+                {
+                is_found = true
+                }
+            }
         
         if is_found return get_entity
         if not is_found continue

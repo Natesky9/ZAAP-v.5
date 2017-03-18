@@ -1,3 +1,5 @@
+///view_reset()
+
 //reset the view
 view_xview[0] = 0
 view_yview[0] = 0

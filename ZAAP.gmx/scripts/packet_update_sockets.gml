@@ -19,7 +19,7 @@ switch get_packet_array[data.mode]
             
             if get_socket != get_update_socket
                 {
-                socket_write_to_buffer(get_socket,bout)
+                socket_write_to_buffer(get_socket)
                 }
             }
         

@@ -1,3 +1,5 @@
+///Draw_Debug()
+
 if show_debug_data_structures
     {
     //draw the ping timeout

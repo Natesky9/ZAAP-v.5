@@ -1,3 +1,5 @@
+///Draw_Debug_DS_Amount()
+
 var view_width = view_wview[0]
 var view_height = view_hview[0]
 

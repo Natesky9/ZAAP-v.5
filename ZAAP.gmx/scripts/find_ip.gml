@@ -1,3 +1,6 @@
+///find_ip()
+
+
 var get_int = 0
 var ip = ""
 

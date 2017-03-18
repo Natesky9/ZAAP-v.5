@@ -1,3 +1,4 @@
+///Event_Draw()
 var draw_time_start = get_timer()
 
 Event_View()

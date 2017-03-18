@@ -1,4 +1,9 @@
-host_connection = network_connect(game_client,argument0,argument1)
+///client_connect(ip,port)
+
+var ip = argument0
+var port = argument1
+
+host_connection = network_connect(game_client,ip,port)
 
 if host_connection < 0
 console_add("Client failed to connect")

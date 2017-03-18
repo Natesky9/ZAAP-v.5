@@ -1,3 +1,5 @@
+///convert_alphabet_to_integer(string)
+
 var get_alphabet = argument0
 var pow = 0
 var int = 0

@@ -1,3 +1,4 @@
+///Event_Update()
 if not am_server()
 exit
 

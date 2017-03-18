@@ -1,3 +1,5 @@
+///client_create()
+
 //create a client socket and returns the result
 
 if am_server()

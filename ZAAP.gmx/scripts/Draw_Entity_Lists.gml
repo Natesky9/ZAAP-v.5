@@ -1,15 +1,14 @@
+///Draw_Entity_Lists()
+
 if not am_server()
 and not am_client()
 exit
-//only the server draws this.
-//for now...
 
 if not draw_debug_entity_list
 exit
 
 var text_y
 font_align(7)
-
 
 var entity_count = ds_list_size(entity_list);
 if not entity_count

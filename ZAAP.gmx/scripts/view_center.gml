@@ -1,3 +1,5 @@
+///view_center(x,y)
+
 var get_x = argument0;
 var get_y = argument1;
 

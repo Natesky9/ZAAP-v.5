@@ -1,3 +1,5 @@
+///server_create()
+
 //create a server and return the result
 //less than 0 means socket failed
 if am_server()

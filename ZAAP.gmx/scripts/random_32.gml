@@ -1,3 +1,6 @@
+///random_32()
+//random 32 bit number, used for uuid
+
 var get_num;
 
 do get_num = irandom(1<<32 - 2)+1

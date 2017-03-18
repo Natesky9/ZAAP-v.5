@@ -1,3 +1,4 @@
+///Event_Draw_GUI()
 draw_gui_time_start = get_timer()
 
 Draw_Nearby_Entities()

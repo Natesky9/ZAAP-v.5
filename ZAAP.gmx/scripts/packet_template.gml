@@ -1,3 +1,5 @@
+//TODO Define packet headers
+
 var get_packet_array = argument0
 
 switch get_packet_array[data.mode]

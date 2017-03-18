@@ -1,3 +1,4 @@
+///Event_Motion
 if !am_client()
 and !am_server()
 exit
@@ -32,7 +33,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     if get_thrust != 0
         {
         //multiply by thrust amount
-        var get_vector_thrust = 1
+        var get_vector_thrust = .5
         
         
         //add the vector
