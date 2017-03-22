@@ -1,3 +1,6 @@
+///Event_Bullet_Collision(uuid,entity)
+//bullet collision step
+
 var get_uuid = argument0
 var get_entity = argument1
 
@@ -31,8 +34,6 @@ exit //nothing to do here
 //now check against the type
 var get_collided_type = ds_get(collision_entity,"type")
 
-//we assume that the entity was hit
-var get_grid_x,get_grid_y
 
 switch get_collided_type
     {

@@ -1,3 +1,4 @@
+///Event_Collect_Item()
 //only the server has to run this
 
 if not am_server()
@@ -14,7 +15,6 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     
     var get_x = ds_get(get_entity,"x")
     var get_y = ds_get(get_entity,"y")
-    effect_create_above(ef_spark,get_x,get_y,0,c_white)
     
     for (var ii = 0;ii < ds_list_size(entity_list);ii += 1)
         {

@@ -1,13 +1,15 @@
 var get_entity = argument0
 var get_x = argument1
 var get_y = argument2
+var get_heading = ds_get(get_entity,"heading")
 
-var angle = 0
+var angle = get_heading
 var prev_x = get_x + lengthdir_x(16,angle)
 var prev_y = get_y + lengthdir_y(16,angle)
-repeat 5
+
+repeat 6
     {
-    angle++
+    angle += 60
     var curr_x = get_x + lengthdir_x(16,angle)
     var curr_y = get_y + lengthdir_y(16,angle)
     

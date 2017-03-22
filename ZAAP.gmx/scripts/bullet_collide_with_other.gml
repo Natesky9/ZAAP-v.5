@@ -1,4 +1,4 @@
-///bullet_collide_with_other
+///bullet_collide_with_other(bullet_entity,bullet_uuid,collision_entity,collision_uuid)
 var get_entity = argument0
 var get_uuid = argument1
 var collision_entity = argument2

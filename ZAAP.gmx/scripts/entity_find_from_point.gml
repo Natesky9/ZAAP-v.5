@@ -1,4 +1,5 @@
-//entity_find_from_point(get_x,get_y,blacklist)
+///entity_find_from_point(get_x,get_y,blacklist)
+//returns entity
 
 var get_x = argument0
 var get_y = argument1

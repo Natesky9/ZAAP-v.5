@@ -1,4 +1,6 @@
 ///autopilot_add_node(uuid,type,x,y)
+//types are:
+//checkpoint, waypoint, entity, dock
 
 var get_uuid = argument0
 var get_type = argument1
@@ -22,6 +24,7 @@ switch get_type
     //
     case "checkpoint":
     case "waypoint":
+    case "dock":
         {
         var get_x = argument2
         var get_y = argument3

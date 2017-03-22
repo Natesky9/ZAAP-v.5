@@ -96,13 +96,19 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
         }
     
     //check if reached the destination
-    if (get_type == "waypoint"
+    if ((get_type == "waypoint"
+    or get_type == "dock")
     and abs(get_x - get_dest_x) < 16
     and abs(get_y - get_dest_y) < 16)
     or (get_type == "checkpoint"
     and abs(get_x - get_dest_x) < 64
     and abs(get_y - get_dest_y) < 64)
         {
+        if get_type == "dock"
+            {
+            entity_issue_command(get_entity,"docked",true)
+            console_add("Docking")
+            }
         
         effect_create_below(ef_ring,get_dest_x,get_dest_y,1,c_blue)
         ds_destroy(ds_type_map,get_node)
@@ -112,10 +118,8 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
             {
             //
             console_add("Reached destination")
-            console_add("Docking")
             autopilot_stop(get_uuid)
             //docked will take into account the entity it is docked to
-            entity_issue_command(get_entity,"docked",true)
             //
             }
         }

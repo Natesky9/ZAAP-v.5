@@ -1,3 +1,5 @@
+///Draw_Shipyard_GUI()
+
 if not am_client()
 exit
 

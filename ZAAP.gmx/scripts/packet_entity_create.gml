@@ -1,3 +1,5 @@
+///packet_entity_create(packet_array)
+
 var get_packet_array = argument0
 
 switch get_packet_array[data.mode]
@@ -48,6 +50,9 @@ switch get_packet_array[data.mode]
         //set the grid
         var basic_grid = ds_create(ds_type_grid,9,9);
         basic_grid[# 4,4] = true
+        basic_grid[# 4,3] = 2
+        basic_grid[# 3,4] = 3
+        basic_grid[# 5,4] = 3
         var get_entity = entity_from_uuid(get_uuid)
         ds_set(get_entity,"grid",basic_grid)
         //end setting the grid

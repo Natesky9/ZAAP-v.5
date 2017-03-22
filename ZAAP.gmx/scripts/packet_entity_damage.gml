@@ -1,3 +1,5 @@
+///packet_entity_damage(packet_array)
+
 var get_packet_array = argument0
 
 switch get_packet_array[data.mode]

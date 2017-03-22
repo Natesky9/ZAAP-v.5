@@ -1,3 +1,5 @@
+///mouse_left_click_ship_grid()
+
 var get_entity = entity_find_from_point(mouse_x,mouse_y,false)
 if is_zero(get_entity)
 return false

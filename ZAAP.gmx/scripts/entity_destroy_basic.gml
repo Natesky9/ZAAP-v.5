@@ -36,8 +36,10 @@ if is_zero(get_key_list)
 console_add("deleted object does not have a key list")
 
 //clear it from the list
-var pos = ds_list_find_index(entity_list,get_uuid)
-ds_list_delete(entity_list,pos)
+//removed for entity disasociation
+//var pos = ds_list_find_index(entity_list,get_uuid)
+//ds_list_delete(entity_list,pos)
+ds_list_add(entity_destroy_list,get_uuid)
 
 //clear it from the entity map
 ds_map_delete(entity_map,get_uuid)

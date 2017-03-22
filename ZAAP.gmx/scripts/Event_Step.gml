@@ -20,5 +20,6 @@ Event_Collision()
 //end detection
 
 Event_Ping()
+Event_Entity_Cleanup()
 
 ds_set(environment,"step time",get_timer() - step_time_start)

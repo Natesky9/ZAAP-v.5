@@ -1,3 +1,5 @@
+///packet_entity_set_pilot(packet_array)
+
 var get_packet_array = argument0
 
 switch get_packet_array[data.mode]

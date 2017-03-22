@@ -1,4 +1,6 @@
+///packet_type(packet_array)
 //get the packet type
+
 //if reading, read the first byte
 //if writing, use the first argument
 var get_packet_array = argument0

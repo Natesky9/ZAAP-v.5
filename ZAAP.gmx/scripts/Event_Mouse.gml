@@ -10,9 +10,11 @@ if mouse_check_button_pressed(mb_left)
         done = mouse_left_click_entity_list()
         if done exit
         
-        done = mouse_create()
+        done = mouse_left_click_ship_grid()
         if done exit
         
+        done = mouse_create()
+        if done exit
 
         exit
         }

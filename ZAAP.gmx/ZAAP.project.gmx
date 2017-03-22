@@ -25,6 +25,7 @@
       <script>scripts\Event_Draw.gml</script>
       <script>scripts\Event_Draw_GUI.gml</script>
       <script>scripts\Event_Keyboard.gml</script>
+      <script>scripts\Event_Entity_Cleanup.gml</script>
       <scripts name="keyboard keys">
         <script>scripts\keyboard_pressed_f1.gml</script>
         <script>scripts\keyboard_pressed_f2.gml</script>
@@ -90,6 +91,7 @@
         <script>scripts\Draw_Ship_Grid.gml</script>
         <script>scripts\Draw_Navigation_Grid.gml</script>
         <script>scripts\Draw_Nearby_Entities.gml</script>
+        <script>scripts\draw_asteroid_hex.gml</script>
         <script>scripts\grid_value_to_color.gml</script>
         <scripts name="Vertex Buffer">
           <script>scripts\vertex_buffer_draw_rectangle.gml</script>
@@ -134,7 +136,6 @@
       <script>scripts\packet_entity_set_pilot.gml</script>
       <script>scripts\packet_rubberband_entity.gml</script>
       <script>scripts\packet_issue_command.gml</script>
-      <script>scripts\packet_entity_send.gml</script>
       <script>scripts\packet_entity_destroy.gml</script>
       <script>scripts\packet_entity_create.gml</script>
       <script>scripts\packet_entity_command.gml</script>
@@ -194,13 +195,10 @@
     <script>scripts\Draw_Shipyard_GUI.gml</script>
     <script>scripts\mouse_left_click_ship_grid.gml</script>
     <script>scripts\Event_Bullet_Collision.gml</script>
-    <script>scripts\draw_asteroid_hex.gml</script>
     <script>scripts\bullet_collide_with_ship.gml</script>
     <script>scripts\bullet_collide_with_other.gml</script>
+    <script>scripts\Draw_Asteroid_Grid_Vertex_Buffer.gml</script>
   </scripts>
-  <shaders name="shaders">
-    <shader type="GLSLES">shaders\shader0.shader</shader>
-  </shaders>
   <objects name="objects">
     <object>objects\obj_engine</object>
   </objects>

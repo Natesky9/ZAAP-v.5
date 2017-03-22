@@ -1,6 +1,6 @@
 ///Event_Motion
-if !am_client()
-and !am_server()
+if not am_client()
+and not am_server()
 exit
 
 for (var i = 0;i < ds_list_size(entity_list);i += 1)
@@ -13,7 +13,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         show("Error, entity does not exist!")
         continue
         }
-        
+    
     //pre movement get
     var get_thrust = ds_get(get_entity,"thrust");
     var get_steer = ds_get(get_entity,"steer");

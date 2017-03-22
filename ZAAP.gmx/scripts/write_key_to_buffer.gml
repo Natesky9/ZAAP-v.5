@@ -19,6 +19,7 @@ switch get_key
         }
     //
     case "grid vertex buffer":
+    case "key list":
         {
         show("nothing special here, just the vertex buffer")
         exit

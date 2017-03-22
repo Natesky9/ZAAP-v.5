@@ -1,4 +1,4 @@
-//TODO Define packet headers
+///packet_template(packet_array)
 
 var get_packet_array = argument0
 

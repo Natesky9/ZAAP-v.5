@@ -79,17 +79,65 @@ if not is_zero(entity_focus)
     for (i = 0;i < entity_list_size;i += 1)
         {
         get_key = ds_list_find_value(key_list,i)
-        get_value = ds_get(get_entity,get_key)
-        
-        font_align(7)
-        draw_text(key_list_x1,key_list_y1 + 16*i,get_key)
-        font_align(9)
-        
-        text = get_value
-        if is_real(get_value)
-        text = string(get_value)
-        
-        
-        draw_text(key_list_x2,key_list_y1 + 16*i,text)
+        switch get_key
+            {
+            case "grid":
+                {
+                //draw the grid
+                var get_grid = ds_get(get_entity,"grid")
+                var grid_width = ds_grid_width(get_grid)
+                var grid_height = ds_grid_height(get_grid)
+                draw_set_color(c_black)      
+                font_align(7)
+                draw_text(key_list_x1,key_list_y1 + 16*i,get_key)
+                font_align(9)
+                draw_text(key_list_x2,key_list_y1 + 16*i,"->")
+                
+                var key_list_grid_x1 = key_list_x2
+                var key_list_grid_y1 = key_list_y1
+                var key_list_grid_x2 = key_list_grid_x1 + grid_width*ship_grid_size
+                var key_list_grid_y2 = key_list_grid_y1 + grid_height*ship_grid_size
+                draw_set_color(c_gray)
+                draw_rectangle(key_list_grid_x1,key_list_grid_y1,key_list_grid_x2,key_list_grid_y2,false)
+                draw_set_color(c_black)
+                draw_rectangle(key_list_grid_x1,key_list_grid_y1,key_list_grid_x2,key_list_grid_y2,true)
+                font_align(7)
+                for (var w = 0;w < grid_width;w += 1)
+                    {
+                    for (var h = 0;h < grid_height;h += 1)
+                        {
+                        var get_grid_value = ds_grid_get(get_grid,w,h)
+                        var g_x1 = key_list_grid_x1 + w * ship_grid_size
+                        var g_y1 = key_list_grid_y1 + h * ship_grid_size
+                        var g_x2 = g_x1 + ship_grid_size
+                        var g_y2 = g_y1 + ship_grid_size
+                        var grid_color = grid_value_to_color(get_grid_value)
+                        if not is_zero(grid_color)
+                            {
+                            draw_set_color(grid_color)
+                            draw_rectangle(g_x1,g_y1,g_x2,g_y2,false)
+                            }
+                        draw_set_color(c_black)
+                        draw_text(g_x1,g_y1,string(get_grid_value))
+                        }
+                    }
+                break
+                }
+            default:
+                {
+                get_value = ds_get(get_entity,get_key)
+                
+                font_align(7)
+                draw_text(key_list_x1,key_list_y1 + 16*i,get_key)
+                font_align(9)
+                
+                text = get_value
+                if is_real(get_value)
+                text = string(get_value)
+                
+                
+                draw_text(key_list_x2,key_list_y1 + 16*i,text)
+                }
+            }
         }
     }

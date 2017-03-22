@@ -1,5 +1,7 @@
+///packet_grid_set(packet_array)
+
 var get_packet_array = argument0
-console_add("packet grid set")
+
 switch get_packet_array[data.mode]
     {
     //----------------//

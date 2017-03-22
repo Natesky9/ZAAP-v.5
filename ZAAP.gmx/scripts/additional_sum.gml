@@ -1,3 +1,6 @@
+///additional_sum(value,incriment)
+//finds the sum of all incriments up to a value
+
 var get_value = argument0
 var get_incriment = argument1
 
