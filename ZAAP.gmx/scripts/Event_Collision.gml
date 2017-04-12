@@ -16,9 +16,16 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         //
         case entity.ship:
             {
-            Event_Collect_Item()
+            Event_Collect_Item(get_uuid,get_entity)
             break
             }
+        //
+        case entity.item:
+            {
+            Event_Item_Tick(get_uuid,get_entity)
+            break
+            }
+        //
         case entity.bullet:
             {
             Event_Bullet_Collision(get_uuid,get_entity)

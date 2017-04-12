@@ -14,4 +14,4 @@ Draw_Shipyard_GUI()
 
 Draw_Debug()
 
-ds_set(environment,"draw gui time",get_timer() - draw_gui_time_start)
+ds_set(environment_map,"draw gui time",get_timer() - draw_gui_time_start)

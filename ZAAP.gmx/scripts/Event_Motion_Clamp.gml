@@ -6,7 +6,7 @@ var get_speed = ds_get(get_entity,"speed")
 var get_heading = ds_get(get_entity,"heading")
 
 if get_type == entity.ship
-get_speed = clamp(get_speed,0,32)
+get_speed = clamp(get_speed,0,16)
 
 get_heading = (get_heading + 360) mod 360
 get_entity[? "speed"] = get_speed

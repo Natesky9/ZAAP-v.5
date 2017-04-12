@@ -21,15 +21,10 @@ if network_result >= 0
     {
     console_add("Server succesfully bound")
     show("creating server data")
-    socket_list = ds_create(ds_type_list)
-    socket_map = ds_create(ds_type_map)
     
-    entity_list = ds_create(ds_type_list)
-    entity_map = ds_create(ds_type_map)
-    entity_destroy_list = ds_create(ds_type_list)
-    entity_create_list = ds_create(ds_type_list)
-    
-    autopilot_controller_list = ds_create(ds_type_list)
+    //create the network
+    network_instance_create()
+    //done create the network
     
     show("done creating server data")
     http_request_ip = http_get("http://ipv4bot.whatismyipaddress.com/")

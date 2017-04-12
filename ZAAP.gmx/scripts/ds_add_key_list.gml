@@ -10,5 +10,5 @@ if key_list_exists
 if not key_list_exists
     {
     var key_list = ds_list_create();
-    ds_set(environment,"key list",key_list);
+    ds_set(environment_map,"key list",key_list);
     }

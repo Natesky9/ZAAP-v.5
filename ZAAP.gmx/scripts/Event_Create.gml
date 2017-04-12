@@ -1,14 +1,14 @@
 ///Event_Create()
-//environment is the game map
+//environment_map is the game map
 //it replaces all local/global variables
 
-environment = ds_map_create();
-ds_add_key_list(environment)
+environment_map = ds_map_create();
+ds_add_key_list(environment_map)
 
-ds_set(environment,"steps since start",0)
-ds_set(environment,"step time",0)
-ds_set(environment,"draw time",0)
-ds_set(environment,"draw gui time",0)
+ds_set(environment_map,"steps since start",0)
+ds_set(environment_map,"step time",0)
+ds_set(environment_map,"draw time",0)
+ds_set(environment_map,"draw gui time",0)
 
 ds_map_create()
 ds_list_create()
@@ -60,7 +60,7 @@ network_set_config(network_config_connect_timeout,ping_timeout)
 keyboard_string = "127.0.0.1"
 keyboard_focus = "console"
 entity_focus = 0
-value_selected_entity_type = entity.asteroid
+value_selected_entity_type = entity.null
 
 ship_grid_size = 16
 

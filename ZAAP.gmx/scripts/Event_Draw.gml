@@ -11,4 +11,4 @@ Draw_Entities()
 
 
 
-ds_set(environment,"draw time",get_timer() - draw_time_start)
+ds_set(environment_map,"draw time",get_timer() - draw_time_start)

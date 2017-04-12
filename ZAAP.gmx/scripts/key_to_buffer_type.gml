@@ -46,6 +46,7 @@ switch get_key
     case "socket":
     case "lifetime":
     case "health":
+    case "pickup timer":
         {
         //show("buffer is u8")
         //range is 0 - 255

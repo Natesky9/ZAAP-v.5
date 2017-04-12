@@ -8,7 +8,8 @@ enum entity
     ship,
     bullet,
     shipyard,
-    types,
+    types,//this defines how many types are available
+    //do not insert any after types
     }
 
 localized_entity_name = ds_map_create()
