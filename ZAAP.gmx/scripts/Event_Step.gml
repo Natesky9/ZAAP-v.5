@@ -1,6 +1,6 @@
 ///Event_Step()
 
-ds_add(environment_map,"steps since start",1)
+ds_add(envar,"steps since start",1)
 var step_time_start = get_timer()
 
 Event_Entity_Create()
@@ -24,4 +24,4 @@ Event_Ping()
 
 Event_Entity_Destroy()
 
-ds_set(environment_map,"step time",get_timer() - step_time_start)
+ds_set(envar,"step time",get_timer() - step_time_start)

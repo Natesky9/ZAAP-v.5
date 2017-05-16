@@ -1,14 +1,14 @@
 ///Event_Create()
-//environment_map is the game map
+//envar is the game map
 //it replaces all local/global variables
 
-environment_map = ds_map_create();
-ds_add_key_list(environment_map)
+envar = ds_map_create();
+ds_add_key_list(envar)
 
-ds_set(environment_map,"steps since start",0)
-ds_set(environment_map,"step time",0)
-ds_set(environment_map,"draw time",0)
-ds_set(environment_map,"draw gui time",0)
+ds_set(envar,"steps since start",0)
+ds_set(envar,"step time",0)
+ds_set(envar,"draw time",0)
+ds_set(envar,"draw gui time",0)
 
 ds_map_create()
 ds_list_create()
@@ -71,3 +71,11 @@ Define_Entities()
 
 build = date_time_string(GM_build_date)
 console_add("{" + build + "}")
+
+
+//###//
+//something about these needing to be sorted?
+entity_list_x1 = 0
+entity_list_y1 = 0
+entity_list_x2 = 0
+entity_list_y2 = 0

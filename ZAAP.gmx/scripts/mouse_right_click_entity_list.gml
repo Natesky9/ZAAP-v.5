@@ -1,5 +1,5 @@
 ///mouse_right_click_entity_list()
-
+//###//
 var get_pos = entity_list_index_from_mouse()
 if is_zero(get_pos) exit
 get_pos -= 1

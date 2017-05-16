@@ -7,20 +7,59 @@ exit
 if not draw_debug_entity_list
 exit
 
+//###//
+//this is fucked
+//###//
 var text_y
 font_align(7)
 
-var entity_count = ds_list_size(entity_list);
-if not entity_count
-exit
+entity_list_x1 = 60
+entity_list_y1 = 100
+entity_list_x2 = entity_list_x1 + 100
+entity_list_y2 = entity_list_x1 + entity.types*32
 
+for (var i = 1;i < entity.types;i += 1)
+    {
+    draw_set_color(c_white)
+    draw_rectangle(entity_list_x1,entity_list_y1+i*32-32,entity_list_x2,entity_list_y1+i*32,false)
+    draw_set_color(c_black)
+    draw_text(entity_list_x1,entity_list_y1+i*32-32,string(i))
+    var text = localized_entity_name[? i]
+    draw_text(entity_list_x1 + 20,entity_list_y1+i*32-32,text)
+    }
+
+var selected_entity_type = ds_get(envar,"selected entity type")
+if not is_zero(selected_entity_type)
+    {
+    //if there is a list selected
+    var get_list = ds_get(envar,selected_entity_type)
+    var entity_count = ds_list_size(get_list)
+    
+    entity_specific_list_x1 = entity_list_x2
+    entity_specific_list_y1 = entity_list_y1
+    entity_specific_list_x2 = entity_specific_list_x1 + 60
+    entity_specific_list_y2 = entity_specific_list_y1 + entity_count*16
+    
+    draw_set_color(c_aqua)
+    draw_rectangle(entity_specific_list_x1,entity_specific_list_y1,entity_specific_list_x2,entity_specific_list_y2,false)
+    draw_set_color(c_black)
+    draw_rectangle(entity_specific_list_x1,entity_specific_list_y1,entity_specific_list_x2,entity_specific_list_y2,true)
+    
+    draw_set_color(c_black)
+    for (var i = 0;i < entity_count;i += 1)
+        {
+        var get_uuid = ds_list_find_value(get_list,i)
+        draw_text(entity_specific_list_x1,entity_specific_list_y1 + 16*i,string(get_uuid))
+        }
+    }
+    
+/*
 entity_list_x1 = 100
 entity_list_y1 = 100
 entity_list_x2 = entity_list_x1 + 400
 entity_list_y2 = entity_list_y1 + entity_count * 16
 
 mouse_in_list = false
-
 
 //get the mouse position
 var mouse_pos = entity_list_index_from_mouse()
@@ -141,3 +180,4 @@ if not is_zero(entity_focus)
             }
         }
     }
+*/
