@@ -1,5 +1,5 @@
-///read_buffer_to_uuid(get_uuid)
-
+///read_buffer_to_uuid()
+//###//
 //create the entity
 get_entity = entity_create_basic()
 

@@ -1,13 +1,14 @@
-//environment is the game map
+///Event_Create()
+//envar is the game map
 //it replaces all local/global variables
 
-environment = ds_map_create();
-ds_add_key_list(environment)
+envar = ds_map_create();
+ds_add_key_list(envar)
 
-ds_set(environment,"steps since start",0)
-ds_set(environment,"step time",0)
-ds_set(environment,"draw time",0)
-ds_set(environment,"draw gui time",0)
+ds_set(envar,"steps since start",0)
+ds_set(envar,"step time",0)
+ds_set(envar,"draw time",0)
+ds_set(envar,"draw gui time",0)
 
 ds_map_create()
 ds_list_create()
@@ -59,7 +60,7 @@ network_set_config(network_config_connect_timeout,ping_timeout)
 keyboard_string = "127.0.0.1"
 keyboard_focus = "console"
 entity_focus = 0
-value_selected_entity_type = entity.asteroid
+value_selected_entity_type = entity.null
 
 ship_grid_size = 16
 
@@ -70,3 +71,11 @@ Define_Entities()
 
 build = date_time_string(GM_build_date)
 console_add("{" + build + "}")
+
+
+//###//
+//something about these needing to be sorted?
+entity_list_x1 = 0
+entity_list_y1 = 0
+entity_list_x2 = 0
+entity_list_y2 = 0

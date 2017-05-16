@@ -1,3 +1,5 @@
+///mouse_right_click_entity_list()
+//###//
 var get_pos = entity_list_index_from_mouse()
 if is_zero(get_pos) exit
 get_pos -= 1
@@ -5,9 +7,13 @@ get_pos -= 1
 show("mouse clicked on position: " + string(get_pos))
 
 var get_uuid = ds_list_find_value(entity_list,get_pos)
+if is_zero(get_uuid)
+exit
 console_add("mouse clicked on [" + string(get_uuid) + "]")
 
 var get_entity = entity_from_uuid(get_uuid)
+if is_zero(get_entity)
+exit
 
 show("entity is: " + string(get_entity))
 

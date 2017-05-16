@@ -1,3 +1,5 @@
+///string_argument_get("string",seperator,index)
+
 ///string_start
 var str = argument0;
 var sep = argument1;

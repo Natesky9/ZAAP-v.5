@@ -1,3 +1,5 @@
+///ds_create(type,[grid x,grid y])
+
 var get_type = argument[0]
 
 

@@ -1,9 +1,13 @@
 ///Draw_Ship_Grid(get_grid)
+
 var get_grid = argument0
 var get_width, get_height
 var x_start, y_start
 var w, h
 var x1, y1, x2, y2
+
+if is_zero(get_grid)
+return false
 
 get_width = ds_grid_width(get_grid)
 get_height = ds_grid_height(get_grid)
@@ -26,3 +30,4 @@ for (h = 0;h < get_height;h += 1)
         //draw_rectangle(x1,y1,x2,y2,not get_grid_cell)
         }
     }
+return true

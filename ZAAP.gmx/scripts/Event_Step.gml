@@ -1,6 +1,9 @@
-ds_add(environment,"steps since start",1)
+///Event_Step()
+
+ds_add(envar,"steps since start",1)
 var step_time_start = get_timer()
 
+Event_Entity_Create()
 
 //input
 Event_Keyboard()
@@ -19,4 +22,6 @@ Event_Collision()
 
 Event_Ping()
 
-ds_set(environment,"step time",get_timer() - step_time_start)
+Event_Entity_Destroy()
+
+ds_set(envar,"step time",get_timer() - step_time_start)

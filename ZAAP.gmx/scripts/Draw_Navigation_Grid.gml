@@ -1,3 +1,8 @@
+///Draw_Navigation_Grid()
+
+//Move this to draw_gui to prevent
+//the shifting seen at high speeds
+
 var get_x1 = view_xview[0]
 var get_y1 = view_yview[0]
 var get_width = view_wview[0]

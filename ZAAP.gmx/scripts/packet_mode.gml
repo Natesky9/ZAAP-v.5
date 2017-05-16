@@ -1,3 +1,5 @@
+///packet_mode(mode)
+
 if argument0 == "read"
     {
     bin = ds_map_find_value(async_load,"buffer")

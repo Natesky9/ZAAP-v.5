@@ -1,3 +1,4 @@
+///Event_Autopilot()
 if not am_client()
 exit
 
@@ -32,8 +33,8 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     var target_distance = point_distance(get_x,get_y,get_dest_x,get_dest_y)
     
     //vector correction
-    var entity_vector_x = lengthdir_x(target_distance/2,get_direction)
-    var entity_vector_y = lengthdir_y(target_distance/2,get_direction)
+    var entity_vector_x = lengthdir_x(get_speed*4,get_direction)
+    var entity_vector_y = lengthdir_y(get_speed*4,get_direction)
     
     var target_vector_x = lengthdir_x(target_distance,target_direction)
     var target_vector_y = lengthdir_y(target_distance,target_direction)
@@ -52,12 +53,16 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     var abs_difference = abs(target_angle_difference)
     
     //steer
-    if abs_difference >= 5
+    if abs_difference >= 1
         {
         var steer_angle = sign(target_angle_difference)
         entity_issue_command(get_entity,"steer",steer_angle)
         }
-    if abs_difference >= 15
+    if abs_difference < 1
+        {
+        entity_issue_command(get_entity,"steer",0)
+        }
+    if abs_difference >= 5
         {
         entity_issue_command(get_entity,"brake",true)
         }
@@ -72,10 +77,8 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     //
     
     //thrust
-    if abs_difference < 3
+    if abs_difference < 5
         {
-        //stop steering
-        entity_issue_command(get_entity,"steer",0)
         if target_distance > brake_distance//
             {
             if get_speed < target_distance/10
@@ -87,16 +90,25 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
         if target_distance <= brake_distance//
         and get_type != "checkpoint"
             {
-            console_add("brake")
             entity_issue_command(get_entity,"thrust",0)
             entity_issue_command(get_entity,"brake",1)
             }
         }
     
     //check if reached the destination
-    if abs(get_x - get_dest_x) < 4
-    and abs(get_y - get_dest_y) < 4
+    if ((get_type == "waypoint"
+    or get_type == "dock")
+    and abs(get_x - get_dest_x) < 16
+    and abs(get_y - get_dest_y) < 16)
+    or (get_type == "checkpoint"
+    and abs(get_x - get_dest_x) < 64
+    and abs(get_y - get_dest_y) < 64)
         {
+        if get_type == "dock"
+            {
+            entity_issue_command(get_entity,"docked",true)
+            console_add("Docking")
+            }
         
         effect_create_below(ef_ring,get_dest_x,get_dest_y,1,c_blue)
         ds_destroy(ds_type_map,get_node)
@@ -106,10 +118,8 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
             {
             //
             console_add("Reached destination")
-            console_add("Docking")
             autopilot_stop(get_uuid)
             //docked will take into account the entity it is docked to
-            entity_issue_command(get_entity,"docked",true)
             //
             }
         }

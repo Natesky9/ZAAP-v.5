@@ -1,3 +1,7 @@
+///uuid_damage(uuid,damage)
+
+//DEPRECIATED
+
 var get_uuid = argument0
 var get_damage = argument1
 var get_entity = entity_from_uuid(get_uuid)

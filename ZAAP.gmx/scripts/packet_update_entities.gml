@@ -1,5 +1,7 @@
+///packet_update_entities(packet_array)
+
 var get_packet_array = argument0
-show("packet_update_entities")
+
 switch get_packet_array[data.mode]
     {
     //----------------//

@@ -1,3 +1,5 @@
+///vertex_buffer_draw_rectangle(vertex_buffer,x1,y1,x2,y2,color)
+
 var get_vertex_buffer = argument0
 
 var get_x1 = argument1

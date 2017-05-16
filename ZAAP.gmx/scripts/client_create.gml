@@ -1,3 +1,5 @@
+///client_create()
+
 //create a client socket and returns the result
 
 if am_server()
@@ -25,11 +27,7 @@ if network_result >= 0
     SSS = -1
     Ship = 0
     
-    socket_list = ds_create(ds_type_list)
-    socket_map = ds_create(ds_type_map)
-    
-    entity_list = ds_create(ds_type_list)
-    entity_map = ds_create(ds_type_map)
+    network_instance_create()
     
     autopilot_controller_list = ds_create(ds_type_list)
     

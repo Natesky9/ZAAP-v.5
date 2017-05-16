@@ -1,3 +1,5 @@
+///mouse_create()
+
 //create an entity
 if value_selected_entity_type == entity.null
 exit

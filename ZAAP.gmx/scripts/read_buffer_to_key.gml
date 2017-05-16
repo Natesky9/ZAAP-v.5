@@ -1,4 +1,5 @@
-///read_buffer_to_key(get_entity)
+///read_buffer_to_key(entity)
+
 var get_entity = argument0
 
 var get_key = buffer_read(bin,buffer_string)

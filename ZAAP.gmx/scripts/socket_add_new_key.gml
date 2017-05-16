@@ -1,3 +1,8 @@
+///socket_add_new_key(map,key,value)
+
+//REMOVE THIS
+//to be removed in favor of ds_set
+
 var get_map = argument0
 var get_key = argument1
 var get_value = argument2;

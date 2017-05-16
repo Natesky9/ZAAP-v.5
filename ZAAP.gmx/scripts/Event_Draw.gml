@@ -1,3 +1,4 @@
+///Event_Draw()
 var draw_time_start = get_timer()
 
 Event_View()
@@ -10,4 +11,4 @@ Draw_Entities()
 
 
 
-ds_set(environment,"draw time",get_timer() - draw_time_start)
+ds_set(envar,"draw time",get_timer() - draw_time_start)

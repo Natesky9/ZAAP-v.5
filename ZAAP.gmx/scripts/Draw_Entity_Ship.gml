@@ -1,4 +1,7 @@
+///Draw_Entity_Ship(entity)
+
 var get_entity = argument0
+var get_uuid = uuid_from_entity(get_entity)
 
 var get_x = ds_get(get_entity,"x")
 var get_y = ds_get(get_entity,"y")
@@ -13,28 +16,24 @@ var get_pilot = ds_get(get_entity,"pilot")
 //get ready to draw
 transform_set_ship_orientation(get_x,get_y,get_heading,get_grid)
 
+var drawn = false
 //ready to draw
 
-if is_zero(get_grid)
-    {
-    draw_set_colour(c_blue)
-    draw_rectangle(0,0,64,64,false)
-    draw_set_colour(c_black)
-    draw_rectangle(0,0,64,64,true)
-    draw_text(0,0,"no grid")
-    }
-if not is_zero(get_grid)
-    {
-    //if not is_zero(vertex_buffer)
-    Draw_Ship_Grid_Vertex_Buffer(get_entity)
-    //draw the grid
-    if debug_draw
-        {
-        Draw_Ship_Grid(get_grid)
-        }
-    
+drawn = Draw_Ship_Grid_Vertex_Buffer(get_entity)
 
-    //draw the grid
+if not drawn 
+    {
+    drawn = Draw_Ship_Grid(get_grid);
+    if not drawn
+        {
+        console_add("Ship has no grid!")
+        if am_server()
+            {
+            entity_destroy_basic(get_uuid)
+            packet_write(packet.entity_destroy)
+            exit
+            }
+        }
     }
     
 //draw the pilot
@@ -72,11 +71,11 @@ if not is_zero(autopilot_status)
         
         if get_type == "checkpoint"
             {
-            draw_rectangle(get_dest_x-4,get_dest_y-4,get_dest_x+4,get_dest_y+4,true)
+            draw_rectangle(get_dest_x-16,get_dest_y-16,get_dest_x+16,get_dest_y+16,true)
             }
         if get_type == "waypoint"
             {
-            draw_circle(get_dest_x,get_dest_y,4,true)
+            draw_circle(get_dest_x,get_dest_y,8,true)
             }
         
         draw_line(prev_x,prev_y,get_dest_x,get_dest_y)

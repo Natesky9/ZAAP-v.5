@@ -1,3 +1,5 @@
+///Network_Connect_Socket()
+
 //add the new socket to the server
 
 var get_socket = async_load[? "socket"]
@@ -10,6 +12,7 @@ ds_map_add(socket_map,get_socket,get_map);
 ds_list_add(socket_list,get_socket)
 show("mapped socket[" + string(get_socket) + "] to map[" + string(get_map) + "]")
 //add data
+//REMOVE THIS
 socket_add_new_key(get_map,"socket",get_socket)
 socket_add_new_key(get_map,"ping",9999)
 socket_add_new_key(get_map,"packets in",0)
@@ -17,6 +20,7 @@ socket_add_new_key(get_map,"packet bytes in",0)
 socket_add_new_key(get_map,"packets out",0)
 socket_add_new_key(get_map,"packet bytes out",0)
 socket_add_new_key(get_map,"ship",0)
+//END REMOVE THIS
 ds_map_add(get_map,"ping timeout",ping_timeout)
 
 console_add("Client " + string(get_socket) + " connected")

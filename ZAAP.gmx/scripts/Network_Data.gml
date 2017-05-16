@@ -1,3 +1,5 @@
+///Network_Data(packet_array)
+
 //get_packet_array is the filled out packet
 get_packet_array = argument[0]
 //show("Packet [" + string(get_packet_array) + "]")
@@ -24,9 +26,6 @@ switch get_packet
     //----------------//
     case packet.entity_damage:
         {packet_entity_damage(get_packet_array);break}
-    //----------------//
-    case packet.entity_send:
-        {packet_entity_send(get_packet_array);break}
     //----------------//
     case packet.entity_set_pilot:
         {packet_entity_set_pilot(get_packet_array);break}

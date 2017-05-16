@@ -1,3 +1,5 @@
+///keyboard_pressed_f3()
+
 if not keyboard_check_pressed(vk_f3)
 exit
 

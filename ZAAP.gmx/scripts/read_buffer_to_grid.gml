@@ -1,3 +1,5 @@
+///read_buffer_to_grid(grid)
+
 var get_grid = argument0
 
 var get_width = buffer_read(bin,buffer_u8)

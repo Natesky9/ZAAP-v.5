@@ -1,5 +1,7 @@
+///packet_grid_set(packet_array)
+
 var get_packet_array = argument0
-console_add("packet grid set")
+
 switch get_packet_array[data.mode]
     {
     //----------------//
@@ -11,6 +13,16 @@ switch get_packet_array[data.mode]
         var get_grid_x = get_packet_array[data.arg_1]
         var get_grid_y = get_packet_array[data.arg_2]
         var get_value = get_packet_array[data.arg_3]
+        
+        var get_entity = entity_from_uuid(get_uuid)
+        if is_zero(get_entity)
+        exit
+        
+        var get_grid = ds_get(get_entity,"grid")
+        if is_zero(get_grid)
+        exit
+        
+        console_add("grid edited")
         
         var uuid_buffer_type = key_to_buffer_type("uuid")
         buffer_write(bout,uuid_buffer_type,get_uuid)
@@ -38,12 +50,13 @@ switch get_packet_array[data.mode]
         if is_zero(get_grid)
         exit
         
+
+        //update the vertex buffer
         var get_vertex_buffer = ds_get(get_entity,"vertex buffer")
-        
         if not is_zero(get_vertex_buffer)
         vertex_delete_buffer(get_vertex_buffer)
-        
-        ds_set(get_entity,"vertex buffer",false)
+        entity_create_vertex_buffer(get_entity)
+        //done updating the vertex buffer
         
         get_grid[# get_grid_x,get_grid_y] = get_value
         
@@ -76,24 +89,6 @@ switch get_packet_array[data.mode]
         var get_grid_x = buffer_read(bin,buffer_u8)
         var get_grid_y = buffer_read(bin,buffer_u8)
         var get_value = buffer_read(bin,buffer_u8)
-        
-        var get_entity = entity_from_uuid(get_uuid)
-        if is_zero(get_entity)
-        exit
-        
-        var get_grid = ds_get(get_entity,"grid")
-        if is_zero(get_grid)
-        exit
-        
-        var get_vertex_buffer = ds_get(get_entity,"vertex buffer")
-        if not is_zero(get_vertex_buffer)
-        vertex_delete_buffer(get_vertex_buffer)
-        
-        ds_set(get_entity,"vertex buffer",false)
-        
-        get_grid[# get_grid_x,get_grid_y] = get_value
-        
-        console_add("grid edited")
         
         packet_write(packet.grid_set,get_uuid,get_grid_x,get_grid_y,get_value)
         break

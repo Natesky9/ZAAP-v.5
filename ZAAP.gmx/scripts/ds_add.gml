@@ -1,4 +1,4 @@
-///ds_set(get_map,get_key,get_value)
+///ds_add(get_map,get_key,get_value)
 var get_map = argument0
 var get_key = argument1
 var get_value = argument2

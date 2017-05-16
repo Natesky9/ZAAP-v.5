@@ -1,3 +1,5 @@
+///Draw_Entities()
+
 if not am_server()
 and not am_client()
 exit
@@ -6,13 +8,14 @@ var get_uuid,get_entity,get_type
 
 for (var i = 0;i < ds_list_size(entity_list);i += 1)
     {
-    get_uuid = ds_list_find_value(entity_list,i)
-    
-    get_entity = entity_from_uuid(get_uuid)
-    
-    //run if not undefined
-    if not is_zero(get_entity)
+    var get_list = ds_list_find_value(entity_list,i)
+    for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
         {
+        get_uuid = ds_list_find_value(get_list,ii)
+        get_entity = entity_from_uuid(get_uuid)
+        
+        if is_zero(get_entity)
+        continue
         //get the type of entity then filter from there
         get_type = ds_get(get_entity,"type")
         
@@ -61,17 +64,11 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         
         if debug_draw
             {
-            //draw the id
+            //draw debug
             font_align(5)
             draw_set_color(c_black)
-            draw_text(get_x,get_y,get_uuid)
-            //end drawing the id
-            }
-        
-
-        if get_type == entity.ship
-            {
-            //draw debug
+            draw_text(get_x,get_y-64,get_uuid)
+    
             var vector_x = lengthdir_x(get_speed*4,get_direction)
             var vector_y = lengthdir_y(get_speed*4,get_direction)
             draw_set_color(c_red)
@@ -79,5 +76,4 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
             //end draw debug
             }
         }
-    //end run if not undefined
     }

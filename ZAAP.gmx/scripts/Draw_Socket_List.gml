@@ -1,6 +1,4 @@
-//change to seperate
-//client and server
-//socket list?
+///Draw_Socket_List()
 
 if not am_server()
 and not am_client()

@@ -1,4 +1,5 @@
-///write_key_to_buffer(get_key,get_value)
+///write_key_to_buffer(key,value)
+
 //writes the key as string
 //writes the value as the correct value
 var get_key = argument0
@@ -18,6 +19,7 @@ switch get_key
         }
     //
     case "grid vertex buffer":
+    case "key list":
         {
         show("nothing special here, just the vertex buffer")
         exit

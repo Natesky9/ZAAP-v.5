@@ -1,3 +1,5 @@
+///client_destroy()
+
 network_destroy(game_client)
 //reset stored variables
 game_client = -1
@@ -14,8 +16,13 @@ ds_list_clear(socket_list)
 
 for (var i = 0;i < ds_list_size(entity_list);i += 1)
     {
-    var get_entity = ds_list_find_value(entity_list,i)
-    ds_map_destroy(get_entity)
+    var get_list = ds_list_find_value(entity_list,i)
+    for (var ii = 0;i < ds_list_size(get_list);i += 1)
+        {
+        var get_entity = ds_list_find_value(get_list,i)
+        ds_map_destroy(get_entity)
+        }
+    ds_list_clear(get_list)
     }
 ds_list_clear(entity_list)
 ds_map_destroy(entity_map)

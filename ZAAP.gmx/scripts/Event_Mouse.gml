@@ -1,3 +1,5 @@
+///Event_Mouse()
+
 if mouse_check_button_pressed(mb_left)
     {
     if am_server()
@@ -8,9 +10,11 @@ if mouse_check_button_pressed(mb_left)
         done = mouse_left_click_entity_list()
         if done exit
         
-        done = mouse_create()
+        done = mouse_left_click_ship_grid()
         if done exit
         
+        done = mouse_create()
+        if done exit
 
         exit
         }
@@ -32,7 +36,7 @@ if mouse_check_button_pressed(mb_left)
         
         if autopilot_status
             {
-            autopilot_add_node(get_uuid,"waypoint",mouse_x,mouse_y)
+            autopilot_add_node(get_uuid,"checkpoint",mouse_x,mouse_y)
             exit
             }
         if not autopilot_status

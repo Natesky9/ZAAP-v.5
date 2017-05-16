@@ -1,3 +1,5 @@
+///keyboard_pressed_x()
+
 if not keyboard_check_pressed(ord('X'))
 exit
 
@@ -42,9 +44,9 @@ if am_client()
     var get_shipyard_y = ds_get(nearest_shipyard,"y")
     
     autopilot_start(get_uuid)
-    //autopilot_add_node(get_uuid,"waypoint",get_shipyard_x-128,get_shipyard_y)
-    //autopilot_add_node(get_uuid,"checkpoint",get_shipyard_x,get_shipyard_y-128)
-    //autopilot_add_node(get_uuid,"checkpoint",get_shipyard_x+128,get_shipyard_y)
+    autopilot_add_node(get_uuid,"waypoint",get_shipyard_x-128,get_shipyard_y)
+    autopilot_add_node(get_uuid,"checkpoint",get_shipyard_x,get_shipyard_y-128)
+    autopilot_add_node(get_uuid,"checkpoint",get_shipyard_x+128,get_shipyard_y)
     autopilot_add_node(get_uuid,"waypoint",get_shipyard_x,get_shipyard_y+128)
-    autopilot_add_node(get_uuid,"waypoint",get_shipyard_x,get_shipyard_y)
+    autopilot_add_node(get_uuid,"dock",get_shipyard_x,get_shipyard_y)
     }

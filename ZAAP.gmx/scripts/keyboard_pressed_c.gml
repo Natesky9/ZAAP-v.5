@@ -1,3 +1,5 @@
+///keyboard_pressed_c()
+
 if not keyboard_check_pressed(ord('C'))
 exit
 //add in case for console and game

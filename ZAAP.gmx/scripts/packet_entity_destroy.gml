@@ -1,3 +1,5 @@
+///packet_entity_destroy(packet_array)
+
 var get_packet_array = argument0
 
 switch get_packet_array[data.mode]
@@ -24,7 +26,6 @@ switch get_packet_array[data.mode]
             }
         
         entity_destroy_basic(get_uuid)
-        show("destroyed " + string(get_uuid))
         
         break
         }
