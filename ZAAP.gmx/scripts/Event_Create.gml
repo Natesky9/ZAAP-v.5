@@ -60,7 +60,6 @@ network_set_config(network_config_connect_timeout,ping_timeout)
 keyboard_string = "127.0.0.1"
 keyboard_focus = "console"
 entity_focus = 0
-value_selected_entity_type = entity.null
 
 ship_grid_size = 16
 
@@ -79,3 +78,7 @@ entity_list_x1 = 0
 entity_list_y1 = 0
 entity_list_x2 = 0
 entity_list_y2 = 0
+entity_specific_list_x1 = 0
+entity_specific_list_y1 = 0
+entity_specific_list_x2 = 0
+entity_specific_list_y2 = 0

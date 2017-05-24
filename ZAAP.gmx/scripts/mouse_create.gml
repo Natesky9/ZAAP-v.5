@@ -1,14 +1,16 @@
 ///mouse_create()
 
 //create an entity
-if value_selected_entity_type == entity.null
+var get_entity_type = ds_get(envar,"selected entity type")
+if get_entity_type == entity.null
 exit
 
-var get_uuid = entity_create_advanced(mouse_x,mouse_y,value_selected_entity_type)
+var get_entity_type = ds_get(envar,"selected entity type")
+var get_uuid = entity_create_advanced(mouse_x,mouse_y,get_entity_type)
 var get_entity = entity_from_uuid(get_uuid)
 
 
-switch value_selected_entity_type
+switch get_entity_type
     {
     case entity.ship:
         {

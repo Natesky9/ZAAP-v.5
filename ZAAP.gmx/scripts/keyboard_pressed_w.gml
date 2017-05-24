@@ -21,11 +21,12 @@ if am_client()
 
 if am_server()
     {
-    value_selected_entity_type = (value_selected_entity_type + 1)
-                                mod (entity.types)
+    //loop through the entity types
+    var get_entity_type = ds_get(envar,"selected entity type")
+    ds_set(envar,"selected entity type",(get_entity_type + 1) mod (entity.types))
+    var new_entity_type = ds_get(envar,"selected entity type")
+    
     //output the entity type and name
-    console_add("entity type is now: " + string(value_selected_entity_type))
-    show("entity type is now: " + string(value_selected_entity_type))
-    var name = localized_entity_name[? value_selected_entity_type]
+    var name = localized_entity_name[? new_entity_type]
     console_add("entity name is now: " + name)
     }

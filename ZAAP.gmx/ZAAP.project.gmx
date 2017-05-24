@@ -208,6 +208,7 @@
     <script>scripts\Event_Entity_Create.gml</script>
     <script>scripts\network_instance_create.gml</script>
     <script>scripts\network_instance_create_entity_data.gml</script>
+    <script>scripts\entity_index_from_mouse.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>
