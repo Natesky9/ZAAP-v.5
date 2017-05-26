@@ -4,7 +4,10 @@
 if not am_client()
 and not am_server()
 exit
-//###
+//###//
+//double check this was done correctly
+//pretty sure this works
+
 //add the created entities
 while ds_list_size(entity_create_list)
     {

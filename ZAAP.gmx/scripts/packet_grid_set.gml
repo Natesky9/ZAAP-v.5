@@ -90,6 +90,7 @@ switch get_packet_array[data.mode]
         var get_grid_y = buffer_read(bin,buffer_u8)
         var get_value = buffer_read(bin,buffer_u8)
         
+        //packet_grid_set
         packet_write(packet.grid_set,get_uuid,get_grid_x,get_grid_y,get_value)
         break
         }

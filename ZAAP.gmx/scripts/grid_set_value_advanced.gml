@@ -8,6 +8,7 @@ var get_grid_y = argument3
 var get_value = argument4
 
 grid_set_value(get_grid,get_grid_x,get_grid_y,get_value)
+//packet_grid_set
 packet_write(packet.grid_set,get_uuid,get_grid_x,get_grid_y,get_value)
 
 //update the vertex buffer

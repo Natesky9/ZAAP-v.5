@@ -10,6 +10,8 @@ var nearest_distance = -1
 
 for (var i = 0;i < ds_list_size(entity_list);i += 1)
     {
+    //change this to use the new entity list format
+    //instead of the old one
     var get_uuid = ds_list_find_value(entity_list,i)
     
     if get_uuid == blacklist

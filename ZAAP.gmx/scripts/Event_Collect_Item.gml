@@ -35,6 +35,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         var y_dist = abs(get_y - get_item_y)
         if y_dist > 64 continue
         
+        //packet_entity_destroy
         packet_write(packet.entity_destroy,get_item_uuid)
         entity_destroy_basic(get_item_uuid)
         effect_create_above(ef_ring,get_item_x,get_item_y,1,c_white)

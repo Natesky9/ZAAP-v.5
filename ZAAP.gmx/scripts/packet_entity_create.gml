@@ -25,7 +25,7 @@ switch get_packet_array[data.mode]
     case "client write":
         {
         buffer_write(bout,buffer_u8,packet.entity_create)
-        //placeholder
+        //client entity request
         var get_x = get_packet_array[data.arg_0]
         var get_y = get_packet_array[data.arg_1]
         
@@ -40,12 +40,15 @@ switch get_packet_array[data.mode]
     //
     case "server read":
         {
+        //Event for client requesting an entity
+        
         var get_socket = ds_map_find_value(async_load,"id")
         var coordinate_buffer_type = key_to_buffer_type("x")
         
         var get_x = buffer_read(bin,coordinate_buffer_type)
         var get_y = buffer_read(bin,coordinate_buffer_type)
         
+        //create a player ship at the requested location
         var get_uuid = entity_create_advanced(get_x,get_y,entity.ship)
         //set the grid
         var basic_grid = ds_create(ds_type_grid,9,9);
@@ -60,8 +63,9 @@ switch get_packet_array[data.mode]
         var get_socket_map = map_from_socket(get_socket)
         ds_set(get_socket_map,"ship",get_uuid)
         
+        //packet_entity_create
         packet_write(packet.entity_create,get_uuid)
-        
+        //packet_entity_command
         packet_write(packet.entity_command,get_socket,get_uuid)
         
         return true

@@ -29,7 +29,7 @@ switch get_packet_array[data.mode]
         if is_zero(get_socket_map) exit
         
         get_socket_map[? "ping timeout"] = ping_timeout
-        
+        //packet_ping_report
         packet_write(packet.ping_report,get_ping)
         
         return true
@@ -59,6 +59,7 @@ switch get_packet_array[data.mode]
         
         
         //write the packet
+        //packet_ping
         packet_write(packet.ping,get_socket,get_ping)
         break
         }

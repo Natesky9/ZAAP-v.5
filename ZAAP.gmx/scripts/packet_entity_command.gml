@@ -106,11 +106,12 @@ switch get_packet_array[data.mode]
         if not is_zero(previous_ship)
             {
             //replace the previously controlled ship's pilot with nothing
+            //packet_entity_command
             packet_write(packet.entity_command,0,previous_ship)
             var get_ship = entity_from_uuid(previous_ship)
             ds_map_replace(get_ship,"pilot",0)
             }
-        
+        //packet_entity_command
         packet_write(packet.entity_command,get_socket,get_uuid)
         break
         }

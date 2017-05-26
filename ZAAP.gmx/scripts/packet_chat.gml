@@ -59,6 +59,7 @@ switch get_packet_array[data.mode]
         var get_text = buffer_read(bin,buffer_string)
         console_add(get_text)
         show("text: " + string(get_text))
+        //packet_chat
         packet_write(packet.chat,get_text)
         break
         }

@@ -5,6 +5,7 @@ exit
 
 if am_client()
     {
+    //packet_remove_socket
     packet_write(packet.remove_socket)
     data_structure_clear_all()
     network_destroy(game_client)

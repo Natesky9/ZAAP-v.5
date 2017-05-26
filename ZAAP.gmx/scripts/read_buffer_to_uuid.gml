@@ -20,7 +20,12 @@ if is_zero(get_uuid)
     exit
     }
 ds_map_add(entity_map,get_uuid,get_entity)
-ds_list_add(entity_list,get_uuid)
+
+//###//
+//change this to use the new entity list format
+//instead of the old one
+//double check that this works
+ds_list_add(entity_create_list,get_uuid)
 show("created entity with uuid of [" + string(get_uuid) + "]")
 
 //effect bits

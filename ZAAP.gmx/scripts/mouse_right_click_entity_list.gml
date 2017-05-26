@@ -1,12 +1,18 @@
 ///mouse_right_click_entity_list()
 //###//
+//double check that this works
 var get_pos = entity_list_index_from_mouse()
 if is_zero(get_pos) exit
+//then, get the true index of the entity
 get_pos -= 1
 
 show("mouse clicked on position: " + string(get_pos))
 
-var get_uuid = ds_list_find_value(entity_list,get_pos)
+var get_list = ds_get(envar,get_pos)
+//get the name, for debug purposes
+show("mouse clicked on entity type: " + localized_entity_name[? get_list])
+
+var get_uuid = ds_list_find_value(get_list,get_pos)
 if is_zero(get_uuid)
 exit
 console_add("mouse clicked on [" + string(get_uuid) + "]")
@@ -17,6 +23,7 @@ exit
 
 show("entity is: " + string(get_entity))
 
+//packet_entity_destroy
 packet_write(packet.entity_destroy,get_uuid)
 entity_destroy_basic(get_uuid)
 console_add("destroyed " + string(get_uuid))

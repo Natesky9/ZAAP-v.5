@@ -12,6 +12,7 @@ var get_entity = entity_from_uuid(get_uuid)
 if get_entity != 0
     {
     //reset the ship that was controlled by the disconnecting socket
+    //packet_entity_command
     packet_write(packet.entity_command,0,get_uuid)
     ds_map_replace(get_entity,"pilot",0)
     }
@@ -27,6 +28,7 @@ ds_list_delete(socket_list,pos)
 console_add("Client " + string(get_socket) + " disconnected")
 show("Client " + string(get_socket) + " disconnected")
 
+//packet_remove_socket
 packet_write(packet.remove_socket,get_socket)
 //packet_write(packet.update_sockets)
 

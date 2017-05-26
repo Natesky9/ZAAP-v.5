@@ -7,6 +7,9 @@ var get_blacklist = argument2
 
 for (var i = 0;i < ds_list_size(entity_list);i += 1)
     {
+    //###//
+    //change this to use the new entity list format
+    //instead of the old one
     //loop through the list of entities
     var get_uuid = ds_list_find_value(entity_list,i)
     var get_entity = entity_from_uuid(get_uuid)

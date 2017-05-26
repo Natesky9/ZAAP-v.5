@@ -6,11 +6,13 @@ ds_set(get_entity,get_command,get_value)
 
 if am_client()
     {
+    //packet_issue_command
     packet_write(packet.issue_command,get_command,get_value)
     exit
     }
 if am_server()
     {
+    //packet_issue_command
     packet_write(packet.issue_command,get_entity,get_command,get_value)
     exit
     }

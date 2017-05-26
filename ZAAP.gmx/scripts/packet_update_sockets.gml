@@ -1,4 +1,6 @@
 ///packet_update_sockets(packet_array)
+//###
+//see packet_add_socket
 
 var get_packet_array = argument0
 
