@@ -209,6 +209,10 @@
     <script>scripts\network_instance_create_entity_data.gml</script>
     <script>scripts\entity_index_from_mouse.gml</script>
     <script>scripts\Format_Guide.gml</script>
+    <script>scripts\entity_specific_list_update_position.gml</script>
+    <script>scripts\entity_list_update_position.gml</script>
+    <script>scripts\entity_count_all.gml</script>
+    <script>scripts\entity_type_to_name.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

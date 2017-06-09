@@ -1,5 +1,8 @@
 ///entity_find_nearest(type,x,y,blacklist)
+//find the nearest entity of a specific type
+//not including the blacklisted entity (change to list?)
 
+//returns entity
 var get_search_type = argument0
 var get_search_x = argument1
 var get_search_y = argument2
@@ -7,22 +10,19 @@ var blacklist = argument3
 
 var nearest_entity = 0
 var nearest_distance = -1
+//###//
 
-for (var i = 0;i < ds_list_size(entity_list);i += 1)
+var get_entity_list = ds_get(envar,get_search_type)
+
+for (var ii = 0;ii < ds_list_size(get_entity_list);ii += 1)
     {
-    //change this to use the new entity list format
-    //instead of the old one
-    var get_uuid = ds_list_find_value(entity_list,i)
+    var get_uuid = ds_list_find_value(get_entity_list,ii)
     
     if get_uuid == blacklist
     continue
     
     var get_entity = ds_get(entity_map,get_uuid)
     if is_zero(get_entity) exit
-    
-    var get_type = ds_get(get_entity,"type")
-    if get_type != get_search_type
-    continue
     
     var get_x = ds_get(get_entity,"x")
     var get_y = ds_get(get_entity,"y")

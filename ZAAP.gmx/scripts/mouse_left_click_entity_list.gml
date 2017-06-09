@@ -1,6 +1,6 @@
 ///mouse_left_click_entity_list()
 
-if not draw_debug_entity_list
+if not show_debug_entity_list
 return false//early exit if the list isn't being drawn
 
 var get_entity_list = entity_list_index_from_mouse()
@@ -27,7 +27,6 @@ if not is_zero(get_entity_list)
     }
 
 //test if the entity specific list was clicked
-
 var get_entity = entity_index_from_mouse()
 
 if not is_zero(get_entity)
@@ -45,6 +44,22 @@ if not is_zero(get_entity)
     //otherwise, set it to that
     
     ds_set(envar,"selected entity",get_entity)
+    return true
+    }
+
+//something something variables
+//end variables
+
+//check to see if an object was clicked
+var get_entity = entity_find_from_point(mouse_x,mouse_y,false)
+
+if not is_zero(get_entity)
+    {
+    var get_uuid = ds_get(get_entity,"uuid")
+    var get_type = ds_get(get_entity,"type")
+    
+    ds_set(envar,"selected entity",get_uuid)
+    ds_set(envar,"selected entity type",get_type)
     return true
     }
 

@@ -13,8 +13,6 @@ ds_list_add(socket_list,get_socket)
 show("mapped socket[" + string(get_socket) + "] to map[" + string(get_map) + "]")
 
 //add data
-//###//
-//plan on removing this
 socket_add_new_key(get_map,"socket",get_socket)
 socket_add_new_key(get_map,"ping",9999)
 socket_add_new_key(get_map,"packets in",0)

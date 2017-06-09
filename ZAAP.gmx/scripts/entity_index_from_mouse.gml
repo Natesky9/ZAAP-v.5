@@ -6,6 +6,11 @@ var get_list = ds_get(envar,"selected entity type")
 var m_x = window_mouse_get_x()
 var m_y = window_mouse_get_y()
 
+var entity_specific_list_x1 = ds_get(envar,"entity_specific_list_x1")
+var entity_specific_list_y1 = ds_get(envar,"entity_specific_list_y1")
+var entity_specific_list_x2 = ds_get(envar,"entity_specific_list_x2")
+var entity_specific_list_y2 = ds_get(envar,"entity_specific_list_y2")
+
 if m_x <= entity_specific_list_x1
 or m_x >= entity_specific_list_x2
 or m_y <= entity_specific_list_y1

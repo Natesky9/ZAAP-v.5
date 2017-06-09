@@ -14,9 +14,7 @@ entity_map
         entity
 envar
     entity_list
-        entity_ship_list
+        entity_specific_list
             >uuid
-        entity_item_list
-        entity_asteroid_list
 
 */

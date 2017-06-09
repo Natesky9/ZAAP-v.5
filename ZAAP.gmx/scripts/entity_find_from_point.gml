@@ -5,61 +5,66 @@ var get_x = argument0
 var get_y = argument1
 var get_blacklist = argument2
 
-for (var i = 0;i < ds_list_size(entity_list);i += 1)
+for (var i = 1;i < ds_list_size(entity_list);i += 1)
     {
-    //###//
-    //change this to use the new entity list format
-    //instead of the old one
-    //loop through the list of entities
-    var get_uuid = ds_list_find_value(entity_list,i)
-    var get_entity = entity_from_uuid(get_uuid)
-    //early exit if the entity does not exist
-    if is_zero(get_entity)
-    or get_entity == get_blacklist
-    continue
-    
-    //get the entity's values
-    var get_entity_x = ds_get(get_entity,"x")
-    var get_entity_y = ds_get(get_entity,"y")
-    var get_heading = ds_get(get_entity,"heading")
-    
-    var get_grid = ds_get(get_entity,"grid")
-    
-    if not is_zero(get_grid)
+    var get_list = ds_list_find_value(entity_list,i)
+    for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
         {
-        //search based off of the grid
-        var get_width = ds_grid_width(get_grid)
-        var get_height = ds_grid_height(get_grid)
+        var get_uuid = ds_list_find_value(get_list,ii)
+        var get_entity = entity_from_uuid(get_uuid)
         
-        //get the starting position of the grid
-        var x_start = (get_width*ship_grid_size)/2
-        var y_start = (get_height*ship_grid_size)/2
+        //early exit if the entity does not exist
+        //or is the blacklisted entity
+        if is_zero(get_entity)
+        or get_entity == get_blacklist
+        continue
         
-        var is_found = false
+        //get the entity's values
+        var get_entity_x = ds_get(get_entity,"x")
+        var get_entity_y = ds_get(get_entity,"y")
+        var get_heading = ds_get(get_entity,"heading")
         
-        if abs(get_x - get_entity_x) <= x_start
+        var get_grid = ds_get(get_entity,"grid")
+        switch get_list
             {
-            if abs(get_y - get_entity_y) <= y_start
+            //----//
+            case entity.ship:
                 {
-                is_found = true
+                //search based off of the grid
+                var get_width = ds_grid_width(get_grid)
+                var get_height = ds_grid_height(get_grid)
+                
+                //get the starting position of the grid
+                var x_start = (get_width*ship_grid_size)/2
+                var y_start = (get_height*ship_grid_size)/2
+                
+                var is_found = false
+                
+                if abs(get_x - get_entity_x) <= x_start
+                    {
+                    if abs(get_y - get_entity_y) <= y_start
+                        {
+                        is_found = true
+                        }
+                    }
+                if is_found return get_entity
+                if not is_found continue
                 }
-            }
-        
-        if is_found return get_entity
-        if not is_found continue
-        }
-    //
-    if is_zero(get_grid)
-        {
-        //search based off of a 32 pixel square if no grid
-        if get_x < get_entity_x + 32
-        and get_x > get_entity_x - 32
-            {
-            if get_y < get_entity_y + 32
-            and get_y > get_entity_y - 32
+            //----//
+            default:
                 {
-                return get_entity
+                //search based off of a 32 pixel square if no grid
+                if get_x < get_entity_x + 32
+                and get_x > get_entity_x - 32
+                    {
+                    if get_y < get_entity_y + 32
+                    and get_y > get_entity_y - 32
+                        {
+                        return get_entity
+                        }
+                    }
                 }
+            //----//
             }
         }
     }

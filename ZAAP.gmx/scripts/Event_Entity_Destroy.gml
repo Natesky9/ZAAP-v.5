@@ -8,8 +8,6 @@ exit
 //remove the destroyed entities
 while ds_list_size(entity_destroy_list)
     {
-    //###//
-    //double check that this was done properly
     //get the uuid to disassociate
     var get_uuid = ds_list_find_value(entity_destroy_list,0)
     //get the entity to destroy
