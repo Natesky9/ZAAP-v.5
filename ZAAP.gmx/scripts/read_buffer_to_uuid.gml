@@ -1,6 +1,4 @@
 ///read_buffer_to_uuid()
-//###//
-//create the entity
 get_entity = entity_create_basic()
 
 //find out how many keys are to be read
@@ -20,7 +18,9 @@ if is_zero(get_uuid)
     exit
     }
 ds_map_add(entity_map,get_uuid,get_entity)
-ds_list_add(entity_list,get_uuid)
+
+
+ds_list_add(entity_create_list,get_uuid)
 show("created entity with uuid of [" + string(get_uuid) + "]")
 
 //effect bits

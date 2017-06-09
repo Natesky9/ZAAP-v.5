@@ -30,6 +30,7 @@ if not drawn
         if am_server()
             {
             entity_destroy_basic(get_uuid)
+            //packet_entity_destroy
             packet_write(packet.entity_destroy)
             exit
             }

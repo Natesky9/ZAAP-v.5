@@ -46,7 +46,7 @@ switch get_packet_array[data.mode]
         ds_set(new_entity,"lifetime",120)
         
         ds_set(entity_map,get_projectile,new_entity)
-        ds_list_add(entity_list,get_projectile)
+        ds_list_add(entity_create_list,get_projectile)
         //
         break
         }
@@ -84,6 +84,7 @@ switch get_packet_array[data.mode]
         ds_set(get_entity,"source",get_ship_uuid)
         ds_set(get_entity,"lifetime",60)
         
+        //packet_fire_weapon
         packet_write(packet.fire_weapon,get_ship_uuid,get_uuid)
         break
         }

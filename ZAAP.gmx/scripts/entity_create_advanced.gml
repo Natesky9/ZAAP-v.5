@@ -17,13 +17,9 @@ ds_set(get_entity,"y",get_y)
 ds_set(get_entity,"type",get_type)
 
 
-//add to entity list and map to uuid
+//add to pending entity list and map to uuid
 ds_map_add(entity_map,get_uuid,get_entity)
-//###//
-//add into appropriate list
-var get_list = ds_get(envar,get_type)
-ds_list_add(get_list,get_uuid)
-show("created entity of type: " + string(get_type) + " added to entity list of id: " + string(get_list))
+ds_list_add(entity_create_list,get_uuid)
 
 show("entity created with uuid of [" + string(get_uuid) + "]")
 

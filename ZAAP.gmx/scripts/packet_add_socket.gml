@@ -1,4 +1,8 @@
 ///packet_add_socket(packet_array)
+//###//
+//change the names and the naming conventions
+//to use "player" to distinguish
+//between sockets and player maps
 
 var get_packet_array = argument0
 

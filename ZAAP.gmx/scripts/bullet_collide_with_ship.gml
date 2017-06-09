@@ -24,8 +24,6 @@ if not is_zero(get_grid_value)
     console_add("x: " + string(get_grid_x) + ",y: " + string(get_grid_y))
     
     grid_set_value_advanced(get_uuid,get_grid,get_grid_x,get_grid_y,false)
-    //packet_write(packet.grid_set,collision_uuid,get_grid_x,get_grid_y,0)
-    //grid_set_value(get_grid,get_grid_x,get_grid_y,0)
     
     var grid_max = ds_grid_get_max(get_grid,0,0,
     ds_grid_width(get_grid),ds_grid_height(get_grid))
@@ -35,6 +33,7 @@ if not is_zero(get_grid_value)
     if grid_max == 0
         {
         //if nothing there, destroy it
+        //packet_entity_destroy
         packet_write(packet.entity_destroy,collision_uuid)
         entity_destroy_basic(collision_uuid)
         console_add("Entity destroyed because no grid")
@@ -42,6 +41,7 @@ if not is_zero(get_grid_value)
         }
     
     //destroy the bullet
+    //packet_entity_destroy
     packet_write(packet.entity_destroy,get_uuid)
     entity_destroy_basic(get_uuid)
     
@@ -77,6 +77,7 @@ if not is_zero(get_grid_value)
     ds_set(new_entity,"direction",irandom(360))
     ds_set(new_entity,"speed",irandom(4))
     ds_set(new_entity,"pickup timer",60)
+    //packet_entity_create
     packet_write(packet.entity_create,new_uuid)
     }
 //we're done with ship collisions

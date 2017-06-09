@@ -1,4 +1,7 @@
 ///packet_update_entities(packet_array)
+//###//
+//update to use the new entity list format
+//instead of the old one
 
 var get_packet_array = argument0
 
@@ -11,16 +14,23 @@ switch get_packet_array[data.mode]
         
         var get_socket = get_packet_array[data.arg_0]
         
-        var entity_list_size = ds_list_size(entity_list)
+        //###//
+        //reformat this to use the new entity list
+        //also make script to count total entities in all lists?
+        
+        var entity_list_size = entity_count_all()
         buffer_write(bout,buffer_u32,entity_list_size)
         show("entity list size is [" + string(entity_list_size) + "]")
         
-        for (var i = 0;i < entity_list_size;i += 1)
+        for (var i = 1;i < entity.types;i += 1)
             {
             //loop
-            var get_uuid = ds_list_find_value(entity_list,i)
-            
-            uuid_write_to_buffer(get_uuid)
+            var get_list = ds_get(envar,i)
+            for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
+                {
+                var get_uuid = ds_list_find_value(get_list,ii)
+                uuid_write_to_buffer(get_uuid)
+                }
             //end loop
             }
         packet_send(get_socket)

@@ -50,7 +50,7 @@ data_structure_stack_amount = 0
 
 
 debug_draw = false
-draw_debug_entity_list = false
+show_debug_entity_list = false
 show_debug_data_structures = false
 
 //ping_timeout is also the automatic disconnect
@@ -60,7 +60,6 @@ network_set_config(network_config_connect_timeout,ping_timeout)
 keyboard_string = "127.0.0.1"
 keyboard_focus = "console"
 entity_focus = 0
-value_selected_entity_type = entity.null
 
 ship_grid_size = 16
 
@@ -73,9 +72,7 @@ build = date_time_string(GM_build_date)
 console_add("{" + build + "}")
 
 
-//###//
-//something about these needing to be sorted?
-entity_list_x1 = 0
-entity_list_y1 = 0
-entity_list_x2 = 0
-entity_list_y2 = 0
+ds_set(envar,"entity_list_x1",100)
+ds_set(envar,"entity_list_y1",100)
+ds_set(envar,"entity_specific_list_x1",0)
+ds_set(envar,"entity_specific_list_y1",0)

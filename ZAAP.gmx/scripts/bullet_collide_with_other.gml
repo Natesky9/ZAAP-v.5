@@ -5,9 +5,11 @@ var collision_entity = argument2
 var collision_uuid = argument3
 
 //default event for a bullet colliding with another entity
+//packet_entity_destroy
 packet_write(packet.entity_destroy,collision_uuid)
 entity_destroy_basic(collision_uuid)
 
+//packet_entity_destroy
 packet_write(packet.entity_destroy,get_uuid)
 entity_destroy_basic(get_uuid)
 

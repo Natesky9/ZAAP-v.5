@@ -46,7 +46,7 @@ if mouse_check_button_pressed(mb_left)
             }
         }
     }
-
+//
 if mouse_check_button_pressed(mb_right)
     {
     if am_server()
@@ -61,6 +61,7 @@ if mouse_check_button_pressed(mb_right)
                 {
                 var get_uuid = uuid_from_entity(get_entity)
                 console_add("get_entity is: " + string(get_entity))
+                //packet_entity_destroy
                 packet_write(packet.entity_destroy,get_uuid)
                 entity_destroy_basic(get_uuid)
                 console_add("destroyed " + string(get_uuid))

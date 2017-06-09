@@ -61,17 +61,16 @@ and am_server()
     ds_set(new_entity,"heading",get_entity_heading)
     ds_set(new_entity,"direction",irandom(360))
     ds_set(new_entity,"speed",irandom(4))
+    //packet_entity_create
     packet_write(packet.entity_create,new_uuid)
     
     grid_set_value_advanced(get_uuid,get_grid,get_grid_x,get_grid_y,false)
-    //grid_set_value(get_grid,get_grid_x,get_grid_y,false)
-    //packet_write(packet.grid_set,get_uuid,get_grid_x,get_grid_y,false)
     
     return true
     }
 
 var get_value = grid_get_value(get_grid,get_grid_x,get_grid_y)
 var new_value = irandom(10)
-
+//packet_grid_set
 packet_write(packet.grid_set,get_uuid,get_grid_x,get_grid_y,new_value)
 return true

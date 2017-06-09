@@ -1,4 +1,7 @@
 ///packet_inform_sss(packet_array)
+//###//
+//rename the SSS naming convention to
+//something more relevant?
 
 var get_packet_array = argument0
 

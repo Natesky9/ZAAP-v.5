@@ -15,9 +15,9 @@ var current_ship = ds_get(get_my_map,"ship")
 for (var i = 0;i < ds_list_size(entity_list);i += 1)
     {
     var get_list = ds_list_find_value(entity_list,i)
-    for (var ii = 0;i < ds_list_size(get_list);i += 1)
+    for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
         {
-        var get_uuid = ds_list_find_value(get_list,i)
+        var get_uuid = ds_list_find_value(get_list,ii)
         var get_entity = entity_from_uuid(get_uuid)
         var get_type = ds_get(get_entity,"type")
         

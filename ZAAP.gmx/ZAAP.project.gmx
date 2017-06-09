@@ -38,6 +38,7 @@
       <script>scripts\Event_Draw.gml</script>
       <script>scripts\Event_Draw_GUI.gml</script>
       <script>scripts\Event_Keyboard.gml</script>
+      <script>scripts\Event_Entity_Create.gml</script>
       <script>scripts\Event_Entity_Destroy.gml</script>
       <scripts name="keyboard keys">
         <script>scripts\keyboard_pressed_f1.gml</script>
@@ -204,10 +205,14 @@
       <script>scripts\entity_find_nearest.gml</script>
       <script>scripts\entity_issue_command.gml</script>
     </scripts>
-    <script>scripts\uuid_damage.gml</script>
-    <script>scripts\Event_Entity_Create.gml</script>
     <script>scripts\network_instance_create.gml</script>
     <script>scripts\network_instance_create_entity_data.gml</script>
+    <script>scripts\entity_index_from_mouse.gml</script>
+    <script>scripts\Format_Guide.gml</script>
+    <script>scripts\entity_specific_list_update_position.gml</script>
+    <script>scripts\entity_list_update_position.gml</script>
+    <script>scripts\entity_count_all.gml</script>
+    <script>scripts\entity_type_to_name.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

@@ -15,6 +15,7 @@ if am_server()
 or am_client()
     {
     //console_add(keyboard_string)
+    //packet_chat
     packet_write(packet.chat,keyboard_string)
     keyboard_focus = "game"
     keyboard_string = ""

@@ -8,5 +8,5 @@ exit
 
 var get_ship = get_ship_from_socket(SSS)
 if is_zero(get_ship) exit
-
+//packet_fire_weapon
 packet_write(packet.fire_weapon)

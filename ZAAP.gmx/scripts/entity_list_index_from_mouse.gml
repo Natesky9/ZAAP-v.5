@@ -4,6 +4,11 @@
 var m_x = window_mouse_get_x()
 var m_y = window_mouse_get_y()
 
+var entity_list_x1 = ds_get(envar,"entity_list_x1")
+var entity_list_y1 = ds_get(envar,"entity_list_y1")
+var entity_list_x2 = ds_get(envar,"entity_list_x2")
+var entity_list_y2 = ds_get(envar,"entity_list_y2")
+
 if m_x <= entity_list_x1
 or m_x >= entity_list_x2
 or m_y <= entity_list_y1

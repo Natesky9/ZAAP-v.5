@@ -1,5 +1,6 @@
 ///packet_remove_socket(packet_array)
-
+//###//
+//see packet_add_socket
 var get_packet_array = argument0
 
 switch get_packet_array[data.mode]

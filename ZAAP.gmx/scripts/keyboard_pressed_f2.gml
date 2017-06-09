@@ -6,6 +6,11 @@ exit
 if am_server()
 or am_client()
     {
-    draw_debug_entity_list = !draw_debug_entity_list
+    show_debug_entity_list = not show_debug_entity_list
     console_add("toggled entity list")
+    if show_debug_entity_list
+        {
+        var envar_list = ds_get(envar,"key list")
+        ds_list_sort(envar_list,true)
+        }
     }

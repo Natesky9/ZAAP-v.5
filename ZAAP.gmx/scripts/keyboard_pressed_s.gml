@@ -21,5 +21,6 @@ if am_server()
     ds_set(get_entity,"speed",irandom(4))
     ds_set(get_entity,"direction",irandom(360))
     ds_set(get_entity,"heading",irandom(360))
+    //packet_entity_create
     packet_write(packet.entity_create,get_uuid,mouse_x,mouse_y)
     }

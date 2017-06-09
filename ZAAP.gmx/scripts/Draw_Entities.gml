@@ -6,7 +6,7 @@ exit
 
 var get_uuid,get_entity,get_type
 
-for (var i = 0;i < ds_list_size(entity_list);i += 1)
+for (var i = ds_list_size(entity_list)-1;i >= 0;i -= 1)
     {
     var get_list = ds_list_find_value(entity_list,i)
     for (var ii = 0;ii < ds_list_size(get_list);ii += 1)

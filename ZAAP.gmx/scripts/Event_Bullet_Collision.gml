@@ -11,6 +11,7 @@ exit
 var get_lifetime = ds_get(get_entity,"lifetime")
 if get_lifetime == 1
     {
+    //packet_entity_destroy
     packet_write(packet.entity_destroy,get_uuid)
     entity_destroy_basic(get_uuid)
     exit

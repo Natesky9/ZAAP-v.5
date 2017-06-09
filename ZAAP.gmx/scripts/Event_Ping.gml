@@ -30,6 +30,7 @@ if am_client()
         if !(ds_get(envar,"steps since start") mod 30)
             {
             //show("ping")
+            //packet_ping
             packet_write(packet.ping)
             }
         //end send ping
@@ -58,6 +59,7 @@ if am_server()
     and !(ds_get(envar,"steps since start") mod 15)
         {
         //show("return ping")
+        //packet_ping_report
         packet_write(packet.ping_report)
         }
     }

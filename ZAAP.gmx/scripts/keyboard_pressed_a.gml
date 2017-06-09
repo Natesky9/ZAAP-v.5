@@ -26,6 +26,7 @@ if am_server()
     var get_entity = entity_from_uuid(get_uuid)
     ds_set(get_entity,"speed",irandom(6))
     ds_set(get_entity,"direction",irandom(360))
+    //packet_entity_create
     packet_write(packet.entity_create,get_uuid,mouse_x,mouse_y)
     //create an asteroid
     }
