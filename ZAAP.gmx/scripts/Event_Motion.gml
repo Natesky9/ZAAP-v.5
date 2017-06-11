@@ -36,7 +36,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         if get_thrust != 0
             {
             //multiply by thrust amount
-            var get_vector_thrust = .5
+            var get_vector_thrust = .1
             
             
             //add the vector
@@ -49,7 +49,9 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
             }
         if get_brake != 0
             {
-            get_entity[? "speed"] -= 1/2
+            //brake action
+            //reverse thrust
+            entity_add_vector(get_entity,.2,get_heading+180)
             }
             
         //clamp it

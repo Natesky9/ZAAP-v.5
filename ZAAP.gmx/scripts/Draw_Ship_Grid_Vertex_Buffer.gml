@@ -2,7 +2,7 @@
 
 //do vertex stuff here
 var get_entity = argument0
-var get_grid = ds_get(get_entity,"grid")
+var get_grid = grid_from_entity(get_entity)
 var get_vertex_buffer = ds_get(get_entity,"vertex buffer")
 
 if is_zero(get_vertex_buffer)

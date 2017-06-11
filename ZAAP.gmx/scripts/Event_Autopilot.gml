@@ -5,6 +5,7 @@ exit
 //This code is client-only
 
 //loop through all autopilot targets
+var autopilot_controller_list = ds_get(envar,"autopilot controller list")
 
 for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     {

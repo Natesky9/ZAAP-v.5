@@ -19,8 +19,11 @@ ds_priority_create()
 
 create_vertex_buffer_format()
 
-game_server = -1
-game_client = -1
+//these need to be initialized to -1
+//0 is a valid value
+ds_set(envar,"server",-1)
+ds_set(envar,"client",-1)
+
 IP = -1
 SSS = -1
 

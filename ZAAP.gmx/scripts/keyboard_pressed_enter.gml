@@ -39,8 +39,6 @@ and not am_client()
                 {
                 console_add("Client not connected")
                 show("Client: " + string(client_connected))
-                //find a way to move this into a timeout script
-                //since this advances too quickly for client_connected to be read?
                 client_destroy()
                 }
             }

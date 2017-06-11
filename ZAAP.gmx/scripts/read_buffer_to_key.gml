@@ -18,7 +18,7 @@ switch get_key
         exit
         }
     //
-    case "grid vertex buffer":
+    case "vertex buffer":
         {
         console_add("how did you even get here?")
         exit

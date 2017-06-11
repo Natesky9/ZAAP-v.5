@@ -1,8 +1,9 @@
 ///client_destroy()
 
-network_destroy(game_client)
+var get_client = ds_get(envar,"client")
+network_destroy(get_client)
 //reset stored variables
-game_client = -1
+ds_set(envar,"client",-1)
 SSS = -1
 
 //clear the socket list

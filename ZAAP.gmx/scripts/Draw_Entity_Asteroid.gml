@@ -5,7 +5,7 @@ var get_entity = argument0
 var get_x = ds_get(get_entity,"x")
 var get_y = ds_get(get_entity,"y")
 
-var get_grid = ds_get(get_entity,"grid")
+var get_grid = grid_from_entity(get_entity)
 
 if is_zero(get_grid)
     {

@@ -1,5 +1,5 @@
 ///entity_find_from_point(get_x,get_y,blacklist)
-//returns entity
+//returns uuid
 
 var get_x = argument0
 var get_y = argument1
@@ -23,13 +23,14 @@ for (var i = 1;i < ds_list_size(entity_list);i += 1)
         var get_entity_x = ds_get(get_entity,"x")
         var get_entity_y = ds_get(get_entity,"y")
         var get_heading = ds_get(get_entity,"heading")
+        var get_type = ds_get(get_entity,"type")
         
-        var get_grid = ds_get(get_entity,"grid")
-        switch get_list
+        switch get_type
             {
             //----//
             case entity.ship:
                 {
+                var get_grid = grid_from_entity(get_entity)
                 //search based off of the grid
                 var get_width = ds_grid_width(get_grid)
                 var get_height = ds_grid_height(get_grid)
@@ -47,7 +48,7 @@ for (var i = 1;i < ds_list_size(entity_list);i += 1)
                         is_found = true
                         }
                     }
-                if is_found return get_entity
+                if is_found return get_uuid
                 if not is_found continue
                 }
             //----//

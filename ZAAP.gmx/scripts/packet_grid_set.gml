@@ -18,7 +18,7 @@ switch get_packet_array[data.mode]
         if is_zero(get_entity)
         exit
         
-        var get_grid = ds_get(get_entity,"grid")
+        var get_grid = grid_from_entity(get_entity)
         if is_zero(get_grid)
         exit
         
@@ -35,30 +35,23 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client read":
         {
-        console_add("start here")
         var uuid_buffer_type = key_to_buffer_type("uuid")
         var get_uuid = buffer_read(bin,uuid_buffer_type)
         var get_grid_x = buffer_read(bin,buffer_u8)
         var get_grid_y = buffer_read(bin,buffer_u8)
         var get_value = buffer_read(bin,buffer_u8)
         
+        
+        
         var get_entity = entity_from_uuid(get_uuid)
         if is_zero(get_entity)
         exit
         
-        var get_grid = ds_get(get_entity,"grid")
+        var get_grid = grid_from_entity(get_entity)
         if is_zero(get_grid)
         exit
         
-
-        //update the vertex buffer
-        var get_vertex_buffer = ds_get(get_entity,"vertex buffer")
-        if not is_zero(get_vertex_buffer)
-        vertex_delete_buffer(get_vertex_buffer)
-        entity_create_vertex_buffer(get_entity)
-        //done updating the vertex buffer
-        
-        get_grid[# get_grid_x,get_grid_y] = get_value
+        grid_set_value(get_entity,get_grid,get_grid_x,get_grid_y,get_value)
         
         console_add("grid edited")
         break
@@ -86,12 +79,13 @@ switch get_packet_array[data.mode]
         
         var uuid_buffer_type = key_to_buffer_type("uuid")
         var get_uuid = buffer_read(bin,uuid_buffer_type)
+        var get_entity = entity_from_uuid(get_uuid)
+        var get_grid = grid_from_entity(get_entity)
         var get_grid_x = buffer_read(bin,buffer_u8)
         var get_grid_y = buffer_read(bin,buffer_u8)
         var get_value = buffer_read(bin,buffer_u8)
         
-        //packet_grid_set
-        packet_write(packet.grid_set,get_uuid,get_grid_x,get_grid_y,get_value)
+        grid_set_value_advanced(get_uuid,get_grid,get_grid_x,get_grid_y,get_value)
         break
         }
     //----------------//

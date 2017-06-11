@@ -10,6 +10,8 @@ or am_client()
     }
 
 var network_result = network_create_server(network_socket_tcp,5678,10)
+//set the server to the network result
+ds_set(envar,"server",network_result)
 
 if network_result < 0
     {
@@ -29,7 +31,6 @@ if network_result >= 0
     show("done creating server data")
     http_request_ip = http_get("http://ipv4bot.whatismyipaddress.com/")
     
-    game_server = network_result
     keyboard_string = ""
     keyboard_focus = "game"
     return true

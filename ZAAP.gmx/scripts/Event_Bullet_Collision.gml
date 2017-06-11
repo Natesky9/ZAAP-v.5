@@ -24,13 +24,14 @@ var get_x = ds_get(get_entity,"x")
 var get_y = ds_get(get_entity,"y")
 var get_source = ds_get(get_entity,"source")
 
-var collision_entity = entity_find_from_point(get_x,get_y,get_entity)
-if is_zero(collision_entity)
+var collision_uuid = entity_find_from_point(get_x,get_y,get_entity)
+if is_zero(collision_uuid)
 exit
 
-var collision_uuid = uuid_from_entity(collision_entity)
 if collision_uuid == get_source
 exit //nothing to do here
+
+var collision_entity = entity_from_uuid(collision_uuid)
 
 //now check against the type
 var get_collided_type = ds_get(collision_entity,"type")

@@ -14,13 +14,16 @@ if am_client()
         get_map[? "ping timeout"] -= 1
         if get_map[? "ping timeout"] <= 0
             {
+            //###//
+            //replace with client_destroy
             console_add("Can't communicate with Server")
             //disconnect
             data_structure_clear_all()
-            network_destroy(game_client)
+            var get_client = ds_get(envar,"client")
+            network_destroy(get_client)
+            ds_set(envar,"client",-1)
             SSS = -1
             host_connection = -1
-            game_client = -1
             view_reset()
             console_add("You have been disconnected")
             }

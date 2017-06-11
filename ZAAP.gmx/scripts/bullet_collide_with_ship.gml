@@ -9,7 +9,7 @@ var collision_uuid = argument3
 var get_x = ds_get(get_entity,"x")
 var get_y = ds_get(get_entity,"y")
 
-var get_grid = ds_get(collision_entity,"grid")
+var get_grid = grid_from_entity(collision_entity)
 get_grid_x = x_to_grid_x(get_x,get_y,collision_entity)
 get_grid_y = y_to_grid_y(get_x,get_y,collision_entity)
 

@@ -114,7 +114,7 @@ if show_debug_entity_list
                 case "grid":
                     {
                     //draw the grid
-                    var get_grid = ds_get(get_entity,"grid")
+                    var get_grid = grid_from_entity(get_entity)
                     var grid_width = ds_grid_width(get_grid)
                     var grid_height = ds_grid_height(get_grid)
                     draw_set_color(c_black)      

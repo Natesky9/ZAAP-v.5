@@ -4,7 +4,7 @@ var get_uuid = argument0
 var get_entity = entity_from_uuid(get_uuid)
 ds_set(get_entity,"autopilot",false)
 
-
+var autopilot_controller_list = ds_get(envar,"autopilot controller list")
 
 var pos = ds_list_find_index(autopilot_controller_list,get_uuid)
 ds_list_delete(autopilot_controller_list,pos)

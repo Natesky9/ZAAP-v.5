@@ -1,3 +1,5 @@
 ///am_server()
 
-return game_server >= 0
+var get_server = ds_get(envar,"server")
+
+return get_server >= 0

@@ -18,10 +18,15 @@ switch get_key
         exit
         }
     //
-    case "grid vertex buffer":
-    case "key list":
+    case "vertex buffer":
         {
         show("nothing special here, just the vertex buffer")
+        exit
+        }
+    //
+    case "key list":
+        {
+        show("already sending the key list")
         exit
         }
     //

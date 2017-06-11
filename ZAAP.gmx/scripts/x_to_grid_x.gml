@@ -3,7 +3,7 @@ var get_target_x = argument0
 var get_target_y = argument1
 var get_entity = argument2
 
-var get_grid = ds_get(get_entity,"grid")
+var get_grid = grid_from_entity(get_entity)
 var get_x = ds_get(get_entity,"x")
 var get_y = ds_get(get_entity,"y")
 var get_heading = ds_get(get_entity,"heading")

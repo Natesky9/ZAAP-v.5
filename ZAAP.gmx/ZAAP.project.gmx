@@ -9,6 +9,7 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\Format_Guide.gml</script>
     <script>scripts\Define_Data.gml</script>
     <script>scripts\Define_Packets.gml</script>
     <script>scripts\Define_Entities.gml</script>
@@ -208,11 +209,13 @@
     <script>scripts\network_instance_create.gml</script>
     <script>scripts\network_instance_create_entity_data.gml</script>
     <script>scripts\entity_index_from_mouse.gml</script>
-    <script>scripts\Format_Guide.gml</script>
     <script>scripts\entity_specific_list_update_position.gml</script>
     <script>scripts\entity_list_update_position.gml</script>
     <script>scripts\entity_count_all.gml</script>
     <script>scripts\entity_type_to_name.gml</script>
+    <script>scripts\mouse_left_click_autopilot_add_node.gml</script>
+    <script>scripts\mouse_right_click_delete_entity.gml</script>
+    <script>scripts\grid_from_entity.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

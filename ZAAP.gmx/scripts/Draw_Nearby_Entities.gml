@@ -8,8 +8,7 @@ var range = 10000
 var view_center_x = view_wview[0]/2
 var view_center_y = view_hview[0]/2
 
-var get_my_map = ds_get(socket_map,SSS)
-var current_ship = ds_get(get_my_map,"ship")
+var current_ship = ds_get(envar,"ship")
 
 
 for (var i = 0;i < ds_list_size(entity_list);i += 1)
