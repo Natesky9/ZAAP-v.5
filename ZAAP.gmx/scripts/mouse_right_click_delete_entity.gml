@@ -9,6 +9,6 @@ var get_uuid = entity_find_from_point(mouse_x,mouse_y,false)
         packet_write(packet.entity_destroy,get_uuid)
         entity_destroy_basic(get_uuid)
         console_add("destroyed " + string(get_uuid))
-        exit
+        return true
         }
     }

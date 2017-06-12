@@ -27,6 +27,6 @@ if am_server()
     var new_entity_type = ds_get(envar,"selected entity type")
     
     //output the entity type and name
-    var name = localized_entity_name[? new_entity_type]
+    var name = name_from_type(new_entity_type)
     console_add("entity name is now: " + name)
     }

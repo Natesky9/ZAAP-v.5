@@ -19,5 +19,6 @@ enum packet
     entity_set_pilot,
     grid_set,
     entity_damage,
+    inventory_set,
     types,
     }

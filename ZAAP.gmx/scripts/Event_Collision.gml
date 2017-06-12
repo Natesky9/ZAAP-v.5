@@ -12,8 +12,8 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         var get_entity = entity_from_uuid(get_uuid)
         if is_zero(get_entity)
         continue
-        //type is redundant and can now be moved to filter before the loop
-        var get_type = get_entity[? "type"]
+        
+        var get_type = ds_get(get_entity,"type")
         
         switch get_type
             {

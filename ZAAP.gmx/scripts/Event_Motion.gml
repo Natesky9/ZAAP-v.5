@@ -51,7 +51,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
             {
             //brake action
             //reverse thrust
-            entity_add_vector(get_entity,.2,get_heading+180)
+            entity_subtract_vector(get_entity,.2,get_heading)
             }
             
         //clamp it

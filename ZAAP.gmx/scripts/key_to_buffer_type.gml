@@ -47,6 +47,7 @@ switch get_key
     case "lifetime":
     case "health":
     case "pickup timer":
+    case "id":
         {
         //show("buffer is u8")
         //range is 0 - 255
@@ -54,6 +55,7 @@ switch get_key
         }
     //
     case "ping":
+    case "quantity":
         {
         //show("buffer is u16")
         //range is 0 - 65,535

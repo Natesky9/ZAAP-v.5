@@ -5,6 +5,7 @@ var get_type = ds_get(get_entity,"type")
 var get_speed = ds_get(get_entity,"speed")
 var get_heading = ds_get(get_entity,"heading")
 
+//clamp ships differently
 if get_type == entity.ship
 get_speed = clamp(get_speed,0,8)
 

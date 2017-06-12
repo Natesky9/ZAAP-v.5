@@ -61,7 +61,7 @@ for (var i = 1;i < ds_list_size(entity_list);i += 1)
                     if get_y < get_entity_y + 32
                     and get_y > get_entity_y - 32
                         {
-                        return get_entity
+                        return get_uuid
                         }
                     }
                 }

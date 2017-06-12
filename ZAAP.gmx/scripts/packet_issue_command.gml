@@ -17,6 +17,9 @@ switch get_packet_array[data.mode]
         if is_zero(get_uuid)
         exit
         
+        //###//
+        //can't I just replace all instances of this with
+        //write_key_to_buffer("uuid",get_uuid)
         var uuid_buffer_type = key_to_buffer_type("uuid")
         buffer_write(bout,uuid_buffer_type,get_uuid)
         

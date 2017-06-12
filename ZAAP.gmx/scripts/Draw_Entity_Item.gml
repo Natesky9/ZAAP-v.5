@@ -38,8 +38,6 @@ switch get_id
         var get_pickup_timer = ds_get(get_entity,"pickup timer")
         
         draw_set_alpha(cos(get_pickup_timer))
-        draw_set_color(c_blue)
-        draw_rectangle(get_x-8,get_y-8,get_x+8,get_y+8,false)
         draw_set_color(c_black)
         draw_rectangle(get_x-8,get_y-8,get_x+8,get_y+8,true)
         draw_set_alpha(1)

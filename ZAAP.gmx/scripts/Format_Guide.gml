@@ -9,10 +9,17 @@
 //>//
 //points to a data structure
 /*
+entity_list
+
 entity_map
     uuid
         entity
 envar
+    draw time
+    step time
+    draw gui time
+    server
+    client
     entity_list
         entity_specific_list
             >uuid

@@ -2,6 +2,7 @@
 
 //create the main list
 entity_list = ds_create(ds_type_list)
+ds_add(envar,"entity list",entity_list)
 
 for (var i = 1; i < entity.types;i += 1)
     {
@@ -15,6 +16,7 @@ for (var i = 1; i < entity.types;i += 1)
 
 //create the uuid map
 entity_map = ds_create(ds_type_map)
+ds_add(envar,"entity map",entity_map)
 
 //create the prestep and poststep handling lists
 entity_destroy_list = ds_create(ds_type_list)
