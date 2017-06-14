@@ -107,8 +107,14 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
         {
         if get_type == "dock"
             {
-            entity_issue_command(get_entity,"docked",true)
-            console_add("Docking")
+            var get_target = ds_get(get_node,"target")
+            
+            if not is_zero(get_target)
+                {
+                console_add("Docking")
+                //packet_entity_dock
+                packet_write(packet.entity_dock,get_uuid,get_target)
+                }
             }
         
         effect_create_below(ef_ring,get_dest_x,get_dest_y,1,c_blue)

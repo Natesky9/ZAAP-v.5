@@ -23,7 +23,7 @@ if not is_zero(get_grid_value)
     console_add("entity hit")
     console_add("x: " + string(get_grid_x) + ",y: " + string(get_grid_y))
     
-    grid_set_value_advanced(get_uuid,get_grid,get_grid_x,get_grid_y,false)
+    grid_set_value_advanced(collision_entity,get_grid,get_grid_x,get_grid_y,false)
     
     var grid_max = ds_grid_get_max(get_grid,0,0,
     ds_grid_width(get_grid),ds_grid_height(get_grid))
