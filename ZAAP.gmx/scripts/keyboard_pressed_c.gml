@@ -34,16 +34,4 @@ and am_server()
             }
         }
     }
-if am_client()
-    {
-    var get_uuid = get_ship_from_socket(SSS)
-    if is_zero(get_uuid)
-    exit
-    
-    var get_entity = entity_from_uuid(get_uuid)
-    
-    var is_docked = ds_get(get_entity,"docked")
-    
-    entity_issue_command(get_entity,"docked",not is_docked)
-    console_add("manual test dock")
-    }
+

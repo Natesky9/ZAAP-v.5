@@ -16,6 +16,5 @@ ds_set(get_entity,"autopilot list",new_waypoint_list)
 
 console_add("Autopilot initiated")
 
-entity_issue_command(get_entity,"docked",false)
 entity_issue_command(get_entity,"autopilot",true)
 

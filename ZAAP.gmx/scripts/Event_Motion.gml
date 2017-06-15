@@ -27,8 +27,39 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         var get_direction = ds_get(get_entity,"direction");
         var get_speed = ds_get(get_entity,"speed");
         var get_heading = ds_get(get_entity,"heading");
-        var is_docked = ds_get(get_entity,"docked");
+        var is_docked = ds_get(get_entity,"docked to");
         //end pre movement get
+        
+        if is_docked
+            {
+            //special case for docked entites
+            var get_target_entity = uuid_from_entity(is_docked)
+            
+            //if the target isn't docked to it anymore, reset
+            get_target_dock = ds_get(get_target_entity,"dock")
+            
+            if get_target_dock != get_uuid
+                {
+                console_add("my dock isn't docked to me")
+                ds_set(get_entity,"docked to",false)
+                continue
+                }
+            
+            var get_target_x = ds_get(get_target_entity,"x")
+            var get_target_y = ds_get(get_target_entity,"y")
+            var get_target_speed = ds_get(get_target_entity,"speed")
+            var get_target_heading = ds_get(get_target_entity,"heading")
+            var get_target_direction = ds_get(get_target_entity,"direction")
+            
+            //set motion based off of docked entity
+            ds_set(get_entity,"x",get_target_x)
+            ds_set(get_entity,"y",get_target_y)
+            ds_set(get_entity,"speed",get_target_speed)
+            ds_set(get_entity,"heading",get_target_heading)
+            ds_set(get_entity,"direction",get_target_direction)
+            
+            continue
+            }
         if get_steer != 0
             {
             get_entity[? "heading"] += get_steer*4

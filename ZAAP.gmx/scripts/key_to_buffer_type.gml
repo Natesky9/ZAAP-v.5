@@ -10,7 +10,6 @@ switch get_key
     case "autopilot":
     case "thrust":
     case "brake":
-    case "docked":
         {
         //show("buffer is bool")
         //range is 0 - 1
@@ -65,6 +64,8 @@ switch get_key
     case "uuid":
     case "source":
     case "ship":
+    case "docked":
+    case "docked to":
     case "packets in":
     case "packets out":
     case "packet bytes in":
