@@ -67,18 +67,37 @@ if not is_zero(autopilot_status)
         get_node = ds_list_find_value(get_autopilot_list,i)
         
         get_type = ds_get(get_node,"type")
-        get_dest_x = ds_get(get_node,"x")
-        get_dest_y = ds_get(get_node,"y")
-        
-        if get_type == "checkpoint"
+        switch get_type
             {
-            draw_rectangle(get_dest_x-16,get_dest_y-16,get_dest_x+16,get_dest_y+16,true)
-            }
-        if get_type == "waypoint"
-            {
-            draw_circle(get_dest_x,get_dest_y,8,true)
+            case "dock":
+                {
+                var shipyard_uuid = ds_get(get_node,"target")
+                var get_shipyard = entity_from_uuid(shipyard_uuid)
+                
+                get_dest_x = ds_get(get_shipyard,"x")
+                get_dest_y = ds_get(get_shipyard,"y")
+                
+                draw_circle(get_dest_x,get_dest_y,4,false)
+                break
+                }
+            case "checkpoint":
+                {
+                get_dest_x = ds_get(get_node,"x")
+                get_dest_y = ds_get(get_node,"y")
+                draw_rectangle(get_dest_x-16,get_dest_y-16,get_dest_x+16,get_dest_y+16,true)
+                break
+                }
+            case "waypoint":
+                {
+                get_dest_x = ds_get(get_node,"x")
+                get_dest_y = ds_get(get_node,"y")
+                draw_circle(get_dest_x,get_dest_y,8,true)
+                break
+                }
             }
         
+
+        //draw the line connecting the points
         draw_line(prev_x,prev_y,get_dest_x,get_dest_y)
         prev_x = get_dest_x
         prev_y = get_dest_y

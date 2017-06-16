@@ -10,12 +10,15 @@ switch get_packet_array[data.mode]
     case "server write":
         {
         buffer_write(bout,buffer_u8,packet.entity_dock)
+        console_add("initiallizing dock")
         
         var get_uuid = get_packet_array[data.arg_0]
         var get_target = get_packet_array[data.arg_1]
         
-        write_key_to_buffer("uuid",get_uuid)
-        write_key_to_buffer("uuid",get_target)
+        var uuid_buffer_type = key_to_buffer_type("uuid")
+        
+        buffer_write(bout,uuid_buffer_type,get_uuid)
+        buffer_write(bout,uuid_buffer_type,get_target)
         packet_send_all()
         
         break
@@ -39,10 +42,13 @@ switch get_packet_array[data.mode]
         var get_uuid = get_packet_array[data.arg_0]
         var get_target = get_packet_array[data.arg_1]
         
-        write_key_to_buffer("uuid",get_uuid)
-        write_key_to_buffer("uuid",get_target)
+        var uuid_buffer_type = key_to_buffer_type("uuid")
+        
+        buffer_write(bout,uuid_buffer_type,get_uuid)
+        buffer_write(bout,uuid_buffer_type,get_target)
         
         packet_send_host()
+        console_add("sending dock request")
         break
         }
     //----------------//
@@ -53,8 +59,11 @@ switch get_packet_array[data.mode]
         var get_uuid = buffer_read(bin,uuid_buffer_type)
         var get_target = buffer_read(bin,uuid_buffer_type)
         
+        console_add("uuid is: " + string(get_uuid))
+        
         var result = entity_dock_pair_advanced(get_uuid,get_target)
         
+        console_add("docking result: " + string(result))
         if result
         //packet_entity_dock
         packet_write(packet.entity_dock,get_uuid,get_target)

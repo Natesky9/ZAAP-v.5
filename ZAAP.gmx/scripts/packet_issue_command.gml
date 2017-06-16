@@ -32,7 +32,7 @@ switch get_packet_array[data.mode]
         {
         var uuid_buffer_type = key_to_buffer_type("uuid")
         var get_uuid = buffer_read(bin,uuid_buffer_type)
-        show("uuid is: " + string(get_uuid))
+        //show("uuid is: " + string(get_uuid))
         var get_entity = entity_from_uuid(get_uuid)
         
         read_buffer_to_key(get_entity)

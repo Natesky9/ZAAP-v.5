@@ -42,6 +42,7 @@ if am_client()
         exit
         }
     
+    var shipyard_uuid = uuid_from_entity(nearest_shipyard)
     var get_shipyard_x = ds_get(nearest_shipyard,"x")
     var get_shipyard_y = ds_get(nearest_shipyard,"y")
     
@@ -50,5 +51,5 @@ if am_client()
     autopilot_add_node(get_uuid,"checkpoint",get_shipyard_x,get_shipyard_y-128)
     autopilot_add_node(get_uuid,"checkpoint",get_shipyard_x+128,get_shipyard_y)
     autopilot_add_node(get_uuid,"waypoint",get_shipyard_x,get_shipyard_y+128)
-    autopilot_add_node(get_uuid,"dock",get_shipyard_x,get_shipyard_y)
+    autopilot_add_node(get_uuid,"dock",shipyard_uuid)
     }
