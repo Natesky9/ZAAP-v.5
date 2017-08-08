@@ -8,6 +8,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     var get_list = ds_list_find_value(entity_list,i)
     for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
         {
+        //begin phase
         var get_uuid = ds_list_find_value(get_list,ii)
         var get_entity = entity_from_uuid(get_uuid)
         
@@ -17,6 +18,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
             continue
             }
         
+        //phase 1
         //pre movement get
         var get_thrust = ds_get(get_entity,"thrust");
         var get_steer = ds_get(get_entity,"steer");
@@ -28,7 +30,62 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         var get_speed = ds_get(get_entity,"speed");
         var get_heading = ds_get(get_entity,"heading");
         var is_docked = ds_get(get_entity,"docked");
+        var is_docked_to = ds_get(get_entity,"docked to");
         //end pre movement get
+        
+        //phase 2
+        if is_docked
+            {
+            //special case for docked entites
+            var get_target_entity = entity_from_uuid(is_docked)
+            
+            if get_target_entity
+                {
+                //if the target isn't docked to it anymore, reset
+                get_target_dock = ds_get(get_target_entity,"docked to")
+                if get_target_dock != get_uuid
+                    {
+                    console_add("my dock isn't docked to me")
+                    ds_set(get_entity,"docked",false)
+                    continue
+                    }
+                
+                var get_target_x = ds_get(get_target_entity,"x")
+                var get_target_y = ds_get(get_target_entity,"y")
+                var get_target_speed = ds_get(get_target_entity,"speed")
+                var get_target_heading = ds_get(get_target_entity,"heading")
+                var get_target_direction = ds_get(get_target_entity,"direction")
+                
+                //set motion based off of docked entity
+                ds_set(get_entity,"x",get_target_x)
+                ds_set(get_entity,"y",get_target_y)
+                ds_set(get_entity,"speed",get_target_speed)
+                ds_set(get_entity,"heading",get_target_heading)
+                ds_set(get_entity,"direction",get_target_direction)
+                
+                continue
+                }
+            
+            //the dock doesn't exist anymore, continue with the rest of the script
+            console_add("my dock doesn't exist anymore!")
+            ds_set(get_entity,"docked",false)
+            }
+        
+        //phase 3
+        if is_docked_to
+            {
+            //special case for entities that have something docked to them
+            var get_docked_entity = entity_from_uuid(is_docked_to)
+            
+            if is_zero(get_docked_entity)
+                {
+                console_add("my entity doesn't exist anymore!")
+                ds_set(get_entity,"docked to",false)
+                }
+            //continue with the rest of the script
+            }
+        
+        //phase 4
         if get_steer != 0
             {
             get_entity[? "heading"] += get_steer*4
@@ -36,9 +93,7 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
         if get_thrust != 0
             {
             //multiply by thrust amount
-            var get_vector_thrust = .5
-            
-            
+            var get_vector_thrust = .1
             //add the vector
             entity_add_vector(get_entity,get_vector_thrust,get_heading)
             //thrust effect
@@ -49,9 +104,12 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
             }
         if get_brake != 0
             {
-            get_entity[? "speed"] -= 1/2
+            //brake action
+            //reverse thrust
+            entity_subtract_vector(get_entity,.2,get_heading)
             }
-            
+        
+        //end phase
         //clamp it
         Event_Motion_Clamp(get_entity)
         //end clamp it

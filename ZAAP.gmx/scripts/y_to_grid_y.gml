@@ -3,7 +3,7 @@ var get_target_x = argument0
 var get_target_y = argument1
 var get_entity = argument2
 
-var get_grid = ds_get(get_entity,"grid")
+var get_grid = grid_from_entity(get_entity)
 var get_x = ds_get(get_entity,"x")
 var get_y = ds_get(get_entity,"y")
 var get_heading = ds_get(get_entity,"heading")
@@ -24,10 +24,13 @@ var new_target_y = get_y + lengthdir_y(get_distance,new_direction)
 var grid_corner = get_y-grid_offset
 
 var y_result = new_target_y - grid_corner
+
+if y_result < 0
+return -1
+
 var y_div = y_result div ship_grid_size
 
-if y_div < 0
-or y_div >= grid_height
+if y_div >= grid_height
 return -1
 
 return y_div

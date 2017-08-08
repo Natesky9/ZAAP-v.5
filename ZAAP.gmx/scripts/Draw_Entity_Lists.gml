@@ -39,7 +39,8 @@ if show_debug_entity_list
         draw_rectangle(entity_list_x1,entity_list_y1+i*32-32,entity_list_x2,entity_list_y1+i*32,false)
         draw_set_color(c_black)
         draw_text(entity_list_x1,entity_list_y1+i*32-32,string(i))
-        var text = localized_entity_name[? i]
+        //get the name of the entity type
+        var text = name_from_type(i)
         draw_text(entity_list_x1 + 20,entity_list_y1+i*32-32,text)
         }
     //--------------------------------//
@@ -114,7 +115,7 @@ if show_debug_entity_list
                 case "grid":
                     {
                     //draw the grid
-                    var get_grid = ds_get(get_entity,"grid")
+                    var get_grid = grid_from_entity(get_entity)
                     var grid_width = ds_grid_width(get_grid)
                     var grid_height = ds_grid_height(get_grid)
                     draw_set_color(c_black)      

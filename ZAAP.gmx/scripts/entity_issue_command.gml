@@ -1,3 +1,5 @@
+///entity_issue_command(entity,command,value)
+
 var get_entity = argument0
 var get_command = argument1
 var get_value = argument2

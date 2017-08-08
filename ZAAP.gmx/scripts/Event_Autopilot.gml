@@ -5,6 +5,7 @@ exit
 //This code is client-only
 
 //loop through all autopilot targets
+var autopilot_controller_list = ds_get(envar,"autopilot controller list")
 
 for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     {
@@ -24,8 +25,26 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     var get_autopilot_list = ds_get(get_entity,"autopilot list")
     var get_node = ds_list_find_value(get_autopilot_list,0)
     var get_type = ds_get(get_node,"type")
-    var get_dest_x = ds_get(get_node,"x")
-    var get_dest_y = ds_get(get_node,"y")
+    switch get_type
+        {
+        case "dock":
+        case "entity":
+            {
+            var shipyard_uuid = ds_get(get_node,"target")
+            var get_shipyard = entity_from_uuid(shipyard_uuid)
+            
+            var get_dest_x = ds_get(get_shipyard,"x")
+            var get_dest_y = ds_get(get_shipyard,"y")
+            break
+            }
+        default:
+            {
+            var get_dest_x = ds_get(get_node,"x")
+            var get_dest_y = ds_get(get_node,"y")
+            break
+            }
+        }
+    
     //effect_create_above(ef_spark,get_dest_x,get_dest_y,1,c_green)
     //
     
@@ -33,8 +52,8 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     var target_distance = point_distance(get_x,get_y,get_dest_x,get_dest_y)
     
     //vector correction
-    var entity_vector_x = lengthdir_x(get_speed*4,get_direction)
-    var entity_vector_y = lengthdir_y(get_speed*4,get_direction)
+    var entity_vector_x = lengthdir_x(get_speed*16,get_direction)
+    var entity_vector_y = lengthdir_y(get_speed*16,get_direction)
     
     var target_vector_x = lengthdir_x(target_distance,target_direction)
     var target_vector_y = lengthdir_y(target_distance,target_direction)
@@ -106,8 +125,14 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
         {
         if get_type == "dock"
             {
-            entity_issue_command(get_entity,"docked",true)
-            console_add("Docking")
+            var get_target = ds_get(get_node,"target")
+            
+            if not is_zero(get_target)
+                {
+                console_add("Docking")
+                //packet_entity_dock
+                packet_write(packet.entity_dock,get_uuid,get_target)
+                }
             }
         
         effect_create_below(ef_ring,get_dest_x,get_dest_y,1,c_blue)

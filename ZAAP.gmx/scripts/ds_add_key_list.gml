@@ -1,3 +1,4 @@
+///ds_add_key_list
 var get_map = argument0
 
 var key_list_exists = ds_get(get_map,"key list")

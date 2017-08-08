@@ -4,10 +4,34 @@ var get_entity = argument0
 
 var get_x = ds_get(get_entity,"x")
 var get_y = ds_get(get_entity,"y")
+var get_heading = ds_get(get_entity,"heading")
 var get_id = ds_get(get_entity,"id")
 
 switch get_id
     {
+    case item.hullt1:
+    case item.hullt2:
+    case item.hullt3:
+    case item.reactor:
+    case item.turret:
+    case item.cargo:
+        {
+        d3d_transform_add_rotation_z(get_heading-90)
+        d3d_transform_add_translation(get_x,get_y,0)
+        var sgs_2 = ship_grid_size/2
+        var bolt = sgs_2 - 4;
+        var color = grid_value_to_color(get_id)
+        draw_set_color(color)
+        draw_roundrect(-sgs_2,-sgs_2,sgs_2,sgs_2,false)
+        draw_set_color(c_gray)
+        draw_roundrect(-sgs_2,-sgs_2,sgs_2,sgs_2,true)
+        draw_circle(bolt,bolt,1,false)
+        draw_circle(-bolt,bolt,1,false)
+        draw_circle(bolt,-bolt,1,false)
+        draw_circle(-bolt,-bolt,1,false)
+        d3d_transform_set_identity()
+        break
+        }
     case item.triangle:
         {
         draw_set_color(c_red)
@@ -24,7 +48,6 @@ switch get_id
     //
     case item.square:
         {
-        var get_heading = ds_get(get_entity,"heading")
         d3d_transform_add_rotation_z(get_heading-90)
         d3d_transform_add_translation(get_x,get_y,0)
         draw_set_color(c_blue)
@@ -38,8 +61,6 @@ switch get_id
         var get_pickup_timer = ds_get(get_entity,"pickup timer")
         
         draw_set_alpha(cos(get_pickup_timer))
-        draw_set_color(c_blue)
-        draw_rectangle(get_x-8,get_y-8,get_x+8,get_y+8,false)
         draw_set_color(c_black)
         draw_rectangle(get_x-8,get_y-8,get_x+8,get_y+8,true)
         draw_set_alpha(1)

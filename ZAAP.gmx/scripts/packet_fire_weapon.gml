@@ -1,5 +1,6 @@
 ///packet_fire_weapon(packet_array)
-
+//###//
+//moved to the "trigger" key
 var get_packet_array = argument0
 
 switch get_packet_array[data.mode]
@@ -45,8 +46,7 @@ switch get_packet_array[data.mode]
         ds_set(new_entity,"source",get_ship)
         ds_set(new_entity,"lifetime",120)
         
-        ds_set(entity_map,get_projectile,new_entity)
-        ds_list_add(entity_create_list,get_projectile)
+        entity_map_uuid(new_entity)
         //
         break
         }
@@ -76,7 +76,7 @@ switch get_packet_array[data.mode]
         var get_speed = ds_get(get_ship,"speed")
         var get_heading = ds_get(get_ship,"heading")
         //create the bullet
-        var get_uuid = entity_create_advanced(get_x,get_y,entity.bullet)
+        var get_uuid = entity_create_server(get_x,get_y,entity.bullet)
         var get_entity = entity_from_uuid(get_uuid);
         ds_set(get_entity,"speed",get_speed + 10)
         ds_set(get_entity,"direction",get_heading)

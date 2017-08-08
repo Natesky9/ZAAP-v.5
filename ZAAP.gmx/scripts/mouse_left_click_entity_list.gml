@@ -50,18 +50,6 @@ if not is_zero(get_entity)
 //something something variables
 //end variables
 
-//check to see if an object was clicked
-var get_entity = entity_find_from_point(mouse_x,mouse_y,false)
-
-if not is_zero(get_entity)
-    {
-    var get_uuid = ds_get(get_entity,"uuid")
-    var get_type = ds_get(get_entity,"type")
-    
-    ds_set(envar,"selected entity",get_uuid)
-    ds_set(envar,"selected entity type",get_type)
-    return true
-    }
 
 //we're done here
 return false

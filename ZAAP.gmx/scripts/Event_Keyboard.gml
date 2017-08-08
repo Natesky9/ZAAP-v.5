@@ -19,6 +19,8 @@ keyboard_pressed_a()
 keyboard_pressed_s()
 keyboard_pressed_d()
 
+keyboard_released_space()
+
 keyboard_released_w()
 keyboard_released_a()
 keyboard_released_s()

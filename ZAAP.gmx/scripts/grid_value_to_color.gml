@@ -1,5 +1,5 @@
 ///grid_value_to_color(value)
-//to be replaced by parts
+//to be replaced by items
 
 //get color from value
 var get_value = argument0

@@ -2,7 +2,7 @@
 
 var get_entity = argument0
 
-var get_key = buffer_read(bin,buffer_string)
+var get_key = read()
 
 
 switch get_key
@@ -18,7 +18,7 @@ switch get_key
         exit
         }
     //
-    case "grid vertex buffer":
+    case "vertex buffer":
         {
         console_add("how did you even get here?")
         exit
@@ -26,8 +26,7 @@ switch get_key
     //
     default:
         {
-        var get_buffer_type = key_to_buffer_type(get_key)
-        var get_value = buffer_read(bin,get_buffer_type);
+        var get_value = read()
         
         if not is_zero(get_entity)
         ds_set(get_entity,get_key,get_value)

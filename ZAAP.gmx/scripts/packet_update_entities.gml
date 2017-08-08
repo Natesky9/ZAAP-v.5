@@ -14,10 +14,6 @@ switch get_packet_array[data.mode]
         
         var get_socket = get_packet_array[data.arg_0]
         
-        //###//
-        //reformat this to use the new entity list
-        //also make script to count total entities in all lists?
-        
         var entity_list_size = entity_count_all()
         buffer_write(bout,buffer_u32,entity_list_size)
         show("entity list size is [" + string(entity_list_size) + "]")
@@ -43,7 +39,8 @@ switch get_packet_array[data.mode]
         show("entity list size is [" + string(get_entity_list_size) + "]")
         repeat get_entity_list_size
             {
-            read_buffer_to_uuid()
+            console_add("update entity")
+            entity_create_client()
             }
         }
     //----------------//

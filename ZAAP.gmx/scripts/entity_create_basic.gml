@@ -1,5 +1,6 @@
+///entity_create_basic()
 //this gets called on both client and server
-//to create an entity and fill in it's information
+//returns entity
 
 //create the map value for the entity
 var get_entity = ds_create(ds_type_map)

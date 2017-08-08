@@ -8,17 +8,21 @@ switch get_packet_array[data.mode]
     case "server write":
         {
         //maybe add to sync just the command
-        buffer_write(bout,buffer_u8,packet.issue_command)
         var get_entity = get_packet_array[data.arg_0]
         var get_key = get_packet_array[data.arg_1]
         var get_value = get_packet_array[data.arg_2]
+        if is_zero(get_entity)
+            {
+            show("error, entity no longer exists!")
+            exit
+            }
         
+        buffer_write(bout,buffer_u8,packet.issue_command)
         var get_uuid = uuid_from_entity(get_entity)
         if is_zero(get_uuid)
         exit
         
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        buffer_write(bout,uuid_buffer_type,get_uuid)
+        write(get_uuid)
         
         write_key_to_buffer(get_key,get_value)
         packet_send_all()
@@ -27,9 +31,8 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client read":
         {
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        var get_uuid = buffer_read(bin,uuid_buffer_type)
-        show("uuid is: " + string(get_uuid))
+        get_uuid = read()
+        //show("uuid is: " + string(get_uuid))
         var get_entity = entity_from_uuid(get_uuid)
         
         read_buffer_to_key(get_entity)
@@ -43,10 +46,9 @@ switch get_packet_array[data.mode]
         var get_command = get_packet_array[data.arg_0]
         var get_value = get_packet_array[data.arg_1]
         
-        buffer_write(bout,buffer_string,get_command)
+        write(get_command)
         
-        var get_command_buffer_type = key_to_buffer_type(get_command)
-        buffer_write(bout,get_command_buffer_type,get_value)
+        write(get_value)
         
         packet_send_host()
         break
@@ -54,9 +56,8 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server read":
         {
-        var get_command = buffer_read(bin,buffer_string)
-        var get_command_buffer_type = key_to_buffer_type(get_command)
-        var get_value = buffer_read(bin,get_command_buffer_type)
+        var get_command = read()
+        get_value = read()
         
         var get_socket = async_load[? "id"]
         //

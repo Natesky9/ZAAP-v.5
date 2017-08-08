@@ -33,41 +33,44 @@ switch get_packet_array[data.mode]
     case "client read":
         {
         var get_pilot = buffer_read(bin,buffer_s8)
-        console_add("pilot is [" + string(get_pilot) + "]")
+        show("pilot is [" + string(get_pilot) + "]")
         var get_uuid = buffer_read(bin,buffer_u32)
-        console_add("uuid is [" + string(get_uuid) + "]")
-        
-        var current_map = map_from_socket(SSS)
-        var current_ship = ds_get(current_map,"ship")
-        
+        show("uuid is [" + string(get_uuid) + "]")
         var get_entity = entity_from_uuid(get_uuid)
         show("entity is [" + string(get_entity) + "]")
         
+        //###//
+        //migrate this into the envar?
+        var current_ship = ds_get(envar,"ship");
+        //
+        //do this regardless
+        get_entity[? "pilot"] = get_pilot;
+        
         if is_zero(get_pilot)
             {
+            //do this if the pilot is being reset
             if get_uuid == current_ship
                 {
                 //my ship lost control
                 //reset view for now
-                current_map[? "ship"] = 0
+                ds_set(envar,"ship",false)
                 view_reset()
                 }
+            //
+            break
             }
         
         if not is_zero(get_pilot)
             {
-            //update the pilot's ship
+            //do this if the pilot is being set
             var get_map = map_from_socket(get_pilot)
             ds_map_replace(get_map,"ship",get_uuid)
+            if get_pilot == SSS
+            ds_set(envar,"ship",get_uuid)
+            //
+            break
             }
-        
-        get_entity[? "pilot"] = get_pilot
-        
-        if get_pilot == SSS
-            {
-            //if this is you, do something?
-            }
-
+        //unnecesary break
         break
         }
     //----------------//

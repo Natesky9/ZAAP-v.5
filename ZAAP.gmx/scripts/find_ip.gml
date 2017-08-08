@@ -6,7 +6,6 @@ var ip = ""
 
 //nothing was entered
 if keyboard_string == ""
-or keyboard_string == " "
 return -1
 
 if string_count(".",keyboard_string) == 3

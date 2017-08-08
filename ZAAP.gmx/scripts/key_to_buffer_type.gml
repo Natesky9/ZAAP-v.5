@@ -1,5 +1,10 @@
 ///key_to_buffer_type(key)
 
+//###//
+//delet this//
+//###//
+
+
 var get_key = argument0
 //show("converting key to buffer type")
 //show("key is [" + get_key + "]")
@@ -10,7 +15,6 @@ switch get_key
     case "autopilot":
     case "thrust":
     case "brake":
-    case "docked":
         {
         //show("buffer is bool")
         //range is 0 - 1
@@ -47,6 +51,7 @@ switch get_key
     case "lifetime":
     case "health":
     case "pickup timer":
+    case "id":
         {
         //show("buffer is u8")
         //range is 0 - 255
@@ -54,6 +59,7 @@ switch get_key
         }
     //
     case "ping":
+    case "quantity":
         {
         //show("buffer is u16")
         //range is 0 - 65,535
@@ -63,6 +69,8 @@ switch get_key
     case "uuid":
     case "source":
     case "ship":
+    case "docked":
+    case "docked to":
     case "packets in":
     case "packets out":
     case "packet bytes in":

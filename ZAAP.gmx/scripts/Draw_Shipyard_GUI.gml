@@ -7,7 +7,7 @@ var get_entity = get_ship_from_socket(SSS)
 if is_zero(get_entity)
 exit
 
-var is_docked = ds_get(get_entity,"docked")
+var is_docked = ds_get(get_entity,"docked to")
 //this isn't working correctly
 if is_docked
     {

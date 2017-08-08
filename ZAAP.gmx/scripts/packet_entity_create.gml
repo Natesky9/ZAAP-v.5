@@ -13,12 +13,13 @@ switch get_packet_array[data.mode]
         uuid_write_to_buffer(get_uuid)
         
         packet_send_all()
+        console_add("created an entity")
         exit
         }
     //
     case "client read":
         {
-        read_buffer_to_uuid()
+        entity_create_client()
         return true
         }
     //
@@ -49,7 +50,7 @@ switch get_packet_array[data.mode]
         var get_y = buffer_read(bin,coordinate_buffer_type)
         
         //create a player ship at the requested location
-        var get_uuid = entity_create_advanced(get_x,get_y,entity.ship)
+        var get_uuid = entity_create_server(get_x,get_y,entity.ship)
         //set the grid
         var basic_grid = ds_create(ds_type_grid,9,9);
         basic_grid[# 4,4] = true
@@ -67,6 +68,12 @@ switch get_packet_array[data.mode]
         packet_write(packet.entity_create,get_uuid)
         //packet_entity_command
         packet_write(packet.entity_command,get_socket,get_uuid)
+        
+        repeat 4
+            {
+            summon_random_target(get_uuid)
+            }
+        
         
         return true
         }

@@ -24,8 +24,8 @@ switch get_packet
     case packet.entity_command:
         {packet_entity_command(get_packet_array);break}
     //----------------//
-    case packet.entity_damage:
-        {packet_entity_damage(get_packet_array);break}
+    case packet.entity_dock:
+        {packet_entity_dock(get_packet_array);break}
     //----------------//
     case packet.entity_set_pilot:
         {packet_entity_set_pilot(get_packet_array);break}
@@ -65,6 +65,9 @@ switch get_packet
     //----------------//
     case packet.ping_report:
         {packet_ping_report(get_packet_array);break}
+    //----------------//
+    case packet.inventory:
+        {packet_inventory(get_packet_array);break}
     //----------------//
     default:
         {console_add("Error, no packet defined");break}

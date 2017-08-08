@@ -1,33 +1,20 @@
 ///Event_Create()
-//envar is the game map
-//it replaces all local/global variables
+//Game Start Event
 
-envar = ds_map_create();
-ds_add_key_list(envar)
+initialize_ds()
+initialize_envar()
 
-ds_set(envar,"steps since start",0)
-ds_set(envar,"step time",0)
-ds_set(envar,"draw time",0)
-ds_set(envar,"draw gui time",0)
+Define_Data()
+Define_Packets()
+Define_Entities()
 
-ds_map_create()
-ds_list_create()
-ds_grid_create(1,1)
-ds_stack_create()
-ds_queue_create()
-ds_priority_create()
+
+
 
 create_vertex_buffer_format()
 
-game_server = -1
-game_client = -1
-IP = -1
-SSS = -1
 
-packets_in = 0
-packets_out = 0
-packet_bytes_in = 0
-packet_bytes_out = 0
+
 
 console_list = ds_list_create()
 console_add("list is id of " + string(console_list))
@@ -35,18 +22,7 @@ console_add("list is id of " + string(console_list))
 bin = buffer_create(64,buffer_grow,1)
 bout = buffer_create(64,buffer_grow,1)
 
-data_structure_grid_list = ds_list_create()
-data_structure_list_list = ds_list_create()
-data_structure_map_list = ds_list_create()
-data_structure_priority_list = ds_list_create()
-data_structure_queue_list = ds_list_create()
-data_structure_stack_list = ds_list_create()
-data_structure_grid_amount = 0
-data_structure_list_amount = 0
-data_structure_map_amount = 0
-data_structure_priority_amount = 0
-data_structure_queue_amount = 0
-data_structure_stack_amount = 0
+
 
 
 debug_draw = false
@@ -61,18 +37,13 @@ keyboard_string = "127.0.0.1"
 keyboard_focus = "console"
 entity_focus = 0
 
-ship_grid_size = 16
+ship_grid_size = 32
 
-Define_Data()
-Define_Packets()
-Define_Entities()
+
 
 
 build = date_time_string(GM_build_date)
 console_add("{" + build + "}")
 
 
-ds_set(envar,"entity_list_x1",100)
-ds_set(envar,"entity_list_y1",100)
-ds_set(envar,"entity_specific_list_x1",0)
-ds_set(envar,"entity_specific_list_y1",0)
+
