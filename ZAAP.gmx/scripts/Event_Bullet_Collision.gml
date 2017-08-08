@@ -6,6 +6,7 @@ var get_entity = argument1
 
 if not am_server()
 exit
+
 //only the server runs this
 //timeout
 var get_lifetime = ds_get(get_entity,"lifetime")
@@ -24,30 +25,33 @@ var get_x = ds_get(get_entity,"x")
 var get_y = ds_get(get_entity,"y")
 var get_source = ds_get(get_entity,"source")
 
-var collision_uuid = entity_find_from_point(get_x,get_y,get_entity)
-if is_zero(collision_uuid)
-exit
+var entity_ship_list = entity_list_from_type(entity.ship)
 
-if collision_uuid == get_source
-exit //nothing to do here
+var entity_ship_list_size = ds_list_size(entity_ship_list)
 
-var collision_entity = entity_from_uuid(collision_uuid)
-
-//now check against the type
-var get_collided_type = ds_get(collision_entity,"type")
-
-
-switch get_collided_type
+for (var i = 0;i < ds_list_size(entity_list);i += 1)
     {
-    //
-    case entity.ship:
-        {bullet_collide_with_ship(get_entity,get_uuid,collision_entity,collision_uuid);exit}
-    //
-    default:
-        {bullet_collide_with_other(get_entity,get_uuid,collision_entity,collision_uuid);exit}
-    //
+    var get_ship_uuid = ds_list_find_value(entity_ship_list,i)
+    
+    if get_ship_uuid == get_source
+    continue //nothing to do here
+    
+    var get_ship_entity = entity_from_uuid(get_ship_uuid)
+    
+    var get_grid_x = x_to_grid_x(get_x,get_y,get_ship_entity)
+    if get_grid_x == -1
+    continue
+    var get_grid_y = y_to_grid_y(get_x,get_y,get_ship_entity)
+    if get_grid_y == -1
+    continue
+    
+    var get_grid = grid_from_entity(get_ship_entity)
+    var grid_value = grid_get_value(get_grid,get_grid_x,get_grid_y)
+    
+    if is_zero(grid_value)
+    continue
+    
+    bullet_collide_with_ship(get_entity,get_uuid,get_ship_entity,get_ship_uuid)
+    //end collision
     }
-
-
-//end collision
 

@@ -1,4 +1,4 @@
-///packet_send_all(socket)
+///packet_send(socket)
 
 var get_socket = argument0;
 //sends the packet to a specific socket

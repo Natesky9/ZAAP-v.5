@@ -14,6 +14,7 @@ Event_Autopilot()
 //action
 Event_Motion()
 Event_Update()
+Event_Fire()
 //end action
 
 //detection

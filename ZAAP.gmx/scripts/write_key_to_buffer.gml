@@ -2,10 +2,10 @@
 
 //writes the key as string
 //writes the value as the correct value
-var get_key = argument0
-var get_value = argument1
+var get_entity = argument0
+var get_key = argument1
 
-buffer_write(bout,buffer_string,get_key)
+write(get_key)
 
 switch get_key
     {
@@ -14,7 +14,8 @@ switch get_key
         {
         //do something special here
         show("write grid")
-        write_grid_to_buffer(get_value)
+        var get_grid = ds_get(get_entity,"grid")
+        write_grid_to_buffer(get_grid)
         exit
         }
     //
@@ -32,8 +33,11 @@ switch get_key
     //
     default:
         {
-        var get_buffer_type = key_to_buffer_type(get_key)
-        buffer_write(bout,get_buffer_type,get_value)
+        var get_value = ds_get(get_entity,get_key)
+        
+        show("key: " + string(get_key))
+        show("value: " + string(get_value))
+        write(get_value)
         exit
         //we're done here
         }

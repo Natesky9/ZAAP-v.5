@@ -30,12 +30,28 @@ if not drawn
         if am_server()
             {
             entity_destroy_basic(get_uuid)
-            //packet_entity_destroy
-            packet_write(packet.entity_destroy)
             exit
             }
         }
     }
+
+//draw the grid around the cell the mouse is on
+var mouse_grid_x = x_to_grid_x(mouse_x,mouse_y,get_entity)
+var mouse_grid_y = y_to_grid_y(mouse_x,mouse_y,get_entity)
+
+if mouse_grid_x != -1
+and mouse_grid_y != -1
+    {
+    
+    var g_x1 = mouse_grid_x * ship_grid_size
+    var g_y1 = mouse_grid_y * ship_grid_size
+    
+    var g_x2 = g_x1 + ship_grid_size
+    var g_y2 = g_y1 + ship_grid_size
+    draw_set_color(c_blue)
+    draw_rectangle(g_x1,g_y1,g_x2,g_y2,true)
+    }
+
     
 //draw the pilot
 if get_pilot != 0
@@ -52,6 +68,16 @@ d3d_transform_set_identity()
 //end drawing the entity
 
 //debug draw
+
+var get_target = ds_get(get_entity,"target")
+if not is_zero(get_target)
+    {
+    var get_target_entity = entity_from_uuid(get_target)
+    var get_target_x = ds_get(get_target_entity,"x")
+    var get_target_y = ds_get(get_target_entity,"y")
+    draw_set_color(c_blue)
+    draw_line(get_x,get_y,get_target_x,get_target_y)
+    }
 
 var autopilot_status = ds_get(get_entity,"autopilot")
 if not is_zero(autopilot_status)

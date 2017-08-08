@@ -36,9 +36,6 @@ switch get_packet
     case packet.issue_command:
         {packet_issue_command(get_packet_array);break}
     //----------------//
-    case packet.inventory_set:
-        {packet_inventory_set(get_packet_array);break}
-    //----------------//
     case packet.rubberband_entity:
         {packet_rubberband_entity(get_packet_array);break}
     //----------------//
@@ -68,6 +65,9 @@ switch get_packet
     //----------------//
     case packet.ping_report:
         {packet_ping_report(get_packet_array);break}
+    //----------------//
+    case packet.inventory:
+        {packet_inventory(get_packet_array);break}
     //----------------//
     default:
         {console_add("Error, no packet defined");break}

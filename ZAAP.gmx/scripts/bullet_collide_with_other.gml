@@ -1,4 +1,8 @@
 ///bullet_collide_with_other(bullet_entity,bullet_uuid,collision_entity,collision_uuid)
+
+//###//
+//redo this script
+/*
 var get_entity = argument0
 var get_uuid = argument1
 var collision_entity = argument2
@@ -12,4 +16,4 @@ entity_destroy_basic(collision_uuid)
 //packet_entity_destroy
 packet_write(packet.entity_destroy,get_uuid)
 entity_destroy_basic(get_uuid)
-
+*/

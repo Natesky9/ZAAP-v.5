@@ -1,5 +1,10 @@
 ///key_to_buffer_type(key)
 
+//###//
+//delet this//
+//###//
+
+
 var get_key = argument0
 //show("converting key to buffer type")
 //show("key is [" + get_key + "]")

@@ -39,7 +39,8 @@ switch get_packet_array[data.mode]
         show("entity list size is [" + string(get_entity_list_size) + "]")
         repeat get_entity_list_size
             {
-            read_buffer_to_uuid()
+            console_add("update entity")
+            entity_create_client()
             }
         }
     //----------------//

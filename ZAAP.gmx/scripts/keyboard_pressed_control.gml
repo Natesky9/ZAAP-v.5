@@ -12,6 +12,9 @@ if am_client()
     var view_center_x = view_xview[0] + view_wview[0]/2
     var view_center_y = view_yview[0] + view_hview[0]/2
     //packet_entity_create
+    //###//
+    //change this to not use a coordinate
+    //instead, use a special packet using the destination entity
     packet_write(packet.entity_create,view_center_x,view_center_y)
     exit
     }

@@ -2,7 +2,6 @@ var get_entity = argument0
 var get_key = argument1
 var get_value = get_entity[? get_key]
 
-show("key to be deleted is: " + get_key)
 switch get_key
     {
     //
