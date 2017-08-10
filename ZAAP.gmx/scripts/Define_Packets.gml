@@ -20,5 +20,6 @@ enum packet
     grid_set,
     entity_dock,
     inventory,
+    set_ownership,
     types,
     }

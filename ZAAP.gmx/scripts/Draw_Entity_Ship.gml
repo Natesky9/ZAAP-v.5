@@ -97,13 +97,23 @@ if not is_zero(autopilot_status)
             {
             case "dock":
                 {
-                var shipyard_uuid = ds_get(get_node,"target")
+                var shipyard_uuid = ds_get(get_node,"dock")
                 var get_shipyard = entity_from_uuid(shipyard_uuid)
                 
                 get_dest_x = ds_get(get_shipyard,"x")
                 get_dest_y = ds_get(get_shipyard,"y")
                 
                 draw_circle(get_dest_x,get_dest_y,4,false)
+                break
+                }
+            case "target":
+                {
+                var get_target_uuid = ds_get(get_node,"target")
+                var get_target_entity = entity_from_uuid(get_target_uuid)
+                get_dest_x = ds_get(get_target_entity,"x")
+                get_dest_y = ds_get(get_target_entity,"y")
+                draw_set_color(c_red)
+                draw_circle(get_dest_x,get_dest_y,64,true)
                 break
                 }
             case "checkpoint":

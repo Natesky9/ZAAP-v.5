@@ -69,6 +69,9 @@ switch get_packet
     case packet.inventory:
         {packet_inventory(get_packet_array);break}
     //----------------//
+    case packet.set_ownership:
+        {packet_set_ownership(get_packet_array);break}
+    //----------------//
     default:
         {console_add("Error, no packet defined");break}
     //----------------//

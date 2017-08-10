@@ -10,6 +10,7 @@ var autopilot_controller_list = ds_get(envar,"autopilot controller list")
 for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     {
     var get_uuid = ds_list_find_value(autopilot_controller_list,i)
+    //show("running autopilot for: " + string(get_uuid))
     
     var get_entity = entity_from_uuid(get_uuid)
     
@@ -28,13 +29,42 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     switch get_type
         {
         case "dock":
-        case "entity":
             {
-            var shipyard_uuid = ds_get(get_node,"target")
+            var shipyard_uuid = ds_get(get_node,"dock")
             var get_shipyard = entity_from_uuid(shipyard_uuid)
             
+            //work in vector correction here
             var get_dest_x = ds_get(get_shipyard,"x")
             var get_dest_y = ds_get(get_shipyard,"y")
+            break
+            }
+        case "target":
+            {
+            //show("targeting entity")
+            var get_target_uuid = ds_get(get_node,"target")
+            //show("target: " + string(get_target_uuid))
+            var get_target_entity = entity_from_uuid(get_target_uuid)
+            //show("target entity: " + string(get_target_entity))
+            if is_zero(get_target_entity)
+                {
+                console_add("target entity not exist")
+                
+                continue
+                }
+            
+            var get_target_x = ds_get(get_target_entity,"x")
+            var get_target_y = ds_get(get_target_entity,"y")
+            
+            var target_distance = point_direction(get_x,get_y,get_target_x,get_target_y)
+            var target_direction = point_direction(get_x,get_y,get_target_x,get_target_y)
+            
+            var get_range_x = lengthdir_x(400,target_direction)
+            var get_range_y = lengthdir_y(400,target_direction)
+            
+            var get_dest_x = get_target_x - get_range_x
+            var get_dest_y = get_target_y - get_range_y
+            
+            //show("coordinates: " + string(get_dest_x) + ":" + string(get_dest_y))
             break
             }
         default:
@@ -125,13 +155,13 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
         {
         if get_type == "dock"
             {
-            var get_target = ds_get(get_node,"target")
+            var get_dock = ds_get(get_node,"dock")
             
-            if not is_zero(get_target)
+            if not is_zero(get_dock)
                 {
                 console_add("Docking")
                 //packet_entity_dock
-                packet_write(packet.entity_dock,get_uuid,get_target)
+                packet_write(packet.entity_dock,get_uuid,get_dock)
                 }
             }
         

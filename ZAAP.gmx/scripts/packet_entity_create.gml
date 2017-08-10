@@ -71,7 +71,10 @@ switch get_packet_array[data.mode]
         
         repeat 4
             {
-            summon_random_target(get_uuid)
+            var get_enemy_uuid = summon_random_target(get_uuid)
+            //packet_set_ownership
+            packet_write(packet.set_ownership,get_socket,get_enemy_uuid)
+            show("assigning player enemies")
             }
         
         

@@ -1,4 +1,4 @@
-///autopilot_add_node(uuid,type,x,y)
+///autopilot_add_node(uuid,type,[2],[3],[4])
 //types are:
 //checkpoint, waypoint, entity, dock
 
@@ -23,8 +23,8 @@ switch get_type
     {
     case "dock":
         {
-        var get_target = argument[2]
-        ds_set(get_node,"target",get_target)
+        var get_dock = argument[2]
+        ds_set(get_node,"dock",get_target)
         break
         }
     //
@@ -38,15 +38,10 @@ switch get_type
         break
         }
     //
-    case "entity":
+    case "target":
         {
-        //change this to mimic "dock"
         var get_target = argument[2]
-        var get_entity = entity_from_uuid(get_target)
-        var get_x = ds_get(get_entity,"x")
-        var get_y = ds_get(get_entity,"y")
-        ds_set(get_node,"x",get_x)
-        ds_set(get_node,"y",get_y)
+        ds_set(get_node,"target",get_target)
         break
         }
     }

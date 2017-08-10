@@ -162,6 +162,7 @@
     </scripts>
     <scripts name="packets">
       <script>scripts\packet_template.gml</script>
+      <script>scripts\packet_set_ownership.gml</script>
       <script>scripts\packet_inventory.gml</script>
       <script>scripts\packet_entity_dock.gml</script>
       <script>scripts\packet_entity_set_pilot.gml</script>
