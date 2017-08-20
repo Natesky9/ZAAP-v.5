@@ -24,6 +24,14 @@ ds_set(envar,"entity_list_y1",100)
 ds_set(envar,"entity_specific_list_x1",0)
 ds_set(envar,"entity_specific_list_y1",0)
 
+//shipyard gui
+ds_set(envar,"shipyard x1",500)
+ds_set(envar,"shipyard y1",500)
+ds_set(envar,"shipyard x2",700)
+ds_set(envar,"shipyard y2",700)
+
+ds_set(envar,"selected part",part.null)
+
 ds_set(envar,"IP",-1)
 ds_set(envar,"integer IP",-1)
 ds_set(envar,"letter IP",-1)

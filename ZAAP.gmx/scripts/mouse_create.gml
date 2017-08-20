@@ -22,7 +22,7 @@ switch get_entity_type
     //
     case entity.item:
         {
-        var get_id = irandom_range(item.null+1,item.types-1)
+        var get_id = irandom(item.types-1)+1
         ds_set(get_entity,"id",get_id)
         console_add("id is: " + string(get_id))
         break

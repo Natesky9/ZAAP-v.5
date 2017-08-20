@@ -106,15 +106,20 @@
       <script>scripts\keyboard_pressed_c.gml</script>
       <script>scripts\keyboard_pressed_v.gml</script>
       <script>scripts\keyboard_pressed_x.gml</script>
-      <script>scripts\keyboard_pressed_w.gml</script>
-      <script>scripts\keyboard_pressed_a.gml</script>
+      <script>scripts\keyboard_pressed_e.gml</script>
       <script>scripts\keyboard_pressed_s.gml</script>
       <script>scripts\keyboard_pressed_d.gml</script>
+      <script>scripts\keyboard_pressed_f.gml</script>
+      <script>scripts\keyboard_pressed_i.gml</script>
+      <script>scripts\keyboard_pressed_j.gml</script>
+      <script>scripts\keyboard_pressed_k.gml</script>
+      <script>scripts\keyboard_pressed_l.gml</script>
       <script>scripts\keyboard_released_space.gml</script>
-      <script>scripts\keyboard_released_w.gml</script>
-      <script>scripts\keyboard_released_a.gml</script>
+      <script>scripts\keyboard_released_e.gml</script>
       <script>scripts\keyboard_released_s.gml</script>
       <script>scripts\keyboard_released_d.gml</script>
+      <script>scripts\keyboard_released_f.gml</script>
+      <script>scripts\keyboard_released_i.gml</script>
     </scripts>
     <scripts name="Autopilot Functions">
       <script>scripts\autopilot_start.gml</script>
@@ -241,6 +246,9 @@
     <script>scripts\write_buffer_type.gml</script>
     <script>scripts\summon_random_target.gml</script>
     <script>scripts\bullet_collide_with_ship_effect.gml</script>
+    <script>scripts\entity_is_docked.gml</script>
+    <script>scripts\script205.gml</script>
+    <script>scripts\script206.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

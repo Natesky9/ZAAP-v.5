@@ -24,7 +24,7 @@ switch get_type
     case "dock":
         {
         var get_dock = argument[2]
-        ds_set(get_node,"dock",get_target)
+        ds_set(get_node,"dock",get_dock)
         break
         }
     //

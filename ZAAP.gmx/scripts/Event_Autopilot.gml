@@ -14,6 +14,12 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     
     var get_entity = entity_from_uuid(get_uuid)
     
+    if is_zero(get_entity)
+        {
+        show("autopilot entity doesn't exist!")
+        continue
+        }
+    
     var get_x = ds_get(get_entity,"x")
     var get_y = ds_get(get_entity,"y")
     var get_heading = ds_get(get_entity,"heading")
@@ -48,6 +54,19 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
             if is_zero(get_target_entity)
                 {
                 console_add("target entity not exist")
+                
+                //
+                effect_create_below(ef_ring,get_x,get_y,2,c_blue)
+                ds_destroy(ds_type_map,get_node)
+                ds_list_delete(get_autopilot_list,0)
+                
+                if is_zero(ds_list_size(get_autopilot_list))
+                    {
+                    //
+                    show("enemy destroyed")
+                    autopilot_add_node(get_uuid,"waypoint",0,0)
+                    continue
+                    }
                 
                 continue
                 }
@@ -128,12 +147,14 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     //thrust
     if abs_difference < 5
         {
-        if target_distance > brake_distance//
+        if target_distance > brake_distance
+        and target_distance > 8
             {
             if get_speed < target_distance/10
             entity_issue_command(get_entity,"thrust",1)
             if get_speed >= target_distance/10
             entity_issue_command(get_entity,"thrust",0)
+            
             entity_issue_command(get_entity,"brake",0)
             }
         if target_distance <= brake_distance//
@@ -163,6 +184,11 @@ for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
                 //packet_entity_dock
                 packet_write(packet.entity_dock,get_uuid,get_dock)
                 }
+            }
+        if get_type == "waypoint"
+            {
+            if get_speed >= 0
+            continue
             }
         
         effect_create_below(ef_ring,get_dest_x,get_dest_y,1,c_blue)

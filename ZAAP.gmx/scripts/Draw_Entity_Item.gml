@@ -9,29 +9,6 @@ var get_id = ds_get(get_entity,"id")
 
 switch get_id
     {
-    case item.hullt1:
-    case item.hullt2:
-    case item.hullt3:
-    case item.reactor:
-    case item.turret:
-    case item.cargo:
-        {
-        d3d_transform_add_rotation_z(get_heading-90)
-        d3d_transform_add_translation(get_x,get_y,0)
-        var sgs_2 = ship_grid_size/2
-        var bolt = sgs_2 - 4;
-        var color = grid_value_to_color(get_id)
-        draw_set_color(color)
-        draw_roundrect(-sgs_2,-sgs_2,sgs_2,sgs_2,false)
-        draw_set_color(c_gray)
-        draw_roundrect(-sgs_2,-sgs_2,sgs_2,sgs_2,true)
-        draw_circle(bolt,bolt,1,false)
-        draw_circle(-bolt,bolt,1,false)
-        draw_circle(bolt,-bolt,1,false)
-        draw_circle(-bolt,-bolt,1,false)
-        d3d_transform_set_identity()
-        break
-        }
     case item.triangle:
         {
         draw_set_color(c_red)

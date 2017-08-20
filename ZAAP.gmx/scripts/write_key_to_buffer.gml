@@ -35,8 +35,8 @@ switch get_key
         {
         var get_value = ds_get(get_entity,get_key)
         
-        show("key: " + string(get_key))
-        show("value: " + string(get_value))
+        //show("key: " + string(get_key))
+        //show("value: " + string(get_value))
         write(get_value)
         exit
         //we're done here

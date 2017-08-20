@@ -17,6 +17,7 @@ while ds_list_size(entity_destroy_list)
         {
         show("error, no entity!")
         ds_list_delete(entity_destroy_list,0)
+        continue
         }
     
     //get the entity type

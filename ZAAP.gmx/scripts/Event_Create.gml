@@ -35,6 +35,7 @@ network_set_config(network_config_connect_timeout,ping_timeout)
 
 keyboard_string = "127.0.0.1"
 keyboard_focus = "console"
+//entity_focus is only used for view
 entity_focus = 0
 
 ship_grid_size = 32

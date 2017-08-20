@@ -14,14 +14,14 @@ keyboard_pressed_c()
 keyboard_pressed_x()
 keyboard_pressed_v()
 
-keyboard_pressed_w()
-keyboard_pressed_a()
+keyboard_pressed_e()
 keyboard_pressed_s()
 keyboard_pressed_d()
+keyboard_pressed_f()
 
 keyboard_released_space()
 
-keyboard_released_w()
-keyboard_released_a()
+keyboard_released_e()
 keyboard_released_s()
 keyboard_released_d()
+keyboard_released_f()
