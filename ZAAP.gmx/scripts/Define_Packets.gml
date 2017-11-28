@@ -21,5 +21,6 @@ enum packet
     entity_dock,
     inventory,
     set_ownership,
+    login,
     types,
     }

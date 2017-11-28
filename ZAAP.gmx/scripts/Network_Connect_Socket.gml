@@ -27,6 +27,8 @@ console_add("Client has map of: " + string(get_map))
 
 //begin load-in//
 //----------------//
+//packet_login
+packet_write(packet.login,get_socket,data.request)
 //packet_add_socket
 packet_write(packet.add_socket,get_socket)
 //packet_inform_sss

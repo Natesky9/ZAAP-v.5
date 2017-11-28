@@ -25,10 +25,8 @@
       <script>scripts\Event_Autopilot.gml</script>
       <script>scripts\Event_Motion.gml</script>
       <script>scripts\Event_Motion_Clamp.gml</script>
-      <script>scripts\Event_Collision.gml</script>
       <script>scripts\Event_Update.gml</script>
       <script>scripts\Event_Ping.gml</script>
-      <script>scripts\Event_Item_Tick.gml</script>
       <script>scripts\Event_Draw.gml</script>
       <script>scripts\Event_Draw_GUI.gml</script>
       <script>scripts\Event_Keyboard.gml</script>
@@ -126,12 +124,6 @@
       <script>scripts\autopilot_stop.gml</script>
       <script>scripts\autopilot_add_node.gml</script>
     </scripts>
-    <scripts name="Collision Functions">
-      <script>scripts\bullet_collide_with_other.gml</script>
-      <script>scripts\bullet_collide_with_ship.gml</script>
-      <script>scripts\Event_Collect_Item.gml</script>
-      <script>scripts\Event_Bullet_Collision.gml</script>
-    </scripts>
     <scripts name="Buffer Functions">
       <script>scripts\read_buffer_to_grid.gml</script>
       <script>scripts\read_buffer_to_key.gml</script>
@@ -167,6 +159,7 @@
     </scripts>
     <scripts name="packets">
       <script>scripts\packet_template.gml</script>
+      <script>scripts\packet_login.gml</script>
       <script>scripts\packet_set_ownership.gml</script>
       <script>scripts\packet_inventory.gml</script>
       <script>scripts\packet_entity_dock.gml</script>
@@ -239,20 +232,28 @@
     <script>scripts\entity_map_uuid.gml</script>
     <script>scripts\initialize_ds.gml</script>
     <script>scripts\initialize_envar.gml</script>
-    <script>scripts\entity_list_from_type.gml</script>
+    <script>scripts\entity_list.gml</script>
     <script>scripts\write.gml</script>
     <script>scripts\read.gml</script>
     <script>scripts\read_buffer_type.gml</script>
     <script>scripts\write_buffer_type.gml</script>
     <script>scripts\summon_random_target.gml</script>
-    <script>scripts\bullet_collide_with_ship_effect.gml</script>
     <script>scripts\entity_is_docked.gml</script>
-    <script>scripts\script205.gml</script>
-    <script>scripts\script206.gml</script>
+    <script>scripts\client_disconnect.gml</script>
+    <script>scripts\set.gml</script>
+    <script>scripts\get.gml</script>
+    <script>scripts\playerdata_create.gml</script>
+    <script>scripts\playerdata_load.gml</script>
+    <script>scripts\playerdata_exists.gml</script>
+    <script>scripts\keyboard_pressed_f5.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>
   </objects>
+  <timelines name="timelines">
+    <timeline>timelines\timeline0</timeline>
+    <timeline>timelines\timeline1</timeline>
+  </timelines>
   <rooms name="rooms">
     <room>rooms\room0</room>
   </rooms>

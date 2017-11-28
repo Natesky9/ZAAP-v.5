@@ -23,13 +23,13 @@ switch get_packet_array[data.mode]
         {
         var get_sss = buffer_read(bin,buffer_u8)
         
-        SSS = get_sss
-        var get_map = map_from_socket(SSS);
+        set("SSS",get_sss)
+        var get_map = map_from_socket(get("SSS"));
  
         get_map[? "ping timeout"] = ping_timeout
  
         
-        console_add("You are Player[" + string(SSS) + "]")
+        console_add("You are Player[" + string(get_sss) + "]")
         return true
         }
     //----------------//

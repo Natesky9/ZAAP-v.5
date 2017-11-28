@@ -5,7 +5,7 @@ exit
 
 if am_client()
     {
-    var get_ship = get_ship_from_socket(SSS)
+    var get_ship = get_ship_from_socket(get("SSS"))
     if not is_zero(get_ship)
     exit
     

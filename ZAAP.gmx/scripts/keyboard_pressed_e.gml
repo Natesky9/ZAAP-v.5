@@ -6,7 +6,7 @@ exit
 
 if am_client()
     {
-    var get_ship = get_ship_from_socket(SSS)
+    var get_ship = get_ship_from_socket(get("SSS"))
     if is_zero(get_ship)
         {
         console_add("You don't have a ship! Press Control to make one")
@@ -29,9 +29,9 @@ if am_client()
 if am_server()
     {
     //loop through the entity types
-    var get_entity_type = ds_get(envar,"selected entity type")
+    var get_entity_type = get("selected entity type")
     var new_entity_type = (get_entity_type + 1) mod (entity.types)
-    ds_set(envar,"selected entity type",(get_entity_type + 1) mod (entity.types))
+    set("selected entity type",(get_entity_type + 1) mod (entity.types))
     
     //output the entity type and name
     var name = name_from_type(new_entity_type)

@@ -1,11 +1,11 @@
 ///mouse_create()
 
 //create an entity
-var get_entity_type = ds_get(envar,"selected entity type")
+var get_entity_type = get("selected entity type")
 if get_entity_type == entity.null
 exit
 
-var get_entity_type = ds_get(envar,"selected entity type")
+var get_entity_type = get("selected entity type")
 var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
 var get_entity = entity_from_uuid(get_uuid)
 

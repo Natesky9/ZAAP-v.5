@@ -18,15 +18,15 @@ var get_grid = grid_from_entity(get_entity)
 if is_zero(get_grid)
 return false
 
-if get_uuid != ds_get(envar,"selected entity")
+if get_uuid != get("selected entity")
     {
     var get_entity = entity_from_uuid(get_uuid)
     var get_type = ds_get(get_entity,"type")
     
     
     //if it is not the selected entity, make it so
-    ds_set(envar,"selected entity",get_uuid)
-    ds_set(envar,"selected entity type",get_type)
+    set("selected entity",get_uuid)
+    set("selected entity type",get_type)
     console_add("selected new entity")
     return true
     }

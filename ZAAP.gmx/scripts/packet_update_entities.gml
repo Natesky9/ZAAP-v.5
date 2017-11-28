@@ -21,7 +21,7 @@ switch get_packet_array[data.mode]
         for (var i = 1;i < entity.types;i += 1)
             {
             //loop
-            var get_list = ds_get(envar,i)
+            var get_list = get(i)
             for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
                 {
                 var get_uuid = ds_list_find_value(get_list,ii)

@@ -13,7 +13,7 @@ ds_set(get_entity,"autopilot",false)
 
 
 //remove the entity from autopilot
-var autopilot_controller_list = ds_get(envar,"autopilot controller list")
+var autopilot_controller_list = get("autopilot controller list")
 var pos = ds_list_find_index(autopilot_controller_list,get_uuid)
 ds_list_delete(autopilot_controller_list,pos)
 

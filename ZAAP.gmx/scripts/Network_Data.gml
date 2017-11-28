@@ -15,6 +15,9 @@ var get_packet = packet_type(get_packet_array)
 switch get_packet
     {
     //----------------//
+    case packet.login:
+        {packet_login(get_packet_array);break}
+    //----------------//
     case packet.inform_sss:
         {packet_inform_sss(get_packet_array);break}
     //----------------//

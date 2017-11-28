@@ -8,6 +8,9 @@ var ip = ""
 if keyboard_string == ""
 return -1
 
+if keyboard_string == "localhost"
+return "127.0.0.1"
+
 if string_count(".",keyboard_string) == 3
     {
     //full ip was entered

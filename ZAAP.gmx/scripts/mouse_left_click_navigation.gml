@@ -5,7 +5,7 @@
 if not am_client()
 return false
 
-var get_ship = get_ship_from_socket(SSS)
+var get_ship = get_ship_from_socket(get("SSS"))
 if not get_ship
     {
     console_add("no ship")

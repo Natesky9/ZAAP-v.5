@@ -10,36 +10,36 @@ ds_add_key_list(envar)
 //in that -1 is actually "off"
 //I'll probably fix that by
 //adding one
-ds_set(envar,"server",-1)
-ds_set(envar,"client",-1)
+set("server",-1)
+set("client",-1)
 //these aren't actually necessary,
 //but I keep them around so I remember
-ds_set(envar,"steps since start",0)
-ds_set(envar,"step time",0)
-ds_set(envar,"draw time",0)
-ds_set(envar,"draw gui time",0)
+set("session time",0)
+set("step time",0)
+set("draw time",0)
+set("draw gui time",0)
 
-ds_set(envar,"entity_list_x1",100)
-ds_set(envar,"entity_list_y1",100)
-ds_set(envar,"entity_specific_list_x1",0)
-ds_set(envar,"entity_specific_list_y1",0)
+set("entity_list_x1",100)
+set("entity_list_y1",100)
+set("entity_specific_list_x1",0)
+set("entity_specific_list_y1",0)
 
 //shipyard gui
-ds_set(envar,"shipyard x1",500)
-ds_set(envar,"shipyard y1",500)
-ds_set(envar,"shipyard x2",700)
-ds_set(envar,"shipyard y2",700)
+set("shipyard x1",500)
+set("shipyard y1",500)
+set("shipyard x2",700)
+set("shipyard y2",700)
 
-ds_set(envar,"selected part",part.null)
+set("selected part",part.null)
 
-ds_set(envar,"IP",-1)
-ds_set(envar,"integer IP",-1)
-ds_set(envar,"letter IP",-1)
+set("IP",-1)
+set("integer IP",-1)
+set("letter IP",-1)
+set("SSS",-1)
 
 //-----------------------------------//
 //things that need to be put into envar
 
-SSS = -1
 
 packets_in = 0
 packets_out = 0

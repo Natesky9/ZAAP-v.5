@@ -2,11 +2,11 @@
 //###//
 //double check that this works
 
-var get_entity_type = ds_get(envar,"selected entity type")
+var get_entity_type = get("selected entity type")
 if is_zero(get_entity_type)
 return false
 
-var get_entity_list = ds_get(envar,get_entity_type)
+var get_entity_list = get(get_entity_type)
 var get_entity = entity_index_from_mouse()
 if is_zero(get_entity)
 return false

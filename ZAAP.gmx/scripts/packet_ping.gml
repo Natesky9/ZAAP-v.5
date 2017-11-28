@@ -25,7 +25,7 @@ switch get_packet_array[data.mode]
         
         var get_ping = current_time - get_timestamp
         
-        var get_socket_map = map_from_socket(SSS);
+        var get_socket_map = map_from_socket(get("SSS"));
         if is_zero(get_socket_map) exit
         
         get_socket_map[? "ping timeout"] = ping_timeout

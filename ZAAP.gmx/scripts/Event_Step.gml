@@ -1,6 +1,6 @@
 ///Event_Step()
 
-ds_add(envar,"steps since start",1)
+ds_add(envar,"session time",1)
 var step_time_start = get_timer()
 
 Event_Entity_Create()
@@ -17,12 +17,10 @@ Event_Update()
 Event_Fire()
 //end action
 
-//detection
-Event_Collision()
-//end detection
+
 
 Event_Ping()
 
 Event_Entity_Destroy()
 
-ds_set(envar,"step time",get_timer() - step_time_start)
+set("step time",get_timer() - step_time_start)

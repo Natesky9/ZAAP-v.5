@@ -10,7 +10,7 @@ or am_client()
     console_add("toggled entity list")
     if show_debug_entity_list
         {
-        var envar_list = ds_get(envar,"key list")
+        var envar_list = get("key list")
         ds_list_sort(envar_list,true)
         }
     }

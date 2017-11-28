@@ -11,4 +11,4 @@ Draw_Entities()
 
 
 
-ds_set(envar,"draw time",get_timer() - draw_time_start)
+set("draw time",get_timer() - draw_time_start)

@@ -41,7 +41,7 @@ switch get_packet_array[data.mode]
         
         //###//
         //migrate this into the envar?
-        var current_ship = ds_get(envar,"ship");
+        var current_ship = get("ship");
         //
         //do this regardless
         get_entity[? "pilot"] = get_pilot;
@@ -53,7 +53,7 @@ switch get_packet_array[data.mode]
                 {
                 //my ship lost control
                 //reset view for now
-                ds_set(envar,"ship",false)
+                set("ship",false)
                 view_reset()
                 }
             //
@@ -65,8 +65,8 @@ switch get_packet_array[data.mode]
             //do this if the pilot is being set
             var get_map = map_from_socket(get_pilot)
             ds_map_replace(get_map,"ship",get_uuid)
-            if get_pilot == SSS
-            ds_set(envar,"ship",get_uuid)
+            if get_pilot == get("SSS")
+            set("ship",get_uuid)
             //
             break
             }

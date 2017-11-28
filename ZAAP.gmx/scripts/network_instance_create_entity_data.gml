@@ -1,22 +1,23 @@
 ///network_instance_create_entity_data()
 
-//create the main list
-entity_list = ds_create(ds_type_list)
-ds_add(envar,"entity list",entity_list)
+//entity_type_map is the map of type -> map
+var entity_type_map = ds_create(ds_type_map)
+ds_add_key_list(entity_type_map)
+set("entity type map",entity_type_map)
 
-for (var i = 1; i < entity.types;i += 1)
+//entity_map is the map of uuid -> map
+var entity_map = ds_create(ds_type_map)
+ds_add_key_list(entity_type_map)
+set("entity_map",entity_map)
+
+for (var i = 1; i <= entity.types;i += 1)
     {
     //create the list
     var get_list = ds_create(ds_type_list)
     //add these lists to the entity list
-    ds_list_add(entity_list,get_list)
-    //map the entity lists to the entity_type
-    ds_add(envar,i,get_list)
+    ds_set(entity_type_map,i,get_list)
     }
 
-//create the uuid map
-entity_map = ds_create(ds_type_map)
-ds_add(envar,"entity map",entity_map)
 
 //create the prestep and poststep handling lists
 entity_destroy_list = ds_create(ds_type_list)

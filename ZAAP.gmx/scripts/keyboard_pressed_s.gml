@@ -6,7 +6,7 @@ exit
 
 if am_client()
     {
-    var get_ship = get_ship_from_socket(SSS)
+    var get_ship = get_ship_from_socket(get("SSS"))
     if is_zero(get_ship) exit
 
     if get_ship != 0
@@ -22,7 +22,7 @@ if am_client()
 if am_server()
     {
     //get a random ship
-    var get_list = entity_list_from_type(entity.ship)
+    var get_list = entity_list(entity.ship)
     var get_size = ds_list_size(get_list)
     
     if not get_size

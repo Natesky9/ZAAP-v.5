@@ -7,9 +7,9 @@ exit
 //draw the debug list
 if show_debug_entity_list
     {
-    var selected_entity_type = ds_get(envar,"selected entity type")
-    var selected_entity = ds_get(envar,"selected entity")
-    var selected_variable = ds_get(envar,"selected variable")
+    var selected_entity_type = get("selected entity type")
+    var selected_entity = get("selected entity")
+    var selected_variable = get("selected variable")
     
     var text_y
     font_align(7)
@@ -17,21 +17,21 @@ if show_debug_entity_list
     entity_list_update_position()
     
     //entity types box
-    var entity_list_x1 = ds_get(envar,"entity_list_x1")
-    var entity_list_y1 = ds_get(envar,"entity_list_y1")
-    var entity_list_x2 = ds_get(envar,"entity_list_x2")
-    var entity_list_y2 = ds_get(envar,"entity_list_y2")
+    var entity_list_x1 = get("entity_list_x1")
+    var entity_list_y1 = get("entity_list_y1")
+    var entity_list_x2 = get("entity_list_x2")
+    var entity_list_y2 = get("entity_list_y2")
     //end entity types
     
     //entity specific box
-    var entity_specific_list_x1 = ds_get(envar,"entity_specific_list_x1")
-    var entity_specific_list_y1 = ds_get(envar,"entity_specific_list_y1")
-    var entity_specific_list_x2 = ds_get(envar,"entity_specific_list_x2")
-    var entity_specific_list_y2 = ds_get(envar,"entity_specific_list_y2")
+    var entity_specific_list_x1 = get("entity_specific_list_x1")
+    var entity_specific_list_y1 = get("entity_specific_list_y1")
+    var entity_specific_list_x2 = get("entity_specific_list_x2")
+    var entity_specific_list_y2 = get("entity_specific_list_y2")
     //end entity specific box
     
     //draw the general entity types
-    for (var i = 1;i < entity.types;i += 1)
+    for (var i = 1;i <= entity.types;i += 1)
         {
         draw_set_color(c_white)
         if i == selected_entity_type
@@ -47,7 +47,7 @@ if show_debug_entity_list
     //if there is a list selected
     if not is_zero(selected_entity_type)
         {
-        var get_list = ds_get(envar,selected_entity_type)
+        var get_list = entity_list(selected_entity_type)
         var entity_count = ds_list_size(get_list)
         
         //update positions of the list
@@ -84,7 +84,7 @@ if show_debug_entity_list
         //if the entity doesn't exist anymore, exit
         if is_zero(get_entity)
             {
-            ds_set(envar,"selected entity",false)
+            set("selected entity",false)
             show("Selected entity destroyed, resetting selection")
             exit
             }

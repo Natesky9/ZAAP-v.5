@@ -18,5 +18,7 @@ localized_entity_name[? entity.ship] = "ship"
 localized_entity_name[? entity.bullet] = "bullet"
 localized_entity_name[? entity.shipyard] = "shipyard"
 
+localized_entity_name[? entity.types] = "all"
+
 ///fucktouple
 //-Natesky9
