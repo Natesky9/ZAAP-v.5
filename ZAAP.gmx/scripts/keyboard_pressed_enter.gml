@@ -26,6 +26,23 @@ or am_client()
 if not am_server()
 and not am_client()
     {
+    var username = get("username")
+    var valid = false
+    
+    if is_string(username)
+        {
+        if string_length(string_letters(username)) > 2
+        valid = true
+        show("ran")
+        }
+    
+    if !valid
+        {
+        console_add("You need a username to log in")
+        console_add("type a name and hit F5 to create one")
+        return false
+        }
+    
     var ip = find_ip()
     if ip != -1
         {

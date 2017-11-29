@@ -20,6 +20,10 @@
     <script>scripts\Define_Items.gml</script>
     <scripts name="Events">
       <script>scripts\Event_Create.gml</script>
+      <scripts name="create functions">
+        <script>scripts\initialize_envar.gml</script>
+        <script>scripts\initialize_ds.gml</script>
+      </scripts>
       <script>scripts\Event_View.gml</script>
       <script>scripts\Event_Step.gml</script>
       <script>scripts\Event_Autopilot.gml</script>
@@ -56,11 +60,16 @@
       <script>scripts\Draw_Socket_List_Empty.gml</script>
       <script>scripts\Draw_Ship_Grid.gml</script>
       <script>scripts\Draw_Navigation_Grid.gml</script>
+      <scripts name="draw functions">
+        <script>scripts\draw_asteroid_hex.gml</script>
+        <script>scripts\transform_set_ship_orientation.gml</script>
+        <script>scripts\grid_value_to_color.gml</script>
+        <script>scripts\entity_index_from_mouse.gml</script>
+        <script>scripts\entity_specific_list_update_position.gml</script>
+        <script>scripts\entity_list_update_position.gml</script>
+      </scripts>
       <script>scripts\Draw_Nearby_Entities.gml</script>
-      <script>scripts\draw_asteroid_hex.gml</script>
       <script>scripts\Draw_Asteroid_Grid_Vertex_Buffer.gml</script>
-      <script>scripts\transform_set_ship_orientation.gml</script>
-      <script>scripts\grid_value_to_color.gml</script>
       <scripts name="Vertex Buffer">
         <script>scripts\vertex_buffer_draw_rectangle.gml</script>
         <script>scripts\create_vertex_buffer_format.gml</script>
@@ -74,9 +83,22 @@
       <script>scripts\server_create.gml</script>
       <script>scripts\client_create.gml</script>
       <script>scripts\client_destroy.gml</script>
+      <script>scripts\network_instance_create.gml</script>
+      <script>scripts\network_instance_create_entity_data.gml</script>
+      <scripts name="packet functions">
+        <script>scripts\packet_send_all.gml</script>
+        <script>scripts\packet_send.gml</script>
+        <script>scripts\packet_write.gml</script>
+        <script>scripts\packet_mode.gml</script>
+        <script>scripts\packet_type.gml</script>
+        <script>scripts\packet_read.gml</script>
+        <script>scripts\write.gml</script>
+        <script>scripts\write_type.gml</script>
+        <script>scripts\write_buffer_type.gml</script>
+        <script>scripts\read.gml</script>
+        <script>scripts\read_type.gml</script>
+      </scripts>
       <script>scripts\client_connect.gml</script>
-      <script>scripts\packet_send_all.gml</script>
-      <script>scripts\packet_send.gml</script>
       <script>scripts\packet_send_host.gml</script>
       <script>scripts\Network_Connect_Socket.gml</script>
       <script>scripts\Network_Disconnect_Socket.gml</script>
@@ -84,6 +106,7 @@
       <script>scripts\HTTP_Event.gml</script>
       <script>scripts\socket_add_new_key.gml</script>
       <script>scripts\create_socket.gml</script>
+      <script>scripts\client_disconnect.gml</script>
     </scripts>
     <scripts name="Mouse Functions">
       <script>scripts\entity_list_index_from_mouse.gml</script>
@@ -91,12 +114,17 @@
       <script>scripts\mouse_left_click_entity_list.gml</script>
       <script>scripts\mouse_create.gml</script>
       <script>scripts\mouse_left_click_ship_grid.gml</script>
+      <script>scripts\mouse_left_click_navigation.gml</script>
+      <script>scripts\mouse_left_click_autopilot_add_node.gml</script>
+      <script>scripts\mouse_right_click_delete_entity.gml</script>
+      <script>scripts\mouse_left_click_ship_grid_server.gml</script>
     </scripts>
     <scripts name="keyboard keys">
       <script>scripts\keyboard_pressed_f1.gml</script>
       <script>scripts\keyboard_pressed_f2.gml</script>
       <script>scripts\keyboard_pressed_f3.gml</script>
       <script>scripts\keyboard_pressed_f4.gml</script>
+      <script>scripts\keyboard_pressed_f5.gml</script>
       <script>scripts\keyboard_pressed_escape.gml</script>
       <script>scripts\keyboard_pressed_enter.gml</script>
       <script>scripts\keyboard_pressed_space.gml</script>
@@ -156,6 +184,9 @@
       <script>scripts\is_zero.gml</script>
       <script>scripts\find_ip.gml</script>
       <script>scripts\additional_sum.gml</script>
+      <script>scripts\set.gml</script>
+      <script>scripts\get.gml</script>
+      <script>scripts\entity_list.gml</script>
     </scripts>
     <scripts name="packets">
       <script>scripts\packet_template.gml</script>
@@ -170,15 +201,11 @@
       <script>scripts\packet_entity_create.gml</script>
       <script>scripts\packet_entity_command.gml</script>
       <script>scripts\packet_update_entities.gml</script>
-      <script>scripts\packet_mode.gml</script>
       <script>scripts\packet_add_socket.gml</script>
       <script>scripts\packet_remove_socket.gml</script>
       <script>scripts\packet_update_sockets.gml</script>
       <script>scripts\packet_ping_report.gml</script>
       <script>scripts\packet_ping.gml</script>
-      <script>scripts\packet_write.gml</script>
-      <script>scripts\packet_read.gml</script>
-      <script>scripts\packet_type.gml</script>
       <script>scripts\packet_chat.gml</script>
       <script>scripts\packet_inform_sss.gml</script>
       <script>scripts\packet_fire_weapon.gml</script>
@@ -205,7 +232,6 @@
       <script>scripts\map_add_new_key.gml</script>
     </scripts>
     <scripts name="Entity">
-      <script>scripts\entity_count_all.gml</script>
       <script>scripts\entity_type_to_name.gml</script>
       <script>scripts\entity_create_server.gml</script>
       <script>scripts\entity_create_basic.gml</script>
@@ -218,34 +244,16 @@
       <script>scripts\entity_issue_command.gml</script>
       <script>scripts\entity_dock_pair.gml</script>
       <script>scripts\entity_dock_pair_advanced.gml</script>
+      <script>scripts\entity_map_uuid.gml</script>
+      <script>scripts\entity_is_docked.gml</script>
     </scripts>
-    <script>scripts\network_instance_create.gml</script>
-    <script>scripts\network_instance_create_entity_data.gml</script>
-    <script>scripts\entity_index_from_mouse.gml</script>
-    <script>scripts\entity_specific_list_update_position.gml</script>
-    <script>scripts\entity_list_update_position.gml</script>
-    <script>scripts\mouse_left_click_navigation.gml</script>
-    <script>scripts\mouse_left_click_autopilot_add_node.gml</script>
-    <script>scripts\mouse_right_click_delete_entity.gml</script>
-    <script>scripts\mouse_left_click_ship_grid_server.gml</script>
     <script>scripts\randomize_grid.gml</script>
-    <script>scripts\entity_map_uuid.gml</script>
-    <script>scripts\initialize_ds.gml</script>
-    <script>scripts\initialize_envar.gml</script>
-    <script>scripts\entity_list.gml</script>
-    <script>scripts\write.gml</script>
-    <script>scripts\read.gml</script>
-    <script>scripts\read_buffer_type.gml</script>
-    <script>scripts\write_buffer_type.gml</script>
     <script>scripts\summon_random_target.gml</script>
-    <script>scripts\entity_is_docked.gml</script>
-    <script>scripts\client_disconnect.gml</script>
-    <script>scripts\set.gml</script>
-    <script>scripts\get.gml</script>
-    <script>scripts\playerdata_create.gml</script>
-    <script>scripts\playerdata_load.gml</script>
-    <script>scripts\playerdata_exists.gml</script>
-    <script>scripts\keyboard_pressed_f5.gml</script>
+    <scripts name="playerdata">
+      <script>scripts\playerdata_load.gml</script>
+      <script>scripts\playerdata_exists.gml</script>
+      <script>scripts\playerdata_create.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

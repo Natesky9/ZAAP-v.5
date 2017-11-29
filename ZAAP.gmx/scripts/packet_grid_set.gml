@@ -7,7 +7,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.grid_set)
+        write_type(packet.grid_set)
         var get_uuid = get_packet_array[data.arg_0]
         var get_grid_x = get_packet_array[data.arg_1]
         var get_grid_y = get_packet_array[data.arg_2]
@@ -66,7 +66,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.grid_set)
+        write_type(packet.grid_set)
         var get_uuid = get_packet_array[data.arg_0]
         var get_grid_x = get_packet_array[data.arg_1]
         var get_grid_y = get_packet_array[data.arg_2]

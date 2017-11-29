@@ -10,7 +10,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.inform_sss)
+        write_type(packet.inform_sss)
         
         var get_socket = get_packet_array[data.arg_0]
         buffer_write(bout,buffer_u8,get_socket)
@@ -35,6 +35,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
+        write_type(packet.null)
         return true
         }
     //----------------//

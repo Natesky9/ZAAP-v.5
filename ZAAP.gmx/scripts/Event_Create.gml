@@ -42,8 +42,8 @@ ship_grid_size = 32
 
 
 
-build = date_time_string(GM_build_date)
-console_add("{" + build + "}")
+//build = date_time_string(GM_build_date)
+//console_add("{" + build + "}")
 
 
 set("entity view",false)

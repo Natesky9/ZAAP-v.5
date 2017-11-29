@@ -6,7 +6,7 @@
 
 //show("reading buffer")
 
-var buffer_type = read_buffer_type()
+var buffer_type = buffer_read(bin,buffer_u8)
 //show("buffer type is: " + string(buffer_type))
 
 var value = buffer_read(bin,buffer_type)

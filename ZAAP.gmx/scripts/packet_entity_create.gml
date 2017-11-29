@@ -7,7 +7,7 @@ switch get_packet_array[data.mode]
     //
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.entity_create)
+        write_type(packet.entity_create)
         
         var get_uuid = get_packet_array[data.arg_0]
         uuid_write_to_buffer(get_uuid)
@@ -25,7 +25,7 @@ switch get_packet_array[data.mode]
     //
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.entity_create)
+        write_type(packet.entity_create)
         //client entity request
         var get_x = get_packet_array[data.arg_0]
         var get_y = get_packet_array[data.arg_1]

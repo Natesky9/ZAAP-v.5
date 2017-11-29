@@ -7,18 +7,15 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.ping_report)
+        write_type(packet.ping_report)
         
         var list_size = ds_list_size(socket_list)
-        
         buffer_write(bout,buffer_u8,list_size)
         
         for (var i = 0;i < list_size;i += 1)
             {
             var get_socket = ds_list_find_value(socket_list,i)
-            
             var get_socket_map = map_from_socket(get_socket)
-            
             var get_ping = ds_get(get_socket_map,"ping")
             
             if get_ping > 9999
@@ -56,9 +53,9 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
+        write_type(packet.ping_report)
         var get_ping = get_packet_array[data.arg_0]
         
-        buffer_write(bout,buffer_u8,packet.ping_report)
         buffer_write(bout,buffer_u16,get_ping)
         
         packet_send_host()

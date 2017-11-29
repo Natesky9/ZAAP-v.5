@@ -7,7 +7,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.set_ownership)
+        write_type(packet.set_ownership)
         var get_client = get_packet_array[data.arg_0]
         var get_uuid = get_packet_array[data.arg_1]
         write(get_uuid)
@@ -43,7 +43,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.null)
+        write_type(packet.null)
         break
         }
     //----------------//

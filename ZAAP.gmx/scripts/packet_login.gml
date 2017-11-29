@@ -7,9 +7,10 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
+        write_type(packet.login)
         var socket = get_packet_array[data.arg_0]
         var type = get_packet_array[data.arg_1]
-        buffer_write(bout,buffer_u8,packet.login)
+        
         
         write(type)
         
@@ -33,7 +34,6 @@ switch get_packet_array[data.mode]
             case data.approve:
                 {
                 console_add("sucessfully connected!")
-                set("profile",get("username"))
                 break
                 }
             case data.deny:
@@ -53,7 +53,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.login)
+        write_type(packet.login)
         
         var username = get_packet_array[data.arg_0]
         write(username)

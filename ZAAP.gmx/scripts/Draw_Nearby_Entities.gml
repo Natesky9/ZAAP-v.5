@@ -15,7 +15,7 @@ return false
 
 //draw nearby ships
 
-var get_list = get(entity.ship)
+var get_list = entity_list(entity.ship)
 if is_zero(get_list)
     {
     console_add("error, no entity list")

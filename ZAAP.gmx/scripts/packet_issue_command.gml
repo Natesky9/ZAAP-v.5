@@ -7,12 +7,12 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
+        write_type(packet.issue_command)
         //maybe add to sync just the command
         var get_uuid = get_packet_array[data.arg_0]
         var get_key = get_packet_array[data.arg_1]
         var get_value = get_packet_array[data.arg_2]
         
-        buffer_write(bout,buffer_u8,packet.issue_command)
         
         write(get_uuid)
         
@@ -39,7 +39,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.issue_command)
+        write_type(packet.issue_command)
         
         var get_uuid = get_packet_array[data.arg_0]
         var get_command = get_packet_array[data.arg_1]

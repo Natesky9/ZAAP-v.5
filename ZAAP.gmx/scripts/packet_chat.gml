@@ -7,10 +7,10 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
+        write_type(packet.chat)
         var get_text = get_packet_array[data.arg_0]
         console_add(get_text)
         
-        buffer_write(bout,buffer_u8,packet.chat)
         buffer_write(bout,buffer_string,get_text)
         
         var bytes = 0
@@ -34,10 +34,10 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
+        write_type(packet.chat)
         var get_text = get_packet_array[data.arg_0]
         show("get text is : " + string(get_text))
         
-        buffer_write(bout,buffer_u8,packet.chat)
         buffer_write(bout,buffer_string,get_text)
         
         var bytes = network_send_packet(host_connection,bout,buffer_tell(bout))

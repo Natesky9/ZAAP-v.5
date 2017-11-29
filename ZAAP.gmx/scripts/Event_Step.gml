@@ -8,7 +8,7 @@ Event_Entity_Create()
 //input
 Event_Keyboard()
 Event_Mouse()
-Event_Autopilot()
+//Event_Autopilot()
 //end input
 
 //action

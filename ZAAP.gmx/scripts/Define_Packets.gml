@@ -20,7 +20,7 @@ enum packet
     grid_set,
     entity_dock,
     inventory,
-    set_ownership,
+    set_ownership,//20
     login,
     types,
     }

@@ -9,7 +9,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.entity_dock)
+        write_type(packet.entity_dock)
         console_add("initiallizing dock")
         
         var get_uuid = get_packet_array[data.arg_0]
@@ -37,7 +37,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.entity_dock)
+        write_type(packet.entity_dock)
         
         var get_uuid = get_packet_array[data.arg_0]
         var get_target = get_packet_array[data.arg_1]

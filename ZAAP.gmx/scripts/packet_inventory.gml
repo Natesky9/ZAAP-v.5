@@ -7,6 +7,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
+        write_type(packet.inventory)
         var get_uuid = get_packet_array[data.arg_0]
         
         var socket_list_size = ds_list_size(socket_list)
@@ -23,7 +24,7 @@ switch get_packet_array[data.mode]
             if get_socket_ship_uuid == get_uuid
                 {
                 show("yes")
-                buffer_write(bout,buffer_u8,packet.inventory)
+                write(packet.inventory)
                 packet_send(get_socket)
                 break
                 }
@@ -39,7 +40,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.null)
+        write_type(packet.null)
         break
         }
     //----------------//
