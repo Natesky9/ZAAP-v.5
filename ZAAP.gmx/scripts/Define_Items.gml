@@ -3,14 +3,6 @@
 
 enum item
     {
-    null,
-    hullt1,
-    hullt2,
-    hullt3,
-    reactor,
-    turret,
-    cargo,
-    //spacer. Don't change the ones above or below!
     triangle,
     circle,
     square,

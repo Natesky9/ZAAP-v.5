@@ -11,7 +11,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.add_socket)
+        write_type(packet.add_socket)
         var get_socket = get_packet_array[data.arg_0]
         show("adding socket: " + string(get_socket))
         socket_write_to_buffer(get_socket)
@@ -54,7 +54,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.null)
+        write_type(packet.null)
         break
         }
     //----------------//

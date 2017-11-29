@@ -18,7 +18,7 @@ if show_debug_data_structures
         //this one uses the envar
         //(environment variable) map
         //--------//    
-        var key_list = ds_get(envar,"key list")
+        var key_list = get("key list")
         var envar_debug_size = ds_list_size(key_list)
         
         var envar_debug_x2 = window_get_width()
@@ -43,7 +43,7 @@ if show_debug_data_structures
                 //-----//
                 default:
                     {
-                    get_value = ds_get(envar,get_key)
+                    get_value = get(get_key)
                     
                     font_align(7)
                     draw_text(envar_debug_x1,envar_debug_y1 + 16*i,get_key)

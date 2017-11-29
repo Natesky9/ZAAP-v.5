@@ -11,7 +11,7 @@ var get_function = get_packet_array[data.mode]
 if get_function == "server read"
 or get_function == "client read"
     {
-    var get_packet = buffer_read(bin,buffer_u8)
+    var get_packet = read_type()
     return get_packet
     }
 if get_function == "server write"

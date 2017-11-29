@@ -6,7 +6,7 @@ var get_target = argument0
 var random_x = irandom_range(-1000,1000)
 var random_y = irandom_range(-1000,1000)
 var random_angle = irandom(360)
-var new_grid = ds_create(ds_type_grid,9,9)
+var new_grid = ds_create(ds_type_grid,5,5)
 
 randomize_grid(new_grid)
 
@@ -20,7 +20,10 @@ ds_set(get_entity,"heading",random_angle)
 ds_set(get_entity,"grid",new_grid)
 
 //set the target
+//unnecesary, since autopilot is handling this?
 ds_set(get_entity,"target",get_target)
 
 //packet_entity_create
 packet_write(packet.entity_create,get_uuid)
+
+return get_uuid

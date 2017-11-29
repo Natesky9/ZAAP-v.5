@@ -15,5 +15,4 @@ for (var h = 0;h < get_height;h += 1)
         ds_grid_set(get_grid,w,h,get_grid_cell)
         //get_grid[# w,h] = get_grid_cell
         }
-    
     }

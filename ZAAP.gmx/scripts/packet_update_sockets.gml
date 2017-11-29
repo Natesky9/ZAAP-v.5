@@ -9,7 +9,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.update_sockets)
+        write_type(packet.update_sockets)
         var get_update_socket = get_packet_array[data.arg_0]
         //update all the clients on the sockets
         var get_list_size = ds_list_size(socket_list)
@@ -62,6 +62,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
+        write_type(packet.null)
         break
         }
     //----------------//

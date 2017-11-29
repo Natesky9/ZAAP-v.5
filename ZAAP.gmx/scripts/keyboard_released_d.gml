@@ -6,15 +6,23 @@ exit
 
 if am_client()
     {
-    var get_ship = get_ship_from_socket(SSS)
+    var get_ship = get_ship_from_socket(get("SSS"))
     if is_zero(get_ship) exit
 
     if get_ship != 0
         {
-        var left = keyboard_check(ord('A'))
-        if left
-        entity_issue_command(get_ship,"steer",+1)
-        if not left
-        entity_issue_command(get_ship,"steer",0)
+        entity_issue_command(get_ship,"brake",0)
         }
+    }
+
+if am_server()
+    {
+    //loop through the entity types
+    var get_entity_type = get("selected entity type")
+    var new_entity_type = (get_entity_type + entity.types - 1) mod (entity.types)
+    set("selected entity type",new_entity_type)
+    
+    //output the entity type and name
+    var name = name_from_type(new_entity_type)
+    console_add("entity name is now: " + name)
     }

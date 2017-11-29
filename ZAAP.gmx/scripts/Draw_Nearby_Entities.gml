@@ -8,11 +8,20 @@ var range = 10000
 var view_center_x = view_wview[0]/2
 var view_center_y = view_hview[0]/2
 
-var current_ship = ds_get(envar,"ship")
+var current_ship = get("ship")
+
+if is_zero(current_ship)
+return false
 
 //draw nearby ships
 
-var get_list = ds_get(envar,entity.ship)
+var get_list = entity_list(entity.ship)
+if is_zero(get_list)
+    {
+    console_add("error, no entity list")
+    return false
+    }
+
 for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
     {
     var get_uuid = ds_list_find_value(get_list,ii)

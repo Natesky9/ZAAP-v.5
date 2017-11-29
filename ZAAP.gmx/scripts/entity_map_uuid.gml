@@ -9,7 +9,7 @@ if is_zero(get_uuid)
     show("Error, received entity had no uuid")
     exit
     }
-ds_map_add(entity_map,get_uuid,get_entity)
+ds_map_add(get("entity map"),get_uuid,get_entity)
 
 //add to the create list
 ds_list_add(entity_create_list,get_uuid)

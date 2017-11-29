@@ -8,7 +8,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.fire_weapon)
+        write_type(packet.fire_weapon)
         var get_ship = get_packet_array[data.arg_0]
         var get_projectile = get_packet_array[data.arg_1]
         
@@ -53,7 +53,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.fire_weapon)
+        write_type(packet.fire_weapon)
         //add in other arguments
         packet_send_host()
         break

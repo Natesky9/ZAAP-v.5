@@ -7,7 +7,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.entity_set_pilot)
+        write_type(packet.entity_set_pilot)
         break
         }
     //----------------//
@@ -18,7 +18,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.null)
+        write_type(packet.null)
         break
         }
     //----------------//

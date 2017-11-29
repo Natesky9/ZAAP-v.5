@@ -1,11 +1,11 @@
 ///mouse_create()
 
 //create an entity
-var get_entity_type = ds_get(envar,"selected entity type")
+var get_entity_type = get("selected entity type")
 if get_entity_type == entity.null
 exit
 
-var get_entity_type = ds_get(envar,"selected entity type")
+var get_entity_type = get("selected entity type")
 var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
 var get_entity = entity_from_uuid(get_uuid)
 
@@ -22,7 +22,7 @@ switch get_entity_type
     //
     case entity.item:
         {
-        var get_id = irandom_range(item.null+1,item.types-1)
+        var get_id = irandom(item.types-1)+1
         ds_set(get_entity,"id",get_id)
         console_add("id is: " + string(get_id))
         break

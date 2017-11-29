@@ -14,4 +14,4 @@ Draw_Shipyard_GUI()
 
 Draw_Debug()
 
-ds_set(envar,"draw gui time",get_timer() - draw_gui_time_start)
+set("draw gui time",get_timer() - draw_gui_time_start)

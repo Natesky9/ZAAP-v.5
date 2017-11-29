@@ -38,6 +38,13 @@ for (var i = 0;i < ds_list_size(entity_list);i += 1)
     
     var get_ship_entity = entity_from_uuid(get_ship_uuid)
     
+    if is_zero(get_ship_entity)
+        {
+        show("ship does not exist #Event_Bullet_Collision")
+        continue
+        }
+    
+    
     var get_grid_x = x_to_grid_x(get_x,get_y,get_ship_entity)
     if get_grid_x == -1
     continue

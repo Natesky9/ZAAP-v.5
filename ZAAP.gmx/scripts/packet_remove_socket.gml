@@ -8,9 +8,9 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
+        write_type(packet.remove_socket)
         var get_socket = get_packet_array[data.arg_0]
         
-        buffer_write(bout,buffer_u8,packet.remove_socket)
         buffer_write(bout,buffer_u8,get_socket)
         
         packet_send_all()
@@ -38,7 +38,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.remove_socket)
+        write_type(packet.remove_socket)
         packet_send_host()
         break
         }

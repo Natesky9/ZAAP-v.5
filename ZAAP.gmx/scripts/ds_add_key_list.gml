@@ -11,5 +11,5 @@ if key_list_exists
 if not key_list_exists
     {
     var key_list = ds_list_create();
-    ds_set(envar,"key list",key_list);
+    ds_set(get_map,"key list",key_list);
     }

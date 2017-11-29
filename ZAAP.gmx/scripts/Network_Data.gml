@@ -15,6 +15,9 @@ var get_packet = packet_type(get_packet_array)
 switch get_packet
     {
     //----------------//
+    case packet.login:
+        {packet_login(get_packet_array);break}
+    //----------------//
     case packet.inform_sss:
         {packet_inform_sss(get_packet_array);break}
     //----------------//
@@ -68,6 +71,9 @@ switch get_packet
     //----------------//
     case packet.inventory:
         {packet_inventory(get_packet_array);break}
+    //----------------//
+    case packet.set_ownership:
+        {packet_set_ownership(get_packet_array);break}
     //----------------//
     default:
         {console_add("Error, no packet defined");break}

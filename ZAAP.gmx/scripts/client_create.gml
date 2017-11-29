@@ -23,14 +23,14 @@ if network_result >= 0
     //socket created successfully
     console_add("Client successfully created")
     //initialize client variables
-    ds_set(envar,"client",network_result)
-    SSS = -1
+    set("client",network_result)
+    set("SSS",-1)
     Ship = 0
     
     network_instance_create()
     
     var autopilot_controller_list = ds_create(ds_type_list)
-    ds_set(envar,"autopilot controller list",autopilot_controller_list)
+    set("autopilot controller list",autopilot_controller_list)
     
     return true
     }

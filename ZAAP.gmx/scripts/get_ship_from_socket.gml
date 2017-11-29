@@ -11,7 +11,7 @@ if is_zero(get_socket_map) return false
 var get_uuid = ds_get(get_socket_map,"ship")
 //show("get_uuid: " + string(get_uuid))
 if is_zero(get_uuid) return false
-var get_ship = ds_get(entity_map,get_uuid)
+var get_ship = ds_get(get("entity map"),get_uuid)
 //show("get ship: " + string(get_ship))
 if is_zero(get_ship) return false
 

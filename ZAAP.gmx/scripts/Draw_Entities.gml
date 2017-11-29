@@ -6,9 +6,10 @@ exit
 
 var get_uuid,get_entity,get_type
 
-for (var i = ds_list_size(entity_list)-1;i >= 0;i -= 1)
+//draw from largest to smallest
+for (var i = entity.types;i >= 0;i -= 1)
     {
-    var get_list = ds_list_find_value(entity_list,i)
+    var get_list = entity_list(entity.types)
     for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
         {
         get_uuid = ds_list_find_value(get_list,ii)
@@ -17,6 +18,7 @@ for (var i = ds_list_size(entity_list)-1;i >= 0;i -= 1)
         if is_zero(get_entity)
         continue
         //get the type of entity then filter from there
+        //can be changed to isolate types
         get_type = ds_get(get_entity,"type")
         
         switch get_type

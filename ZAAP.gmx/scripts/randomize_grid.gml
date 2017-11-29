@@ -8,7 +8,7 @@ for (h = 0;h < height;h += 1)
     {
     for (w = 0;w < width;w += 1)
         {
-        var value = irandom(item.cargo)
+        var value = irandom(part.types)
         ds_grid_set(get_grid,w,h,value)
         }
     }

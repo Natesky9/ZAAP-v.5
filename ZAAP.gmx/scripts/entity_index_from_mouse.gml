@@ -1,15 +1,15 @@
 ///entity_list_entity_from_mouse()
 
-var get_list = ds_get(envar,"selected entity type")
+var get_list = get("selected entity type")
 
 //this returns the uuid of the thing clicked
 var m_x = window_mouse_get_x()
 var m_y = window_mouse_get_y()
 
-var entity_specific_list_x1 = ds_get(envar,"entity_specific_list_x1")
-var entity_specific_list_y1 = ds_get(envar,"entity_specific_list_y1")
-var entity_specific_list_x2 = ds_get(envar,"entity_specific_list_x2")
-var entity_specific_list_y2 = ds_get(envar,"entity_specific_list_y2")
+var entity_specific_list_x1 = get("entity_specific_list_x1")
+var entity_specific_list_y1 = get("entity_specific_list_y1")
+var entity_specific_list_x2 = get("entity_specific_list_x2")
+var entity_specific_list_y2 = get("entity_specific_list_y2")
 
 if m_x <= entity_specific_list_x1
 or m_x >= entity_specific_list_x2
@@ -21,7 +21,7 @@ return false
 var get_pos = ceil((m_y-entity_specific_list_y1) / 16)
 
 //get the id of the list
-var get_list_index = ds_get(envar,get_list)
+var get_list_index = entity_list(get_list)
 
 var get_entity = ds_list_find_value(get_list_index,get_pos-1)
 console_add(string(get_entity))

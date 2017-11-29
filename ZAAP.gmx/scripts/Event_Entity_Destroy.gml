@@ -17,20 +17,29 @@ while ds_list_size(entity_destroy_list)
         {
         show("error, no entity!")
         ds_list_delete(entity_destroy_list,0)
+        continue
         }
     
     //get the entity type
+    var pos;
     var get_type = ds_get(get_entity,"type")
     //
     //get the list id
-    var get_list = ds_get(envar,get_type)
+    var get_list = entity_list(get_type)
     //find where it is in the entity list
-    var pos = ds_list_find_index(get_list,get_uuid)
+    pos = ds_list_find_index(get_list,get_uuid)
     //delete it from that list
     ds_list_delete(get_list,pos)
     
+    //get the global list
+    var get_global_list = entity_list(entity.types)
+    //find where in the global entity list
+    pos = ds_list_find_index(get_global_list,get_uuid)
+    //delete it from global list
+    ds_list_delete(get_global_list,pos)
+    
     //disassociate the uuid
-    ds_map_delete(entity_map,get_uuid)
+    ds_map_delete(get("entity map"),get_uuid)
 
     
     var get_key_list = ds_get(get_entity,"key list")

@@ -4,11 +4,11 @@
 if not am_server()
 exit
 
-var entity_ship_list = entity_list_from_type(entity.ship)
+var entity_ship_list = entity_list(entity.ship)
 
 var entity_ship_list_size = ds_list_size(entity_ship_list)
 
-for (var i = 0;i < ds_list_size(entity_list);i += 1)
+for (var i = 0;i < entity_ship_list_size;i += 1)
     {
     var get_ship_uuid = ds_list_find_value(entity_ship_list,i)
     var get_ship_entity = entity_from_uuid(get_ship_uuid)

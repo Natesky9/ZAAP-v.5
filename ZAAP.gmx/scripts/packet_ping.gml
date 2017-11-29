@@ -7,12 +7,12 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server write":
         {
+        write_type(packet.ping)
         var get_socket = get_packet_array[data.arg_0]
         var get_ping = get_packet_array[data.arg_1]
         
         //show("received ping of: " + string(get_ping))
         
-        buffer_write(bout,buffer_u8,packet.ping)
         buffer_write(bout,buffer_u32,get_ping)
         
         packet_send(get_socket)
@@ -25,7 +25,7 @@ switch get_packet_array[data.mode]
         
         var get_ping = current_time - get_timestamp
         
-        var get_socket_map = map_from_socket(SSS);
+        var get_socket_map = map_from_socket(get("SSS"));
         if is_zero(get_socket_map) exit
         
         get_socket_map[? "ping timeout"] = ping_timeout
@@ -37,7 +37,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.ping)
+        write_type(packet.ping)
         //write the current time
         buffer_write(bout,buffer_u32,current_time)
         //send

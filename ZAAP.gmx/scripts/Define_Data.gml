@@ -12,4 +12,8 @@ enum data
     arg_7,
     arg_8,
     arg_9,
+    request,
+    approve,
+    deny,
+    types
     }

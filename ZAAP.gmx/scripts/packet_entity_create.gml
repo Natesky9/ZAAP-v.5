@@ -7,7 +7,7 @@ switch get_packet_array[data.mode]
     //
     case "server write":
         {
-        buffer_write(bout,buffer_u8,packet.entity_create)
+        write_type(packet.entity_create)
         
         var get_uuid = get_packet_array[data.arg_0]
         uuid_write_to_buffer(get_uuid)
@@ -25,7 +25,7 @@ switch get_packet_array[data.mode]
     //
     case "client write":
         {
-        buffer_write(bout,buffer_u8,packet.entity_create)
+        write_type(packet.entity_create)
         //client entity request
         var get_x = get_packet_array[data.arg_0]
         var get_y = get_packet_array[data.arg_1]
@@ -69,11 +69,14 @@ switch get_packet_array[data.mode]
         //packet_entity_command
         packet_write(packet.entity_command,get_socket,get_uuid)
         
-        repeat 4
+        /*repeat 4
             {
-            summon_random_target(get_uuid)
+            var get_enemy_uuid = summon_random_target(get_uuid)
+            //packet_set_ownership
+            packet_write(packet.set_ownership,get_socket,get_enemy_uuid)
+            show("assigning player enemies")
             }
-        
+        */
         
         return true
         }

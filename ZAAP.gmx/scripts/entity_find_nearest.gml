@@ -12,7 +12,8 @@ var nearest_entity = 0
 var nearest_distance = -1
 //###//
 
-var get_entity_list = ds_get(envar,get_search_type)
+var get_entity_list = get(get_search_type)
+var entity_map = get("entity map")
 
 for (var ii = 0;ii < ds_list_size(get_entity_list);ii += 1)
     {

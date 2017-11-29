@@ -6,7 +6,7 @@ exit
 if am_client()
     {
     //console_add("Started Autopilot")
-    var get_ship = get_ship_from_socket(SSS)
+    var get_ship = get_ship_from_socket(get("SSS"))
     if is_zero(get_ship)
         {
         console_add("no ship, autopilot canceled")
