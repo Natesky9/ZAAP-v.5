@@ -1,23 +1,44 @@
 ///Draw_Entity_Asteroid(entity)
 
-var get_entity = argument0
+var get_uuid = argument0
+var get_entity = argument1
 
 var get_x = ds_get(get_entity,"x")
 var get_y = ds_get(get_entity,"y")
+var get_heading = ds_get(get_entity,"heading")
 
 var get_grid = grid_from_entity(get_entity)
+var vertex_buffer = ds_get(get_entity,"vertex buffer")
 
-if is_zero(get_grid)
+//get ready to draw
+//transform_set_asteroid_orientation(get_x,get_y,0,get_grid)
+transform_set_ship_orientation(get_x,get_y,90,get_grid)
+
+drawn = Draw_Asteroid_Grid_Vertex_Buffer(get_entity,get_x,get_y,get_heading)
+
+//finished drawing
+d3d_transform_set_identity()
+//end drawing the entity
+
+if not drawn
+drawn = draw_asteroid_hex(get_entity,get_x,get_y)
+
+if not drawn
     {
-    //draw basic hexagon
-    draw_asteroid_hex(get_entity,get_x,get_y)    
+    console_add("asteroid has no grid!")
+    if am_server()
+        {
+        entity_destroy_basic(get_uuid)
+        exit
+        }
     }
-    
-if not is_zero(get_grid)
-    {
-    Draw_Asteroid_Grid_Vertex_Buffer(get_entity,get_x,get_y)
-    }
+
+
+
 
 
 font_align(5)
-draw_text(get_x,get_y,"(>:3)")
+
+//draw_text(get_x,get_y,"(>:3)")
+
+draw_line(get_x,get_y,mouse_x,mouse_y)

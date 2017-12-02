@@ -38,6 +38,8 @@ keyboard_focus = "console"
 
 
 ship_grid_size = 32
+rock_grid_size = 32
+
 
 
 

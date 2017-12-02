@@ -21,3 +21,5 @@ repeat 6
     prev_x = curr_x
     prev_y = curr_y
     }
+
+return true

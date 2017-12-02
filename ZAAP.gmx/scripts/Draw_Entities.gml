@@ -44,7 +44,7 @@ for (var i = entity.types;i >= 0;i -= 1)
             //
             case entity.asteroid:
                 {
-                Draw_Entity_Asteroid(get_entity)
+                Draw_Entity_Asteroid(get_uuid,get_entity)
                 break
                 }
             //

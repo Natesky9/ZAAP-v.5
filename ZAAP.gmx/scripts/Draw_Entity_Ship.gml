@@ -9,6 +9,7 @@ var get_speed = ds_get(get_entity,"speed")
 var get_direction = ds_get(get_entity,"direction")
 var get_heading = ds_get(get_entity,"heading")
 
+var get_grid = ds_get(get_entity,"grid")
 var vertex_buffer = ds_get(get_entity,"vertex buffer")
 var get_grid = grid_from_entity(get_entity)
 var get_pilot = ds_get(get_entity,"pilot")
@@ -22,16 +23,15 @@ var drawn = false
 drawn = Draw_Ship_Grid_Vertex_Buffer(get_entity)
 
 if not drawn 
+drawn = Draw_Ship_Grid(get_grid);
+
+if not drawn
     {
-    drawn = Draw_Ship_Grid(get_grid);
-    if not drawn
+    console_add("Ship has no grid!")
+    if am_server()
         {
-        console_add("Ship has no grid!")
-        if am_server()
-            {
-            entity_destroy_basic(get_uuid)
-            exit
-            }
+        entity_destroy_basic(get_uuid)
+        exit
         }
     }
 

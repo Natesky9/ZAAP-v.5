@@ -5,14 +5,13 @@ var get_entity_type = get("selected entity type")
 if get_entity_type == entity.null
 exit
 
-var get_entity_type = get("selected entity type")
-var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
-var get_entity = entity_from_uuid(get_uuid)
 
 switch get_entity_type
     {
     case entity.ship:
         {
+        var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
+        var get_entity = entity_from_uuid(get_uuid)
         var basic_grid = ds_create(ds_type_grid,9,9);
         basic_grid[# 4,4] = true
         var get_entity = entity_from_uuid(get_uuid)
@@ -22,10 +21,22 @@ switch get_entity_type
     //
     case entity.item:
         {
+        var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
+        var get_entity = entity_from_uuid(get_uuid)
         var get_id = irandom(item.types-1)+1
         ds_set(get_entity,"id",get_id)
         console_add("id is: " + string(get_id))
         break
+        }
+    //
+    case entity.asteroid:
+        {
+        var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
+        var get_entity = entity_from_uuid(get_uuid)
+        var get_grid = ds_create(ds_type_grid,5,5)
+        ds_grid_clear(get_grid,1)
+        ds_grid_set(get_grid,4,4,0)
+        ds_set(get_entity,"grid",get_grid)
         }
     //
     default:

@@ -74,7 +74,7 @@
         <script>scripts\vertex_buffer_draw_rectangle.gml</script>
         <script>scripts\create_vertex_buffer_format.gml</script>
         <script>scripts\vertex_buffer_draw_square_tile.gml</script>
-        <script>scripts\entity_create_vertex_buffer.gml</script>
+        <script>scripts\entity_create_grid_vertex_buffer.gml</script>
       </scripts>
     </scripts>
     <scripts name="Network">
@@ -254,6 +254,9 @@
       <script>scripts\playerdata_exists.gml</script>
       <script>scripts\playerdata_create.gml</script>
     </scripts>
+    <script>scripts\entity_create_hex_vertex_buffer.gml</script>
+    <script>scripts\vertex_buffer_draw_hex_tile.gml</script>
+    <script>scripts\transform_set_asteroid_orientation.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>
