@@ -29,14 +29,12 @@ for (h = 0;h < get_height;h += 1)
         {
         var get_grid_value = get_grid[# w, h]
         
-        var get_grid_color = grid_value_to_color(get_grid_value)
         
         if not is_zero(get_grid_value)
             {
-            vertex_buffer_draw_hex_tile(new_vertex_buffer,w,h)
+            vertex_buffer_draw_hex_tile(get_grid,new_vertex_buffer,w,h,get_grid_value)
             show("drew triangle")
             }
-        //vertex_buffer_draw_square_tile(new_vertex_buffer,get_x1,get_y1,get_x2,get_y2,get_grid_color)
         }
     //
     }

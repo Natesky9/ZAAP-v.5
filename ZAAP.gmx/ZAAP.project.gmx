@@ -18,6 +18,7 @@
     <script>scripts\Define_Parts.gml</script>
     <script>scripts\Define_Entities.gml</script>
     <script>scripts\Define_Items.gml</script>
+    <script>scripts\Define_Direction.gml</script>
     <scripts name="Events">
       <script>scripts\Event_Create.gml</script>
       <scripts name="create functions">
@@ -257,6 +258,9 @@
     <script>scripts\entity_create_hex_vertex_buffer.gml</script>
     <script>scripts\vertex_buffer_draw_hex_tile.gml</script>
     <script>scripts\transform_set_asteroid_orientation.gml</script>
+    <script>scripts\hex_neighbor.gml</script>
+    <script>scripts\hex_blend_colors.gml</script>
+    <script>scripts\generate_random_asteroid.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

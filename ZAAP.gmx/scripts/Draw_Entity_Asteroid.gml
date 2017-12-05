@@ -11,8 +11,8 @@ var get_grid = grid_from_entity(get_entity)
 var vertex_buffer = ds_get(get_entity,"vertex buffer")
 
 //get ready to draw
-//transform_set_asteroid_orientation(get_x,get_y,0,get_grid)
-transform_set_ship_orientation(get_x,get_y,90,get_grid)
+transform_set_asteroid_orientation(get_x,get_y,get_heading+90,get_grid)
+//transform_set_ship_orientation(get_x,get_y,90,get_grid)
 
 drawn = Draw_Asteroid_Grid_Vertex_Buffer(get_entity,get_x,get_y,get_heading)
 
