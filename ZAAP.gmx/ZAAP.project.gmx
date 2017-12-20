@@ -261,6 +261,9 @@
     <script>scripts\hex_neighbor.gml</script>
     <script>scripts\hex_blend_colors.gml</script>
     <script>scripts\generate_random_asteroid.gml</script>
+    <script>scripts\parse_asteroid.gml</script>
+    <script>scripts\hex_direction_to_grid.gml</script>
+    <script>scripts\grid_in_bounds.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

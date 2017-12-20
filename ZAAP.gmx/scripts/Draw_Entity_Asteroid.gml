@@ -41,4 +41,4 @@ font_align(5)
 
 //draw_text(get_x,get_y,"(>:3)")
 
-draw_line(get_x,get_y,mouse_x,mouse_y)
+//draw_line(get_x,get_y,mouse_x,mouse_y)

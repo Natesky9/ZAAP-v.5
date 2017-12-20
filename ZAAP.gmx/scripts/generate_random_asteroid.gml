@@ -22,5 +22,6 @@ repeat 3
     
     ds_grid_set_disk(get_grid,xm,ym,r,1)
     }
-
-
+    
+show("parsing asteroid...")
+var result = parse_asteroid(get_grid)

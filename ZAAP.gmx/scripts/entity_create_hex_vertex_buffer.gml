@@ -33,7 +33,7 @@ for (h = 0;h < get_height;h += 1)
         if not is_zero(get_grid_value)
             {
             vertex_buffer_draw_hex_tile(get_grid,new_vertex_buffer,w,h,get_grid_value)
-            show("drew triangle")
+            //show("drew triangle")
             }
         }
     //

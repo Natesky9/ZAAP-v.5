@@ -5,59 +5,23 @@ var get_grid_x = argument1;
 var get_grid_y = argument2;
 var get_dir = argument3;
 
-var get_x = 0;
-var get_y = 0;
+var grid = hex_direction_to_grid(get_dir,get_grid_x,get_grid_y)
+var get_dir_x = grid[0]
+var get_dir_y = grid[1]
 
-switch get_dir
+var get_x = get_grid_x + get_dir_x
+var get_y = get_grid_y + get_dir_y
+
+if not grid_in_bounds(get_grid,get_x,get_y)
+return false
+
+var get_value = ds_grid_get(get_grid,get_x,get_y)
+
+//check if out of bounds
+if is_undefined(get_value)
     {
-    case dir.up:
-        {
-        get_y--
-        break;
-        }
-    case dir.down:
-        {
-        get_y++
-        break;
-        }
-    case dir.upleft:
-        {
-        get_x--
-        if not (get_grid_x mod 2)
-        get_y--
-        break;
-        }
-    case dir.upright:
-        {
-        get_x++
-        if not (get_grid_x mod 2)
-        get_y--
-        break;
-        }
-    case dir.downleft:
-        {
-        get_x--
-        if (get_grid_x mod 2)
-        get_y++
-        break;
-        }
-    case dir.downright:
-        {
-        get_x++
-        if (get_grid_x mod 2)
-        get_y++
-        break;
-        }
-    default:
-        {
-        show("error, hex_neighbor doesn't have a valid direction!")
-        return false;
-        }
-    }
-    var get_value = ds_grid_get(get_grid,get_grid_x + get_x, get_grid_y + get_y)
-    
-    //check if out of bounds
-    if is_undefined(get_value)
+    show("didn't account for this one")
     return false
-    
-    return get_value
+    }
+
+return get_value
