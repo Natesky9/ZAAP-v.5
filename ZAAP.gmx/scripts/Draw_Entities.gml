@@ -6,11 +6,12 @@ exit
 
 var get_uuid,get_entity,get_type
 
+var i,ii
 //draw from largest to smallest
-for (var i = entity.types;i >= 0;i -= 1)
+for (i = entity.types;i >= 0;i -= 1)
     {
     var get_list = entity_list(entity.types)
-    for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
+    for (ii = 0;ii < ds_list_size(get_list);ii += 1)
         {
         get_uuid = ds_list_find_value(get_list,ii)
         get_entity = entity_from_uuid(get_uuid)

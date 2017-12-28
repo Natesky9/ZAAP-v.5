@@ -63,13 +63,20 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server read":
         {
+        show("GOT TO THIS POINT")
         var get_socket = ds_map_find_value(async_load,"id")
         var username = read()
-        console_add("username: " + username + " joined")
+        show("username: " + username + " joined")
         
+        var get_socket_map = map_from_socket(get_socket)
+        console_add("get_socket_map: " + string(get_socket_map))
+        ds_set(get_socket_map,"username",username)
+        
+        //packet_add_socket
+        packet_write(packet.add_socket,get_socket)
         //check if player is already logged in
         
-        if playerdata_exists(username)
+        if false//playerdata_exists(username)
             {//returning player, load save
             console_add("returning player, loading save")
             var get_profile = playerdata_load(username)
@@ -91,24 +98,7 @@ switch get_packet_array[data.mode]
             console_add("new player, creating save")
             playerdata_create(username)
             
-            var get_uuid = entity_create_server(100,100,entity.ship)
-            //set the grid
-            var basic_grid = ds_create(ds_type_grid,7,7);
-            basic_grid[# 3,3] = true
-            basic_grid[# 3,2] = 3
-            basic_grid[# 2,3] = 4
-            basic_grid[# 4,3] = 4
-            var get_entity = entity_from_uuid(get_uuid)
-            ds_set(get_entity,"grid",basic_grid)
-            //end setting the grid
-            
-            
-            //packet_entity_create
-            packet_write(packet.entity_create,get_uuid)
-            
-            //packet_entity_command
-            packet_write(packet.entity_command,get_socket,get_uuid)
-            
+            server_create_entity_player_ship(get_socket,200,200)
             break
             }
         }

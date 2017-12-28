@@ -13,7 +13,7 @@ switch get_packet_array[data.mode]
         
         //show("received ping of: " + string(get_ping))
         
-        buffer_write(bout,buffer_u32,get_ping)
+        write(get_ping)
         
         packet_send(get_socket)
         return true
@@ -21,16 +21,16 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client read":
         {
-        var get_timestamp = buffer_read(bin,buffer_u32)
+        var get_timestamp = read()
         
         var get_ping = current_time - get_timestamp
         
         var get_socket_map = map_from_socket(get("SSS"));
         if is_zero(get_socket_map) exit
         
-        get_socket_map[? "ping timeout"] = ping_timeout
+        set("ping timeout",0)
         //packet_ping_report
-        packet_write(packet.ping_report,get_ping)
+        write(get_ping)
         
         return true
         }
@@ -39,7 +39,7 @@ switch get_packet_array[data.mode]
         {
         write_type(packet.ping)
         //write the current time
-        buffer_write(bout,buffer_u32,current_time)
+        write(current_time)
         //send
         packet_send_host()
         break
@@ -48,7 +48,7 @@ switch get_packet_array[data.mode]
     case "server read":
         {
         //read the ping
-        var get_ping = buffer_read(bin,buffer_u32)
+        var get_ping = read()
         //get the socket?
         var get_socket = ds_map_find_value(async_load,"id")
         

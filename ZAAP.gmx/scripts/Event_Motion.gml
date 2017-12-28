@@ -91,7 +91,7 @@ for (var i = 0;i < entity.types;i += 1)
         //phase 4
         if get_steer != 0
             {
-            get_entity[? "heading"] += get_steer*4
+            ds_add(get_entity,"heading",get_steer*4)
             }
         if get_thrust != 0
             {

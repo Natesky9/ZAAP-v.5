@@ -1,11 +1,12 @@
-///entity_find_from_point(get_x,get_y,blacklist)
+///entity_find_from_point(x,y,type,blacklist)
 //returns uuid
 
 var get_x = argument0
 var get_y = argument1
-var get_blacklist = argument2
+var get_type = argument2
+var get_blacklist = argument3
 
-var get_list = entity_list(entity.types)
+var get_list = entity_list(get_type)//entity_list(entity.types)
 
 for (var i = 0;i < ds_list_size(get_list);i += 1)
     {

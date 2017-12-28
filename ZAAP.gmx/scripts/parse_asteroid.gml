@@ -4,8 +4,12 @@
 //----------------------------------------//
 var get_grid = argument0
 
+var time = get_timer()
+
 var get_width = ds_grid_width(get_grid)
 var get_height = ds_grid_height(get_grid);
+
+var grid_max = max(get_width,get_height)
 
 show("grid is " + string(get_width) + " by " + string(get_height))
 
@@ -14,10 +18,16 @@ checked_grid[get_width-1,get_height-1] = 0;
 
 var size = 0;
 var test_size = 0;
-result[0] = 0
+var population = ds_list_create();
+//population[get_width-1,get_height-1] = 0
+
+
+var h,w,i,t
+var remove
+var remove_time = 0
 
 //----------------------------------------//
-//populate result with all cells
+//populate population with all cells
 for (h = 0;h < get_height;h += 1)
     {
     for (w = 0;w < get_width;w += 1)
@@ -27,8 +37,9 @@ for (h = 0;h < get_height;h += 1)
         if get_cell
             {
             //add to the list
-            result[size,0] = w
-            result[size,1] = h
+            ds_list_add(population,w * grid_max + h)
+            //population[size,0] = w
+            //population[size,1] = h
             size++
             checked_grid[w,h] = 1
             continue
@@ -37,27 +48,32 @@ for (h = 0;h < get_height;h += 1)
         }
     }
 //show("size of asteroid is: " + string(size))
-show("asteroid cells are: " + string(result))
+//show("asteroid cells are: " + string(population))
 //show("checked grid is: " + string(checked_grid))
-//done populating result
+//done populating
 //----------------------------------------//
 
 //do this until all of the cells are claimed
 //output is the final result of parsing
-var output
+var output;
 //temp is the placeholder array
-var temp
-var temp_num
+var temp;
+temp[get_width-1,get_height-1] = 0;
+var temp_num;
 //group 0 is the stats, groups 1 and up are the arrays for the groups
 output_group = 1
 while size
     {
-    show("checking group")
-    show("size of asteroid is: " + string(size))
-    //remove this seed from result
+    //show("checking group")
+    //show("size of asteroid is: " + string(size))
+    //remove this seed from population
     size--;
-    var seed_x = result[size,0];
-    var seed_y = result[size,1];
+    var first = ds_list_find_value(population,0)
+    ds_list_delete(population,0)
+    var seed_x = floor(first/grid_max);
+    var seed_y = first mod grid_max;
+    //var seed_x = population[size,0];
+    //var seed_y = population[size,1];
     
     //put this in the temp
     temp_num = 0
@@ -78,7 +94,7 @@ while size
         test_size--
         var test_x = test[test_size,0]
         var test_y = test[test_size,1]
-        show("testing cell " + string(test_x) + ":" + string(test_y))
+        //show("testing cell " + string(test_x) + ":" + string(test_y))
         
         for (var i = 1;i <= 6;i++)
             {
@@ -89,14 +105,14 @@ while size
             
             
             //if it were to be out of grid
-            if not grid_in_bounds(get_grid,get_x,get_y)
+            if not grid_in_bounds(get_grid,get_width,get_height,get_x,get_y)
                 {
                 //this cell would be out of bounds
                 continue
                 }
             var is_free = checked_grid[get_x,get_y]
             
-            if not is_free
+            if !is_free
                 {
                 //this cell is empty, or has already been checked
                 continue
@@ -112,21 +128,33 @@ while size
             temp[temp_num,1] = get_y
             
             size--;
-            //remove this cell from result
-            for (var t = 0;t < size;t++)
+            //remove this cell from the population
+            remove = get_timer()
+            var to_remove = ds_list_find_index(population,get_x * grid_max + get_y)
+            ds_list_delete(population,to_remove)
+            remove_time += get_timer() - remove
+            
+            /*
+            //remove this cell from the population OLD
+            remove = get_timer()
+            for (t = 0;t < size;t++)
                 {
-                var t_x = result[t,0]
-                var t_y = result[t,1]
+                var t_x = population[t,0]
+                var t_y = population[t,1]
                 
                 if t_x == get_x
                 and t_y == get_y
                     {
                     //swap this with the end
                     //so that it can be erased
-                    result[t,0] = result[size,0]
-                    result[t,1] = result[size,1]
+                    population[t,0] = population[size,0]
+                    population[t,1] = population[size,1]
                     }
                 }
+            remove_time += get_timer() - remove
+            */
+            
+            
             
             //add this cell to the test
             test[test_size,0] = get_x
@@ -141,5 +169,9 @@ while size
     output_group++
     }
 //----------------------------------------//
+show("remove time took: " + string(remove_time))
+show("time to execute parse_asteroid: " + string(get_timer() - time))
+
+ds_list_destroy(population)
 
 return output

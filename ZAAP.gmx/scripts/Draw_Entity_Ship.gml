@@ -61,6 +61,9 @@ if get_pilot != 0
     draw_set_color(c_black)
     font_align(5)
     draw_text(40,16,"[" + string(get_pilot) + "]")
+    var get_player = map_from_socket(get_pilot)
+    var get_name = ds_get(get_player,"username")
+    draw_text(80,16,get_name)
     }
 
 //finished drawing

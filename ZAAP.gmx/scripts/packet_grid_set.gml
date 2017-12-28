@@ -16,47 +16,45 @@ switch get_packet_array[data.mode]
         var get_entity = entity_from_uuid(get_uuid)
         if is_zero(get_entity)
             {
-            console_add("error")
+            console_add("error #packet_grid_set No UUID")
             exit
             }
         
         var get_grid = grid_from_entity(get_entity)
         if is_zero(get_grid)
             {
-            console_add("error2")
+            console_add("error #packet_grid_set No entity")
             exit
             }
         
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        buffer_write(bout,uuid_buffer_type,get_uuid)
-        buffer_write(bout,buffer_u8,get_grid_x)
-        buffer_write(bout,buffer_u8,get_grid_y)
-        buffer_write(bout,buffer_u8,get_value)
+        write(get_uuid)
+        write(get_grid_x)
+        write(get_grid_y)
+        write(get_value)
         packet_send_all()
         break
         }
     //----------------//
     case "client read":
         {
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        var get_uuid = buffer_read(bin,uuid_buffer_type)
-        var get_grid_x = buffer_read(bin,buffer_u8)
-        var get_grid_y = buffer_read(bin,buffer_u8)
-        var get_value = buffer_read(bin,buffer_u8)
+        var get_uuid = read()
+        var get_grid_x = read()
+        var get_grid_y = read()
+        var get_value = read()
         
         
         
         var get_entity = entity_from_uuid(get_uuid)
         if is_zero(get_entity)
             {
-            console_add("error 3")
+            console_add("error #packet_grid_set No Entity")
             exit
             }
         
         var get_grid = grid_from_entity(get_entity)
         if is_zero(get_grid)
             {
-            console_add("error 4")
+            console_add("error #packet_grid_set No UUID")
             exit
             }
         
@@ -72,25 +70,23 @@ switch get_packet_array[data.mode]
         var get_grid_y = get_packet_array[data.arg_2]
         var get_value = get_packet_array[data.arg_3]
         
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        buffer_write(bout,uuid_buffer_type,get_uuid)
-        buffer_write(bout,buffer_u8,get_grid_x)
-        buffer_write(bout,buffer_u8,get_grid_y)
-        buffer_write(bout,buffer_u8,get_value)
+        write(get_uuid)
+        write(get_grid_x)
+        write(get_grid_y)
+        write(get_value)
         packet_send_host()
         break
         }
     //----------------//
     case "server read":
         {
+        var get_uuid = read()
+        var get_grid_x = read()
+        var get_grid_y = read()
+        var get_value = read()
         
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        var get_uuid = buffer_read(bin,uuid_buffer_type)
         var get_entity = entity_from_uuid(get_uuid)
         var get_grid = grid_from_entity(get_entity)
-        var get_grid_x = buffer_read(bin,buffer_u8)
-        var get_grid_y = buffer_read(bin,buffer_u8)
-        var get_value = buffer_read(bin,buffer_u8)
         
         grid_set_value_advanced(get_entity,get_grid,get_grid_x,get_grid_y,get_value)
         break

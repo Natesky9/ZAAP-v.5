@@ -1,4 +1,4 @@
-///entity_create_client()
+///read_buffer_to_entity()
 //network version of the create event
 get_entity = entity_create_basic()
 

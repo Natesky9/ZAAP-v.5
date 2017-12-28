@@ -10,14 +10,14 @@ switch get_packet_array[data.mode]
         write_type(packet.entity_destroy)
         var get_uuid = get_packet_array[data.arg_0]
         
-        buffer_write(bout,buffer_u32,get_uuid)
+        write(get_uuid)
         packet_send_all()
         break
         }
     //----------------//
     case "client read":
         {
-        var get_uuid = buffer_read(bin,buffer_u32)
+        var get_uuid = read()
         var get_entity = entity_from_uuid(get_uuid);
         if get_entity == 0
             {

@@ -1,7 +1,6 @@
 ///Event_Ping()
 if am_client()
     {
-    
     if get("SSS") != -1
         {
         //timeout script
@@ -11,13 +10,15 @@ if am_client()
             show("Error, socket is undefined")
             exit
             }
-        get_map[? "ping timeout"] -= 1
-        if get_map[? "ping timeout"] <= 0
+        ds_add(envar,"ping timeout",1)
+        if get("ping timeout") > ping_timeout
             {
             //###//
             //replace with client_destroy
             console_add("Can't communicate with Server")
+            show("Can't communicate with Server")
             //disconnect
+            
             data_structure_clear_all()
             var get_client = get("client")
             network_destroy(get_client)
@@ -26,6 +27,7 @@ if am_client()
             host_connection = -1
             view_reset()
             console_add("You have been disconnected")
+            show("end of ping")
             }
         //end timeout scrip
         
@@ -46,13 +48,14 @@ if am_server()
         {
         var get_socket = ds_list_find_value(socket_list,i);
         var get_map = map_from_socket(get_socket);
-        var get_ping_timeout = ds_get(get_map,"ping timeout");
-        get_map[? "ping timeout"] = get_ping_timeout - 1
-        var text = "Can't communicate with socket[" + string(get_socket) + "]"
-        var console_text = ds_list_find_index(console_list,text)
-        if get_map [? "ping timeout"] <= 0
-        and console_text != -1
+        ds_add(get_map,"ping timeout",1)
+        var timeout = get_map[? "ping timeout"]
+        if get_map [? "ping timeout"] > ping_timeout
             {
+            var text = "Can't communicate with socket[" + string(get_socket) + "]"
+            var console_text = ds_list_find_index(console_list,text)
+            //if this isn't the last thing said, say it
+            if console_text != -1
             console_add(text)
             }
         }

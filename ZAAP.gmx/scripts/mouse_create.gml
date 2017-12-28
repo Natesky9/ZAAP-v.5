@@ -2,8 +2,6 @@
 
 //create an entity
 var get_entity_type = get("selected entity type")
-if get_entity_type == entity.null
-exit
 
 
 switch get_entity_type
@@ -33,17 +31,23 @@ switch get_entity_type
         {
         var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
         var get_entity = entity_from_uuid(get_uuid)
-        generate_random_asteroid(get_entity,irandom_range(3,10),irandom_range(3,10))
+        generate_random_asteroid(get_entity,irandom_range(10,40),irandom_range(10,40))
         //ds_set(get_entity,"heading",irandom(360))
         break
+        }
+    case entity.shipyard:
+        {
+        var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
+        var get_entity = entity_from_uuid(get_uuid)
+        
+        console_add("created shipyard")
         }
     //
     default:
         {
         //nothing special
-        ds_set(get_entity,"direction",irandom(360))
-        ds_set(get_entity,"heading",irandom(360))
-        break
+        show("you don't have a case for this!")
+        exit
         }
     }
 

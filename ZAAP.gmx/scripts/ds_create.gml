@@ -52,5 +52,10 @@ switch get_type
         ds_list_add(data_structure_stack_list,get_stack)
         return get_stack
         }
+    default:
+        {
+        show("I don't even know how you got here #ds_create")
+        return false
+        }
     }
 
