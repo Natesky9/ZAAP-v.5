@@ -13,12 +13,14 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\Format_Guide.gml</script>
-    <script>scripts\Define_Data.gml</script>
-    <script>scripts\Define_Packets.gml</script>
-    <script>scripts\Define_Parts.gml</script>
-    <script>scripts\Define_Entities.gml</script>
-    <script>scripts\Define_Items.gml</script>
-    <script>scripts\Define_Direction.gml</script>
+    <scripts name="Define">
+      <script>scripts\Define_Data.gml</script>
+      <script>scripts\Define_Direction.gml</script>
+      <script>scripts\Define_Entities.gml</script>
+      <script>scripts\Define_Items.gml</script>
+      <script>scripts\Define_Packets.gml</script>
+      <script>scripts\Define_Parts.gml</script>
+    </scripts>
     <scripts name="Events">
       <script>scripts\Event_Create.gml</script>
       <scripts name="create functions">
@@ -72,10 +74,12 @@
       <script>scripts\Draw_Nearby_Entities.gml</script>
       <script>scripts\Draw_Asteroid_Grid_Vertex_Buffer.gml</script>
       <scripts name="Vertex Buffer">
+        <script>scripts\transform_set_asteroid_orientation.gml</script>
         <script>scripts\vertex_buffer_draw_rectangle.gml</script>
         <script>scripts\create_vertex_buffer_format.gml</script>
         <script>scripts\vertex_buffer_draw_square_tile.gml</script>
         <script>scripts\entity_create_grid_vertex_buffer.gml</script>
+        <script>scripts\vertex_buffer_draw_hex_tile.gml</script>
       </scripts>
     </scripts>
     <scripts name="Network">
@@ -245,24 +249,30 @@
       <script>scripts\entity_dock_pair_advanced.gml</script>
       <script>scripts\entity_map_uuid.gml</script>
       <script>scripts\entity_is_docked.gml</script>
+      <script>scripts\summon_random_target.gml</script>
+      <script>scripts\entity_create_hex_vertex_buffer.gml</script>
+      <script>scripts\generate_random_asteroid.gml</script>
+      <script>scripts\server_create_entity_player_ship.gml</script>
     </scripts>
-    <script>scripts\randomize_grid.gml</script>
-    <script>scripts\summon_random_target.gml</script>
     <scripts name="playerdata">
       <script>scripts\playerdata_load.gml</script>
       <script>scripts\playerdata_exists.gml</script>
       <script>scripts\playerdata_create.gml</script>
     </scripts>
-    <script>scripts\entity_create_hex_vertex_buffer.gml</script>
-    <script>scripts\vertex_buffer_draw_hex_tile.gml</script>
-    <script>scripts\transform_set_asteroid_orientation.gml</script>
-    <script>scripts\hex_neighbor.gml</script>
-    <script>scripts\hex_blend_colors.gml</script>
-    <script>scripts\generate_random_asteroid.gml</script>
-    <script>scripts\parse_asteroid.gml</script>
-    <script>scripts\hex_direction_to_grid.gml</script>
-    <script>scripts\grid_in_bounds.gml</script>
-    <script>scripts\server_create_entity_player_ship.gml</script>
+    <scripts name="grid functions">
+      <script>scripts\hex_neighbor.gml</script>
+      <script>scripts\hex_direction_to_grid.gml</script>
+      <script>scripts\parse_asteroid.gml</script>
+      <script>scripts\grid_in_bounds.gml</script>
+      <script>scripts\hex_blend_colors.gml</script>
+      <script>scripts\randomize_grid.gml</script>
+    </scripts>
+    <script>scripts\draw_entity_asteroid_grid.gml</script>
+    <script>scripts\mouse_to_hex_grid.gml</script>
+    <script>scripts\mouse_to_hex_grid_y.gml</script>
+    <script>scripts\hex_round.gml</script>
+    <script>scripts\hex_offset_to_cube.gml</script>
+    <script>scripts\hex_cube_to_offset.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

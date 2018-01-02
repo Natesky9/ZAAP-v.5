@@ -16,12 +16,16 @@ transform_set_asteroid_orientation(get_x,get_y,get_heading+90,get_grid)
 
 drawn = Draw_Asteroid_Grid_Vertex_Buffer(get_entity,get_x,get_y,get_heading)
 
+//draw the debug grid
+if keyboard_check(vk_shift)
+draw_entity_asteroid_grid(get_entity,get_grid,get_heading)
+
 //finished drawing
 d3d_transform_set_identity()
 //end drawing the entity
 
 if not drawn
-drawn = draw_asteroid_hex(get_entity,get_x,get_y)
+drawn = draw_asteroid_hex(get_x,get_y,get_heading)
 
 if not drawn
     {

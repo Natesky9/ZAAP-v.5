@@ -38,7 +38,7 @@ keyboard_focus = "console"
 
 
 ship_grid_size = 32
-rock_grid_size = 16
+rock_grid_size = 32
 
 //build = date_time_string(GM_build_date)
 //console_add("{" + build + "}")
