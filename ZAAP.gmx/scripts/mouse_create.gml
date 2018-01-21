@@ -31,8 +31,21 @@ switch get_entity_type
         {
         var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
         var get_entity = entity_from_uuid(get_uuid)
-        generate_random_asteroid(get_entity,irandom_range(10,40),irandom_range(10,40))
+        generate_random_asteroid(get_entity,8,8)//irandom_range(10,40),irandom_range(10,40))
+        
         //ds_set(get_entity,"heading",irandom(360))
+        break
+        }
+    case entity.bullet:
+        {
+        var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
+        var get_entity = entity_from_uuid(get_uuid)
+        
+        ds_set(get_entity,"lifetime",60)
+        ds_set(get_entity,"direction",irandom(360))
+        ds_set(get_entity,"speed",6)
+        
+        console_add("created bullet")
         break
         }
     case entity.shipyard:
@@ -41,10 +54,13 @@ switch get_entity_type
         var get_entity = entity_from_uuid(get_uuid)
         
         console_add("created shipyard")
+        break
         }
     //
     default:
         {
+        var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
+        var get_entity = entity_from_uuid(get_uuid)
         //nothing special
         show("you don't have a case for this!")
         exit

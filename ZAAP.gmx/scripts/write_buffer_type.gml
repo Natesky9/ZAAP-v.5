@@ -99,8 +99,6 @@ if not int
     */
     if true
         {
-        show("This value didn't match any cases in #write_buffer_type!")
-        show("value in question is: " + string(input))
         buffer_write(bout,buffer_u8,buffer_f64)
         return buffer_f64
         }

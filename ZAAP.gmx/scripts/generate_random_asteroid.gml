@@ -1,8 +1,11 @@
-///generate_random_asteroid(width,height)
+///generate_random_asteroid(entity,width,height)
 //generates an asteroid
 var get_entity = argument0
 var get_width = argument1
 var get_height = argument2
+
+var get_x = ds_get(get_entity,"x")
+var get_y = ds_get(get_entity,"y")
 
 var random_x,random_y
 
@@ -27,7 +30,7 @@ repeat irandom_range(4,8)
     }
 
 var ore = choose(2,3,4)
-repeat 8
+repeat 4
     {
     do
         {
@@ -40,4 +43,6 @@ repeat 8
     }
     
 show("parsing asteroid...")
-var result = parse_asteroid(get_grid)
+parse_asteroid(get_entity)
+
+//parse_asteroid_result(get_entity,result)

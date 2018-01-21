@@ -14,7 +14,7 @@ var get_dir_y = grid[1]
 var get_x = get_grid_x + get_dir_x
 var get_y = get_grid_y + get_dir_y
 
-if not grid_in_bounds(get_grid,get_width,get_height,get_x,get_y)
+if not grid_in_bounds(get_width,get_height,get_x,get_y)
 return false
 
 var get_value = ds_grid_get(get_grid,get_x,get_y)

@@ -121,7 +121,6 @@
       <script>scripts\mouse_left_click_navigation.gml</script>
       <script>scripts\mouse_left_click_autopilot_add_node.gml</script>
       <script>scripts\mouse_right_click_delete_entity.gml</script>
-      <script>scripts\mouse_left_click_ship_grid_server.gml</script>
     </scripts>
     <scripts name="keyboard keys">
       <script>scripts\keyboard_pressed_f1.gml</script>
@@ -212,7 +211,6 @@
       <script>scripts\packet_ping.gml</script>
       <script>scripts\packet_chat.gml</script>
       <script>scripts\packet_inform_sss.gml</script>
-      <script>scripts\packet_fire_weapon.gml</script>
       <script>scripts\packet_grid_set.gml</script>
     </scripts>
     <scripts name="view">
@@ -268,11 +266,17 @@
       <script>scripts\randomize_grid.gml</script>
     </scripts>
     <script>scripts\draw_entity_asteroid_grid.gml</script>
-    <script>scripts\mouse_to_hex_grid.gml</script>
-    <script>scripts\mouse_to_hex_grid_y.gml</script>
+    <script>scripts\point_to_hex_grid.gml</script>
     <script>scripts\hex_round.gml</script>
     <script>scripts\hex_offset_to_cube.gml</script>
     <script>scripts\hex_cube_to_offset.gml</script>
+    <script>scripts\Event_Collision.gml</script>
+    <script>scripts\parse_asteroid_result.gml</script>
+    <script>scripts\mouse_left_click_entity_server.gml</script>
+    <script>scripts\hex_cell_to_point.gml</script>
+    <script>scripts\coord_to_int.gml</script>
+    <script>scripts\int_to_coord_x.gml</script>
+    <script>scripts\int_to_coord_y.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

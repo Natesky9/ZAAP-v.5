@@ -12,5 +12,11 @@ grid_set_value(get_entity,get_grid,get_grid_x,get_grid_y,get_value)
 //packet_grid_set
 packet_write(packet.grid_set,get_uuid,get_grid_x,get_grid_y,get_value)
 
+if not get_value
+    {
+    parse_asteroid(get_entity,get_grid_x,get_grid_y)
+    
+    //parse_asteroid_result(get_entity,result)
+    }
 
 //we're done here

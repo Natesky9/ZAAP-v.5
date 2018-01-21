@@ -2,6 +2,9 @@
 if not am_client()
 exit
 
+//###//
+//Autopilot in general needs work
+
 //This code is client-only
 
 //loop through all autopilot targets
@@ -10,7 +13,7 @@ var autopilot_controller_list = get("autopilot controller list")
 for (var i = 0;i < ds_list_size(autopilot_controller_list);i += 1)
     {
     var get_uuid = ds_list_find_value(autopilot_controller_list,i)
-    //show("running autopilot for: " + string(get_uuid))
+    show("running autopilot for: " + string(get_uuid))
     
     var get_entity = entity_from_uuid(get_uuid)
     

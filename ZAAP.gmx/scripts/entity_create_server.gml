@@ -1,5 +1,6 @@
 ///entity_create_server(get_x,get_y,get_type)
 //creates a serverside entity and sends it to clients
+//returns uuid
 
 var get_x = argument0
 var get_y = argument1

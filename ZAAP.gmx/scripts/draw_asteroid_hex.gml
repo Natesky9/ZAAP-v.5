@@ -4,7 +4,7 @@ var get_x = argument0
 var get_y = argument1
 var get_heading = argument2
 
-var angle = get_heading
+var angle = 0
 var prev_x = get_x + lengthdir_x(rock_grid_size,angle)
 var prev_y = get_y + lengthdir_y(rock_grid_size,angle)
 

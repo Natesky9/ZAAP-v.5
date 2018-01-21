@@ -1,4 +1,4 @@
-///Event_Motion
+///Event_Motion()
 if not am_client()
 and not am_server()
 exit
@@ -35,6 +35,9 @@ for (var i = 0;i < entity.types;i += 1)
         var is_docked = ds_get(get_entity,"docked");
         var is_docked_to = ds_get(get_entity,"docked to");
         //end pre movement get
+        
+        if keyboard_check(vk_control)
+        ds_add(get_entity,"heading",1)
         
         //phase 2
         if is_docked

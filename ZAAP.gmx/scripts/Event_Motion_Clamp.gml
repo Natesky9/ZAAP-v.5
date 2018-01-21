@@ -7,7 +7,20 @@ var get_speed = ds_get(get_entity,"speed")
 var get_heading = ds_get(get_entity,"heading")
 var get_direction = ds_get(get_entity,"direction")
 
-get_speed = clamp(get_speed,0,8)
+switch get_type
+    {
+    case entity.ship:
+        {
+        get_speed = clamp(get_speed,0,8)
+        break
+        }
+    default:
+        {
+        get_speed = clamp(get_speed,0,8)
+        break
+        }
+    }
+
 get_heading = (get_heading + 360) mod 360;
 get_direction = (get_direction + 360) mod 360;
 get_entity[? "speed"] = get_speed

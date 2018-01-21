@@ -33,9 +33,6 @@ switch get_packet
     case packet.entity_set_pilot:
         {packet_entity_set_pilot(get_packet_array);break}
     //----------------//
-    case packet.fire_weapon:
-        {packet_fire_weapon(get_packet_array);break}
-    //----------------//
     case packet.issue_command:
         {packet_issue_command(get_packet_array);break}
     //----------------//

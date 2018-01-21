@@ -21,7 +21,7 @@ switch get_packet_array[data.mode]
         var get_entity = entity_from_uuid(get_uuid);
         if get_entity == 0
             {
-            console_add("Error, destroyed entity did not exist")
+            show("entity to destroy was already destroyed")
             exit
             }
         
