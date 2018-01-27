@@ -23,7 +23,7 @@ if am_client()
     //change this to use variables instead
     //of piggybacking off of the entity map
     if not is_zero(get_map)
-    get_map[? "ping timeout"] = ping_timeout
+    set("ping timeout",0)
     }
 
 if am_server()
@@ -35,7 +35,7 @@ if am_server()
         get_map[? "packets in"]++
         get_map[? "packet bytes in"] += get_size
         //reset the ping timeout
-        get_map[? "ping timeout"] = ping_timeout
+        get_map[? "ping timeout"] = 0
         }
     if is_zero(get_map)
         {

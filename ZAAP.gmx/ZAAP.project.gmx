@@ -8,16 +8,21 @@
     <sound>sound\zaap</sound>
     <sound>sound\clunk</sound>
   </sounds>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\stone_texture</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\Format_Guide.gml</script>
-    <script>scripts\Define_Data.gml</script>
-    <script>scripts\Define_Packets.gml</script>
-    <script>scripts\Define_Parts.gml</script>
-    <script>scripts\Define_Entities.gml</script>
-    <script>scripts\Define_Items.gml</script>
+    <scripts name="Define">
+      <script>scripts\Define_Data.gml</script>
+      <script>scripts\Define_Direction.gml</script>
+      <script>scripts\Define_Entities.gml</script>
+      <script>scripts\Define_Items.gml</script>
+      <script>scripts\Define_Packets.gml</script>
+      <script>scripts\Define_Parts.gml</script>
+    </scripts>
     <scripts name="Events">
       <script>scripts\Event_Create.gml</script>
       <scripts name="create functions">
@@ -26,6 +31,7 @@
       </scripts>
       <script>scripts\Event_View.gml</script>
       <script>scripts\Event_Step.gml</script>
+      <script>scripts\Event_Collision.gml</script>
       <script>scripts\Event_Autopilot.gml</script>
       <script>scripts\Event_Motion.gml</script>
       <script>scripts\Event_Motion_Clamp.gml</script>
@@ -71,10 +77,12 @@
       <script>scripts\Draw_Nearby_Entities.gml</script>
       <script>scripts\Draw_Asteroid_Grid_Vertex_Buffer.gml</script>
       <scripts name="Vertex Buffer">
+        <script>scripts\transform_set_asteroid_orientation.gml</script>
         <script>scripts\vertex_buffer_draw_rectangle.gml</script>
         <script>scripts\create_vertex_buffer_format.gml</script>
         <script>scripts\vertex_buffer_draw_square_tile.gml</script>
-        <script>scripts\entity_create_vertex_buffer.gml</script>
+        <script>scripts\entity_create_grid_vertex_buffer.gml</script>
+        <script>scripts\vertex_buffer_draw_hex_tile.gml</script>
       </scripts>
     </scripts>
     <scripts name="Network">
@@ -104,7 +112,6 @@
       <script>scripts\Network_Disconnect_Socket.gml</script>
       <script>scripts\Network_Data.gml</script>
       <script>scripts\HTTP_Event.gml</script>
-      <script>scripts\socket_add_new_key.gml</script>
       <script>scripts\create_socket.gml</script>
       <script>scripts\client_disconnect.gml</script>
     </scripts>
@@ -117,7 +124,6 @@
       <script>scripts\mouse_left_click_navigation.gml</script>
       <script>scripts\mouse_left_click_autopilot_add_node.gml</script>
       <script>scripts\mouse_right_click_delete_entity.gml</script>
-      <script>scripts\mouse_left_click_ship_grid_server.gml</script>
     </scripts>
     <scripts name="keyboard keys">
       <script>scripts\keyboard_pressed_f1.gml</script>
@@ -155,11 +161,12 @@
     <scripts name="Buffer Functions">
       <script>scripts\read_buffer_to_grid.gml</script>
       <script>scripts\read_buffer_to_key.gml</script>
-      <script>scripts\write_key_to_buffer.gml</script>
-      <script>scripts\buffer_read_to_grid.gml</script>
-      <script>scripts\uuid_write_to_buffer.gml</script>
-      <script>scripts\socket_write_to_buffer.gml</script>
+      <script>scripts\read_buffer_to_socket.gml</script>
+      <script>scripts\read_buffer_to_uuid.gml</script>
       <script>scripts\write_grid_to_buffer.gml</script>
+      <script>scripts\write_key_to_buffer.gml</script>
+      <script>scripts\write_socket_to_buffer.gml</script>
+      <script>scripts\write_uuid_to_buffer.gml</script>
     </scripts>
     <scripts name="conversions">
       <script>scripts\convert_integer_to_ip.gml</script>
@@ -168,7 +175,6 @@
       <script>scripts\convert_alphabet_to_integer.gml</script>
       <script>scripts\uuid_from_entity.gml</script>
       <script>scripts\entity_from_uuid.gml</script>
-      <script>scripts\key_to_buffer_type.gml</script>
       <script>scripts\get_ship_from_socket.gml</script>
       <script>scripts\map_from_socket.gml</script>
       <script>scripts\name_from_type.gml</script>
@@ -208,7 +214,6 @@
       <script>scripts\packet_ping.gml</script>
       <script>scripts\packet_chat.gml</script>
       <script>scripts\packet_inform_sss.gml</script>
-      <script>scripts\packet_fire_weapon.gml</script>
       <script>scripts\packet_grid_set.gml</script>
     </scripts>
     <scripts name="view">
@@ -235,7 +240,6 @@
       <script>scripts\entity_type_to_name.gml</script>
       <script>scripts\entity_create_server.gml</script>
       <script>scripts\entity_create_basic.gml</script>
-      <script>scripts\entity_create_client.gml</script>
       <script>scripts\entity_destroy_basic.gml</script>
       <script>scripts\entity_add_vector.gml</script>
       <script>scripts\entity_subtract_vector.gml</script>
@@ -246,14 +250,40 @@
       <script>scripts\entity_dock_pair_advanced.gml</script>
       <script>scripts\entity_map_uuid.gml</script>
       <script>scripts\entity_is_docked.gml</script>
+      <script>scripts\summon_random_target.gml</script>
+      <script>scripts\entity_create_hex_vertex_buffer.gml</script>
+      <script>scripts\generate_random_asteroid.gml</script>
+      <script>scripts\server_create_entity_player_ship.gml</script>
     </scripts>
-    <script>scripts\randomize_grid.gml</script>
-    <script>scripts\summon_random_target.gml</script>
     <scripts name="playerdata">
       <script>scripts\playerdata_load.gml</script>
       <script>scripts\playerdata_exists.gml</script>
       <script>scripts\playerdata_create.gml</script>
     </scripts>
+    <scripts name="grid functions">
+      <script>scripts\hex_neighbor.gml</script>
+      <script>scripts\hex_direction_to_grid.gml</script>
+      <script>scripts\parse_asteroid.gml</script>
+      <script>scripts\grid_in_bounds.gml</script>
+      <script>scripts\hex_blend_colors.gml</script>
+      <script>scripts\randomize_grid.gml</script>
+    </scripts>
+    <script>scripts\draw_entity_asteroid_grid.gml</script>
+    <script>scripts\point_to_hex_grid.gml</script>
+    <script>scripts\hex_round.gml</script>
+    <script>scripts\hex_offset_to_cube.gml</script>
+    <script>scripts\hex_cube_to_offset.gml</script>
+    <script>scripts\mouse_left_click_entity_server.gml</script>
+    <script>scripts\hex_cell_to_point.gml</script>
+    <script>scripts\coord_to_int.gml</script>
+    <script>scripts\int_to_coord_x.gml</script>
+    <script>scripts\int_to_coord_y.gml</script>
+    <script>scripts\packet_entity_set_grid.gml</script>
+    <script>scripts\entity_asteroid_break_cell.gml</script>
+    <script>scripts\entity_ship_break_cell.gml</script>
+    <script>scripts\is_between.gml</script>
+    <script>scripts\draw_entity_item_ore.gml</script>
+    <script>scripts\draw_entity_item_rock.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

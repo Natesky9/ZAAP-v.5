@@ -10,7 +10,7 @@ switch get_packet_array[data.mode]
         write_type(packet.ping_report)
         
         var list_size = ds_list_size(socket_list)
-        buffer_write(bout,buffer_u8,list_size)
+        write(list_size)
         
         for (var i = 0;i < list_size;i += 1)
             {
@@ -22,8 +22,8 @@ switch get_packet_array[data.mode]
                 {
                 get_ping = 9999
                 }
-            buffer_write(bout,buffer_u8,get_socket)
-            buffer_write(bout,buffer_u16,get_ping)
+            write(get_socket)
+            write(get_ping)
             }
         packet_send_all()
         break
@@ -31,12 +31,12 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client read":
         {
-        var get_list_size = buffer_read(bin,buffer_u8)
+        var get_list_size = read()
         
         for (var i = 0;i < get_list_size;i += 1)
             {
-            var get_socket = buffer_read(bin,buffer_u8)
-            var get_ping = buffer_read(bin,buffer_u16)
+            var get_socket = read()
+            var get_ping = read()
             
             var get_socket_map = map_from_socket(get_socket)
             
@@ -56,7 +56,7 @@ switch get_packet_array[data.mode]
         write_type(packet.ping_report)
         var get_ping = get_packet_array[data.arg_0]
         
-        buffer_write(bout,buffer_u16,get_ping)
+        write(get_ping)
         
         packet_send_host()
         break
@@ -65,7 +65,7 @@ switch get_packet_array[data.mode]
     case "server read":
         {
         var get_socket = ds_map_find_value(async_load,"id")
-        var get_ping = buffer_read(bin,buffer_u16)
+        var get_ping = read()
         
         var get_map = map_from_socket(get_socket);
         get_map[? "ping"] = get_ping

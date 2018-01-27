@@ -12,7 +12,7 @@ if mouse_check_button_pressed(mb_left)
         if done exit
         //
         
-        done = mouse_left_click_ship_grid_server()
+        done = mouse_left_click_entity_server()
         if done exit
         //
         done = mouse_create()

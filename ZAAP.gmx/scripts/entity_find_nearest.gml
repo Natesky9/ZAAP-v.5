@@ -10,19 +10,17 @@ var blacklist = argument3
 
 var nearest_entity = 0
 var nearest_distance = -1
-//###//
 
-var get_entity_list = get(get_search_type)
-var entity_map = get("entity map")
+var get_entity_list = entity_list(get_search_type)
 
-for (var ii = 0;ii < ds_list_size(get_entity_list);ii += 1)
+for (var i = 0;i < ds_list_size(get_entity_list);i += 1)
     {
-    var get_uuid = ds_list_find_value(get_entity_list,ii)
+    var get_uuid = ds_list_find_value(get_entity_list,i)
     
     if get_uuid == blacklist
     continue
     
-    var get_entity = ds_get(entity_map,get_uuid)
+    var get_entity = ds_list_find_value(entity_list,i)
     if is_zero(get_entity) exit
     
     var get_x = ds_get(get_entity,"x")

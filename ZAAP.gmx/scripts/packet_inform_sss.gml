@@ -13,7 +13,7 @@ switch get_packet_array[data.mode]
         write_type(packet.inform_sss)
         
         var get_socket = get_packet_array[data.arg_0]
-        buffer_write(bout,buffer_u8,get_socket)
+        write(get_socket)
         
         packet_send(get_socket)
         return true
@@ -21,12 +21,12 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client read":
         {
-        var get_sss = buffer_read(bin,buffer_u8)
+        var get_sss = read()
         
         set("SSS",get_sss)
         var get_map = map_from_socket(get("SSS"));
  
-        get_map[? "ping timeout"] = ping_timeout
+        //get_map[? "ping timeout"] = ping_timeout
  
         
         console_add("You are Player[" + string(get_sss) + "]")
@@ -47,7 +47,7 @@ switch get_packet_array[data.mode]
     default:
         {
         show("Error, no mode defined!")
-        show("in packet_template")
+        show("in packet_inform_sss")
         return false
         }
     //----------------//

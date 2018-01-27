@@ -37,9 +37,9 @@ or am_server()
         //draw the client timeout
         var get_map = ds_get(socket_map,get("SSS"))
         if is_zero(get_map) exit
-        var get_ping_timeout = ds_get(get_map,"ping timeout")
+        var get_ping_timeout = get("ping timeout")
         
-        get_text = "until timeout: " + string(get_ping_timeout)
+        get_text = "since last packet: " + string(get_ping_timeout)
         draw_text(view_width,280,get_text)
         }
     }

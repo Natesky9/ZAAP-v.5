@@ -17,19 +17,13 @@ switch get_packet_array[data.mode]
         var get_direction = ds_get(get_entity,"direction")
         var get_speed = ds_get(get_entity,"speed")
         var get_heading = ds_get(get_entity,"heading")
-    
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        var coordinate_buffer_type = key_to_buffer_type("x")
-        var direction_buffer_type = key_to_buffer_type("direction")
-        var speed_buffer_type = key_to_buffer_type("speed")
-        var heading_buffer_type = key_to_buffer_type("heading")
         
-        buffer_write(bout,uuid_buffer_type,get_uuid)
-        buffer_write(bout,coordinate_buffer_type,get_x)
-        buffer_write(bout,coordinate_buffer_type,get_y)
-        buffer_write(bout,direction_buffer_type,get_direction)
-        buffer_write(bout,speed_buffer_type,get_speed)
-        buffer_write(bout,heading_buffer_type,get_heading)
+        write(get_uuid)
+        write(get_x)
+        write(get_y)
+        write(get_direction)
+        write(get_speed)
+        write(get_heading)
         
         packet_send_all()
         
@@ -38,18 +32,14 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client read":
         {
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        var coordinate_buffer_type = key_to_buffer_type("x")
-        var direction_buffer_type = key_to_buffer_type("direction")
-        var speed_buffer_type = key_to_buffer_type("speed")
-        var heading_buffer_type = key_to_buffer_type("heading")
+        var get_uuid = read()
+        var get_x = read()
+        var get_y = read()
+        var get_direction = read()
+        var get_speed = read()
+        var get_heading = read()
         
-        var get_uuid = buffer_read(bin,uuid_buffer_type)
-        var get_x = buffer_read(bin,coordinate_buffer_type)
-        var get_y = buffer_read(bin,coordinate_buffer_type)
-        var get_direction = buffer_read(bin,direction_buffer_type)
-        var get_speed = buffer_read(bin,speed_buffer_type)
-        var get_heading = buffer_read(bin,heading_buffer_type)
+        
         
         var magnitude = 15
         

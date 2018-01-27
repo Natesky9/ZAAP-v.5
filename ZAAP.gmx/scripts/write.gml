@@ -8,9 +8,6 @@
 var input = argument0
 //show("input: " + string(input))
 
-
-
-
 var buffer_type = write_buffer_type(input)
 //show("writing as: " + string(buffer_type))
 //show("done writing buffer")

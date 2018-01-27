@@ -12,18 +12,17 @@ switch get_packet_array[data.mode]
         var get_ship = get_packet_array[data.arg_0]
         var get_projectile = get_packet_array[data.arg_1]
         
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        buffer_write(bout,uuid_buffer_type,get_ship)
-        buffer_write(bout,uuid_buffer_type,get_projectile)
+        
+        write(get_ship)
+        write(get_projectile)
         packet_send_all()
         break
         }
     //----------------//
     case "client read":
         {
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        var get_ship = buffer_read(bin,uuid_buffer_type)
-        var get_projectile = buffer_read(bin,uuid_buffer_type)
+        var get_ship = read()
+        var get_projectile = read()
         
         var get_entity = entity_from_uuid(get_ship)
         if is_zero(get_entity) exit

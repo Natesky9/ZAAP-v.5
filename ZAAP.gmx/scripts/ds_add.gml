@@ -7,7 +7,7 @@ if not ds_map_exists(get_map,get_key)
     {
     //if the map does not exist
     map_add_new_key(get_map,get_key,get_value)
-    
+    show("key didn't exist #ds_add")
     exit
     }
 get_map[? get_key] += get_value
