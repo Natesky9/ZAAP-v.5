@@ -10,7 +10,7 @@ while ds_list_size(entity_destroy_list)
     {
     //get the uuid to disassociate
     var get_uuid = ds_list_find_value(entity_destroy_list,0)
-    show("destroying uuid: " + string(get_uuid))
+    //show("destroying uuid: " + string(get_uuid))
     //get the entity to destroy
     var get_entity = entity_from_uuid(get_uuid)
     if is_zero(get_entity)

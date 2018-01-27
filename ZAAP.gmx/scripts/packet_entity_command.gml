@@ -18,24 +18,22 @@ switch get_packet_array[data.mode]
         ds_set(get_entity,"pilot",get_pilot)
         ds_map_replace(get_pilot,"ship",get_uuid)
         
-        
-        var pilot_buffer_type = key_to_buffer_type("pilot")
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        
         console_add("client commanding a ship")
         
-        buffer_write(bout,pilot_buffer_type,get_pilot)
-        buffer_write(bout,uuid_buffer_type,get_uuid)
+        write(get_pilot)
+        write(get_uuid)
+        
         packet_send_all()
         break
         }
     //----------------//
     case "client read":
         {
-        var get_pilot = buffer_read(bin,buffer_s8)
+        var get_pilot = read()
         show("pilot is [" + string(get_pilot) + "]")
-        var get_uuid = buffer_read(bin,buffer_u32)
+        var get_uuid = read()
         show("uuid is [" + string(get_uuid) + "]")
+        
         var get_entity = entity_from_uuid(get_uuid)
         show("entity is [" + string(get_entity) + "]")
         
@@ -82,7 +80,7 @@ switch get_packet_array[data.mode]
         
         var get_uuid = get_packet_array[data.arg_0]
         
-        buffer_write(bout,buffer_u32,get_uuid)
+        write(get_uuid)
         packet_send_host()
         
         break
@@ -90,7 +88,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server read":
         {
-        var get_uuid = buffer_read(bin,buffer_u32)
+        var get_uuid = read()
         var get_entity = entity_from_uuid(get_uuid)
         
         var get_current_pilot = ds_get(get_entity,"pilot")

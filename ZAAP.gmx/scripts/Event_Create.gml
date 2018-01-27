@@ -31,16 +31,14 @@ show_debug_data_structures = false
 
 //ping_timeout is also the automatic disconnect
 ping_timeout = 180
-network_set_config(network_config_connect_timeout,ping_timeout)
+network_set_config(network_config_connect_timeout,ping_timeout*2)
 
 keyboard_string = "127.0.0.1"
 keyboard_focus = "console"
 
 
 ship_grid_size = 32
-
-
-
+rock_grid_size = 32
 
 //build = date_time_string(GM_build_date)
 //console_add("{" + build + "}")

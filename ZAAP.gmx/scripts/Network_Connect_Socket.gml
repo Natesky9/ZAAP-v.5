@@ -13,14 +13,14 @@ ds_list_add(socket_list,get_socket)
 show("mapped socket[" + string(get_socket) + "] to map[" + string(get_map) + "]")
 
 //add data
-socket_add_new_key(get_map,"socket",get_socket)
-socket_add_new_key(get_map,"ping",9999)
-socket_add_new_key(get_map,"packets in",0)
-socket_add_new_key(get_map,"packet bytes in",0)
-socket_add_new_key(get_map,"packets out",0)
-socket_add_new_key(get_map,"packet bytes out",0)
-socket_add_new_key(get_map,"ship",0)
-ds_map_add(get_map,"ping timeout",ping_timeout)
+ds_set(get_map,"socket",get_socket)
+ds_set(get_map,"ping",9999)
+ds_set(get_map,"packets in",0)
+ds_set(get_map,"packet bytes in",0)
+ds_set(get_map,"packets out",0)
+ds_set(get_map,"packet bytes out",0)
+ds_set(get_map,"ship",0)
+ds_map_add(get_map,"ping timeout",0)
 
 console_add("Client " + string(get_socket) + " connected")
 console_add("Client has map of: " + string(get_map))
@@ -29,8 +29,9 @@ console_add("Client has map of: " + string(get_map))
 //----------------//
 //packet_login
 packet_write(packet.login,get_socket,data.request)
+//moved packet_add_socket to after the login event
 //packet_add_socket
-packet_write(packet.add_socket,get_socket)
+//packet_write(packet.add_socket,get_socket)
 //packet_inform_sss
 packet_write(packet.inform_sss,get_socket)
 //packet_update_sockets

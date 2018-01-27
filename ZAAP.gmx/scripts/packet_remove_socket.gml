@@ -11,7 +11,7 @@ switch get_packet_array[data.mode]
         write_type(packet.remove_socket)
         var get_socket = get_packet_array[data.arg_0]
         
-        buffer_write(bout,buffer_u8,get_socket)
+        write(get_socket)
         
         packet_send_all()
         break
@@ -19,7 +19,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client read":
         {
-        var get_socket = buffer_read(bin,buffer_u8)
+        var get_socket = read()
         var pos = ds_list_find_index(socket_list,get_socket)
         
         if !is_undefined(pos)

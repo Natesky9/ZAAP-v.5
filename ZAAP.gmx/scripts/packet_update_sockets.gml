@@ -14,7 +14,7 @@ switch get_packet_array[data.mode]
         //update all the clients on the sockets
         var get_list_size = ds_list_size(socket_list)
         
-        buffer_write(bout,buffer_u8,get_list_size-1)
+        write(get_list_size-1)
         
         for (var i = 0;i < get_list_size;i += 1)
             {
@@ -23,7 +23,11 @@ switch get_packet_array[data.mode]
             
             if get_socket != get_update_socket
                 {
-                socket_write_to_buffer(get_socket)
+                write_socket_to_buffer(get_socket)
+                }
+            else
+                {
+                show("this is the update socket!")
                 }
             }
         
@@ -34,28 +38,11 @@ switch get_packet_array[data.mode]
     case "client read":
         {
         
-        var get_socket_list_size = buffer_read(bin,buffer_u8)
-        show("socket list is: " + string(get_socket_list_size))
+        var get_socket_list_size = read()
+        show("socket list has: " + string(get_socket_list_size))
         repeat get_socket_list_size
             {
-            
-            var get_key_list_size = buffer_read(bin,buffer_u8)
-            show("key list is: " + string(get_key_list_size))
-            var get_map = create_socket()
-            
-            repeat get_key_list_size
-                {
-                var get_key = buffer_read(bin,buffer_string)
-                show("key is [" + get_key + "]")
-                var get_buffer_type = key_to_buffer_type(get_key)
-                var get_value = buffer_read(bin,get_buffer_type)
-                show("value is [" + string(get_value) + "]")
-                socket_add_new_key(get_map,get_key,get_value)
-                }
-            var get_socket = get_map[? "socket"]
-            ds_map_add(socket_map,get_socket,get_map)
-            show("mapped socket[" + string(get_socket) + "] to map[" + string(get_map) + "]")
-            ds_list_add(socket_list,get_socket)
+            read_buffer_to_socket()
             }
         break
         }

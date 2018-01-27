@@ -13,7 +13,8 @@ Event_Mouse()
 
 //action
 Event_Motion()
-Event_Update()
+Event_Collision()
+//Event_Update()
 Event_Fire()
 //end action
 

@@ -4,10 +4,21 @@ if not keyboard_check_pressed(vk_space)
 or keyboard_focus == "console"
 exit
 
-//packet_fire_weapon
-//packet_write(packet.fire_weapon)
+
 
 if am_client()
     {
-
+    var get_ship = get_ship_from_socket(get("SSS"))
+    if is_zero(get_ship)
+        {
+        console_add("You don't have a ship! Press Control to make one")
+        exit
+        }
+    
+    if entity_is_docked(get_ship)
+        {
+        show("docked entity pressed left up")
+        exit
+        }
+    entity_issue_command(get_ship,"trigger",true)
     }

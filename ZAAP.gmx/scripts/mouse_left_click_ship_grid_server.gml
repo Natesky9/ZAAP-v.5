@@ -6,7 +6,7 @@ if not am_server()
 exit
 
 //find the entity
-var get_uuid = entity_find_from_point(mouse_x,mouse_y,false)
+var get_uuid = entity_find_from_point(mouse_x,mouse_y,entity.ship,false)
 if is_zero(get_uuid)
 return false
 

@@ -1,7 +1,7 @@
 ///mouse_right_click_delete_entity
 //
 
-var get_uuid = entity_find_from_point(mouse_x,mouse_y,false)
+var get_uuid = entity_find_from_point(mouse_x,mouse_y,entity.types,false)
     {
     if not is_zero(get_uuid)
         {

@@ -33,7 +33,6 @@ and not am_client()
         {
         if string_length(string_letters(username)) > 2
         valid = true
-        show("ran")
         }
     
     if !valid

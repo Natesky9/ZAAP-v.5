@@ -15,10 +15,8 @@ switch get_packet_array[data.mode]
         var get_uuid = get_packet_array[data.arg_0]
         var get_target = get_packet_array[data.arg_1]
         
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        
-        buffer_write(bout,uuid_buffer_type,get_uuid)
-        buffer_write(bout,uuid_buffer_type,get_target)
+        write(get_uuid)
+        write(get_target)
         packet_send_all()
         
         break
@@ -26,10 +24,8 @@ switch get_packet_array[data.mode]
     //----------------//
     case "client read":
         {
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        
-        var get_uuid = buffer_read(bin,uuid_buffer_type)
-        var get_target = buffer_read(bin,uuid_buffer_type)
+        var get_uuid = read()
+        var get_target = read()
         
         entity_dock_pair(get_uuid,get_target)
         break
@@ -42,10 +38,8 @@ switch get_packet_array[data.mode]
         var get_uuid = get_packet_array[data.arg_0]
         var get_target = get_packet_array[data.arg_1]
         
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        
-        buffer_write(bout,uuid_buffer_type,get_uuid)
-        buffer_write(bout,uuid_buffer_type,get_target)
+        write(get_uuid)
+        write(get_target)
         
         packet_send_host()
         console_add("sending dock request")
@@ -54,10 +48,8 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server read":
         {
-        var uuid_buffer_type = key_to_buffer_type("uuid")
-        
-        var get_uuid = buffer_read(bin,uuid_buffer_type)
-        var get_target = buffer_read(bin,uuid_buffer_type)
+        var get_uuid = read()
+        var get_target = read()
         
         console_add("uuid is: " + string(get_uuid))
         

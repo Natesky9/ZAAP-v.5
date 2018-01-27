@@ -5,6 +5,7 @@
 //           I'm lazy             //
 
 envar = ds_map_create();
+show("ENVAR map value is: " + string(envar))
 ds_add_key_list(envar)
 //server and client are special,
 //in that -1 is actually "off"
