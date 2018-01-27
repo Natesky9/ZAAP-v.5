@@ -85,7 +85,7 @@ if show_debug_entity_list
         if is_zero(get_entity)
             {
             set("selected entity",false)
-            show("Selected entity destroyed, resetting selection")
+            //show("Selected entity destroyed, resetting selection")
             exit
             }
         

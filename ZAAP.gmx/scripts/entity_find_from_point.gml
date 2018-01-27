@@ -53,7 +53,10 @@ for (var i = 0;i < ds_list_size(get_list);i += 1)
                     if grid_in_bounds(get_width,get_height,get_grid_x,get_grid_y)
                         {
                         if ds_grid_get(get_grid,get_grid_x,get_grid_y)
-                        is_found = true
+                        or get("selected entity") == get_uuid
+                            {
+                            is_found = true
+                            }
                         }
                     }
                 }
@@ -88,6 +91,7 @@ for (var i = 0;i < ds_list_size(get_list);i += 1)
                     if grid_in_bounds(get_width,get_height,get_grid_x,get_grid_y)
                         {
                         if ds_grid_get(get_grid,get_grid_x,get_grid_y)
+                        or get("selected entity") == get_uuid
                         is_found = true
                         }
                     }

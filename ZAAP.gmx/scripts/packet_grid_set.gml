@@ -57,7 +57,7 @@ switch get_packet_array[data.mode]
             console_add("error #packet_grid_set No UUID")
             exit
             }
-        
+        audio_play_sound(clunk,1,false)
         grid_set_value(get_entity,get_grid,get_grid_x,get_grid_y,get_value)
         break
         }
@@ -88,7 +88,7 @@ switch get_packet_array[data.mode]
         var get_entity = entity_from_uuid(get_uuid)
         var get_grid = grid_from_entity(get_entity)
         
-        grid_set_value_advanced(get_entity,get_grid,get_grid_x,get_grid_y,get_value)
+        grid_set_value_advanced(get_uuid,get_entity,get_grid,get_grid_x,get_grid_y,get_value)
         break
         }
     //----------------//

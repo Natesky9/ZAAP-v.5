@@ -24,6 +24,6 @@ ds_set(get_entity,"I am a",name)
 //add to pending entity list and map to uuid
 entity_map_uuid(get_entity)
 
-show("entity created with uuid of [" + string(get_uuid) + "]")
+//show("entity created with uuid of [" + string(get_uuid) + "]")
 
 return get_uuid

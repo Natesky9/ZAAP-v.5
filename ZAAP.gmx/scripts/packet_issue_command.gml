@@ -13,10 +13,10 @@ switch get_packet_array[data.mode]
         var get_key = get_packet_array[data.arg_1]
         var get_value = get_packet_array[data.arg_2]
         
-        
         write(get_uuid)
+        write(get_key)
+        write(get_value)
         
-        write_key_to_buffer(get_key,get_value)
         packet_send_all()
         break
         }
@@ -32,8 +32,22 @@ switch get_packet_array[data.mode]
             show("entity does not exist #packet_issue_command")
             exit
             }
+            
+        var get_myship = get_ship_from_socket(get("SSS"))
         
-        read_buffer_to_key(get_entity)
+        if get_myship = get_entity
+            {
+            show("ignoring my own ship")
+            exit
+            }
+        
+        show("got to packet_issue_command")
+        
+        var get_key = read()
+        var get_value = read()
+        
+        ds_set(get_entity,get_key,get_value)
+        
         break
         }
     //----------------//

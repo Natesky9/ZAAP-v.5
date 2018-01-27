@@ -12,7 +12,7 @@ switch get_type
         var get_h = argument[2]
         var get_grid = ds_grid_create(get_w,get_h)
         ds_list_add(data_structure_grid_list,get_grid)
-        show("added grid: " + string(get_grid))
+        //show("added grid: " + string(get_grid))
         return get_grid
         }
     case ds_type_list:
@@ -20,7 +20,7 @@ switch get_type
         data_structure_list_amount++
         var get_list = ds_list_create()
         ds_list_add(data_structure_list_list,get_list)
-        show("added list: " + string(get_list))
+        //show("added list: " + string(get_list))
         return get_list
         }
     case ds_type_map:
@@ -28,7 +28,7 @@ switch get_type
         data_structure_map_amount++
         var get_map = ds_map_create()
         ds_list_add(data_structure_map_list,get_map)
-        show("added map: " + string(get_map))
+        //show("added map: " + string(get_map))
         return get_map
         }
     case ds_type_priority:

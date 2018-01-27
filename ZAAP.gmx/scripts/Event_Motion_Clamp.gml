@@ -26,3 +26,6 @@ get_direction = (get_direction + 360) mod 360;
 get_entity[? "speed"] = get_speed
 get_entity[? "heading"] = get_heading
 get_entity[? "direction"] = get_direction
+
+if keyboard_check(vk_control)
+ds_set(get_entity,"speed",0)

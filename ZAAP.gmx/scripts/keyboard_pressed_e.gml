@@ -28,6 +28,15 @@ if am_client()
 
 if am_server()
     {
+    var get_uuid = get("selected entity")
+    
+    if get_uuid
+        {
+        get_entity = entity_from_uuid(get_uuid)
+        ds_add(get_entity,"y",-10)
+        exit
+        }
+    
     //loop through the entity types
     var get_entity_type = get("selected entity type")
     var new_entity_type = (get_entity_type + 1) mod (entity.types)

@@ -1,5 +1,6 @@
 ///grid_set_value(entity,grid,x,y,value)
 var get_entity = argument0;
+var get_uuid = uuid_from_entity(get_entity)
 var get_grid = argument1;
 var get_grid_x = argument2;
 var get_grid_y = argument3;
@@ -22,7 +23,10 @@ switch get_type
         }
     case entity.asteroid:
         {
-        entity_create_hex_vertex_buffer(get_entity)
+        show("recreating vertex buffer!")
+        var success = entity_create_hex_vertex_buffer(get_entity)
+        if not success
+        entity_destroy_basic(get_uuid)
         break
         }
     default:

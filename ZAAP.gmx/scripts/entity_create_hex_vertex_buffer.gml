@@ -15,8 +15,7 @@ var get_height = ds_grid_height(get_grid)
 var max_value = ds_grid_get_max(get_grid,0,0,get_width,get_height)
 if max_value == 0
     {
-    show("grid doesn't contain anything")
-    console_add("Grid doesn't contain anything!")
+    //grid doesn't contain anything
     return false
     }
 
@@ -43,4 +42,5 @@ vertex_end(new_vertex_buffer)
 vertex_freeze(new_vertex_buffer)
 ds_set(get_entity,"vertex buffer",new_vertex_buffer)
 //we're done here
+show("created vertex buffer!")
 return new_vertex_buffer

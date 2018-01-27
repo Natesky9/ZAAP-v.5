@@ -22,5 +22,6 @@ enum packet
     inventory,
     set_ownership,//20
     login,
+    entity_set_grid,
     types,
     }

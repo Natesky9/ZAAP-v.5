@@ -8,7 +8,9 @@
     <sound>sound\zaap</sound>
     <sound>sound\clunk</sound>
   </sounds>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\stone_texture</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -29,6 +31,7 @@
       </scripts>
       <script>scripts\Event_View.gml</script>
       <script>scripts\Event_Step.gml</script>
+      <script>scripts\Event_Collision.gml</script>
       <script>scripts\Event_Autopilot.gml</script>
       <script>scripts\Event_Motion.gml</script>
       <script>scripts\Event_Motion_Clamp.gml</script>
@@ -270,13 +273,17 @@
     <script>scripts\hex_round.gml</script>
     <script>scripts\hex_offset_to_cube.gml</script>
     <script>scripts\hex_cube_to_offset.gml</script>
-    <script>scripts\Event_Collision.gml</script>
-    <script>scripts\parse_asteroid_result.gml</script>
     <script>scripts\mouse_left_click_entity_server.gml</script>
     <script>scripts\hex_cell_to_point.gml</script>
     <script>scripts\coord_to_int.gml</script>
     <script>scripts\int_to_coord_x.gml</script>
     <script>scripts\int_to_coord_y.gml</script>
+    <script>scripts\packet_entity_set_grid.gml</script>
+    <script>scripts\entity_asteroid_break_cell.gml</script>
+    <script>scripts\entity_ship_break_cell.gml</script>
+    <script>scripts\is_between.gml</script>
+    <script>scripts\draw_entity_item_ore.gml</script>
+    <script>scripts\draw_entity_item_rock.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

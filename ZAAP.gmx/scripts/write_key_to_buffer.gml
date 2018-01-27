@@ -21,7 +21,7 @@ switch get_key
     //
     case "vertex buffer":
         {
-        show("nothing special here, just the vertex buffer")
+        //show("nothing special here, just the vertex buffer")
         exit
         }
     //

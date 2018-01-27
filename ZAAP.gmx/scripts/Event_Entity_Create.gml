@@ -27,8 +27,8 @@ while ds_list_size(entity_create_list)
     ds_list_add(get_list,get_uuid)
     ds_list_add(get_specific_list,get_uuid)
     
-    show("created entity of type: " + string(get_type) +
-        "#adding to lists : " + string(get_list) + " , " + string(get_specific_list))
+    //show("created entity of type: " + string(get_type))
+    //show("#adding to lists : " + string(get_list) + " , " + string(get_specific_list))
     
     //we're finished adding it
     ds_list_delete(entity_create_list,0)

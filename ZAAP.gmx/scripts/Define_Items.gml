@@ -3,9 +3,15 @@
 
 enum item
     {
-    triangle,
-    circle,
-    square,
+    rockred,
+    rockgreen,
+    rockblue,
+    orered,
+    oregreen,
+    oreblue,
+    gemred,
+    gemgreen,
+    gemblue,
     types,
     //do not insert after types
     }

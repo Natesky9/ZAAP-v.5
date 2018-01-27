@@ -7,29 +7,37 @@ var get_y = ds_get(get_entity,"y")
 var get_heading = ds_get(get_entity,"heading")
 var get_id = ds_get(get_entity,"id")
 
+if is_between(get_id,item.rockred,item.rockblue)
+    {
+    draw_entity_item_rock(get_entity,get_x,get_y,get_heading,get_id)
+    exit
+    }
+if is_between(get_id,item.orered,item.gemblue)
+    {
+    draw_entity_item_ore(get_entity,get_x,get_y,get_heading,get_id)
+    //draw_circle(get_x,get_y,16,false)
+    exit
+    }
+/*
 switch get_id
     {
-    case item.triangle:
+    case item.redrock:
         {
         draw_set_color(c_red)
         draw_circle(get_x,get_y,8,false)
         break
         }
     //
-    case item.circle:
+    case item.greenrock:
         {
         draw_set_color(c_green)
         draw_circle(get_x,get_y,8,false)
         break
         }
     //
-    case item.square:
+    case item.bluerock:
         {
-        d3d_transform_add_rotation_z(get_heading-90)
-        d3d_transform_add_translation(get_x,get_y,0)
-        draw_set_color(c_blue)
-        draw_rectangle(-16,-16,16,16,false)
-        d3d_transform_set_identity()
+
         break
         }
     //
@@ -47,3 +55,4 @@ switch get_id
         }
     //
     }
+*/

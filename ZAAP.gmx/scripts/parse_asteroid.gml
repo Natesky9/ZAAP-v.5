@@ -1,29 +1,32 @@
-///parse_asteroid(grid)
+///parse_asteroid(uuid,entity,grid,[break_x,break_y])
 //when inputing a grid, outputs the seperated
 //grids as arrays
+//SERVER
 //----------------------------------------//
 var time = get_timer()
-var get_entity,check_continuity,get_break_x,get_break_y,get_grid,
+var get_entity,get_uuid,check_continuity,get_break_x,get_break_y,get_grid,
     get_width,get_height,grid_max,size,test_size,coords,get_x,get_y,
     first_neighbor,test_neighbor,first_side,second_side,size_of_checked,
-    size_of_neighbors,h,w,i,t,j,get_cell,int_cell,result,temp,temp_num,
+    size_of_population,h,w,i,t,j,get_cell,int_cell,result,temp,temp_num,
     first,seed_x,seed_y,test_x,test_y,is_free,to_remove,chunks,get_value,
-    cells,chunk,new_uuid,new_entity,new_grid,get_cell_x,get_cell_y,checked_grid,
+    cells,chunk,new_uuid,new_entity,new_grid,
+var get_test_x,get_test_y,get_cell_x,get_cell_y,
 //----------------------------------//
 var population = ds_list_create();
-var neighbors = ds_list_create();
 var to_check = ds_list_create()
 var has_checked = ds_list_create()
 //----------------------------------//
-get_entity = argument[0]
+var get_uuid = argument[0]
+get_entity = argument[1]
+var get_grid = argument[2]
 //--------------------//
-check_continuity = argument_count == 3
+check_continuity = argument_count == 5
 
 if check_continuity
     {
-    //show("continuity is on")
-    get_break_x = argument[1]
-    get_break_y = argument[2]
+    show("continuity is on")
+    get_break_x = argument[3]
+    get_break_y = argument[4]
     //for continuity shortcut
     }
 
@@ -34,296 +37,240 @@ get_width = ds_grid_width(get_grid)
 get_height = ds_grid_height(get_grid);
 
 grid_max = max(get_width,get_height)
-
-//show("grid is " + string(get_width) + " by " + string(get_height))
-
-checked_grid[get_width-1,get_height-1] = 0;
-
-size = 0;
-test_size = 0;
-//population[get_width-1,get_height-1] = 0
-
-//
+//-------------------------//
 //early exit check
+//-------------------------//
 if check_continuity
     {
+    var continuity_timer = -get_timer()
     for (i = 1;i <= 6;i++)
         {
         //get the cell to test
         coords = hex_direction_to_grid(i,get_break_x,get_break_y)
-        get_x = get_break_x + coords[0];
-        get_y = get_break_y + coords[1];
-        //show("testing cell: " + string(get_x) + ":" + string(get_y))
-        if ds_grid_get(get_grid,get_x,get_y)
+        get_cell_x = get_break_x + coords[0];
+        get_cell_y = get_break_y + coords[1];
+        
+        //check if in bounds
+        if not grid_in_bounds(get_width,get_height,get_cell_x,get_cell_y)
             {
-            ds_list_add(neighbors,i)
+            //this cell would be out of bounds
+            continue
+            }
+        
+        if ds_grid_get(get_grid,get_cell_x,get_cell_y)
+            {
+            ds_list_add(population,i)
             }
         }
+    size_of_population = ds_list_size(population)
+    //show("size of population: " + string(size_of_population))
+    //early exit if we have 1,5, or 6 neighbors
+    switch size_of_population
+        {
+        case 0:
+            {
+            show("entity is empty, destroying")
+            get_uuid = uuid_from_entity(get_entity)
+            entity_destroy_basic(get_uuid)
+            }
+        case 1:
+        case 5:
+        case 6:
+            {
+            ds_list_destroy(population)
+            ds_list_destroy(to_check)
+            ds_list_destroy(has_checked)
+            show("time to execute parse_asteroid: " + string(get_timer() - time))
+            exit
+            }
+        }
+    
     //now we have the list of immediately adjacent cells,
     //we test for continuity
-    first_neighbor = ds_list_find_value(neighbors,0)
+    first_neighbor = ds_list_find_value(population,0)
     ds_list_add(to_check,first_neighbor)
     ds_list_add(has_checked,first_neighbor)
-    //ds_list_delete(neighbors,0)
     
     while ds_list_size(to_check)
         {
-        //do this untill we run out of to_check
+        //do this until we run out of to_check
         test_neighbor = ds_list_find_value(to_check,0)
         ds_list_delete(to_check,0)
         
         //first side
         first_side = ((test_neighbor - 1 - 1 + 6) mod 6) + 1
         coords = hex_direction_to_grid(first_side,get_break_x,get_break_y)
-        get_x = get_break_x + coords[0];
-        get_y = get_break_y + coords[1];
-        if ds_grid_get(get_grid,get_x,get_y)
-        and ds_list_find_index(has_checked,first_side) == -1
+        get_cell_x = get_break_x + coords[0];
+        get_cell_y = get_break_y + coords[1];
+        if ds_grid_get(get_grid,get_cell_x,get_cell_y)
             {
-            //show("adding: " + string(first_side))
-            ds_list_add(to_check,first_side)
-            ds_list_add(has_checked,first_side)
+            if ds_list_find_index(has_checked,first_side) < 0
+                {
+                ds_list_add(to_check,first_side)
+                ds_list_add(has_checked,first_side)
+                }
             }
         //second side
         second_side = ((test_neighbor - 1 + 1) mod 6 ) + 1
         coords = hex_direction_to_grid(second_side,get_break_x,get_break_y)
-        get_x = get_break_x + coords[0];
-        get_y = get_break_y + coords[1];
-        if ds_grid_get(get_grid,get_x,get_y)
-        and ds_list_find_index(has_checked,second_side) == -1
+        get_cell_x = get_break_x + coords[0];
+        get_cell_y = get_break_y + coords[1];
+        if ds_grid_get(get_grid,get_cell_x,get_cell_y)
             {
-            //show("adding: " + string(second_side))
-            ds_list_add(to_check,second_side)
-            ds_list_add(has_checked,second_side)
+            if ds_list_find_index(has_checked,second_side) < 0
+                {
+                ds_list_add(to_check,second_side)
+                ds_list_add(has_checked,second_side)
+                }
             }
         }
     //done doing the loop
-    size_of_checked = ds_list_size(has_checked);
-    size_of_neighbors = ds_list_size(neighbors);
-    //show("size of both checked and neighbors:")
-    //show(string(size_of_checked))
-    //show(string(size_of_neighbors))
-    //show("------")
     
-    if size_of_checked == size_of_neighbors
+    if size_of_population == ds_list_size(has_checked)
         {
-        show("Grid is continuous, no need to continue parsing!")
+        //show("Grid is continuous, no need to continue parsing!")
         ds_list_destroy(population)
-        ds_list_destroy(neighbors)
         ds_list_destroy(to_check)
         ds_list_destroy(has_checked)
         
         show("time to execute parse_asteroid: " + string(get_timer() - time))
         exit
         }
+    continuity_timer += get_timer()
+    show("continuity time took: " + string(continuity_timer))
     }
 //
-
-
-
+//show("-----------")
+//show("GRID BROKE")
+//show("-----------")
 //----------------------------------------//
+get_x = ds_get(get_entity,"x")
+get_y = ds_get(get_entity,"y")
+var get_heading = ds_get(get_entity,"heading")
+var get_direction = ds_get(get_entity,"direction")
+var get_speed = ds_get(get_entity,"speed")
+
 //populate population with all cells
+var population_timer = -get_timer()
+
+ds_list_clear(population)
+ds_list_clear(to_check)
+ds_list_clear(has_checked)
+
 for (h = 0;h < get_height;h += 1)
     {
     for (w = 0;w < get_width;w += 1)
         {
-        get_cell = ds_grid_get(get_grid,w,h)
-        
+        get_cell = ds_grid_get(get_grid,w,h)        
         if get_cell
             {
-            //add to the list
             int_cell = coord_to_int(w,h,grid_max)
             ds_list_add(population,int_cell)
-            //population[size,0] = w
-            //population[size,1] = h
-            size++
-            checked_grid[w,h] = 1
-            continue
             }
-        checked_grid[w,h] = 0
         }
     }
-//show("size of asteroid is: " + string(size))
-//show("asteroid cells are: " + string(population))
-//show("checked grid is: " + string(checked_grid))
+//---------------------------------//
 //done populating
-//----------------------------------------//
-
-//do this until all of the cells are claimed
-//result is the final result of parsing
-//odd that I have to define this, but what can you do
-result[0,0] = 0
-
-temp[get_width-1,get_height-1] = 0;
-
-//group 0 is the stats, groups 1 and up are the arrays for the groups
-output_group = 1
-while size
+//---------------------------------//
+chunk = 0
+while ds_list_size(population)
     {
-    //show("checking group")
-    //show("size of asteroid is: " + string(size))
-    //remove this seed from population
-    size--;
-    first = ds_list_find_value(population,0)
+    //move seed 0 to check
+    var seed = ds_list_find_value(population,0)
     ds_list_delete(population,0)
-    seed_x = int_to_coord_x(first,grid_max);
-    seed_y = int_to_coord_y(first,grid_max);
-    //seed_x = population[size,0];
-    //seed_y = population[size,1];
     
-    //put this in the temp
-    temp_num = 0
-    temp = 0
-    temp[0,0] = seed_x
-    temp[0,1] = seed_y
+    ds_list_add(to_check,seed)
+    ds_list_add(has_checked,seed)
     
-    //seed test with one cell
-    test[0,0] = seed_x;
-    test[0,1] = seed_y;
-    test_size = 1;
-    
-    //fill the seed
-    checked_grid[seed_x,seed_y] = 0
-    //----------------------------------------//
-    while test_size
+    if chunk > 0
         {
-        test_size--
-        test_x = test[test_size,0]
-        test_y = test[test_size,1]
-        //show("testing cell " + string(test_x) + ":" + string(test_y))
+        //create a new grid to be used later
+        new_grid = ds_create(ds_type_grid,get_width,get_height)
+        seed_x = int_to_coord_x(seed,grid_max)
+        seed_y = int_to_coord_y(seed,grid_max)
+        
+        var seed_value = ds_grid_get(get_grid,seed_x,seed_y)
+        
+        ds_grid_set(get_grid,seed_x,seed_y,0)
+        ds_grid_set(new_grid,seed_x,seed_y,seed_value)
+        }
+    
+    while ds_list_size(to_check)
+        {
+        cell_to_check = ds_list_find_value(to_check,0)
+        ds_list_delete(to_check,0)
+        
+        cell_to_check_x = int_to_coord_x(cell_to_check,grid_max)
+        cell_to_check_y = int_to_coord_y(cell_to_check,grid_max)
         
         for (i = 1;i <= 6;i++)
             {
             //get the cell to test
-            coords = hex_direction_to_grid(i,test_x,test_y)
-            get_x = test_x + coords[0];
-            get_y = test_y + coords[1];
+            coords = hex_direction_to_grid(i,cell_to_check_x,cell_to_check_y)
+            get_test_x = cell_to_check_x + coords[0];
+            get_test_y = cell_to_check_y + coords[1];
             
+            int_cell = coord_to_int(get_test_x,get_test_y,grid_max)
             
-            //if it were to be out of grid
-            if not grid_in_bounds(get_width,get_height,get_x,get_y)
+            //check if in bounds
+            if not grid_in_bounds(get_width,get_height,get_test_x,get_test_y)
                 {
-                //this cell would be out of bounds
                 continue
                 }
-            is_free = checked_grid[get_x,get_y]
-            
-            if !is_free
+            //check if cell is empty
+            if not ds_grid_get(get_grid,get_test_x,get_test_y)
                 {
-                //this cell is empty, or has already been checked
                 continue
                 }
             
-            
-            //mark this as checked
-            checked_grid[get_x,get_y] = 0
-            
-            //put this in the result
-            temp_num++
-            temp[temp_num,0] = get_x
-            temp[temp_num,1] = get_y
-            
-            size--;
-            //remove this cell from the population
-            to_remove = ds_list_find_index(population,get_x * grid_max + get_y)
-            ds_list_delete(population,to_remove)
-            
-            /*
-            //remove this cell from the population OLD
-            remove = get_timer()
-            for (t = 0;t < size;t++)
+            //if it hasn't been checked
+            if ds_list_find_index(has_checked,int_cell) < 0
                 {
-                test_x = population[t,0]
-                test_y = population[t,1]
+                ds_list_add(has_checked,int_cell)
+                ds_list_add(to_check,int_cell)
+                pos = ds_list_find_index(population,int_cell)
+                ds_list_delete(population,pos)
                 
-                if test_x == get_x
-                and test_y == get_y
+                //if this isn't part of the main chunk, make a new one
+                if chunk
                     {
-                    //swap this with the end
-                    //so that it can be erased
-                    population[t,0] = population[size,0]
-                    population[t,1] = population[size,1]
+                    //get what it used to be
+                    get_value = ds_grid_get(get_grid,get_test_x,get_test_y)
+                    //add to a grid to be used later
+                    ds_grid_set(new_grid,get_test_x,get_test_y,get_value)
+                    //clear it from the old one
+                    ds_grid_set(get_grid,get_test_x,get_test_y,0)
                     }
                 }
-            remove_time += get_timer() - remove
-            */
-            
-            
-            
-            //add this cell to the test
-            test[test_size,0] = get_x
-            test[test_size,1] = get_y
-            test_size++
-            //mark as checked
             }
         }
-    result[0,0] = output_group
-    result[output_group,0] = temp
-    
-    //write how many were in this group at [0,i]
-    //show("rock size is: " + string(temp_num))
-    result[0,output_group] = temp_num + 1
-    
-    output_group++
-    }
-//----------------------------------------//
-
-ds_list_destroy(population)
-//show("-----")
-//show(string(result))
-//show("-----")
-
-//--------------------------------------------------------//
-//Part 2
-//--------------------------------------------------------//
-//second part of parse_asteroid
-
-chunks = result[0,0]
-//show("number of chunks: " + string(chunks))
-
-if chunks == 1
-    {
-    ds_list_destroy(population)
-    ds_list_destroy(neighbors)
-    ds_list_destroy(to_check)
-    ds_list_destroy(has_checked)
-    
-    show("time to execute parse_asteroid: " + string(get_timer() - time))
-    exit
-    }
-
-get_x = ds_get(get_entity,"x")
-get_y = ds_get(get_entity,"y")
-
-for (i = 2;i <= chunks;i++)
-    {
-    cells = result[0,i]
-    //show("cells in chunk " + string(i) + ": " + string(cells))
-    chunk = result[i,0]
-    //show("cells is: " + string(cells))
-    //show("chunk is: " + string(chunk))
-    
-    new_uuid = entity_create_server(get_x,get_y,entity.asteroid)
-    new_entity = entity_from_uuid(new_uuid)
-    new_grid = ds_create(ds_type_grid,get_width,get_height)
-    ds_set(new_entity,"grid",new_grid)
-    
-    //loop through the chunk
-    //add it to the new asteroid
-    //and remove it from the previous
-    for (j = 0;j < cells;j++)
+    ds_list_clear(to_check)
+    ds_list_clear(has_checked)
+    //done with this chunk
+    if chunk
         {
-        //show("j is : " + string(j))
-        get_cell_x = chunk[j,0]
-        get_cell_y = chunk[j,1]
-        //show("coords: " + string(get_cell_x) + ":" + string(get_cell_y))
+        new_uuid = entity_create_server(get_x,get_y,entity.asteroid)
+        new_entity = entity_from_uuid(new_uuid)
         
-        get_value = ds_grid_get(get_grid,get_cell_x,get_cell_y)
-        ds_grid_set(get_grid,get_cell_x,get_cell_y,false)
-        ds_grid_set(new_grid,get_cell_x,get_cell_y,get_value)
+        //set the grid from what we made earlier
+        ds_set(new_entity,"grid",new_grid)
+        ds_set(new_entity,"heading",get_heading)
+        ds_set(new_entity,"direction",get_direction)
+        ds_set(new_entity,"speed",get_speed)
+        
+        //packet_entity_create
+        packet_write(packet.entity_create,new_uuid)
         }
     
-    //packet_entity_create
-    packet_write(packet.entity_create,new_uuid)
+    //move on to the next chunk
+    chunk++
     }
+
+//packet_entity_set_grid
+packet_write(packet.entity_set_grid,get_uuid,get_grid)
+entity_create_hex_vertex_buffer(get_entity)
+
+ds_list_destroy(population)
+ds_list_destroy(to_check)
+ds_list_destroy(has_checked)
 show("time to execute parse_asteroid: " + string(get_timer() - time))

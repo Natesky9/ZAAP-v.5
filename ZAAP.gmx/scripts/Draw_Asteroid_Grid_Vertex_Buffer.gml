@@ -10,6 +10,7 @@ var get_vertex_buffer = ds_get(get_entity,"vertex buffer")
 if is_zero(get_vertex_buffer)
     {
     get_vertex_buffer = entity_create_hex_vertex_buffer(get_entity)
+    show("vertex buffer is: " + string(get_vertex_buffer))
     //done creating the vertex buffer
     }
     
