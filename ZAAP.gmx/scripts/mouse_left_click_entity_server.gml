@@ -22,7 +22,7 @@ if get_uuid != get("selected entity")
     
     //if it is not the selected entity, make it so
     set("selected entity",get_uuid)
-    set("selected entity type",get_type)
+    set("selected type",get_type)
     console_add("selected new entity")
     return true
     }

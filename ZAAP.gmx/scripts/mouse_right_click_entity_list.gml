@@ -2,7 +2,7 @@
 //###//
 //double check that this works
 
-var get_entity_type = get("selected entity type")
+var get_entity_type = get("selected type")
 if is_zero(get_entity_type)
 return false
 

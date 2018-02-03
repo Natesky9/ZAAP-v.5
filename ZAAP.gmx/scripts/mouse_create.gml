@@ -1,7 +1,7 @@
 ///mouse_create()
 
 //create an entity
-var get_entity_type = get("selected entity type")
+var get_entity_type = get("selected type")
 
 
 switch get_entity_type

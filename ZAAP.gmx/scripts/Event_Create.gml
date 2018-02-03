@@ -3,6 +3,7 @@
 
 initialize_ds()
 initialize_envar()
+initialize_registry()
 
 Define_Data()
 Define_Packets()
@@ -26,7 +27,6 @@ bout = buffer_create(64,buffer_grow,1)
 
 
 debug_draw = false
-show_debug_entity_list = false
 show_debug_data_structures = false
 
 //ping_timeout is also the automatic disconnect

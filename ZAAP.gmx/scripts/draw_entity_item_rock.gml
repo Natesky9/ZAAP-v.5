@@ -7,9 +7,16 @@ var get_heading = argument3
 var get_id = argument4
 
 
-//draw_set_color(grid_value_to_color(get_id))
 var color = grid_value_to_color(get_id)
 draw_set_colour(color)
+draw_circle(get_x,get_y,16,false)
+draw_set_color(c_black)
+draw_circle(get_x,get_y,16,true)
+
+var point_x = lengthdir_x(16,get_heading)
+var point_y = lengthdir_y(16,get_heading)
+draw_line(get_x,get_y,get_x+point_x,get_y+point_y)
+/*
 //var get_texture = sprite_get_texture(stone_texture,0)
 //draw_primitive_begin_texture(pr_trianglefan,get_texture)
 draw_primitive_begin(pr_trianglefan)
@@ -34,4 +41,4 @@ for (var i = 0;i <= 60;i++)
     
     }
 draw_primitive_end()
-
+*/

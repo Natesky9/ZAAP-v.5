@@ -27,7 +27,7 @@ if am_client()
             host_connection = -1
             view_reset()
             console_add("You have been disconnected")
-            show("end of ping")
+            //show("end of ping")
             }
         //end timeout scrip
         

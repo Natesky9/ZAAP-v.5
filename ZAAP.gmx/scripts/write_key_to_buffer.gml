@@ -9,28 +9,34 @@ write(get_key)
 
 switch get_key
     {
-    //
+    //--------------------------------//
     case "grid":
         {
-        //do something special here
-        //show("write grid")
-        var get_grid = ds_get(get_entity,"grid")
+        //treat as grid
+        var get_grid = ds_get(get_entity,get_key)
         write_grid_to_buffer(get_grid)
         exit
         }
-    //
+    //--------------------------------//
+    case "inventory":
+        {
+        //treat as list
+        var get_list = ds_get(get_entity,get_key)
+        write_list_to_buffer(get_list)
+        }
+    //--------------------------------//
     case "vertex buffer":
         {
         //show("nothing special here, just the vertex buffer")
         exit
         }
-    //
+    //--------------------------------//
     case "key list":
         {
         show("already sending the key list")
         exit
         }
-    //
+    //--------------------------------//
     default:
         {
         var get_value = ds_get(get_entity,get_key)
@@ -41,5 +47,5 @@ switch get_key
         exit
         //we're done here
         }
-    //
+    //--------------------------------//
     }

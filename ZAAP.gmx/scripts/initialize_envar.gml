@@ -20,10 +20,7 @@ set("step time",0)
 set("draw time",0)
 set("draw gui time",0)
 
-set("entity_list_x1",100)
-set("entity_list_y1",100)
-set("entity_specific_list_x1",0)
-set("entity_specific_list_y1",0)
+
 
 //shipyard gui
 set("shipyard x1",500)

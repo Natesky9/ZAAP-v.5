@@ -12,6 +12,6 @@ Draw_Console()
 Draw_Shipyard_GUI()
 
 
-Draw_Debug()
+Draw_Debug_Elements()
 
 set("draw gui time",get_timer() - draw_gui_time_start)

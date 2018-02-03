@@ -37,7 +37,7 @@ switch get_packet_array[data.mode]
         
         if get_myship = get_entity
             {
-            show("ignoring my own ship")
+            //show("ignoring my own ship")
             exit
             }
         

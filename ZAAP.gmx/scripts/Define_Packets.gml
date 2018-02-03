@@ -23,5 +23,6 @@ enum packet
     set_ownership,//20
     login,
     entity_set_grid,
+    collect_item,
     types,
     }

@@ -12,8 +12,6 @@ var current_ship = get_ship_from_socket(get("SSS"))//get("ship")
 if is_zero(current_ship)
 return false
 
-show("ran #Draw_Nearby_Entities")
-
 range = 100
 color = c_black
 draw_set_alpha(1)

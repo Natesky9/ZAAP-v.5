@@ -3,6 +3,10 @@
 var get_uuid = argument0
 
 var get_entity = entity_from_uuid(get_uuid)
+//###//
+//This can be moved to
+//write_list_to_buffer?
+
 var key_list = get_entity[? "key list"]
 //show("key list is: " + string(key_list))
 
