@@ -114,15 +114,15 @@ for (var i = 0;i < entity.types;i += 1)
         
         //end phase
         //clamp it
-        Event_Motion_Clamp(get_entity)
+        //Event_Motion_Clamp(get_entity)
         //end clamp it
         
         //move it
         get_speed = ds_get(get_entity,"speed")
         get_direction = ds_get(get_entity,"direction")
         
-        get_entity[? "x"] += lengthdir_x(get_speed,get_direction)
-        get_entity[? "y"] += lengthdir_y(get_speed,get_direction)
+        ds_add(get_entity,"x",lengthdir_x(get_speed,get_direction))
+        ds_add(get_entity,"y",lengthdir_y(get_speed,get_direction))
         
         //bop it
         

@@ -55,7 +55,7 @@
         <script>scripts\Draw_Entity_Asteroid.gml</script>
         <script>scripts\Draw_Entity_Ship.gml</script>
       </scripts>
-      <script>scripts\Draw_Entity_Lists.gml</script>
+      <script>scripts\Draw_Entity_Registry.gml</script>
       <script>scripts\Draw_Shipyard_GUI.gml</script>
       <script>scripts\Draw_Debug_Elements.gml</script>
       <scripts name="Draw Debug">
@@ -122,11 +122,11 @@
       <script>scripts\client_disconnect.gml</script>
     </scripts>
     <scripts name="Mouse Functions">
-      <script>scripts\entity_list_index_from_mouse.gml</script>
-      <script>scripts\entity_index_from_mouse.gml</script>
+      <script>scripts\registry_type_from_mouse.gml</script>
+      <script>scripts\registry_uuid_from_mouse.gml</script>
       <script>scripts\entity_variable_from_mouse.gml</script>
       <script>scripts\mouse_right_click_entity_list.gml</script>
-      <script>scripts\mouse_left_click_entity_list.gml</script>
+      <script>scripts\mouse_left_click_entity_registry.gml</script>
       <script>scripts\mouse_create.gml</script>
       <script>scripts\mouse_left_click_ship_grid.gml</script>
       <script>scripts\mouse_left_click_navigation.gml</script>
@@ -160,6 +160,9 @@
       <script>scripts\keyboard_released_d.gml</script>
       <script>scripts\keyboard_released_f.gml</script>
       <script>scripts\keyboard_released_i.gml</script>
+      <script>scripts\keyboard_released_j.gml</script>
+      <script>scripts\keyboard_released_k.gml</script>
+      <script>scripts\keyboard_released_l.gml</script>
     </scripts>
     <scripts name="Autopilot Functions">
       <script>scripts\autopilot_start.gml</script>
@@ -290,15 +293,18 @@
       <script>scripts\hex_offset_to_cube.gml</script>
     </scripts>
     <script>scripts\mouse_left_click_entity_server.gml</script>
-    <script>scripts\keyboard_released_j.gml</script>
-    <script>scripts\keyboard_released_k.gml</script>
-    <script>scripts\keyboard_released_l.gml</script>
     <script>scripts\packet_add_to_entity_inventory.gml</script>
     <script>scripts\draw_effect_beam.gml</script>
     <script>scripts\entity_inventory_add.gml</script>
     <script>scripts\write_list_to_buffer.gml</script>
     <script>scripts\read_buffer_to_list.gml</script>
     <script>scripts\initialize_registry.gml</script>
+    <script>scripts\draw_registry_type.gml</script>
+    <script>scripts\draw_registry_entity.gml</script>
+    <script>scripts\draw_registry_variable.gml</script>
+    <script>scripts\draw_registry_structure.gml</script>
+    <script>scripts\registry_variable_from_mouse.gml</script>
+    <script>scripts\draw_registry_structure_grid.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

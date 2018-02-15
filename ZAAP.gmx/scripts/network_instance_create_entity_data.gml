@@ -7,8 +7,8 @@ set("entity type map",entity_type_map)
 
 //entity_map is the map of uuid -> map
 var entity_map = ds_create(ds_type_map)
-ds_add_key_list(entity_type_map)
-set("entity_map",entity_map)
+ds_add_key_list(entity_map)
+set("entity map",entity_map)
 
 for (var i = 1; i <= entity.types;i += 1)
     {

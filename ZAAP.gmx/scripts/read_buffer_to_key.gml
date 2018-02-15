@@ -35,6 +35,7 @@ switch get_key
     default:
         {
         var get_value = read()
+        show("read value, " + get_key + "|" + string(get_value))
         
         if not is_zero(get_entity)
         ds_set(get_entity,get_key,get_value)

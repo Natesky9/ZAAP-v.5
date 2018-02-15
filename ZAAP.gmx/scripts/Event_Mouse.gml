@@ -3,12 +3,15 @@
 
 
 var done
+//--------------------------------//
+
 if mouse_check_button_pressed(mb_left)
     {
+    //server only
     if am_server()
         {
         //do done checks
-        done = mouse_left_click_entity_list()
+        done = mouse_left_click_entity_registry()
         if done exit
         //
         
@@ -21,9 +24,10 @@ if mouse_check_button_pressed(mb_left)
         effect_create_above(ef_firework,mouse_x,mouse_y,0,c_red)
         exit
         }
+    //client only
     if am_client()
         {
-        done = mouse_left_click_entity_list()
+        done = mouse_left_click_entity_registry()
         if done exit
         //
         done = mouse_left_click_ship_grid()
@@ -34,7 +38,9 @@ if mouse_check_button_pressed(mb_left)
         //
         }
     }
-//
+
+//--------------------------------//
+
 if mouse_check_button_pressed(mb_right)
     {
     if am_server()
@@ -51,3 +57,5 @@ if mouse_check_button_pressed(mb_right)
         //
         }
     }
+    
+//--------------------------------//

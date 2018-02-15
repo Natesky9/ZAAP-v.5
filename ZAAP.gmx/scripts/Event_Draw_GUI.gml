@@ -5,7 +5,7 @@ Draw_Nearby_Entities()
 
 Draw_Socket_List()
 
-Draw_Entity_Lists()
+Draw_Entity_Registry()
 
 Draw_Console()
 
