@@ -20,11 +20,11 @@ switch get_packet_array[data.mode]
     case "client read":
         {
         var get_socket = read()
-        var pos = ds_list_find_index(socket_list,get_socket)
+        var pos = ds_index(sockets,get_socket)
         
         if !is_undefined(pos)
             {
-            ds_list_delete(socket_list,pos)
+            ds_delete(sockets,get_socket)
             var get_map = map_from_socket(get_socket)
             if get_map != 0
                 {

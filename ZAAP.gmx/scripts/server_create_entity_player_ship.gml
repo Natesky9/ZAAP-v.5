@@ -14,8 +14,8 @@ var get_entity = entity_from_uuid(get_uuid)
 ds_set(get_entity,"grid",basic_grid)
 //end setting the grid
 
-var get_socket_map = map_from_socket(get_socket)
-ds_set(get_socket_map,"ship",get_uuid)
+var get_player = map_from_socket(get_socket)
+ds_set(get_player,"ship",get_uuid)
 
 //packet_entity_create
 packet_write(packet.entity_create,get_uuid)

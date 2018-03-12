@@ -1,8 +1,5 @@
 ///entity_list_update_position()
 //this needs work
-var selected_type = argument0
-var selected_entity = argument1
-var selected_variable = argument2
 
 
 set("entity_registry_type_x1",100)

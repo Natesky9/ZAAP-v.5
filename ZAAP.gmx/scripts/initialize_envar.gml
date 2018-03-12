@@ -4,9 +4,17 @@
 //variables to be used. Basically,
 //           I'm lazy             //
 
-envar = ds_map_create();
+envar = ds_construct(ds_type_map)
 show("ENVAR map value is: " + string(envar))
-ds_add_key_list(envar)
+
+set("static maps",static_maps)
+set("static lists",static_lists)
+set("static grids",static_grids)
+set("dynamic maps",dynamic_maps)
+set("dynamic lists",dynamic_lists)
+set("dynamic grids",dynamic_grids)
+
+
 //server and client are special,
 //in that -1 is actually "off"
 //I'll probably fix that by
@@ -43,3 +51,5 @@ packets_in = 0
 packets_out = 0
 packet_bytes_in = 0
 packet_bytes_out = 0
+
+return envar

@@ -62,14 +62,13 @@ switch get_entity_type
     //
     default:
         {
-        var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
-        var get_entity = entity_from_uuid(get_uuid)
         //nothing special
         show("you don't have a case for this!")
-        exit
+        return false
         }
     }
 
 
 //packet_entity_create
 packet_write(packet.entity_create,get_uuid)
+return true

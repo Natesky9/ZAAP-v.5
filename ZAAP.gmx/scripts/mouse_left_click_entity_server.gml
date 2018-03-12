@@ -12,6 +12,11 @@ var get_entity = entity_from_uuid(get_uuid)
 if is_zero(get_entity)
 return false
 
+var m_x = window_mouse_get_x()
+var m_y = window_mouse_get_y()
+//
+element_add(m_x,m_y,get_entity,"entity " + string(get_uuid))
+//
 var get_type = ds_get(get_entity,"type")
 
 if get_uuid != get("selected entity")

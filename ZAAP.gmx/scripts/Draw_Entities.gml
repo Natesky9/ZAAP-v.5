@@ -10,8 +10,10 @@ var i,ii
 //draw from largest to smallest
 for (i = entity.types-1;i > 0;i -= 1)
     {
-    var get_list = entity_list(i)
-    for (ii = 0;ii < ds_list_size(get_list);ii += 1)
+    var get_map = fetch_entity_map(i)
+    var get_list = keys_from_map(get_map)
+    var keys = ds_list_size(get_list)
+    for (ii = 0;ii < keys;ii += 1)
         {
         get_uuid = ds_list_find_value(get_list,ii)
         get_entity = entity_from_uuid(get_uuid)

@@ -98,7 +98,7 @@ switch get_packet_array[data.mode]
             exit
             }
         
-        var get_socket = ds_map_find_value(async_load,"id")
+        var get_socket = ds_get(async_load,"id")
         var get_map = map_from_socket(get_socket)
         
         ds_set(get_map,"ship",get_uuid)

@@ -12,13 +12,13 @@ switch get_packet_array[data.mode]
         write_type(packet.update_sockets)
         var get_update_socket = get_packet_array[data.arg_0]
         //update all the clients on the sockets
-        var get_list_size = ds_list_size(socket_list)
+        var socket_count = ds_size(sockets)
         
-        write(get_list_size-1)
+        write(socket_count-1)
         
-        for (var i = 0;i < get_list_size;i += 1)
+        for (var i = 0;i < socket_count;i += 1)
             {
-            var get_socket = ds_list_find_value(socket_list,i)
+            var get_socket = ds_index(sockets,i)
             show("list socket is: " + string(get_socket))
             
             if get_socket != get_update_socket
@@ -38,9 +38,9 @@ switch get_packet_array[data.mode]
     case "client read":
         {
         
-        var get_socket_list_size = read()
-        show("socket list has: " + string(get_socket_list_size))
-        repeat get_socket_list_size
+        var socket_count = read()
+        show("socket list has: " + string(socket_count))
+        repeat socket_count
             {
             read_buffer_to_socket()
             }

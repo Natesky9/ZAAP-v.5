@@ -29,15 +29,16 @@ if zero
 
 //create the list of data structures
 //mostly for debug purposes
-data_structure_grid_list = ds_list_create()
-data_structure_list_list = ds_list_create()
-data_structure_map_list = ds_list_create()
-data_structure_priority_list = ds_list_create()
-data_structure_queue_list = ds_list_create()
-data_structure_stack_list = ds_list_create()
-data_structure_grid_amount = 0
-data_structure_list_amount = 0
-data_structure_map_amount = 0
-data_structure_priority_amount = 0
-data_structure_queue_amount = 0
-data_structure_stack_amount = 0
+
+
+static_maps = ds_list_create()
+static_lists = ds_list_create()
+static_grids = ds_list_create()
+
+dynamic_maps = ds_list_create()
+dynamic_lists = ds_list_create()
+dynamic_grids = ds_list_create()
+
+
+
+

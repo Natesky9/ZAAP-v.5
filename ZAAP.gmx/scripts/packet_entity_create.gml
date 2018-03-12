@@ -40,7 +40,7 @@ switch get_packet_array[data.mode]
     case "server read":
         {
         //Event for client requesting an entity
-        var get_socket = ds_map_find_value(async_load,"id")
+        var get_socket = ds_get(async_load,"id")
         
         var get_x = read()
         var get_y = read()

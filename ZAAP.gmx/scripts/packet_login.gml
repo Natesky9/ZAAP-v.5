@@ -64,13 +64,13 @@ switch get_packet_array[data.mode]
     case "server read":
         {
         show("GOT TO THIS POINT")
-        var get_socket = ds_map_find_value(async_load,"id")
+        var get_socket = ds_get(async_load,"id")
         var username = read()
         show("username: " + username + " joined")
         
-        var get_socket_map = map_from_socket(get_socket)
-        console_add("get_socket_map: " + string(get_socket_map))
-        ds_set(get_socket_map,"username",username)
+        var get_player = map_from_socket(get_socket)
+        console_add("get_player: " + string(get_player))
+        ds_set(get_player,"username",username)
         
         //packet_add_socket
         packet_write(packet.add_socket,get_socket)
@@ -81,16 +81,6 @@ switch get_packet_array[data.mode]
             console_add("returning player, loading save")
             var get_profile = playerdata_load(username)
             var get_ship = ds_get(get_profile,"ship")
-            
-            if ds_list_find_index(entity_list,get_ship) != -1
-                {
-                console_add("players ship exists!")
-                }
-            else
-                {
-                console_add("players ship does not exist")
-                }
-            
             break
             }
         else

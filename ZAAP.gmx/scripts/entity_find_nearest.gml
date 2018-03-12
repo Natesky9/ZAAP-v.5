@@ -11,18 +11,19 @@ var blacklist = argument3
 var nearest_entity = 0
 var nearest_distance = -1
 
-var get_entity_list = entity_list(get_search_type)
-var size = ds_list_size(get_entity_list)
-show("size of list to search: " + string(size))
-if not size
+var get_map = fetch_entity_map(get_search_type)
+var get_list = keys_from_map(get_map)
+var keys = ds_list_size(get_list)
+show("size of list to search: " + string(keys))
+if not keys
     {
     show("list is empty #entity_find_nearest")
     return false
     }
 
-for (var i = 0;i < size;i += 1)
+for (var i = 0;i < keys;i += 1)
     {
-    var get_uuid = ds_list_find_value(get_entity_list,i)
+    var get_uuid = ds_list_find_value(get_list,i)
     
     if get_uuid == blacklist
     continue

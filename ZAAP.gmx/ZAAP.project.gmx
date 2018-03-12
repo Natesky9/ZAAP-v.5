@@ -123,9 +123,7 @@
     </scripts>
     <scripts name="Mouse Functions">
       <script>scripts\registry_type_from_mouse.gml</script>
-      <script>scripts\registry_uuid_from_mouse.gml</script>
       <script>scripts\entity_variable_from_mouse.gml</script>
-      <script>scripts\mouse_right_click_entity_list.gml</script>
       <script>scripts\mouse_left_click_entity_registry.gml</script>
       <script>scripts\mouse_create.gml</script>
       <script>scripts\mouse_left_click_ship_grid.gml</script>
@@ -204,7 +202,7 @@
       <script>scripts\additional_sum.gml</script>
       <script>scripts\set.gml</script>
       <script>scripts\get.gml</script>
-      <script>scripts\entity_list.gml</script>
+      <script>scripts\fetch_entity_map.gml</script>
       <script>scripts\is_between.gml</script>
     </scripts>
     <scripts name="packets">
@@ -246,13 +244,11 @@
       <script>scripts\ds_set.gml</script>
       <script>scripts\ds_add.gml</script>
       <script>scripts\ds_get.gml</script>
-      <script>scripts\ds_add_key_list.gml</script>
       <script>scripts\ds_map_delete_key.gml</script>
       <script>scripts\grid_set_value_advanced.gml</script>
       <script>scripts\map_add_new_key.gml</script>
     </scripts>
     <scripts name="Entity">
-      <script>scripts\entity_type_to_name.gml</script>
       <script>scripts\entity_create_server.gml</script>
       <script>scripts\entity_create_basic.gml</script>
       <script>scripts\entity_destroy_basic.gml</script>
@@ -300,11 +296,18 @@
     <script>scripts\read_buffer_to_list.gml</script>
     <script>scripts\initialize_registry.gml</script>
     <script>scripts\draw_registry_type.gml</script>
-    <script>scripts\draw_registry_entity.gml</script>
-    <script>scripts\draw_registry_variable.gml</script>
-    <script>scripts\draw_registry_structure.gml</script>
-    <script>scripts\registry_variable_from_mouse.gml</script>
-    <script>scripts\draw_registry_structure_grid.gml</script>
+    <script>scripts\Draw_Registry.gml</script>
+    <script>scripts\ds_construct.gml</script>
+    <script>scripts\initialize_sockets.gml</script>
+    <script>scripts\initialize_entity_map.gml</script>
+    <script>scripts\initialize_dimensions.gml</script>
+    <script>scripts\get_key_type.gml</script>
+    <script>scripts\element_add.gml</script>
+    <script>scripts\mouse_left_click_registry.gml</script>
+    <script>scripts\ds_size.gml</script>
+    <script>scripts\ds_index.gml</script>
+    <script>scripts\ds_delete.gml</script>
+    <script>scripts\keys_from_map.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

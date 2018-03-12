@@ -16,7 +16,6 @@ repeat get_list_size
     }
 var get_socket = get_map[? "socket"]
 show("socket added: " + string(get_socket))
-ds_map_add(socket_map,get_socket,get_map)
-ds_list_add(socket_list,get_socket)
+ds_set(sockets,get_socket,get_map)
 
 console_add("Player [" + string(get_socket) + "] connected!")

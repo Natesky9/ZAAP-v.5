@@ -8,8 +8,7 @@ var get_map = create_socket()
 show("///get_map is: " + string(get_map) + "///")
 
 //create/load a map and store it
-ds_map_add(socket_map,get_socket,get_map)
-ds_list_add(socket_list,get_socket)
+ds_set(sockets,get_socket,get_map)
 show("mapped socket[" + string(get_socket) + "] to map[" + string(get_map) + "]")
 
 //add data

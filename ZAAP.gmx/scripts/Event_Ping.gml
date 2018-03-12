@@ -17,8 +17,10 @@ if am_client()
             //replace with client_destroy
             console_add("Can't communicate with Server")
             show("Can't communicate with Server")
+            client_destroy()
+            exit
             //disconnect
-            
+            /*
             data_structure_clear_all()
             var get_client = get("client")
             network_destroy(get_client)
@@ -28,6 +30,7 @@ if am_client()
             view_reset()
             console_add("You have been disconnected")
             //show("end of ping")
+            */
             }
         //end timeout scrip
         
@@ -44,9 +47,10 @@ if am_client()
 
 if am_server()
     {
-    for (var i = 0;i < ds_list_size(socket_list);i += 1)
+    var socket_count = ds_size(sockets)
+    for (var i = 0;i < ds_list_size(socket_count);i += 1)
         {
-        var get_socket = ds_list_find_value(socket_list,i);
+        var get_socket = ds_index(sockets,i)
         var get_map = map_from_socket(get_socket);
         ds_add(get_map,"ping timeout",1)
         var timeout = get_map[? "ping timeout"]
@@ -61,7 +65,7 @@ if am_server()
         }
     
     //report ping to clients
-    if ds_list_size(socket_list)
+    if ds_size(sockets)
     and !(get("session time") mod 15)
         {
         //show("return ping")

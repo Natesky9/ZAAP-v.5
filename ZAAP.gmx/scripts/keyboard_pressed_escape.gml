@@ -5,5 +5,6 @@ exit
 
 if am_client()
     {
-    client_disconnect()
+    client_destroy()
+    //client_disconnect()
     }

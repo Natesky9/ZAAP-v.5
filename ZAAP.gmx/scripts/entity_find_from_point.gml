@@ -6,9 +6,11 @@ var get_y = argument1
 var get_type = argument2
 var get_blacklist = argument3
 
-var get_list = entity_list(get_type)//entity_list(entity.types)
+var get_map = fetch_entity_map(get_type)
+var get_list = keys_from_map(get_map)
+var keys = ds_list_size(get_list)
 
-for (var i = 0;i < ds_list_size(get_list);i += 1)
+for (var i = 0;i < keys;i += 1)
     {
     var get_uuid = ds_list_find_value(get_list,i)
     var get_entity = entity_from_uuid(get_uuid)

@@ -4,24 +4,26 @@ var get_ds = argument1
 
 if get_type == ds_type_map
     {
+    var key_list = ds_get(get_ds,"key list")
+    if key_list
+        {
+        ds_destroy(ds_type_list,key_list)
+        }
     ds_map_destroy(get_ds)
-    data_structure_map_amount--
-    var pos = ds_list_find_index(data_structure_map_list,get_ds)
-    ds_list_delete(data_structure_map_list,pos)
+    var pos = ds_list_find_index(static_maps,get_ds)
+    ds_list_delete(static_maps,pos)
     exit
     }
 if get_type == ds_type_list
     {
     ds_list_destroy(get_ds)
-    data_structure_list_amount--
-    var pos = ds_list_find_index(data_structure_list_list,get_ds)
-    ds_list_delete(data_structure_list_list,pos)
+    var pos = ds_list_find_index(static_lists,get_ds)
+    ds_list_delete(static_lists,pos)
     exit
     }
 if get_type == ds_type_grid
     {
     ds_grid_destroy(get_ds)
-    data_structure_grid_amount--
-    var pos = ds_list_find_index(data_structure_grid_list,get_ds)
-    ds_list_delete(data_structure_grid_list,pos)
+    var pos = ds_list_find_index(static_grids,get_ds)
+    ds_list_delete(static_grids,pos)
     }

@@ -18,8 +18,6 @@ Event_Update()
 Event_Fire()
 //end action
 
-
-
 Event_Ping()
 
 Event_Entity_Destroy()

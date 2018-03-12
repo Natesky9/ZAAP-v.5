@@ -25,12 +25,14 @@ switch get_packet_array[data.mode]
         
         var get_ping = current_time - get_timestamp
         
-        var get_socket_map = map_from_socket(get("SSS"));
-        if is_zero(get_socket_map) exit
+        show("got a ping of: " + string(get_ping))
+        
+        var get_player = map_from_socket(get("SSS"));
+        if is_zero(get_player) exit
         
         set("ping timeout",0)
         //packet_ping_report
-        write(get_ping)
+        packet_write(packet.ping_report,get_ping)
         
         return true
         }
@@ -50,12 +52,12 @@ switch get_packet_array[data.mode]
         //read the ping
         var get_ping = read()
         //get the socket?
-        var get_socket = ds_map_find_value(async_load,"id")
+        var get_socket = ds_get(async_load,"id")
         
-        var get_socket_map = map_from_socket(get_socket)
+        var get_player = map_from_socket(get_socket)
         
         //don't send the ping yet
-        //ds_map_replace(get_socket_map,"ping",get_ping)
+        //ds_map_replace(get_player,"ping",get_ping)
         
         
         //write the packet

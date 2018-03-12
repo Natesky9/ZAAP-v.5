@@ -22,10 +22,11 @@ if am_client()
 if am_server()
     {
     //get a random ship
-    var get_list = entity_list(entity.ship)
-    var get_size = ds_list_size(get_list)
+    var get_map = fetch_entity_map(entity.ship)
+    var get_list = keys_from_map(get_map)
+    var keys = ds_list_size(get_list)
     
-    if not get_size
+    if not keys
         {
         console_add("There must be at least two")
         exit

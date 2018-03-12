@@ -35,7 +35,7 @@ or am_server()
     and get("SSS") >= 0
         {
         //draw the client timeout
-        var get_map = ds_get(socket_map,get("SSS"))
+        var get_map = map_from_socket(get("SSS"))
         if is_zero(get_map) exit
         var get_ping_timeout = get("ping timeout")
         

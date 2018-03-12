@@ -25,32 +25,26 @@ while ds_list_size(entity_destroy_list)
     var get_type = ds_get(get_entity,"type")
     //
     //get the list id
-    var get_list = entity_list(get_type)
-    //find where it is in the entity list
-    pos = ds_list_find_index(get_list,get_uuid)
+    var get_map = fetch_entity_map(get_type)
     //delete it from that list
-    ds_list_delete(get_list,pos)
+    ds_delete(get_map,get_uuid)
     
     //get the global list
-    var get_global_list = entity_list(entity.types)
+    var get_global_map = fetch_entity_map(entity.types)
     //find where in the global entity list
-    pos = ds_list_find_index(get_global_list,get_uuid)
-    //delete it from global list
-    ds_list_delete(get_global_list,pos)
+    ds_delete(get_global_map,get_uuid)
     
-    //disassociate the uuid
-    ds_map_delete(get("entity map"),get_uuid)
+    
 
     
     var get_key_list = ds_get(get_entity,"key list")
+    var keys = ds_list_size(get_key_list)
 
-    for (var i = 0;i < ds_list_size(get_key_list);i += 1)
+    for (var i = 0;i < keys;i += 1)
         {
         var get_key = ds_list_find_value(get_key_list,i)
         ds_map_delete_key(get_entity,get_key)
         }
-    
-    ds_destroy(ds_type_list,get_key_list)
     
     //destroy the map
     ds_destroy(ds_type_map,get_entity)

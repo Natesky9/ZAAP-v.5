@@ -7,7 +7,7 @@ var get_entity = entity_from_uuid(get_uuid)
 //This can be moved to
 //write_list_to_buffer?
 
-var key_list = get_entity[? "key list"]
+var key_list = keys_from_map(get_entity)
 //show("key list is: " + string(key_list))
 
 var get_list_size = ds_list_size(key_list)

@@ -20,15 +20,12 @@ while ds_list_size(entity_create_list)
     
 
     //add to global list
-    var get_list = entity_list(entity.types)
+    //removed in favor of having the global map
+    //be the part to include uninitialized entities
+    
     //add to specific list
-    var get_specific_list = entity_list(get_type)
-    
-    ds_list_add(get_list,get_uuid)
-    ds_list_add(get_specific_list,get_uuid)
-    
-    //show("created entity of type: " + string(get_type))
-    //show("#adding to lists : " + string(get_list) + " , " + string(get_specific_list))
+    var get_specific_map = fetch_entity_map(get_type)
+    ds_set(get_specific_map,get_uuid,get_entity)
     
     //we're finished adding it
     ds_list_delete(entity_create_list,0)

@@ -12,7 +12,7 @@ var get_uuid = random_32()
 //create it and get it's id
 var get_entity = entity_create_basic()
 
-var name = localized_entity_name[? get_type]
+var name = name_from_type(get_type)
 
 ds_set(get_entity,"uuid",get_uuid)
 ds_set(get_entity,"x",get_x)

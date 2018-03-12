@@ -11,4 +11,11 @@ if show_debug_data_structures
     {
     var envar_list = get("key list")
     ds_list_sort(envar_list,true)
+    
+    element_add(100,100,registry,"registry")
+    }
+else
+    {
+    var elements = ds_get(registry,"elements")
+    
     }
