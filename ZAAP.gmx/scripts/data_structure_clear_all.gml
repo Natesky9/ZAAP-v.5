@@ -24,5 +24,19 @@ repeat ds_list_size(dynamic_grids)
     ds_grid_destroy(get_grid)
     ds_list_delete(dynamic_grids,0)
     }
+//--------------------------------//
+for (var i = 0;i < ds_list_size(static_lists);i++)
+    {
+    var get_list = ds_list_find_value(static_lists,i)
+    ds_list_clear(get_list)
+    }
+for (var i = 0;i < ds_list_size(static_maps);i++)
+    {
+    var get_map = ds_list_find_value(static_maps,i)
+    var get_list = keys_from_map(get_map)
+    ds_map_clear(get_map)
+    ds_list_clear(get_list)
+    ds_map_set(get_map,"key list",get_list)
+    }
 
 show("Cleared all network data")

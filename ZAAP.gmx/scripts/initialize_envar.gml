@@ -4,15 +4,10 @@
 //variables to be used. Basically,
 //           I'm lazy             //
 
-envar = ds_construct(ds_type_map)
+envar = ds_create(data.permanent,ds_type_map)
 show("ENVAR map value is: " + string(envar))
 
-set("static maps",static_maps)
-set("static lists",static_lists)
-set("static grids",static_grids)
-set("dynamic maps",dynamic_maps)
-set("dynamic lists",dynamic_lists)
-set("dynamic grids",dynamic_grids)
+
 
 
 //server and client are special,

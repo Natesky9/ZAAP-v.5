@@ -1,10 +1,7 @@
 ///create_socket()
 //###//
 //replace with better function
-var get_map = ds_create(ds_type_map)
-
-var key_list = ds_create(ds_type_list)
-ds_map_add(get_map,"key list",key_list)
+var get_map = ds_create(data.dynamic,ds_type_map)
 
 return get_map
 

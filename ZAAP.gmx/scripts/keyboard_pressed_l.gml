@@ -6,13 +6,15 @@ exit
 
 if am_client()
     {
-    var myship = get("ship")
-    if is_zero(myship)
+    var get_entity = my_ship()
+    if is_zero(get_entity)
         {
         show("error, no ship")
+        console_add("you don't have a ship")
         exit
         }
-    var get_entity = entity_from_uuid(myship)
+    
+    var get_uuid = uuid_from_entity(get_entity)
     var get_x = ds_get(get_entity,"x")
     var get_y = ds_get(get_entity,"y")
     var nearest_entity = entity_find_nearest(entity.item,get_x,get_y,false)
@@ -20,6 +22,7 @@ if am_client()
     
     if not nearest_entity
         {
+        loot_fail()
         show("no entities nearby")
         exit
         }
@@ -31,17 +34,18 @@ if am_client()
     
     if distance > 1000
         {
+        loot_fail()
         show("no entities nearby")
         exit
         }
     
-    effect_create_above(ef_ring,nearest_x,nearest_y,0,c_black)
+    loot_succeed(nearest_x,nearest_y)
     
     var nearest_uuid = uuid_from_entity(nearest_entity)
     show("tractoring uuid: " + string(nearest_uuid))
     
     //packet_collect_item
-    packet_write(packet.collect_item,myship,nearest_uuid)
+    packet_write(packet.collect_item,get_uuid,nearest_uuid)
     }
 
 if am_server()

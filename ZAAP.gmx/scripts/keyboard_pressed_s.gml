@@ -6,7 +6,7 @@ exit
 
 if am_client()
     {
-    var get_ship = get_ship_from_socket(get("SSS"))
+    var get_ship = my_ship()
     if is_zero(get_ship) exit
 
     if get_ship != 0
@@ -38,7 +38,7 @@ if am_server()
     var random_x = irandom(1000)
     var random_y = irandom(1000)
     var random_angle = irandom(360)
-    var new_grid = ds_create(ds_type_grid,9,9)
+    var new_grid = ds_create(data.dynamic,ds_type_grid,9,9)
     
     randomize_grid(new_grid)
     

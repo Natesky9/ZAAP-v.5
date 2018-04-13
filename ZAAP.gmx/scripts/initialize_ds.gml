@@ -29,7 +29,9 @@ if zero
 
 //create the list of data structures
 //mostly for debug purposes
-
+permanent_maps = ds_list_create()
+permanent_lists = ds_list_create()
+permanent_grids = ds_list_create()
 
 static_maps = ds_list_create()
 static_lists = ds_list_create()

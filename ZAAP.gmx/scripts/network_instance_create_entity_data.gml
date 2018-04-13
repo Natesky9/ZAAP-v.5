@@ -2,4 +2,5 @@
 
 
 //create the recursive gravity list
-entity_gravity_list = ds_create(ds_type_list)
+entity_gravity_list = ds_create(data.dynamic,ds_type_list)
+autopilot_controller_list = ds_create(data.dynamic,ds_type_list)

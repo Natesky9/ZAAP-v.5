@@ -5,7 +5,7 @@ exit
 
 
 
-for (var i = 0;i < entity.types;i += 1)
+for (var i = 1;i < entity.types;i += 1)
     {
     var get_map = fetch_entity_map(i)
     var get_list = keys_from_map(get_map)

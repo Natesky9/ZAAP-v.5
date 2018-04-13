@@ -1,8 +1,8 @@
 ///entity_find_nearest(type,x,y,blacklist)
 //find the nearest entity of a specific type
 //not including the blacklisted entity (change to list?)
-
 //returns entity
+
 var get_search_type = argument0
 var get_search_x = argument1
 var get_search_y = argument2
@@ -14,7 +14,7 @@ var nearest_distance = -1
 var get_map = fetch_entity_map(get_search_type)
 var get_list = keys_from_map(get_map)
 var keys = ds_list_size(get_list)
-show("size of list to search: " + string(keys))
+//show("size of list to search: " + string(keys))
 if not keys
     {
     show("list is empty #entity_find_nearest")

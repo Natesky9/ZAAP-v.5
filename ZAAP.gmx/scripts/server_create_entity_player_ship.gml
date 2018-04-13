@@ -5,7 +5,7 @@ var get_y = argument2
 
 var get_uuid = entity_create_server(get_x,get_y,entity.ship)
 //set the grid
-var basic_grid = ds_create(ds_type_grid,9,9);
+var basic_grid = ds_create(data.dynamic,ds_type_grid,9,9);
 basic_grid[# 4,4] = true
 basic_grid[# 4,3] = 2
 basic_grid[# 3,4] = 3

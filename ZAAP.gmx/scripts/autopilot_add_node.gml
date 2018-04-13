@@ -14,7 +14,7 @@ if is_zero(get_autopilot_list)
     }
 
 //create the node and add to list
-var get_node = ds_create(ds_type_map)
+var get_node = ds_create(data.dynamic,ds_type_map)
 ds_list_add(get_autopilot_list,get_node)
 //add the node type
 ds_set(get_node,"type",get_type)

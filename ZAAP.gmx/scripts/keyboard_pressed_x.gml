@@ -6,7 +6,7 @@ exit
 if am_client()
     {
     //console_add("Started Autopilot")
-    var get_ship = get_ship_from_socket(get("SSS"))
+    var get_ship = my_ship()
     if is_zero(get_ship)
         {
         console_add("no ship, autopilot canceled")
@@ -14,7 +14,26 @@ if am_client()
         }
     
     var get_uuid = uuid_from_entity(get_ship)
+    var get_x = ds_get(get_ship,"x")
+    var get_y = ds_get(get_ship,"y")
+    var nearest = entity_find_nearest(entity.shipyard,get_x,get_y,false)
+    var other_uuid = uuid_from_entity(nearest)
     
+    if not nearest
+        {
+        show("no shipyard nearby to pair to! #keyboard_pressed_x")
+        exit
+        }
+    var distance = entity_distance(get_ship,nearest)
+    console_add("distance to shipyard: " + string(distance))
+    
+    if distance < 128
+        {
+        //packet_entity_dock
+        packet_write(packet.entity_dock,get_uuid,other_uuid)
+        }
+    
+    /*
     var autopilot_status = ds_get(get_ship,"autopilot")
     if autopilot_status == true
         {
@@ -52,4 +71,5 @@ if am_client()
     autopilot_add_node(get_uuid,"checkpoint",get_shipyard_x+128,get_shipyard_y)
     autopilot_add_node(get_uuid,"waypoint",get_shipyard_x,get_shipyard_y+128)
     autopilot_add_node(get_uuid,"dock",shipyard_uuid)
+    */
     }

@@ -7,7 +7,7 @@ var view_center_x = view_wview[0]/2
 var view_center_y = view_hview[0]/2
 var range
 
-var current_ship = get_ship_from_socket(get("SSS"))//get("ship")
+var current_ship = my_ship()
 
 if is_zero(current_ship)
 return false

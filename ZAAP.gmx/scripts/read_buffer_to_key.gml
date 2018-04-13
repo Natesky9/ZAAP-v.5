@@ -11,7 +11,7 @@ switch get_key
     case "grid":
         {
         //treat as grid
-        var get_grid = ds_create(ds_type_grid,1,1)
+        var get_grid = ds_create(data.dynamic,ds_type_grid,1,1)
         read_buffer_to_grid(get_grid)
         console_add("read grid")
         ds_set(get_entity,"grid",get_grid)
@@ -20,7 +20,7 @@ switch get_key
     //--------------------------------//
     case "inventory":
         {
-        var get_list = ds_create(ds_type_list)
+        var get_list = ds_create(data.dynamic,ds_type_list)
         read_buffer_to_list(get_list)
         //treat as list
         exit

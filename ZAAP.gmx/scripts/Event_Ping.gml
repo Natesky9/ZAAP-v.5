@@ -1,10 +1,10 @@
 ///Event_Ping()
 if am_client()
     {
-    if get("SSS") != -1
+    if my_socket() != -1
         {
         //timeout script
-        var get_map = map_from_socket(get("SSS"));
+        var get_map = my_socket()
         if get_map == 0
             {
             show("Error, socket is undefined")
@@ -19,18 +19,6 @@ if am_client()
             show("Can't communicate with Server")
             client_destroy()
             exit
-            //disconnect
-            /*
-            data_structure_clear_all()
-            var get_client = get("client")
-            network_destroy(get_client)
-            set("client",-1)
-            set("SSS",-1)
-            host_connection = -1
-            view_reset()
-            console_add("You have been disconnected")
-            //show("end of ping")
-            */
             }
         //end timeout scrip
         

@@ -185,7 +185,7 @@ while ds_list_size(population)
     if chunk > 0
         {
         //create a new grid to be used later
-        new_grid = ds_create(ds_type_grid,get_width,get_height)
+        new_grid = ds_create(data.dynamic,ds_type_grid,get_width,get_height)
         seed_x = int_to_coord_x(seed,grid_max)
         seed_y = int_to_coord_y(seed,grid_max)
         

@@ -1,11 +1,11 @@
 ///initialize_registry()
 
-registry = ds_construct(ds_type_map)
+registry = ds_create(data.permanent,ds_type_map)
 
 
 ds_set(registry,"envar",envar)
 
-var entities = ds_construct(ds_type_map)
+var entities = ds_create(data.static,ds_type_map)
 ds_set(registry,"entities",entities)
 var entity_map = get("entity map")
 for (var i = 1; i <= entity.types;i += 1)

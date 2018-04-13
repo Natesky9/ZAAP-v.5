@@ -1,5 +1,6 @@
 enum data
     {
+    null,
     mode,
     type,
     arg_0,
@@ -12,6 +13,9 @@ enum data
     arg_7,
     arg_8,
     arg_9,
+    permanent,
+    static,
+    dynamic,
     request,
     approve,
     deny,

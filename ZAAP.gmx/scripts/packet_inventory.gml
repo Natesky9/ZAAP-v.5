@@ -14,7 +14,7 @@ switch get_packet_array[data.mode]
         for (var i = 0;i < socket_count;i += 1)
             {
             var get_socket = ds_index(sockets,i)
-            var get_ship = get_ship_from_socket(get_socket)
+            var get_ship = ship_from_socket(get_socket)
             show("ship: " + string(get_ship))
             if is_zero(get_ship)
             continue

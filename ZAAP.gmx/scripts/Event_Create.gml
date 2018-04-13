@@ -11,16 +11,13 @@ initialize_sockets()
 initialize_dimensions()
 initialize_registry()
 
-var elements = ds_construct(ds_type_map)
+var elements = ds_create(data.static,ds_type_map)
 ds_set(registry,"elements",elements)
 ds_set(registry,"registry",registry)
 //add to the list
-element_add(100,100,registry,"registry")
-element_add(400,200,envar,"envar")
+//element_add(100,100,registry,"registry",ds_type_map)
+//element_add(400,200,envar,"envar",ds_type_map)
 
-//create the prestep and poststep handling lists
-entity_destroy_list = ds_construct(ds_type_list)
-entity_create_list = ds_construct(ds_type_list)
 
 
 
@@ -30,7 +27,7 @@ create_vertex_buffer_format()
 
 
 
-console_list = ds_construct(ds_type_list)
+console_list = ds_create(data.static,ds_type_list)
 console_add("list is id of " + string(console_list))
 
 bin = buffer_create(64,buffer_grow,1)

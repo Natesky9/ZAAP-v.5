@@ -13,7 +13,6 @@ var get_size = ds_list_size(get_list)
 var selected = false
 for (var i = get_size-1;i >= 0;i--)
     {
-    show("i is: " + string(i))
     var get_element = ds_list_find_value(get_list,i)
     var element_x1 = ds_get(get_element,"x1")
     var element_y1 = ds_get(get_element,"y1")
@@ -26,12 +25,7 @@ for (var i = get_size-1;i >= 0;i--)
         if click_x > element_x1 + 300 - 16
             {
             //clicked on the close button
-            ds_map_delete(elements,get_element)
-            ds_list_delete(get_list,i)
-            var element_key_list = ds_get(get_element,"key list")
-            ds_map_destroy(get_element)
-            ds_list_destroy(element_key_list)
-            //done deleting the element
+            element_delete(get_element)
             return true
             }
         
@@ -68,9 +62,13 @@ for (var i = get_size-1;i >= 0;i--)
         if type == ds_type_map
             {
             if get_value == "map"
-            element_add(click_x,click_y,get_key,"map: " + string(get_key))
+            element_add(click_x,click_y,get_key,"map: " + string(get_key),ds_type_map)
             else
-            element_add(click_x,click_y,get_value,get_key)
+            element_add(click_x,click_y,get_value,get_key,ds_type_map)
+            }
+        if type == ds_type_list
+            {
+            element_add(click_x,click_y,get_value,get_key,ds_type_list)
             }
         return true
         }

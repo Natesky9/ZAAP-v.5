@@ -10,7 +10,7 @@ switch get_entity_type
         {
         var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
         var get_entity = entity_from_uuid(get_uuid)
-        var basic_grid = ds_create(ds_type_grid,9,9);
+        var basic_grid = ds_create(data.dynamic,ds_type_grid,9,9);
         basic_grid[# 4,4] = true
         var get_entity = entity_from_uuid(get_uuid)
         ds_set(get_entity,"grid",basic_grid)

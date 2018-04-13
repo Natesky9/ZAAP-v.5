@@ -12,9 +12,9 @@ or am_server()
     draw_set_alpha(1)
     
     var x1 = view_width-200
-    var y1 = 200
+    var y1 = 100
     var x2 = view_width
-    var y2 = 264 + is_client*32
+    var y2 = 164 + is_client*32
     draw_set_color(c_gray)
     draw_rectangle(x1,y1,x2,y2,false)
     draw_set_color(c_black)
@@ -23,23 +23,23 @@ or am_server()
     font_align(9)
     
     get_text = "packets in: " + string(packets_in)
-    draw_text(view_width,200,get_text)
+    draw_text(view_width,100,get_text)
     get_text = "packets out: " + string(packets_out)
-    draw_text(view_width,216,get_text)
+    draw_text(view_width,116,get_text)
     get_text = "packet bytes in: " + string(packet_bytes_in)
-    draw_text(view_width,232,get_text)
+    draw_text(view_width,132,get_text)
     get_text = "packet bytes out: " + string(packet_bytes_out)
-    draw_text(view_width,248,get_text)
+    draw_text(view_width,148,get_text)
     
     if is_client
-    and get("SSS") >= 0
+    and my_socket() >= 0
         {
         //draw the client timeout
-        var get_map = map_from_socket(get("SSS"))
+        var get_map = my_socket()
         if is_zero(get_map) exit
         var get_ping_timeout = get("ping timeout")
         
         get_text = "since last packet: " + string(get_ping_timeout)
-        draw_text(view_width,280,get_text)
+        draw_text(view_width,180,get_text)
         }
     }

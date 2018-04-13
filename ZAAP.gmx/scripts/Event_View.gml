@@ -2,15 +2,14 @@
 if am_client()
     {
     //get the ship
-    var get_ship_uuid = get("ship")
-    if is_zero(get_ship_uuid)
+    var get_entity = my_ship()
+    if is_zero(get_entity)
         {
+        console_add("no ship to view")
         //no ship controlled
         exit
         }
     
-    var get_entity = entity_from_uuid(get_ship_uuid);
-    if is_zero(get_entity) exit;
     var get_x = ds_get(get_entity,"x");
     var get_y = ds_get(get_entity,"y");
     view_center(get_x,get_y);

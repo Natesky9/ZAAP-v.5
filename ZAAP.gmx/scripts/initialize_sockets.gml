@@ -1,3 +1,3 @@
 ///initialize_sockets()
 //placeholder
-sockets = ds_construct(ds_type_map)
+sockets = ds_create(data.static,ds_type_map)

@@ -27,7 +27,7 @@ switch get_packet_array[data.mode]
         
         show("got a ping of: " + string(get_ping))
         
-        var get_player = map_from_socket(get("SSS"));
+        var get_player = my_socket();
         if is_zero(get_player) exit
         
         set("ping timeout",0)

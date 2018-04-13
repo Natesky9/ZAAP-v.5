@@ -39,12 +39,12 @@ switch get_packet_array[data.mode]
             case data.deny:
                 {
                 console_add("player already in server!")
-                client_disconnect()
+                client_destroy()
                 }
             default:
                 {
                 console_add("error, incorrect data in packet")
-                client_disconnect()
+                client_destroy()
                 break
                 }
             }

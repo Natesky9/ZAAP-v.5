@@ -24,7 +24,7 @@ switch get_packet_array[data.mode]
         var get_sss = read()
         
         set("SSS",get_sss)
-        var get_map = map_from_socket(get("SSS"));
+        var get_map = my_socket()
  
         //get_map[? "ping timeout"] = ping_timeout
  

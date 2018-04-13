@@ -3,7 +3,7 @@
 if not am_client()
 exit
 
-var get_entity = get_ship_from_socket(get("SSS"))
+var get_entity = my_ship()
 if is_zero(get_entity)
 exit
 

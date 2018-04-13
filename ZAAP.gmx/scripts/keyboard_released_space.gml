@@ -7,7 +7,7 @@ exit
 if am_client()
     {
     //trigger
-    var get_ship = get_ship_from_socket(get("SSS"))
+    var get_ship = my_ship()
     if is_zero(get_ship)
         {
         console_add("You don't have a ship! Press Control to make one")

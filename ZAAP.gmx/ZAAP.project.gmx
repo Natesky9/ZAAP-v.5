@@ -7,6 +7,10 @@
   <sounds name="sound">
     <sound>sound\zaap</sound>
     <sound>sound\clunk</sound>
+    <sound>sound\buzz_no</sound>
+    <sound>sound\fizzle</sound>
+    <sound>sound\weld</sound>
+    <sound>sound\shine</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\stone_texture</sprite>
@@ -60,8 +64,7 @@
       <script>scripts\Draw_Debug_Elements.gml</script>
       <scripts name="Draw Debug">
         <script>scripts\Draw_Debug_Network.gml</script>
-        <script>scripts\Draw_Debug_Step_Time.gml</script>
-        <script>scripts\Draw_Debug_DS_Amount.gml</script>
+        <script>scripts\Draw_Debug_Time.gml</script>
       </scripts>
       <script>scripts\Draw_Main_Menu.gml</script>
       <script>scripts\Draw_Console.gml</script>
@@ -119,7 +122,6 @@
       <script>scripts\Network_Data.gml</script>
       <script>scripts\HTTP_Event.gml</script>
       <script>scripts\create_socket.gml</script>
-      <script>scripts\client_disconnect.gml</script>
     </scripts>
     <scripts name="Mouse Functions">
       <script>scripts\registry_type_from_mouse.gml</script>
@@ -184,7 +186,7 @@
       <script>scripts\convert_alphabet_to_integer.gml</script>
       <script>scripts\uuid_from_entity.gml</script>
       <script>scripts\entity_from_uuid.gml</script>
-      <script>scripts\get_ship_from_socket.gml</script>
+      <script>scripts\ship_from_socket.gml</script>
       <script>scripts\map_from_socket.gml</script>
       <script>scripts\name_from_type.gml</script>
       <script>scripts\grid_from_entity.gml</script>
@@ -212,6 +214,7 @@
       <script>scripts\packet_set_ownership.gml</script>
       <script>scripts\packet_inventory.gml</script>
       <script>scripts\packet_entity_dock.gml</script>
+      <script>scripts\packet_entity_undock.gml</script>
       <script>scripts\packet_entity_set_pilot.gml</script>
       <script>scripts\packet_rubberband_entity.gml</script>
       <script>scripts\packet_issue_command.gml</script>
@@ -297,7 +300,6 @@
     <script>scripts\initialize_registry.gml</script>
     <script>scripts\draw_registry_type.gml</script>
     <script>scripts\Draw_Registry.gml</script>
-    <script>scripts\ds_construct.gml</script>
     <script>scripts\initialize_sockets.gml</script>
     <script>scripts\initialize_entity_map.gml</script>
     <script>scripts\initialize_dimensions.gml</script>
@@ -308,6 +310,14 @@
     <script>scripts\ds_index.gml</script>
     <script>scripts\ds_delete.gml</script>
     <script>scripts\keys_from_map.gml</script>
+    <script>scripts\my_ship.gml</script>
+    <script>scripts\my_socket.gml</script>
+    <script>scripts\loot_fail.gml</script>
+    <script>scripts\loot_succeed.gml</script>
+    <script>scripts\entity_distance.gml</script>
+    <script>scripts\element_delete.gml</script>
+    <script>scripts\network_instance_destroy.gml</script>
+    <script>scripts\Draw_Debug_Structure.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

@@ -7,6 +7,7 @@ switch get_type
     case ds_type_map:
         {
         var new_map = ds_map_create();
+        //add to static
         ds_list_add(static_maps,new_map)
         //construct a key list
         var new_list = ds_construct(ds_type_list)
@@ -16,6 +17,7 @@ switch get_type
     case ds_type_list:
         {
         var new_list = ds_list_create();
+        //add to static
         ds_list_add(static_lists,new_list)
         return new_list
         }

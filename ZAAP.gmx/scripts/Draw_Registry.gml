@@ -66,10 +66,11 @@ for (var i = 0;i < get_size;i++)
                 draw_rectangle(x1,key_y1,x2,key_y2,false)
                 
                 font_align(7)
+                draw_set_color(c_black)
                 if key_type = ds_type_map
                 draw_set_color(c_blue)
-                else
-                draw_set_color(c_black)
+                if key_type = ds_type_list
+                draw_set_color(c_green)
                 
                 draw_text(x1,key_y1,get_key)
                 
@@ -91,11 +92,35 @@ for (var i = 0;i < get_size;i++)
             continue
             //we're done here
             }
-        //draw as key
-        show("you don't have a case for this element yet!")
-        draw_set_color(c_red)
-        draw_line(x1,y1,x2,y2)
-        draw_line(x1,y2,x2,y1)
+        case ds_type_list:
+            {
+            var key_list = get_element_focus
+            var key_list_size = ds_list_size(key_list)
+            //show("there are keys: " + string(key_list_size))
+            for (var k = 0;k < key_list_size;k++)
+                {
+                var get_value = ds_list_find_value(key_list,k)
+                                
+                var key_y1 = y1 + 16*k + 16
+                var key_y2 = y1 + 16*k + 32
+                draw_set_color(c_gray)
+                draw_rectangle(x1,key_y1,x2,key_y2,false)
+                
+                font_align(7)
+                draw_set_color(c_black)
+                
+                draw_text(x1,key_y1,get_value)
+                }
+            continue
+            }
+        default:
+            {
+            //draw as key
+            show("you don't have a case for this element yet!")
+            draw_set_color(c_red)
+            draw_line(x1,y1,x2,y2)
+            draw_line(x1,y2,x2,y1)
+            }
         }
     //----//
     }

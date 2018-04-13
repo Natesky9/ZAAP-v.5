@@ -29,8 +29,6 @@ if network_result >= 0
     
     network_instance_create()
     
-    var autopilot_controller_list = ds_create(ds_type_list)
-    set("autopilot controller list",autopilot_controller_list)
     
     return true
     }

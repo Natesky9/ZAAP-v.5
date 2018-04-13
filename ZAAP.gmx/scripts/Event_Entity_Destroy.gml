@@ -37,7 +37,7 @@ while ds_list_size(entity_destroy_list)
     
 
     
-    var get_key_list = ds_get(get_entity,"key list")
+    var get_key_list = keys_from_map(get_entity)
     var keys = ds_list_size(get_key_list)
 
     for (var i = 0;i < keys;i += 1)
