@@ -36,7 +36,7 @@ if mouse_check_button(mb_left)
 
 if mouse_check_button_pressed(mb_left)
     {
-    done = mouse_left_click_registry()
+    done = mouse_left_click_element()
     if done exit
     //
     //server only

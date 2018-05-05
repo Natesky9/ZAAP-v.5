@@ -26,6 +26,7 @@
       <script>scripts\Define_Items.gml</script>
       <script>scripts\Define_Packets.gml</script>
       <script>scripts\Define_Parts.gml</script>
+      <script>scripts\Define_Elements.gml</script>
     </scripts>
     <scripts name="Events">
       <script>scripts\Event_Create.gml</script>
@@ -52,6 +53,7 @@
     </scripts>
     <scripts name="Draw">
       <script>scripts\Draw_Entities.gml</script>
+      <script>scripts\Draw_Elements.gml</script>
       <scripts name="Draw Entity">
         <script>scripts\Draw_Entity_Shipyard.gml</script>
         <script>scripts\Draw_Entity_Bullet.gml</script>
@@ -292,20 +294,17 @@
       <script>scripts\hex_offset_to_cube.gml</script>
     </scripts>
     <script>scripts\mouse_left_click_entity_server.gml</script>
-    <script>scripts\packet_add_to_entity_inventory.gml</script>
     <script>scripts\draw_effect_beam.gml</script>
     <script>scripts\entity_inventory_add.gml</script>
     <script>scripts\write_list_to_buffer.gml</script>
     <script>scripts\read_buffer_to_list.gml</script>
     <script>scripts\initialize_registry.gml</script>
     <script>scripts\draw_registry_type.gml</script>
-    <script>scripts\Draw_Registry.gml</script>
     <script>scripts\initialize_sockets.gml</script>
     <script>scripts\initialize_entity_map.gml</script>
     <script>scripts\initialize_dimensions.gml</script>
     <script>scripts\get_key_type.gml</script>
     <script>scripts\element_add.gml</script>
-    <script>scripts\mouse_left_click_registry.gml</script>
     <script>scripts\ds_size.gml</script>
     <script>scripts\ds_index.gml</script>
     <script>scripts\ds_delete.gml</script>
@@ -318,6 +317,14 @@
     <script>scripts\element_delete.gml</script>
     <script>scripts\network_instance_destroy.gml</script>
     <script>scripts\Draw_Debug_Structure.gml</script>
+    <script>scripts\write_map_to_buffer.gml</script>
+    <script>scripts\read_buffer_to_map.gml</script>
+    <script>scripts\Draw_Element_Map.gml</script>
+    <script>scripts\Draw_Element_List.gml</script>
+    <script>scripts\Draw_Element_Inventory.gml</script>
+    <script>scripts\Draw_Element_Shipyard.gml</script>
+    <script>scripts\draw_element_border.gml</script>
+    <script>scripts\mouse_left_click_element.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_engine</object>

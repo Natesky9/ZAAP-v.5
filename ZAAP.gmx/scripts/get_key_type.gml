@@ -12,6 +12,7 @@ switch input
     case "sockets":
     case "dimensions":
     case "elements":
+    case "inventory":
     case "focus":
     case "dynamic maps":
     case "dynamic lists":
@@ -29,7 +30,6 @@ switch input
         return ds_type_map
         }
     case "list":
-    case "inventory":
         {
         return ds_type_list
         }

@@ -15,7 +15,7 @@ return false
 var m_x = window_mouse_get_x()
 var m_y = window_mouse_get_y()
 //
-element_add(m_x,m_y,get_entity,"entity " + string(get_uuid),ds_type_map)
+element_add(m_x,m_y,element.map,"entity " + string(get_uuid),get_entity)
 //
 var get_type = ds_get(get_entity,"type")
 

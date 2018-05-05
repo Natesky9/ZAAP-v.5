@@ -20,9 +20,11 @@ switch get_key
     //--------------------------------//
     case "inventory":
         {
-        var get_list = ds_create(data.dynamic,ds_type_list)
-        read_buffer_to_list(get_list)
-        //treat as list
+        //treat as map
+        var get_map = ds_create(data.dynamic,ds_type_map)
+        ds_set(get_entity,"inventory",get_map)
+        show("Reading inventory")
+        read_buffer_to_map(get_map)
         exit
         }
     //--------------------------------//
@@ -35,7 +37,7 @@ switch get_key
     default:
         {
         var get_value = read()
-        show("read value, " + get_key + "|" + string(get_value))
+        //show("read value, " + get_key + "|" + string(get_value))
         
         if not is_zero(get_entity)
         ds_set(get_entity,get_key,get_value)

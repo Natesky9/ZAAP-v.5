@@ -25,7 +25,7 @@ switch get_packet_array[data.mode]
         
         var get_ping = current_time - get_timestamp
         
-        show("got a ping of: " + string(get_ping))
+        //show("got a ping of: " + string(get_ping))
         
         var get_player = my_socket();
         if is_zero(get_player) exit

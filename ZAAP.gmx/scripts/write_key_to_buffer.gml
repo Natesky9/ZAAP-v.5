@@ -20,9 +20,10 @@ switch get_key
     //--------------------------------//
     case "inventory":
         {
-        //treat as list
-        var get_list = ds_get(get_entity,get_key)
-        write_list_to_buffer(get_list)
+        show("Writing inventory")
+        //treat as map
+        var get_map = ds_get(get_entity,get_key)
+        write_map_to_buffer(get_map)
         }
     //--------------------------------//
     case "vertex buffer":

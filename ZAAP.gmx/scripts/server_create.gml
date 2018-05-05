@@ -9,17 +9,17 @@ or am_client()
     return false
     }
 
-var network_result = network_create_server(network_socket_tcp,5678,10)
+var network_result = network_create_server(network_socket_tcp,5678,10)+1
 //set the server to the network result
 set("server",network_result)
 
-if network_result < 0
+if not network_result
     {
     console_add("Server failed to bind");
     return false
     }
 
-if network_result >= 0
+if network_result
     {
     console_add("Server succesfully bound")
     show("creating server data")

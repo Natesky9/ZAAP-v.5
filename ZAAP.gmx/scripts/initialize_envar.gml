@@ -14,22 +14,14 @@ show("ENVAR map value is: " + string(envar))
 //in that -1 is actually "off"
 //I'll probably fix that by
 //adding one
-set("server",-1)
-set("client",-1)
+set("server",0)
+set("client",0)
 //these aren't actually necessary,
 //but I keep them around so I remember
 set("session time",0)
 set("step time",0)
 set("draw time",0)
 set("draw gui time",0)
-
-
-
-//shipyard gui
-set("shipyard x1",500)
-set("shipyard y1",500)
-set("shipyard x2",700)
-set("shipyard y2",700)
 
 set("selected part",part.null)
 

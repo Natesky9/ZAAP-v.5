@@ -34,8 +34,9 @@ switch get_packet_array[data.mode]
             break
             }
         
+        var get_id = ds_get(get_other_entity,"id")
         //add this to it's inventory
-        entity_inventory_add(get_entity,get_other_entity,1)
+        entity_inventory_add(get_entity,get_id,1)
         //destroy the item
         entity_destroy_basic(get_other_uuid)
         

@@ -11,12 +11,12 @@ initialize_sockets()
 initialize_dimensions()
 initialize_registry()
 
-var elements = ds_create(data.static,ds_type_map)
+var elements = ds_create(data.static,element.map)
 ds_set(registry,"elements",elements)
 ds_set(registry,"registry",registry)
 //add to the list
-//element_add(100,100,registry,"registry",ds_type_map)
-//element_add(400,200,envar,"envar",ds_type_map)
+//element_add(100,100,element.map,"registry",registry)
+//element_add(400,200,element.map,"envar",envar)
 
 
 

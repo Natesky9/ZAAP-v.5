@@ -12,7 +12,7 @@ switch get_id
         if get_status == 0
             {
             var result = ds_get(async_load,"result")
-            show("result is [" + result + "]")
+            show("result is [" + string(result) + "]")
             console_add("IP is [" + string(result) + "]")
             var IP = result
             set("IP",IP)

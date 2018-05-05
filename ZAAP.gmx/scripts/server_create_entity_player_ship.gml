@@ -17,6 +17,15 @@ ds_set(get_entity,"grid",basic_grid)
 var get_player = map_from_socket(get_socket)
 ds_set(get_player,"ship",get_uuid)
 
+entity_inventory_add(get_entity,item.rockred,5)
+entity_inventory_add(get_entity,item.rockblue,5)
+entity_inventory_add(get_entity,item.oregreen,5)
+entity_inventory_add(get_entity,item.gemred,5)
+entity_inventory_add(get_entity,item.gemblue,5)
+
+
+
+
 //packet_entity_create
 packet_write(packet.entity_create,get_uuid)
 //packet_entity_command

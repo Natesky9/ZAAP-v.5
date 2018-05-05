@@ -12,10 +12,14 @@ if am_client()
         console_add("You don't have a ship! Press Control to make one")
         exit
         }
-    
-    if entity_is_docked(get_ship)
+    var docked = entity_is_docked(get_ship)
+    if docked
         {
         show("docked entity pressed left up")
+        var get_entity = entity_from_uuid(docked)
+        var build_cell_x = ds_get(get_entity,"build cell x")
+        var build_cell_y = ds_get(get_entity,"build cell y")
+        entity_issue_command(get_entity,"build cell y",build_cell_y-1)
         exit
         }
     

@@ -1,4 +1,4 @@
-///entity_inventory_add(entity)
+///entity_inventory_add(entity,item,quantity)
 //adds a value to an entities inventory
 //inventory is a map
 var get_entity = argument0
@@ -13,9 +13,9 @@ if is_zero(get_inventory)
     show("This entity didn't have an inventory!")
     show("adding one now")
     
-    get_inventory = ds_create(data.dynamic,ds_type_list)
+    get_inventory = ds_create(data.dynamic,ds_type_map)
     ds_set(get_entity,"inventory",get_inventory)
     }
-ds_list_add(get_inventory,get_item)
+ds_add(get_inventory,get_item,get_quantity)
 
 return true
