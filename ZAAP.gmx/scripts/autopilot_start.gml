@@ -10,7 +10,7 @@ ds_set(get_entity,"autopilot",true)
 ds_list_add(autopilot_controller_list,get_uuid)
 
 //create the list
-var new_waypoint_list = ds_create(ds_type_list)
+var new_waypoint_list = ds_create(data.dynamic,ds_type_list)
 ds_set(get_entity,"autopilot list",new_waypoint_list)
 
 

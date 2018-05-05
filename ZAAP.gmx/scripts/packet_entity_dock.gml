@@ -2,6 +2,8 @@
 //###//
 //add in all the cases where docking may be broken
 //and add a script to account for that
+
+//both arguments are in uuid
 var get_packet_array = argument0
 
 switch get_packet_array[data.mode]

@@ -3,11 +3,7 @@
 //returns entity
 
 //create the map value for the entity
-var get_entity = ds_create(ds_type_map)
-
-//create the key list to store it's keys
-var key_list = ds_create(ds_type_list);
-get_entity[? "key list"] = key_list
+var get_entity = ds_create(data.dynamic,ds_type_map)
 
 //we're done here
 return get_entity

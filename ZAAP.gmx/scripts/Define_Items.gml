@@ -12,6 +12,17 @@ enum item
     gemred,
     gemgreen,
     gemblue,
+    
+    OreIron,
+    OreCopper,
+    OreGold,
+    OreCobalt,
+    OrePlatinum,
+    
+    GemEmerald,
+    GemRuby,
+    GemSapphire,
+    GemDiamond,
     types,
     //do not insert after types
     }

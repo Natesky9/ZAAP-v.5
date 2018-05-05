@@ -10,7 +10,8 @@ exit
 
 for (var i = 0;i < entity.types;i += 1)
     {
-    var get_list = entity_list(i)
+    var get_map = fetch_entity_map(i)
+    var get_list = keys_from_map(get_map)
     for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
         {
         var get_uuid = ds_list_find_value(get_list,ii)

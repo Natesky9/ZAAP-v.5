@@ -1,10 +1,10 @@
 ///Event_Ping()
 if am_client()
     {
-    if get("SSS") != -1
+    if my_socket() != -1
         {
         //timeout script
-        var get_map = map_from_socket(get("SSS"));
+        var get_map = my_socket()
         if get_map == 0
             {
             show("Error, socket is undefined")
@@ -17,17 +17,8 @@ if am_client()
             //replace with client_destroy
             console_add("Can't communicate with Server")
             show("Can't communicate with Server")
-            //disconnect
-            
-            data_structure_clear_all()
-            var get_client = get("client")
-            network_destroy(get_client)
-            set("client",-1)
-            set("SSS",-1)
-            host_connection = -1
-            view_reset()
-            console_add("You have been disconnected")
-            show("end of ping")
+            client_destroy()
+            exit
             }
         //end timeout scrip
         
@@ -44,9 +35,10 @@ if am_client()
 
 if am_server()
     {
-    for (var i = 0;i < ds_list_size(socket_list);i += 1)
+    var socket_count = ds_size(sockets)
+    for (var i = 0;i < ds_list_size(socket_count);i += 1)
         {
-        var get_socket = ds_list_find_value(socket_list,i);
+        var get_socket = ds_index(sockets,i)
         var get_map = map_from_socket(get_socket);
         ds_add(get_map,"ping timeout",1)
         var timeout = get_map[? "ping timeout"]
@@ -61,7 +53,7 @@ if am_server()
         }
     
     //report ping to clients
-    if ds_list_size(socket_list)
+    if ds_size(sockets)
     and !(get("session time") mod 15)
         {
         //show("return ping")

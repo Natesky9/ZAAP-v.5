@@ -7,12 +7,10 @@ var view_center_x = view_wview[0]/2
 var view_center_y = view_hview[0]/2
 var range
 
-var current_ship = get_ship_from_socket(get("SSS"))//get("ship")
+var current_ship = my_ship()
 
 if is_zero(current_ship)
 return false
-
-show("ran #Draw_Nearby_Entities")
 
 range = 100
 color = c_black
@@ -59,14 +57,16 @@ for (i = entity.types-1;i > 0;i -= 1)
     
     
     
-    var get_list = entity_list(i)
+    var get_map = fetch_entity_map(i)
+    var get_list = keys_from_map(get_map)
+    var keys = ds_list_size(get_list)
     if is_zero(get_list)
         {
         console_add("error, no entity list")
         return false
         }
     
-    for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
+    for (var ii = 0;ii < keys;ii += 1)
         {
         var get_uuid = ds_list_find_value(get_list,ii)
         var get_entity = entity_from_uuid(get_uuid)

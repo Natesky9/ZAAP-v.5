@@ -4,32 +4,24 @@
 //variables to be used. Basically,
 //           I'm lazy             //
 
-envar = ds_map_create();
+envar = ds_create(data.permanent,ds_type_map)
 show("ENVAR map value is: " + string(envar))
-ds_add_key_list(envar)
+
+
+
+
 //server and client are special,
 //in that -1 is actually "off"
 //I'll probably fix that by
 //adding one
-set("server",-1)
-set("client",-1)
+set("server",0)
+set("client",0)
 //these aren't actually necessary,
 //but I keep them around so I remember
 set("session time",0)
 set("step time",0)
 set("draw time",0)
 set("draw gui time",0)
-
-set("entity_list_x1",100)
-set("entity_list_y1",100)
-set("entity_specific_list_x1",0)
-set("entity_specific_list_y1",0)
-
-//shipyard gui
-set("shipyard x1",500)
-set("shipyard y1",500)
-set("shipyard x2",700)
-set("shipyard y2",700)
 
 set("selected part",part.null)
 
@@ -46,3 +38,5 @@ packets_in = 0
 packets_out = 0
 packet_bytes_in = 0
 packet_bytes_out = 0
+
+return envar

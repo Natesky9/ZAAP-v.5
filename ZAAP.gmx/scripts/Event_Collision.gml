@@ -12,13 +12,15 @@ var get_uuid,get_other_uuid,
     i,j,
 
 //only run bullets?
-var get_list = entity_list(entity.bullet)
-var get_list_amount = ds_list_size(get_list)
-var get_other_list = entity_list(entity.asteroid)
+var get_map = fetch_entity_map(entity.bullet)
+var get_list = keys_from_map(get_map)
+var get_list_size = ds_list_size(get_list)
+var get_other_map = fetch_entity_map(entity.asteroid)
+var get_other_list = keys_from_map(get_other_map)
 var get_other_list_amount = ds_list_size(get_other_list)
 
 
-for (i = 0;i < get_list_amount;i++)
+for (i = 0;i < get_list_size;i++)
     {
     //loop through all the bullets and search for collisions
     get_uuid = ds_list_find_value(get_list,i)

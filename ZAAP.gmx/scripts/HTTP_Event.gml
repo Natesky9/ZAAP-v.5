@@ -1,7 +1,7 @@
 ///HTTP_Event()
 
-var get_id = ds_map_find_value(async_load,"id")
-var get_status = ds_map_find_value(async_load,"status")
+var get_id = ds_get(async_load,"id")
+var get_status = ds_get(async_load,"status")
 show("received http data")
 
 
@@ -11,8 +11,8 @@ switch get_id
         {
         if get_status == 0
             {
-            var result = ds_map_find_value(async_load,"result")
-            show("result is [" + result + "]")
+            var result = ds_get(async_load,"result")
+            show("result is [" + string(result) + "]")
             console_add("IP is [" + string(result) + "]")
             var IP = result
             set("IP",IP)

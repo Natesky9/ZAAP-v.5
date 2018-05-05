@@ -12,6 +12,11 @@ var get_entity = entity_from_uuid(get_uuid)
 if is_zero(get_entity)
 return false
 
+var m_x = window_mouse_get_x()
+var m_y = window_mouse_get_y()
+//
+element_add(m_x,m_y,element.map,"entity " + string(get_uuid),get_entity)
+//
 var get_type = ds_get(get_entity,"type")
 
 if get_uuid != get("selected entity")
@@ -22,7 +27,7 @@ if get_uuid != get("selected entity")
     
     //if it is not the selected entity, make it so
     set("selected entity",get_uuid)
-    set("selected entity type",get_type)
+    set("selected type",get_type)
     console_add("selected new entity")
     return true
     }

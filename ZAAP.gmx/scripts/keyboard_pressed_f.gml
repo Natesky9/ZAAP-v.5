@@ -6,8 +6,19 @@ exit
 
 if am_client()
     {
-    var get_ship = get_ship_from_socket(get("SSS"))
+    var get_ship = my_ship()
     if is_zero(get_ship) exit
+    
+    var docked = entity_is_docked(get_ship)
+    if docked
+        {
+        show("docked entity pressed left up")
+        var get_entity = entity_from_uuid(docked)
+        var build_cell_x = ds_get(get_entity,"build cell x")
+        var build_cell_y = ds_get(get_entity,"build cell y")
+        entity_issue_command(get_entity,"build cell x",build_cell_x+1)
+        exit
+        }
 
     if get_ship != 0
         {

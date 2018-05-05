@@ -2,4 +2,4 @@
 
 var get_server = get("server")
 
-return get_server >= 0
+return get_server

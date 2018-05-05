@@ -4,6 +4,19 @@
 
 var get_type = argument0
 
-var get_name = localized_entity_name[? get_type]
+switch get_type
+    {
+    case entity.item:
+        return "item"
+    case entity.bullet:
+        return "bullet"
+    case entity.asteroid:
+        return "asteroid"
+    case entity.ship:
+        return "ship"
+    case entity.shipyard:
+        return "shipyard"
+    default:
+        return "null"
+    }
 
-return get_name

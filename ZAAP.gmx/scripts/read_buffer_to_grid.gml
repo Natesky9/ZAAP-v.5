@@ -2,6 +2,7 @@
 
 var get_grid = argument0
 
+//read the size of the grid
 var get_width = buffer_read(bin,buffer_u8)
 var get_height = buffer_read(bin,buffer_u8)
 

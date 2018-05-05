@@ -5,9 +5,12 @@ exit
 
 
 
-for (var i = 0;i < entity.types;i += 1)
+for (var i = 1;i < entity.types;i += 1)
     {
-    var get_list = entity_list(i)
+    var get_map = fetch_entity_map(i)
+    if is_zero(get_map) continue
+    
+    var get_list = keys_from_map(get_map)
     for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
         {
         
@@ -33,7 +36,6 @@ for (var i = 0;i < entity.types;i += 1)
         var get_speed = ds_get(get_entity,"speed");
         var get_heading = ds_get(get_entity,"heading");
         var is_docked = ds_get(get_entity,"docked");
-        var is_docked_to = ds_get(get_entity,"docked to");
         //end pre movement get
         
         //phase 2
@@ -45,7 +47,7 @@ for (var i = 0;i < entity.types;i += 1)
             if get_target_entity
                 {
                 //if the target isn't docked to it anymore, reset
-                get_target_dock = ds_get(get_target_entity,"docked to")
+                get_target_dock = ds_get(get_target_entity,"docked")
                 if get_target_dock != get_uuid
                     {
                     console_add("my dock isn't docked to me")
@@ -75,15 +77,15 @@ for (var i = 0;i < entity.types;i += 1)
             }
         
         //phase 3
-        if is_docked_to
+        if is_docked
             {
             //special case for entities that have something docked to them
-            var get_docked_entity = entity_from_uuid(is_docked_to)
+            var get_docked_entity = entity_from_uuid(is_docked)
             
             if is_zero(get_docked_entity)
                 {
                 console_add("my entity doesn't exist anymore!")
-                ds_set(get_entity,"docked to",false)
+                ds_set(get_entity,"docked",false)
                 }
             //continue with the rest of the script
             }
@@ -114,15 +116,15 @@ for (var i = 0;i < entity.types;i += 1)
         
         //end phase
         //clamp it
-        Event_Motion_Clamp(get_entity)
+        //Event_Motion_Clamp(get_entity)
         //end clamp it
         
         //move it
         get_speed = ds_get(get_entity,"speed")
         get_direction = ds_get(get_entity,"direction")
         
-        get_entity[? "x"] += lengthdir_x(get_speed,get_direction)
-        get_entity[? "y"] += lengthdir_y(get_speed,get_direction)
+        ds_add(get_entity,"x",lengthdir_x(get_speed,get_direction))
+        ds_add(get_entity,"y",lengthdir_y(get_speed,get_direction))
         
         //bop it
         

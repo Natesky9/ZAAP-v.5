@@ -4,10 +4,21 @@
 
 var get_type = argument0
 
-var name = localized_entity_name[? get_type]
+switch get_type
+    {
+    case entity.item:
+        return "item"
+    case entity.bullet:
+        return "bullet"
+    case entity.asteroid:
+        return "asteroid"
+    case entity.ship:
+        return "ship"
+    case entity.shipyard:
+        return "shipyard"
+    case entity.types:
+        return "all"
+    default:
+        return "null"
+    }
 
-if is_string(name)
-return name
-
-else
-return "null"

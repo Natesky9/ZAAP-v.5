@@ -6,11 +6,6 @@ exit
 if am_server()
 or am_client()
     {
-    show_debug_entity_list = not show_debug_entity_list
-    console_add("toggled entity list")
-    if show_debug_entity_list
-        {
-        var envar_list = get("key list")
-        ds_list_sort(envar_list,true)
-        }
+    show_entity_registry = not show_entity_registry
+    console_add("toggled entity registry")
     }

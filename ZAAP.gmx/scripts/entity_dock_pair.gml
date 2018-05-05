@@ -25,5 +25,11 @@ if is_zero(get_target_entity)
     }
 
 //dock both of them
-ds_set(get_entity,"docked to",get_target)
+ds_set(get_entity,"docked",get_target)
 ds_set(get_target_entity,"docked",get_uuid)
+
+if get_entity == my_ship()
+    {
+    show("My ship docked, opening shipyard gui")
+    element_add(700,700,element.shipyard,"shipyard",get_entity,get_target_entity)
+    }

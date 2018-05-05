@@ -2,7 +2,7 @@
 
 if argument0 == "read"
     {
-    bin = ds_map_find_value(async_load,"buffer")
+    bin = ds_get(async_load,"buffer")
     seek(bin)
     }
 if argument0 == "write"

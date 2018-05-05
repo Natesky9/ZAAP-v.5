@@ -6,7 +6,7 @@ var get_target = argument0
 var random_x = irandom_range(-1000,1000)
 var random_y = irandom_range(-1000,1000)
 var random_angle = irandom(360)
-var new_grid = ds_create(ds_type_grid,5,5)
+var new_grid = ds_create(data.dynamic,ds_type_grid,5,5)
 
 randomize_grid(new_grid)
 

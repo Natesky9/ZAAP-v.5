@@ -6,7 +6,7 @@ var get_grid = argument0
 if is_zero(get_grid)
 exit
 
-//write the grid
+//write the size of the grid
 var grid_width = ds_grid_width(get_grid)
 var grid_height = ds_grid_height(get_grid)
 

@@ -15,7 +15,7 @@ var get_grid = grid_from_entity(get_entity)
 if is_zero(get_grid)
 return false
 
-var is_docked = ds_get(get_entity,"docked to")
+var is_docked = ds_get(get_entity,"docked")
 if is_zero(is_docked)
 and not keyboard_check(vk_control)
     {

@@ -11,4 +11,16 @@ if show_debug_data_structures
     {
     var envar_list = get("key list")
     ds_list_sort(envar_list,true)
+    
+    element_add(100,100,element.map,"registry",registry)
+    }
+else
+    {
+    var elements = ds_get(registry,"elements")
+    var element_count = ds_size(elements)
+    for (var i = 0;i < element_count;i++)
+        {
+        var get_element = ds_index(elements,0)
+        element_delete(get_element)
+        }
     }

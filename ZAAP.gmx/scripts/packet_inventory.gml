@@ -10,11 +10,11 @@ switch get_packet_array[data.mode]
         write_type(packet.inventory)
         var get_uuid = get_packet_array[data.arg_0]
         
-        var socket_list_size = ds_list_size(socket_list)
-        for (var i = 0;i < socket_list_size;i += 1)
+        var socket_count = ds_size(sockets)
+        for (var i = 0;i < socket_count;i += 1)
             {
-            var get_socket = ds_list_find_value(socket_list,i)
-            var get_ship = get_ship_from_socket(get_socket)
+            var get_socket = ds_index(sockets,i)
+            var get_ship = ship_from_socket(get_socket)
             show("ship: " + string(get_ship))
             if is_zero(get_ship)
             continue

@@ -14,14 +14,16 @@ switch get_packet_array[data.mode]
         
         var get_socket = get_packet_array[data.arg_0]
         
-        var get_list = entity_list(entity.types)
-        var entity_list_size = ds_list_size(get_list)
+        var get_map = fetch_entity_map(entity.types)
+        var get_list = keys_from_map(get_map)
+        var keys = ds_list_size(get_list)
         
-        write(entity_list_size)
+        write(keys)
+        show("/////")
+        show("list id of keys is: " + string(get_list))
+        show("entity list size is [" + string(keys) + "]")
         
-        show("entity list size is [" + string(entity_list_size) + "]")
-        
-        for (var i = 0;i < entity_list_size;i += 1)
+        for (var i = 0;i < keys;i += 1)
             {
             var get_uuid = ds_list_find_value(get_list,i)
             write_uuid_to_buffer(get_uuid)

@@ -6,9 +6,20 @@ exit
 
 if am_client()
     {
-    var get_ship = get_ship_from_socket(get("SSS"))
+    var get_ship = my_ship()
     if is_zero(get_ship) exit
-
+    
+    var docked = entity_is_docked(get_ship)
+    if docked
+        {
+        show("docked entity pressed left up")
+        var get_entity = entity_from_uuid(docked)
+        var build_cell_x = ds_get(get_entity,"build cell x")
+        var build_cell_y = ds_get(get_entity,"build cell y")
+        entity_issue_command(get_entity,"build cell x",build_cell_x-1)
+        exit
+        }
+    
     if get_ship != 0
         {
         var right = keyboard_check(ord('F'))
@@ -22,10 +33,11 @@ if am_client()
 if am_server()
     {
     //get a random ship
-    var get_list = entity_list(entity.ship)
-    var get_size = ds_list_size(get_list)
+    var get_map = fetch_entity_map(entity.ship)
+    var get_list = keys_from_map(get_map)
+    var keys = ds_list_size(get_list)
     
-    if not get_size
+    if not keys
         {
         console_add("There must be at least two")
         exit
@@ -37,7 +49,7 @@ if am_server()
     var random_x = irandom(1000)
     var random_y = irandom(1000)
     var random_angle = irandom(360)
-    var new_grid = ds_create(ds_type_grid,9,9)
+    var new_grid = ds_create(data.dynamic,ds_type_grid,9,9)
     
     randomize_grid(new_grid)
     

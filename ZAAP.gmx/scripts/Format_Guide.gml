@@ -6,8 +6,5 @@
 /*
 > = pointer for data structure
 
-entity_type_map
-entity_ship list
-entity_list
     
 */

@@ -22,7 +22,7 @@ console_add("test 2")
 
 //get the docked status of both
 var get_entity_docked = ds_get(get_entity,"docked")
-var get_target_docked_to = ds_get(get_target_entity,"docked to")
+var get_target_docked_to = ds_get(get_target_entity,"docked")
 
 //if either are docked, failed
 if get_entity_docked
@@ -32,5 +32,5 @@ return false
 console_add("test 3")
 //if both are free, dock both of them
 ds_set(get_entity,"docked",get_target)
-ds_set(get_target_entity,"docked to",get_uuid)
+ds_set(get_target_entity,"docked",get_uuid)
 return true

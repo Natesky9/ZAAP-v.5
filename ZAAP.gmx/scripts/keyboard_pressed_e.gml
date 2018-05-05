@@ -6,16 +6,20 @@ exit
 
 if am_client()
     {
-    var get_ship = get_ship_from_socket(get("SSS"))
+    var get_ship = my_ship()
     if is_zero(get_ship)
         {
         console_add("You don't have a ship! Press Control to make one")
         exit
         }
-    
-    if entity_is_docked(get_ship)
+    var docked = entity_is_docked(get_ship)
+    if docked
         {
         show("docked entity pressed left up")
+        var get_entity = entity_from_uuid(docked)
+        var build_cell_x = ds_get(get_entity,"build cell x")
+        var build_cell_y = ds_get(get_entity,"build cell y")
+        entity_issue_command(get_entity,"build cell y",build_cell_y-1)
         exit
         }
     
@@ -38,9 +42,9 @@ if am_server()
         }
     
     //loop through the entity types
-    var get_entity_type = get("selected entity type")
+    var get_entity_type = get("selected type")
     var new_entity_type = (get_entity_type + 1) mod (entity.types)
-    set("selected entity type",(get_entity_type + 1) mod (entity.types))
+    set("selected type",(get_entity_type + 1) mod (entity.types))
     
     //output the entity type and name
     var name = name_from_type(new_entity_type)

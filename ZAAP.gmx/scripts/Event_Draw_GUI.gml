@@ -5,13 +5,14 @@ Draw_Nearby_Entities()
 
 Draw_Socket_List()
 
-Draw_Entity_Lists()
+Draw_Elements()
+Draw_Entity_Registry()
 
 Draw_Console()
 
 Draw_Shipyard_GUI()
 
 
-Draw_Debug()
+Draw_Debug_Elements()
 
 set("draw gui time",get_timer() - draw_gui_time_start)

@@ -7,7 +7,11 @@ var get_heading = argument3
 var get_id = argument4
 
 draw_set_color(grid_value_to_color(get_id))
-//draw_set_color(c_white)
+draw_circle(get_x,get_y,16,false)
+draw_set_color(c_black)
+draw_circle(get_x,get_y,16,true)
+/*
+draw_set_color(c_white)
 var get_texture = sprite_get_texture(stone_texture,0)
 draw_primitive_begin_texture(pr_trianglefan,get_texture)
 draw_vertex_texture(get_x,get_y,.5,.5)
@@ -30,3 +34,4 @@ for (var i = 0;i <= 60;i++)
     
     }
 draw_primitive_end()
+*/

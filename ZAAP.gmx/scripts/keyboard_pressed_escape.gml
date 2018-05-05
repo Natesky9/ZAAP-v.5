@@ -5,5 +5,10 @@ exit
 
 if am_client()
     {
-    client_disconnect()
+    client_destroy()
+    }
+if am_server()
+    {
+    //server_destroy()
+    show("No server destroy event yet!")
     }

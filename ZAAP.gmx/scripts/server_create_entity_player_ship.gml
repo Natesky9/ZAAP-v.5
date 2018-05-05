@@ -5,7 +5,7 @@ var get_y = argument2
 
 var get_uuid = entity_create_server(get_x,get_y,entity.ship)
 //set the grid
-var basic_grid = ds_create(ds_type_grid,9,9);
+var basic_grid = ds_create(data.dynamic,ds_type_grid,9,9);
 basic_grid[# 4,4] = true
 basic_grid[# 4,3] = 2
 basic_grid[# 3,4] = 3
@@ -14,8 +14,17 @@ var get_entity = entity_from_uuid(get_uuid)
 ds_set(get_entity,"grid",basic_grid)
 //end setting the grid
 
-var get_socket_map = map_from_socket(get_socket)
-ds_set(get_socket_map,"ship",get_uuid)
+var get_player = map_from_socket(get_socket)
+ds_set(get_player,"ship",get_uuid)
+
+entity_inventory_add(get_entity,item.rockred,5)
+entity_inventory_add(get_entity,item.rockblue,5)
+entity_inventory_add(get_entity,item.oregreen,5)
+entity_inventory_add(get_entity,item.gemred,5)
+entity_inventory_add(get_entity,item.gemblue,5)
+
+
+
 
 //packet_entity_create
 packet_write(packet.entity_create,get_uuid)

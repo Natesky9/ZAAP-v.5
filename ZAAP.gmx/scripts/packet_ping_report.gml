@@ -9,14 +9,14 @@ switch get_packet_array[data.mode]
         {
         write_type(packet.ping_report)
         
-        var list_size = ds_list_size(socket_list)
-        write(list_size)
+        var socket_count = ds_size(sockets)
+        write(socket_count)
         
-        for (var i = 0;i < list_size;i += 1)
+        for (var i = 0;i < socket_count;i += 1)
             {
-            var get_socket = ds_list_find_value(socket_list,i)
-            var get_socket_map = map_from_socket(get_socket)
-            var get_ping = ds_get(get_socket_map,"ping")
+            var get_socket = ds_index(sockets,i)
+            var get_player = map_from_socket(get_socket)
+            var get_ping = ds_get(get_player,"ping")
             
             if get_ping > 9999
                 {
@@ -38,13 +38,13 @@ switch get_packet_array[data.mode]
             var get_socket = read()
             var get_ping = read()
             
-            var get_socket_map = map_from_socket(get_socket)
+            var get_player = map_from_socket(get_socket)
             
-            if get_socket_map != 0
+            if get_player != 0
                 {//check for existence
-                get_socket_map[? "ping"] = get_ping
+                get_player[? "ping"] = get_ping
                 }
-            if get_socket_map == 0
+            if get_player == 0
             console_add("error")
             }
             
@@ -64,7 +64,7 @@ switch get_packet_array[data.mode]
     //----------------//
     case "server read":
         {
-        var get_socket = ds_map_find_value(async_load,"id")
+        var get_socket = ds_get(async_load,"id")
         var get_ping = read()
         
         var get_map = map_from_socket(get_socket);

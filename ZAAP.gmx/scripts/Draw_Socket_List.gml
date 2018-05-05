@@ -4,30 +4,30 @@ if not am_server()
 and not am_client()
 exit
 
-//draw the list of sockets
+//draw the list of socket_count
 font_align(7)
 
-var sockets = ds_list_size(socket_list)
+var socket_count = ds_size(sockets)
 
 //draw empty socket list
-if sockets == 0
+if socket_count == 0
 Draw_Socket_List_Empty()
 //end drawing empty socket list
 
 //draw populated socket list
-if sockets > 0
+if socket_count > 0
     {
     draw_set_color(c_gray)
-    draw_rectangle(0,0,140,sockets*16,false)
+    draw_rectangle(0,0,140,socket_count*16,false)
     draw_set_color(c_black)
-    draw_rectangle(0,0,140,sockets*16,true)
+    draw_rectangle(0,0,140,socket_count*16,true)
     
     
     draw_set_color(c_black)
-    for (var i = 0;i < sockets;i += 1)
+    for (var i = 0;i < socket_count;i += 1)
         {
         draw_set_color(c_aqua)
-        var get_socket = ds_list_find_value(socket_list,i)
+        var get_socket = ds_index(sockets,i)
         draw_text(8,16*i,"socket: " + string(get_socket))
         var get_map = map_from_socket(get_socket)
         if is_zero(get_map) continue

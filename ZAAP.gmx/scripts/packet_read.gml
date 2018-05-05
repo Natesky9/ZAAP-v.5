@@ -10,8 +10,8 @@ get_mode = packet_mode("read");
 get_packet_array[data.mode] = get_mode
 
 //add packet size and a packet to the client's data
-var get_socket = ds_map_find_value(async_load,"id")
-var get_size = ds_map_find_value(async_load,"size")
+var get_socket = ds_get(async_load,"id")
+var get_size = ds_get(async_load,"size")
 var get_map = map_from_socket(get_socket)
 
 
@@ -22,7 +22,6 @@ if am_client()
     //reset the ping timeout
     //change this to use variables instead
     //of piggybacking off of the entity map
-    if not is_zero(get_map)
     set("ping timeout",0)
     }
 

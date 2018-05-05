@@ -14,11 +14,9 @@ Event_Mouse()
 //action
 Event_Motion()
 Event_Collision()
-//Event_Update()
+Event_Update()
 Event_Fire()
 //end action
-
-
 
 Event_Ping()
 

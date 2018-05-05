@@ -39,10 +39,10 @@ switch get_packet_array[data.mode]
         
         //###//
         //migrate this into the envar?
-        var current_ship = get("ship");
+        var current_ship = my_ship()
         //
         //do this regardless
-        get_entity[? "pilot"] = get_pilot;
+        ds_set(get_entity,"pilot",get_pilot)
         
         if is_zero(get_pilot)
             {
@@ -63,7 +63,7 @@ switch get_packet_array[data.mode]
             //do this if the pilot is being set
             var get_map = map_from_socket(get_pilot)
             ds_map_replace(get_map,"ship",get_uuid)
-            if get_pilot == get("SSS")
+            if get_pilot == my_socket()
             set("ship",get_uuid)
             //
             break
@@ -98,7 +98,7 @@ switch get_packet_array[data.mode]
             exit
             }
         
-        var get_socket = ds_map_find_value(async_load,"id")
+        var get_socket = ds_get(async_load,"id")
         var get_map = map_from_socket(get_socket)
         
         ds_set(get_map,"ship",get_uuid)

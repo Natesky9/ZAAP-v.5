@@ -1,12 +1,23 @@
 ///Event_Create()
 //Game Start Event
-
-initialize_ds()
-initialize_envar()
-
 Define_Data()
 Define_Packets()
 Define_Entities()
+
+initialize_ds()
+initialize_envar()
+initialize_entity_map()
+initialize_sockets()
+initialize_dimensions()
+initialize_registry()
+
+var elements = ds_create(data.static,element.map)
+ds_set(registry,"elements",elements)
+ds_set(registry,"registry",registry)
+//add to the list
+//element_add(100,100,element.map,"registry",registry)
+//element_add(400,200,element.map,"envar",envar)
+
 
 
 
@@ -16,7 +27,7 @@ create_vertex_buffer_format()
 
 
 
-console_list = ds_list_create()
+console_list = ds_create(data.static,ds_type_list)
 console_add("list is id of " + string(console_list))
 
 bin = buffer_create(64,buffer_grow,1)
@@ -26,7 +37,6 @@ bout = buffer_create(64,buffer_grow,1)
 
 
 debug_draw = false
-show_debug_entity_list = false
 show_debug_data_structures = false
 
 //ping_timeout is also the automatic disconnect

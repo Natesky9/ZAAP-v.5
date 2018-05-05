@@ -33,11 +33,11 @@ switch get_packet_array[data.mode]
             exit
             }
             
-        var get_myship = get_ship_from_socket(get("SSS"))
+        var get_myship = my_ship()
         
         if get_myship = get_entity
             {
-            show("ignoring my own ship")
+            //show("ignoring my own ship")
             exit
             }
         

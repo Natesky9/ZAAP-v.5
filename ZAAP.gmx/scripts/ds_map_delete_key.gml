@@ -13,19 +13,19 @@ switch get_key
     //
     case "pilot":
         {
-        var get_socket_map = ds_get(socket_map,get_value)
+        var get_player = map_from_socket(get_value)
         
         //if it has no pilot, exit
-        if is_zero(get_socket_map)
+        if is_zero(get_player)
         exit
         
-        ds_set(get_socket_map,"ship",0)
+        ds_set(get_player,"ship",0)
         console_add("object deleted, clearing socket association")
         break
         }
     default:
         {
-        
+        break
         }
     //
     }
