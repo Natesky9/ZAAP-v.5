@@ -9,9 +9,12 @@ draw_rectangle(view_width-150,400,view_width,432,false)
 draw_set_color(c_black)
 draw_rectangle(view_width-150,400,view_width,432,true)
 
+var step_time = ds_get(envar,"step time")
+var draw_time = ds_get(envar,"draw time")
+
 font_align(9)
-get_text = "step time [" + string(get("step time")) + "]"
+get_text = "step time [" + string(step_time) + "]"
 draw_text(view_width,400,get_text)
 
-get_text = "draw time [" + string(get("draw time")) + "]"
+get_text = "draw time [" + string(draw_time) + "]"
 draw_text(view_width,416,get_text)

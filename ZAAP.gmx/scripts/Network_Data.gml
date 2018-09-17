@@ -30,6 +30,9 @@ switch get_packet
     case packet.entity_dock:
         {packet_entity_dock(get_packet_array);break}
     //----------------//
+    case packet.entity_undock:
+        {packet_entity_undock(get_packet_array);break}
+    //----------------//
     case packet.entity_set_grid:
         {packet_entity_set_grid(get_packet_array);break}
     //----------------//
@@ -71,9 +74,6 @@ switch get_packet
     //----------------//
     case packet.inventory:
         {packet_inventory(get_packet_array);break}
-    //----------------//
-    case packet.set_ownership:
-        {packet_set_ownership(get_packet_array);break}
     //----------------//
     case packet.collect_item:
         {packet_collect_item(get_packet_array);break}

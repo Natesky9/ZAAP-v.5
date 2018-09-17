@@ -14,7 +14,7 @@ if is_zero(get_inventory)
     show("adding one now")
     
     get_inventory = ds_create(data.dynamic,ds_type_map)
-    ds_set(get_entity,"inventory",get_inventory)
+    ds_set(get_entity,"inventory",get_inventory,key.map)
     }
 ds_add(get_inventory,get_item,get_quantity)
 

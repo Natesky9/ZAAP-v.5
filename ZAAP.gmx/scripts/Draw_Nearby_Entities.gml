@@ -58,15 +58,15 @@ for (i = entity.types-1;i > 0;i -= 1)
     
     
     var get_map = fetch_entity_map(i)
-    var get_list = keys_from_map(get_map)
-    var keys = ds_list_size(get_list)
+    var get_list = keys(get_map)
+    var key_count = ds_list_size(get_list)
     if is_zero(get_list)
         {
         console_add("error, no entity list")
         return false
         }
     
-    for (var ii = 0;ii < keys;ii += 1)
+    for (var ii = 0;ii < key_count;ii += 1)
         {
         var get_uuid = ds_list_find_value(get_list,ii)
         var get_entity = entity_from_uuid(get_uuid)

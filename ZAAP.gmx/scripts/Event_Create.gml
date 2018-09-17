@@ -1,6 +1,7 @@
 ///Event_Create()
 //Game Start Event
 Define_Data()
+Define_Keys()
 Define_Packets()
 Define_Entities()
 
@@ -12,12 +13,11 @@ initialize_dimensions()
 initialize_registry()
 
 var elements = ds_create(data.static,element.map)
-ds_set(registry,"elements",elements)
-ds_set(registry,"registry",registry)
+ds_set(registry,"elements",elements,key.map)
+ds_set(registry,"registry",registry,key.map)
 //add to the list
 //element_add(100,100,element.map,"registry",registry)
 //element_add(400,200,element.map,"envar",envar)
-
 
 
 
@@ -54,4 +54,4 @@ rock_grid_size = 32
 //console_add("{" + build + "}")
 
 
-set("entity view",false)
+ds_set(envar,"entity view",false,key.value)

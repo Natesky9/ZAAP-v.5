@@ -4,7 +4,8 @@
 //and formatting keys
 
 /*
-> = pointer for data structure
+envar
 
-    
+
+
 */

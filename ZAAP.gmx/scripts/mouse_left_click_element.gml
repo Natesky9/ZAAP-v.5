@@ -1,17 +1,17 @@
 ///mouse_left_click_element()
 //event for clicking an element
 
-var elements = get("registry")
+var elements = ds_get(envar,"registry")
 
 var click_x = window_mouse_get_x()
 var click_y = window_mouse_get_y()
-set("click x",click_x)
-set("click y",click_y)
+ds_set(envar,"click x",click_x,key.value)
+ds_set(envar,"click y",click_y,key.value)
 //get the element/entity clicked on
 var elements = ds_get(registry,"elements")
 if is_zero(elements) return false
 
-var get_list = ds_get(elements,"key list")
+var get_list = keys(elements)
 var get_size = ds_list_size(get_list)
 
 var selected = false
@@ -19,13 +19,17 @@ for (var i = get_size-1;i >= 0;i--)
     {
     var get_element = ds_list_find_value(get_list,i)
     var get_focus = ds_get(get_element,"focus")
-    var key_list = ds_get(get_focus,"key list")
-    var keys = ds_list_size(key_list)
+    
+    if not ds_exists(get_element_focus,ds_type_map)
+    continue
+    
+    var key_list = keys(get_focus)
+    var key_count = ds_list_size(key_list)
     
     var element_x1 = ds_get(get_element,"x1")
     var element_y1 = ds_get(get_element,"y1")
     var element_x2 = element_x1 + 300
-    var element_y2 = element_y1 + keys*16
+    var element_y2 = element_y1 + key_count*16
     
     //test if clicked on close button
     if click_x > element_x2
@@ -50,7 +54,7 @@ for (var i = get_size-1;i >= 0;i--)
         
         selected = get_element
         show("set selected to: " + string(selected))
-        set("selected",selected)
+        ds_set(envar,"selected",selected,key.map)
         //we're done here
         return true
         }

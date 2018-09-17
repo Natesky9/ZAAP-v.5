@@ -11,7 +11,7 @@ var get_y = ds_get(get_entity,"y")
 var random_x,random_y
 
 var get_grid = ds_create(data.dynamic,ds_type_grid,get_width,get_height)
-ds_set(get_entity,"grid",get_grid)
+ds_set(get_entity,"grid",get_grid,key.grid)
 
 var x_center = floor(get_width/2)
 var y_center = floor(get_height/2)

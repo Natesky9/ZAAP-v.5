@@ -25,7 +25,7 @@ while ds_list_size(entity_create_list)
     
     //add to specific list
     var get_specific_map = fetch_entity_map(get_type)
-    ds_set(get_specific_map,get_uuid,get_entity)
+    ds_set(get_specific_map,get_uuid,get_entity,key.map)
     
     //we're finished adding it
     ds_list_delete(entity_create_list,0)

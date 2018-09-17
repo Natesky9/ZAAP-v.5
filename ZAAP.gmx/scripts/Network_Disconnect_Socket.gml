@@ -13,7 +13,7 @@ if get_entity != 0
     //reset the ship that was controlled by the disconnecting socket
     //packet_entity_command
     packet_write(packet.entity_command,0,get_uuid)
-    ds_map_replace(get_entity,"pilot",0)
+    ds_set(get_entity,"pilot",0,key.value)
     }
 
 //unmap the ds map

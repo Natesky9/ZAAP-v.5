@@ -2,7 +2,7 @@
 var elements = ds_get(registry,"elements")
 if is_zero(elements) return false
 
-var get_list = ds_get(elements,"key list")
+var get_list = keys(elements)
 var get_size = ds_list_size(get_list)
 //show("size of list is: " + string(get_size))
 

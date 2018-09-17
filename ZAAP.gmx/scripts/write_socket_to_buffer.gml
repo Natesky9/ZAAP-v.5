@@ -4,7 +4,7 @@ var get_socket = argument0
 
 var get_map = map_from_socket(get_socket)
 if is_zero(get_map) exit
-var key_list = get_map[? "key list"];
+var key_list = keys(get_map);
 
 
 var username = ds_get(get_map,"username")

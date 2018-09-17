@@ -3,7 +3,7 @@
 var ip = argument0
 var port = argument1
 
-var get_client = get("client")
+var get_client = ds_get(envar,"client")
 host_connection = network_connect(get_client-1,ip,port)
 
 if host_connection < 0

@@ -1,7 +1,7 @@
 ///write_map_to_buffer(map)
 var get_map = argument0
 
-var get_list = keys_from_map(get_map)
+var get_list = keys(get_map)
 var get_list_size = ds_list_size(get_list)
 write(get_list_size)
 

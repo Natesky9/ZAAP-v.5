@@ -9,7 +9,7 @@ show_debug_data_structures = !show_debug_data_structures
 console_add("Toggled debug overlay")
 if show_debug_data_structures
     {
-    var envar_list = get("key list")
+    var envar_list = keys(envar)
     ds_list_sort(envar_list,true)
     
     element_add(100,100,element.map,"registry",registry)

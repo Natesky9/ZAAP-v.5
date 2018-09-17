@@ -4,7 +4,7 @@ var get_entity = argument0
 
 var get_key = read()
 
-
+///###/// change to use the new key.value format
 switch get_key
     {
     //--------------------------------//
@@ -14,7 +14,7 @@ switch get_key
         var get_grid = ds_create(data.dynamic,ds_type_grid,1,1)
         read_buffer_to_grid(get_grid)
         console_add("read grid")
-        ds_set(get_entity,"grid",get_grid)
+        ds_set(get_entity,"grid",get_grid,key.grid)
         exit
         }
     //--------------------------------//
@@ -22,7 +22,7 @@ switch get_key
         {
         //treat as map
         var get_map = ds_create(data.dynamic,ds_type_map)
-        ds_set(get_entity,"inventory",get_map)
+        ds_set(get_entity,"inventory",get_map,key.map)
         show("Reading inventory")
         read_buffer_to_map(get_map)
         exit
@@ -40,7 +40,7 @@ switch get_key
         //show("read value, " + get_key + "|" + string(get_value))
         
         if not is_zero(get_entity)
-        ds_set(get_entity,get_key,get_value)
+        ds_set(get_entity,get_key,get_value,key.value)
         //we're done here
         exit
         }

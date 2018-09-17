@@ -28,4 +28,4 @@ get_entity[? "heading"] = get_heading
 get_entity[? "direction"] = get_direction
 
 if keyboard_check(vk_control)
-ds_set(get_entity,"speed",0)
+ds_set(get_entity,"speed",0,key.value)

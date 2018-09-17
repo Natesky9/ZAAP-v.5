@@ -40,7 +40,7 @@ for (h = 0;h < get_height;h += 1)
 
 vertex_end(new_vertex_buffer)
 vertex_freeze(new_vertex_buffer)
-ds_set(get_entity,"vertex buffer",new_vertex_buffer)
+ds_set(get_entity,"vertex buffer",new_vertex_buffer,key.vertex)
 //we're done here
 show("created vertex buffer!")
 return new_vertex_buffer

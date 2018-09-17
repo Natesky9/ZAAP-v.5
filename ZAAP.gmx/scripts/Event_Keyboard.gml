@@ -5,6 +5,7 @@ keyboard_pressed_f2()
 keyboard_pressed_f3()
 keyboard_pressed_f4()
 keyboard_pressed_f5()
+keyboard_pressed_f6()
 
 keyboard_pressed_escape()
 keyboard_pressed_enter()
@@ -23,6 +24,8 @@ keyboard_pressed_i()
 keyboard_pressed_j()
 keyboard_pressed_k()
 keyboard_pressed_l()
+
+keyboard_pressed_m()
 
 keyboard_released_space()
 

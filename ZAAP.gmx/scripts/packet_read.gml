@@ -22,7 +22,7 @@ if am_client()
     //reset the ping timeout
     //change this to use variables instead
     //of piggybacking off of the entity map
-    set("ping timeout",0)
+    ds_set(envar,"ping timeout",0,key.value)
     }
 
 if am_server()

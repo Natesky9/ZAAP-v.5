@@ -13,10 +13,16 @@ if am_client()
     if docked
         {
         show("docked entity pressed left up")
+        var get_grid = grid_from_entity(get_ship)
+        var grid_width = ds_grid_width(get_grid)
+        var grid_height = ds_grid_height(get_grid)
+        
         var get_entity = entity_from_uuid(docked)
         var build_cell_x = ds_get(get_entity,"build cell x")
         var build_cell_y = ds_get(get_entity,"build cell y")
-        entity_issue_command(get_entity,"build cell x",build_cell_x+1)
+        var new_x = clamp(build_cell_x+1,0,grid_width-1)
+        //var new_y = clamp(build_cell_y,0,grid_height-1)
+        entity_issue_command(get_entity,"build cell x",new_x)
         exit
         }
 

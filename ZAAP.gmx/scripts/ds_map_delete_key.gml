@@ -19,7 +19,7 @@ switch get_key
         if is_zero(get_player)
         exit
         
-        ds_set(get_player,"ship",0)
+        ds_set(get_player,"ship",0,key.value)
         console_add("object deleted, clearing socket association")
         break
         }

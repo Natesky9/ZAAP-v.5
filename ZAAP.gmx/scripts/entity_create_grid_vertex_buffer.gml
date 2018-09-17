@@ -45,6 +45,6 @@ for (h = 0;h < get_height;h += 1)
 
 vertex_end(new_vertex_buffer)
 vertex_freeze(new_vertex_buffer)
-ds_set(get_entity,"vertex buffer",new_vertex_buffer)
+ds_set(get_entity,"vertex buffer",new_vertex_buffer,key.value)
 //we're done here
 return new_vertex_buffer

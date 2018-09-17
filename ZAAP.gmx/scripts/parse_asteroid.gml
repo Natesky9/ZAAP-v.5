@@ -253,10 +253,10 @@ while ds_list_size(population)
         new_entity = entity_from_uuid(new_uuid)
         
         //set the grid from what we made earlier
-        ds_set(new_entity,"grid",new_grid)
-        ds_set(new_entity,"heading",get_heading)
-        ds_set(new_entity,"direction",get_direction)
-        ds_set(new_entity,"speed",get_speed)
+        ds_set(new_entity,"grid",new_grid,key.grid)
+        ds_set(new_entity,"heading",get_heading,key.value)
+        ds_set(new_entity,"direction",get_direction,key.value)
+        ds_set(new_entity,"speed",get_speed,key.value)
         
         //packet_entity_create
         packet_write(packet.entity_create,new_uuid)

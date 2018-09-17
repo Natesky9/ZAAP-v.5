@@ -30,7 +30,7 @@ switch get_packet_array[data.mode]
         var get_player = my_socket();
         if is_zero(get_player) exit
         
-        set("ping timeout",0)
+        ds_set(envar,"ping timeout",0,key.value)
         //packet_ping_report
         packet_write(packet.ping_report,get_ping)
         
@@ -55,10 +55,6 @@ switch get_packet_array[data.mode]
         var get_socket = ds_get(async_load,"id")
         
         var get_player = map_from_socket(get_socket)
-        
-        //don't send the ping yet
-        //ds_map_replace(get_player,"ping",get_ping)
-        
         
         //write the packet
         //packet_ping

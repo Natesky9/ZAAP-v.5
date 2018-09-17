@@ -7,10 +7,10 @@ var get_type = argument2
 var get_blacklist = argument3
 
 var get_map = fetch_entity_map(get_type)
-var get_list = keys_from_map(get_map)
-var keys = ds_list_size(get_list)
+var get_list = keys(get_map)
+var key_count = ds_list_size(get_list)
 
-for (var i = 0;i < keys;i += 1)
+for (var i = 0;i < key_count;i += 1)
     {
     var get_uuid = ds_list_find_value(get_list,i)
     var get_entity = entity_from_uuid(get_uuid)
@@ -55,7 +55,7 @@ for (var i = 0;i < keys;i += 1)
                     if grid_in_bounds(get_width,get_height,get_grid_x,get_grid_y)
                         {
                         if ds_grid_get(get_grid,get_grid_x,get_grid_y)
-                        or get("selected entity") == get_uuid
+                        or ds_get(envar,"selected entity") == get_uuid
                             {
                             is_found = true
                             }
@@ -93,7 +93,7 @@ for (var i = 0;i < keys;i += 1)
                     if grid_in_bounds(get_width,get_height,get_grid_x,get_grid_y)
                         {
                         if ds_grid_get(get_grid,get_grid_x,get_grid_y)
-                        or get("selected entity") == get_uuid
+                        or ds_get(envar,"selected entity") == get_uuid
                         is_found = true
                         }
                     }

@@ -21,6 +21,7 @@
     <script>scripts\Format_Guide.gml</script>
     <scripts name="Define">
       <script>scripts\Define_Data.gml</script>
+      <script>scripts\Define_Keys.gml</script>
       <script>scripts\Define_Direction.gml</script>
       <script>scripts\Define_Entities.gml</script>
       <script>scripts\Define_Items.gml</script>
@@ -32,12 +33,15 @@
       <script>scripts\Event_Create.gml</script>
       <scripts name="create functions">
         <script>scripts\initialize_envar.gml</script>
+        <script>scripts\initialize_registry.gml</script>
+        <script>scripts\initialize_sockets.gml</script>
+        <script>scripts\initialize_dimensions.gml</script>
+        <script>scripts\initialize_entity_map.gml</script>
         <script>scripts\initialize_ds.gml</script>
       </scripts>
       <script>scripts\Event_View.gml</script>
       <script>scripts\Event_Step.gml</script>
       <script>scripts\Event_Collision.gml</script>
-      <script>scripts\Event_Autopilot.gml</script>
       <script>scripts\Event_Motion.gml</script>
       <script>scripts\Event_Motion_Clamp.gml</script>
       <script>scripts\Event_Update.gml</script>
@@ -53,7 +57,6 @@
     </scripts>
     <scripts name="Draw">
       <script>scripts\Draw_Entities.gml</script>
-      <script>scripts\Draw_Elements.gml</script>
       <scripts name="Draw Entity">
         <script>scripts\Draw_Entity_Shipyard.gml</script>
         <script>scripts\Draw_Entity_Bullet.gml</script>
@@ -61,12 +64,22 @@
         <script>scripts\Draw_Entity_Asteroid.gml</script>
         <script>scripts\Draw_Entity_Ship.gml</script>
       </scripts>
-      <script>scripts\Draw_Entity_Registry.gml</script>
+      <script>scripts\Draw_Elements.gml</script>
+      <scripts name="Draw Element">
+        <script>scripts\Draw_Entity_Registry.gml</script>
+        <script>scripts\draw_registry_type.gml</script>
+        <script>scripts\Draw_Element_Map.gml</script>
+        <script>scripts\Draw_Element_List.gml</script>
+        <script>scripts\Draw_Element_Inventory.gml</script>
+        <script>scripts\Draw_Element_Shipyard.gml</script>
+        <script>scripts\draw_element_border.gml</script>
+      </scripts>
       <script>scripts\Draw_Shipyard_GUI.gml</script>
       <script>scripts\Draw_Debug_Elements.gml</script>
       <scripts name="Draw Debug">
         <script>scripts\Draw_Debug_Network.gml</script>
         <script>scripts\Draw_Debug_Time.gml</script>
+        <script>scripts\Draw_Debug_Structure.gml</script>
       </scripts>
       <script>scripts\Draw_Main_Menu.gml</script>
       <script>scripts\Draw_Console.gml</script>
@@ -85,6 +98,7 @@
         <script>scripts\draw_entity_item_rock.gml</script>
       </scripts>
       <script>scripts\Draw_Nearby_Entities.gml</script>
+      <script>scripts\draw_effect_beam.gml</script>
       <scripts name="Vertex Buffer">
         <script>scripts\transform_set_asteroid_orientation.gml</script>
         <script>scripts\vertex_buffer_draw_rectangle.gml</script>
@@ -131,8 +145,8 @@
       <script>scripts\mouse_left_click_entity_registry.gml</script>
       <script>scripts\mouse_create.gml</script>
       <script>scripts\mouse_left_click_ship_grid.gml</script>
-      <script>scripts\mouse_left_click_navigation.gml</script>
-      <script>scripts\mouse_left_click_autopilot_add_node.gml</script>
+      <script>scripts\mouse_left_click_entity_server.gml</script>
+      <script>scripts\mouse_left_click_element.gml</script>
       <script>scripts\mouse_right_click_delete_entity.gml</script>
     </scripts>
     <scripts name="keyboard keys">
@@ -146,6 +160,7 @@
       <script>scripts\keyboard_pressed_space.gml</script>
       <script>scripts\keyboard_pressed_control.gml</script>
       <script>scripts\keyboard_pressed_c.gml</script>
+      <script>scripts\keyboard_pressed_m.gml</script>
       <script>scripts\keyboard_pressed_v.gml</script>
       <script>scripts\keyboard_pressed_x.gml</script>
       <script>scripts\keyboard_pressed_e.gml</script>
@@ -165,18 +180,18 @@
       <script>scripts\keyboard_released_j.gml</script>
       <script>scripts\keyboard_released_k.gml</script>
       <script>scripts\keyboard_released_l.gml</script>
-    </scripts>
-    <scripts name="Autopilot Functions">
-      <script>scripts\autopilot_start.gml</script>
-      <script>scripts\autopilot_stop.gml</script>
-      <script>scripts\autopilot_add_node.gml</script>
+      <script>scripts\keyboard_released_m.gml</script>
     </scripts>
     <scripts name="Buffer Functions">
       <script>scripts\read_buffer_to_grid.gml</script>
+      <script>scripts\write_list_to_buffer.gml</script>
       <script>scripts\read_buffer_to_key.gml</script>
       <script>scripts\read_buffer_to_socket.gml</script>
+      <script>scripts\read_buffer_to_map.gml</script>
       <script>scripts\read_buffer_to_uuid.gml</script>
+      <script>scripts\read_buffer_to_list.gml</script>
       <script>scripts\write_grid_to_buffer.gml</script>
+      <script>scripts\write_map_to_buffer.gml</script>
       <script>scripts\write_key_to_buffer.gml</script>
       <script>scripts\write_socket_to_buffer.gml</script>
       <script>scripts\write_uuid_to_buffer.gml</script>
@@ -193,6 +208,7 @@
       <script>scripts\name_from_type.gml</script>
       <script>scripts\grid_from_entity.gml</script>
       <script>scripts\point_to_hex_grid.gml</script>
+      <script>scripts\get_key_type.gml</script>
     </scripts>
     <scripts name="Helper Scripts">
       <script>scripts\font_align.gml</script>
@@ -204,16 +220,15 @@
       <script>scripts\is_zero.gml</script>
       <script>scripts\find_ip.gml</script>
       <script>scripts\additional_sum.gml</script>
-      <script>scripts\set.gml</script>
-      <script>scripts\get.gml</script>
       <script>scripts\fetch_entity_map.gml</script>
       <script>scripts\is_between.gml</script>
+      <script>scripts\my_ship.gml</script>
+      <script>scripts\my_socket.gml</script>
     </scripts>
     <scripts name="packets">
       <script>scripts\packet_template.gml</script>
       <script>scripts\packet_collect_item.gml</script>
       <script>scripts\packet_login.gml</script>
-      <script>scripts\packet_set_ownership.gml</script>
       <script>scripts\packet_inventory.gml</script>
       <script>scripts\packet_entity_dock.gml</script>
       <script>scripts\packet_entity_undock.gml</script>
@@ -242,7 +257,10 @@
       <script>scripts\ds_create.gml</script>
       <script>scripts\grid_get_value.gml</script>
       <script>scripts\grid_set_value.gml</script>
+      <script>scripts\ds_size.gml</script>
+      <script>scripts\ds_index.gml</script>
       <script>scripts\ds_destroy.gml</script>
+      <script>scripts\ds_delete.gml</script>
       <script>scripts\data_structure_clear_all.gml</script>
       <script>scripts\x_to_grid_x.gml</script>
       <script>scripts\y_to_grid_y.gml</script>
@@ -252,6 +270,7 @@
       <script>scripts\ds_map_delete_key.gml</script>
       <script>scripts\grid_set_value_advanced.gml</script>
       <script>scripts\map_add_new_key.gml</script>
+      <script>scripts\keys.gml</script>
     </scripts>
     <scripts name="Entity">
       <script>scripts\entity_create_server.gml</script>
@@ -272,6 +291,8 @@
       <script>scripts\server_create_entity_player_ship.gml</script>
       <script>scripts\entity_asteroid_break_cell.gml</script>
       <script>scripts\entity_ship_break_cell.gml</script>
+      <script>scripts\entity_distance.gml</script>
+      <script>scripts\entity_inventory_add.gml</script>
     </scripts>
     <scripts name="playerdata">
       <script>scripts\playerdata_load.gml</script>
@@ -293,39 +314,17 @@
       <script>scripts\hex_cube_to_offset.gml</script>
       <script>scripts\hex_offset_to_cube.gml</script>
     </scripts>
-    <script>scripts\mouse_left_click_entity_server.gml</script>
-    <script>scripts\draw_effect_beam.gml</script>
-    <script>scripts\entity_inventory_add.gml</script>
-    <script>scripts\write_list_to_buffer.gml</script>
-    <script>scripts\read_buffer_to_list.gml</script>
-    <script>scripts\initialize_registry.gml</script>
-    <script>scripts\draw_registry_type.gml</script>
-    <script>scripts\initialize_sockets.gml</script>
-    <script>scripts\initialize_entity_map.gml</script>
-    <script>scripts\initialize_dimensions.gml</script>
-    <script>scripts\get_key_type.gml</script>
-    <script>scripts\element_add.gml</script>
-    <script>scripts\ds_size.gml</script>
-    <script>scripts\ds_index.gml</script>
-    <script>scripts\ds_delete.gml</script>
-    <script>scripts\keys_from_map.gml</script>
-    <script>scripts\my_ship.gml</script>
-    <script>scripts\my_socket.gml</script>
+    <scripts name="Elements">
+      <script>scripts\element_add.gml</script>
+      <script>scripts\element_delete.gml</script>
+    </scripts>
     <script>scripts\loot_fail.gml</script>
     <script>scripts\loot_succeed.gml</script>
-    <script>scripts\entity_distance.gml</script>
-    <script>scripts\element_delete.gml</script>
-    <script>scripts\network_instance_destroy.gml</script>
-    <script>scripts\Draw_Debug_Structure.gml</script>
-    <script>scripts\write_map_to_buffer.gml</script>
-    <script>scripts\read_buffer_to_map.gml</script>
-    <script>scripts\Draw_Element_Map.gml</script>
-    <script>scripts\Draw_Element_List.gml</script>
-    <script>scripts\Draw_Element_Inventory.gml</script>
-    <script>scripts\Draw_Element_Shipyard.gml</script>
-    <script>scripts\draw_element_border.gml</script>
-    <script>scripts\mouse_left_click_element.gml</script>
+    <script>scripts\keyboard_pressed_f6.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\The_font_to_anger_Net</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_engine</object>
   </objects>

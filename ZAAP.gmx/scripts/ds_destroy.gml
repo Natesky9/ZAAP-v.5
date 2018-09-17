@@ -4,7 +4,7 @@ var get_ds = argument1
 
 if get_type == ds_type_map
     {
-    var key_list = ds_get(get_ds,"key list")
+    var key_list = keys(get_ds)
     if key_list
         {
         ds_destroy(ds_type_list,key_list)

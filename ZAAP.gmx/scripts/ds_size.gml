@@ -2,8 +2,8 @@
 //returns the number of keys
 var get_map = argument0
 
-var key_list = ds_get(get_map,"key list")
+var key_list = keys(get_map)
 
-var keys = ds_list_size(key_list)
+var key_count = ds_list_size(key_list)
 
-return keys
+return key_count

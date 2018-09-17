@@ -8,7 +8,6 @@ Event_Entity_Create()
 //input
 Event_Keyboard()
 Event_Mouse()
-//Event_Autopilot()
 //end input
 
 //action
@@ -22,4 +21,4 @@ Event_Ping()
 
 Event_Entity_Destroy()
 
-set("step time",get_timer() - step_time_start)
+ds_set(envar,"step time",get_timer() - step_time_start,key.value)

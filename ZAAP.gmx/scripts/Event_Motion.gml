@@ -10,7 +10,7 @@ for (var i = 1;i < entity.types;i += 1)
     var get_map = fetch_entity_map(i)
     if is_zero(get_map) continue
     
-    var get_list = keys_from_map(get_map)
+    var get_list = keys(get_map)
     for (var ii = 0;ii < ds_list_size(get_list);ii += 1)
         {
         
@@ -51,7 +51,7 @@ for (var i = 1;i < entity.types;i += 1)
                 if get_target_dock != get_uuid
                     {
                     console_add("my dock isn't docked to me")
-                    ds_set(get_entity,"docked",false)
+                    ds_set(get_entity,"docked",false,key.value)
                     continue
                     }
                 
@@ -62,18 +62,18 @@ for (var i = 1;i < entity.types;i += 1)
                 var get_target_direction = ds_get(get_target_entity,"direction")
                 
                 //set motion based off of docked entity
-                ds_set(get_entity,"x",get_target_x)
-                ds_set(get_entity,"y",get_target_y)
-                ds_set(get_entity,"speed",get_target_speed)
-                ds_set(get_entity,"heading",get_target_heading)
-                ds_set(get_entity,"direction",get_target_direction)
+                ds_set(get_entity,"x",get_target_x,key.value)
+                ds_set(get_entity,"y",get_target_y,key.value)
+                ds_set(get_entity,"speed",get_target_speed,key.value)
+                ds_set(get_entity,"heading",get_target_heading,key.value)
+                ds_set(get_entity,"direction",get_target_direction,key.value)
                 
                 continue
                 }
             
             //the dock doesn't exist anymore, continue with the rest of the script
             console_add("my dock doesn't exist anymore!")
-            ds_set(get_entity,"docked",false)
+            ds_set(get_entity,"docked",false,key.value)
             }
         
         //phase 3
@@ -85,7 +85,7 @@ for (var i = 1;i < entity.types;i += 1)
             if is_zero(get_docked_entity)
                 {
                 console_add("my entity doesn't exist anymore!")
-                ds_set(get_entity,"docked",false)
+                ds_set(get_entity,"docked",false,key.value)
                 }
             //continue with the rest of the script
             }

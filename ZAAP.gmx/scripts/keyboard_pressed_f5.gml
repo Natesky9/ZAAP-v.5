@@ -8,7 +8,7 @@ or am_server()
 exit
 
 console_add("Username set to: " + keyboard_string)
-set("username",keyboard_string)
+ds_set(envar,"username",keyboard_string,key.text)
 
 keyboard_string = ""
 

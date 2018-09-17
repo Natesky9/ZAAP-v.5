@@ -19,15 +19,15 @@ element_add(m_x,m_y,element.map,"entity " + string(get_uuid),get_entity)
 //
 var get_type = ds_get(get_entity,"type")
 
-if get_uuid != get("selected entity")
+if get_uuid != ds_get(envar,"selected entity")
     {
     var get_entity = entity_from_uuid(get_uuid)
     var get_type = ds_get(get_entity,"type")
     
     
     //if it is not the selected entity, make it so
-    set("selected entity",get_uuid)
-    set("selected type",get_type)
+    ds_set(envar,"selected entity",get_uuid,key.value)
+    ds_set(envar,"selected type",get_type,key.value)
     console_add("selected new entity")
     return true
     }

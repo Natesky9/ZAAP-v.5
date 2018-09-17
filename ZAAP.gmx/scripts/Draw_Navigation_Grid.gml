@@ -25,7 +25,8 @@ for (var ix = 0;ix < width_num;ix += 1)
     var get_x_value = ix + x_num
     //width = 1
     
-    draw_set_color(c_blue)
+    var short_color = make_color_rgb(40,40,40)
+    draw_set_color(short_color)
     if not abs((get_x_value mod 10))
         {
         draw_set_color(c_green)
@@ -42,7 +43,7 @@ for (var iy = 0;iy < height_num;iy += 1)
     var get_y_value = iy + y_num
     //width = 1
     
-    draw_set_color(c_blue)
+    draw_set_color(short_color)
     if not abs((get_y_value mod 10))
         {
         draw_set_color(c_green)

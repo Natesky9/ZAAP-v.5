@@ -13,10 +13,16 @@ if am_client()
     if docked
         {
         show("docked entity pressed left up")
+        var get_grid = grid_from_entity(get_ship)
+        var grid_width = ds_grid_width(get_grid)
+        var grid_height = ds_grid_height(get_grid)
+        
         var get_entity = entity_from_uuid(docked)
         var build_cell_x = ds_get(get_entity,"build cell x")
         var build_cell_y = ds_get(get_entity,"build cell y")
-        entity_issue_command(get_entity,"build cell x",build_cell_x-1)
+        var new_x = clamp(build_cell_x-1,0,grid_width-1)
+        //var new_y = clamp(build_cell_y,0,grid_height-1)
+        entity_issue_command(get_entity,"build cell x",new_x)
         exit
         }
     
@@ -34,10 +40,10 @@ if am_server()
     {
     //get a random ship
     var get_map = fetch_entity_map(entity.ship)
-    var get_list = keys_from_map(get_map)
-    var keys = ds_list_size(get_list)
+    var get_list = keys(get_map)
+    var key_count = ds_list_size(get_list)
     
-    if not keys
+    if not key_count
         {
         console_add("There must be at least two")
         exit
@@ -56,14 +62,14 @@ if am_server()
     
     var get_uuid = entity_create_server(random_x,random_y,entity.ship)
     var get_entity = entity_from_uuid(get_uuid)
-    ds_set(get_entity,"x",random_x)
-    ds_set(get_entity,"y",random_y)
-    ds_set(get_entity,"heading",random_angle)
+    ds_set(get_entity,"x",random_x,key.value)
+    ds_set(get_entity,"y",random_y,key.value)
+    ds_set(get_entity,"heading",random_angle,key.value)
     
-    ds_set(get_entity,"grid",new_grid)
+    ds_set(get_entity,"grid",new_grid,key.grid)
     
     //set the target
-    ds_set(get_entity,"target",random_ship)
+    ds_set(get_entity,"target",random_ship,key.value)
     
     //packet_entity_create
     packet_write(packet.entity_create,get_uuid)

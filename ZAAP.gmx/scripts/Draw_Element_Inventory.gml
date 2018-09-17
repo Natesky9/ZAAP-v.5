@@ -7,7 +7,7 @@ var get_element_name = ds_get(get_element,"name")
 if not ds_exists(get_element_focus,ds_type_map)
 return false
 
-var key_list = ds_get(get_element_focus,"key list")
+var key_list = keys(get_element_focus)
 var key_list_size = ds_list_size(key_list)
 
 var x1 = ds_get(get_element,"x1")

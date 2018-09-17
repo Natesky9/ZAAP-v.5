@@ -32,7 +32,7 @@ switch get_packet_array[data.mode]
         if is_zero(get_grid)
             {
             var get_grid = ds_create(data.dynamic,ds_type_grid,1,1)
-            ds_set(get_entity,"grid",get_grid)
+            ds_set(get_entity,"grid",get_grid,key.grid)
             }
         read_buffer_to_grid(get_grid)
         var success = entity_create_hex_vertex_buffer(get_entity)

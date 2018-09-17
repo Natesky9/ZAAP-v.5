@@ -11,7 +11,7 @@ or am_client()
 
 var network_result = network_create_server(network_socket_tcp,5678,10)+1
 //set the server to the network result
-set("server",network_result)
+ds_set(envar,"server",network_result,key.value)
 
 if not network_result
     {

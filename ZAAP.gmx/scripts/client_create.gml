@@ -23,8 +23,8 @@ if network_result
     //socket created successfully
     console_add("Client successfully created")
     //initialize client variables
-    set("client",network_result)
-    set("SSS",0)
+    ds_set(envar,"client",network_result,key.value)
+    ds_set(envar,"SSS",0,key.value)
     Ship = 0
     
     network_instance_create()

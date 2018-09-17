@@ -27,7 +27,7 @@ switch get_packet_array[data.mode]
             {
             case data.request:
                 {
-                var username = get("username")
+                var username = ds_get(envar,"username")
                 packet_write(packet.login,username)
                 break
                 }
@@ -70,7 +70,7 @@ switch get_packet_array[data.mode]
         
         var get_player = map_from_socket(get_socket)
         console_add("get_player: " + string(get_player))
-        ds_set(get_player,"username",username)
+        ds_set(get_player,"username",username,key.text)
         
         //packet_add_socket
         packet_write(packet.add_socket,get_socket)

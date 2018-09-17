@@ -18,11 +18,11 @@ var new_y = array[1]
 //create an item drop
 var new_uuid = entity_create_server(new_x,new_y,entity.item)
 var new_entity = entity_from_uuid(new_uuid)
-ds_set(new_entity,"id",item.gemred)
-ds_set(new_entity,"pickup timer",60)
-ds_set(new_entity,"heading",get_heading)
-ds_set(new_entity,"direction",get_direction + irandom(90) - 45)
-ds_set(new_entity,"speed",get_speed + irandom(4))
+ds_set(new_entity,"id",item.gemred,key.value)
+ds_set(new_entity,"pickup timer",60,key.value)
+ds_set(new_entity,"heading",get_heading,key.value)
+ds_set(new_entity,"direction",get_direction + irandom(90) - 45,key.value)
+ds_set(new_entity,"speed",get_speed + irandom(4),key.value)
 //packet_entity_create
 packet_write(packet.entity_create,new_uuid)
 

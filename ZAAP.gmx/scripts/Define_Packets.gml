@@ -24,5 +24,6 @@ enum packet
     login,
     entity_set_grid,
     collect_item,
+    entity_undock,
     types,
     }

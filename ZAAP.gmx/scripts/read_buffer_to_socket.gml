@@ -10,12 +10,12 @@ repeat get_list_size
     {
     var get_key = read()
     var get_value = read()
-    ds_set(get_map,get_key,get_value)
+    ds_set(get_map,get_key,get_value,key.value)
     show("added key: " + get_key)
     show("with value: " + string(get_value))
     }
 var get_socket = get_map[? "socket"]
 show("socket added: " + string(get_socket))
-ds_set(sockets,get_socket,get_map)
+ds_set(sockets,get_socket,get_map,key.map)
 
 console_add("Player [" + string(get_socket) + "] connected!")

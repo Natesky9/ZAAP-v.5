@@ -15,8 +15,8 @@ switch get_packet_array[data.mode]
         
         var get_entity = entity_from_uuid(get_uuid)
         var get_pilot_map = map_from_socket(get_pilot)
-        ds_set(get_entity,"pilot",get_pilot)
-        ds_map_replace(get_pilot,"ship",get_uuid)
+        ds_set(get_entity,"pilot",get_pilot,key.value)
+        ds_set(get_pilot,"ship",get_uuid,key.value)
         
         console_add("client commanding a ship")
         
@@ -42,7 +42,7 @@ switch get_packet_array[data.mode]
         var current_ship = my_ship()
         //
         //do this regardless
-        ds_set(get_entity,"pilot",get_pilot)
+        ds_set(get_entity,"pilot",get_pilot,key.value)
         
         if is_zero(get_pilot)
             {
@@ -51,7 +51,7 @@ switch get_packet_array[data.mode]
                 {
                 //my ship lost control
                 //reset view for now
-                set("ship",false)
+                ds_set(envar,"ship",false,key.value)
                 view_reset()
                 }
             //
@@ -62,9 +62,9 @@ switch get_packet_array[data.mode]
             {
             //do this if the pilot is being set
             var get_map = map_from_socket(get_pilot)
-            ds_map_replace(get_map,"ship",get_uuid)
+            ds_set(get_map,"ship",get_uuid,key.value)
             if get_pilot == my_socket()
-            set("ship",get_uuid)
+            ds_set(envar,"ship",get_uuid,key.value)
             //
             break
             }
@@ -101,7 +101,7 @@ switch get_packet_array[data.mode]
         var get_socket = ds_get(async_load,"id")
         var get_map = map_from_socket(get_socket)
         
-        ds_set(get_map,"ship",get_uuid)
+        ds_set(get_map,"ship",get_uuid,key.value)
         
         var previous_ship = get_map[? "ship"]
         if not is_zero(previous_ship)
@@ -110,7 +110,7 @@ switch get_packet_array[data.mode]
             //packet_entity_command
             packet_write(packet.entity_command,0,previous_ship)
             var get_ship = entity_from_uuid(previous_ship)
-            ds_map_replace(get_ship,"pilot",0)
+            ds_set(get_ship,"pilot",0,key.value)
             }
         //packet_entity_command
         packet_write(packet.entity_command,get_socket,get_uuid)

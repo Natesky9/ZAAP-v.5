@@ -19,11 +19,11 @@ var new_y = coord[1]
 
 var new_uuid = entity_create_server(new_x,new_y,entity.item)
 var new_entity = entity_from_uuid(new_uuid)
-ds_set(new_entity,"id",get_value)
-ds_set(new_entity,"pickup timer",60)
-ds_set(new_entity,"heading",irandom(360))
-ds_set(new_entity,"direction",get_direction + irandom(30) - 15)
-ds_set(new_entity,"speed",get_speed + irandom(4))
+ds_set(new_entity,"id",get_value,key.value)
+ds_set(new_entity,"pickup timer",60,key.value)
+ds_set(new_entity,"heading",irandom(360),key.value)
+ds_set(new_entity,"direction",get_direction + irandom(30) - 15,key.value)
+ds_set(new_entity,"speed",get_speed + irandom(4),key.value)
 //packet_entity_create
 packet_write(packet.entity_create,new_uuid)
 

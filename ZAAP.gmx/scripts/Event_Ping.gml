@@ -11,10 +11,8 @@ if am_client()
             exit
             }
         ds_add(envar,"ping timeout",1)
-        if get("ping timeout") > ping_timeout
+        if ds_get(envar,"ping timeout") > ping_timeout
             {
-            //###//
-            //replace with client_destroy
             console_add("Can't communicate with Server")
             show("Can't communicate with Server")
             client_destroy()
@@ -23,7 +21,7 @@ if am_client()
         //end timeout scrip
         
         //send a ping
-        if !(get("session time") mod 30)
+        if !(ds_get(envar,"session time") mod 30)
             {
             //show("ping")
             //packet_ping
@@ -54,7 +52,7 @@ if am_server()
     
     //report ping to clients
     if ds_size(sockets)
-    and !(get("session time") mod 15)
+    and !(ds_get(envar,"session time") mod 15)
         {
         //show("return ping")
         //packet_ping_report

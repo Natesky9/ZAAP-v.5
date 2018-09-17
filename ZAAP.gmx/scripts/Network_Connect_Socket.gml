@@ -8,18 +8,18 @@ var get_map = create_socket()
 show("///get_map is: " + string(get_map) + "///")
 
 //create/load a map and store it
-ds_set(sockets,get_socket,get_map)
+ds_set(sockets,get_socket,get_map,key.value)
 show("mapped socket[" + string(get_socket) + "] to map[" + string(get_map) + "]")
 
 //add data
-ds_set(get_map,"socket",get_socket)
-ds_set(get_map,"ping",9999)
-ds_set(get_map,"packets in",0)
-ds_set(get_map,"packet bytes in",0)
-ds_set(get_map,"packets out",0)
-ds_set(get_map,"packet bytes out",0)
-ds_set(get_map,"ship",0)
-ds_map_add(get_map,"ping timeout",0)
+ds_set(get_map,"socket",get_socket,key.value)
+ds_set(get_map,"ping",9999,key.value)
+ds_set(get_map,"packets in",0,key.value)
+ds_set(get_map,"packet bytes in",0,key.value)
+ds_set(get_map,"packets out",0,key.value)
+ds_set(get_map,"packet bytes out",0,key.value)
+ds_set(get_map,"ship",0,key.value)
+ds_set(get_map,"ping timeout",0,key.value)
 
 console_add("Client " + string(get_socket) + " connected")
 console_add("Client has map of: " + string(get_map))

@@ -41,7 +41,7 @@ switch get_packet_array[data.mode]
         
         
         
-        var magnitude = 15
+        var magnitude = get_speed
         
         var get_entity = entity_from_uuid(get_uuid)
         if is_zero(get_entity)

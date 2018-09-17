@@ -13,10 +13,11 @@ var get_uuid,get_other_uuid,
 
 //only run bullets?
 var get_map = fetch_entity_map(entity.bullet)
-var get_list = keys_from_map(get_map)
+show("get map is: " + string(get_map))
+var get_list = keys(get_map)
 var get_list_size = ds_list_size(get_list)
 var get_other_map = fetch_entity_map(entity.asteroid)
-var get_other_list = keys_from_map(get_other_map)
+var get_other_list = keys(get_other_map)
 var get_other_list_amount = ds_list_size(get_other_list)
 
 
@@ -79,5 +80,5 @@ for (i = 0;i < get_list_size;i++)
     if not get_lifetime
     entity_destroy_basic(get_uuid)
     
-    ds_set(get_entity,"lifetime",get_lifetime-1)
+    ds_set(get_entity,"lifetime",get_lifetime-1,key.value)
     }

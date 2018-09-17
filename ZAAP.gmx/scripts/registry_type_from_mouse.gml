@@ -4,10 +4,10 @@
 var m_x = window_mouse_get_x()
 var m_y = window_mouse_get_y()
 
-var type_x1 = get("entity_registry_type_x1")
-var type_y1 = get("entity_registry_type_y1")
-var type_x2 = get("entity_registry_type_x2")
-var type_y2 = get("entity_registry_type_y2")
+var type_x1 = ds_get(envar,"entity_registry_type_x1")
+var type_y1 = ds_get(envar,"entity_registry_type_y1")
+var type_x2 = ds_get(envar,"entity_registry_type_x2")
+var type_y2 = ds_get(envar,"entity_registry_type_y2")
 
 if m_x <= type_x1
 or m_x >= type_x2

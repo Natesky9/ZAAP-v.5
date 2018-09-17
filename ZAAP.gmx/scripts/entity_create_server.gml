@@ -14,11 +14,11 @@ var get_entity = entity_create_basic()
 
 var name = name_from_type(get_type)
 
-ds_set(get_entity,"uuid",get_uuid)
-ds_set(get_entity,"x",get_x)
-ds_set(get_entity,"y",get_y)
-ds_set(get_entity,"type",get_type)
-ds_set(get_entity,"I am a",name)
+ds_set(get_entity,"uuid",get_uuid,key.value)
+ds_set(get_entity,"x",get_x,key.value)
+ds_set(get_entity,"y",get_y,key.value)
+ds_set(get_entity,"type",get_type,key.value)
+ds_set(get_entity,"I am a",name,key.text)
 
 
 //add to pending entity list and map to uuid

@@ -11,17 +11,17 @@ show("registry click was: " + string(get_type))
 if not is_zero(get_type)
     {
     //get the current
-    var current_entity_list = get("selected type")
+    var current_entity_list = ds_get(envar,"selected type")
     
     if get_type == current_entity_list
         {
         //the same list was clicked, close the list
-        set("selected type",false)
+        ds_set(envar,"selected type",false,key.value)
         return true
         }
     
     //otherwise, set it to that
-    set("selected type",get_type)
+    ds_set(envar,"selected type",get_type,key.value)
     return true
     }
 

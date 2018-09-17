@@ -8,9 +8,9 @@ if keyboard_check(vk_control)
     //
     if am_server()
         {
-        var IP = get("IP")
-        var int_IP = get("integer IP")
-        var letter_IP = get("letter IP")
+        var IP = ds_get(envar,"IP")
+        var int_IP = ds_get(envar,"integer IP")
+        var letter_IP = ds_get(envar,"letter IP")
         
         if IP != -1
             {

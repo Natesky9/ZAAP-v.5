@@ -11,11 +11,11 @@ basic_grid[# 4,3] = 2
 basic_grid[# 3,4] = 3
 basic_grid[# 5,4] = 3
 var get_entity = entity_from_uuid(get_uuid)
-ds_set(get_entity,"grid",basic_grid)
+ds_set(get_entity,"grid",basic_grid,key.grid)
 //end setting the grid
 
 var get_player = map_from_socket(get_socket)
-ds_set(get_player,"ship",get_uuid)
+ds_set(get_player,"ship",get_uuid,key.value)
 
 entity_inventory_add(get_entity,item.rockred,5)
 entity_inventory_add(get_entity,item.rockblue,5)
@@ -30,12 +30,3 @@ entity_inventory_add(get_entity,item.gemblue,5)
 packet_write(packet.entity_create,get_uuid)
 //packet_entity_command
 packet_write(packet.entity_command,get_socket,get_uuid)
-
-/*repeat 4
-    {
-    var get_enemy_uuid = summon_random_target(get_uuid)
-    //packet_set_ownership
-    packet_write(packet.set_ownership,get_socket,get_enemy_uuid)
-    show("assigning player enemies")
-    }
-*/

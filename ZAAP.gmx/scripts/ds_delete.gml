@@ -4,7 +4,7 @@
 var get_map = argument0
 var get_key = argument1
 
-var key_list = ds_get(get_map,"key list")
+var key_list = keys(get_map)
 
 ds_map_delete(get_map,get_key)
 

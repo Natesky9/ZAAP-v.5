@@ -46,7 +46,8 @@ switch get_packet_array[data.mode]
         var get_key = read()
         var get_value = read()
         
-        ds_set(get_entity,get_key,get_value)
+        ds_set(get_entity,get_key,get_value,key.value)
+        ///###/// ensure that only a value exists here
         
         break
         }

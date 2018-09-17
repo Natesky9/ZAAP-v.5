@@ -1,7 +1,7 @@
 ///mouse_create()
 
 //create an entity
-var get_entity_type = get("selected type")
+var get_entity_type = ds_get(envar,"selected type")
 
 
 switch get_entity_type
@@ -13,7 +13,7 @@ switch get_entity_type
         var basic_grid = ds_create(data.dynamic,ds_type_grid,9,9);
         basic_grid[# 4,4] = true
         var get_entity = entity_from_uuid(get_uuid)
-        ds_set(get_entity,"grid",basic_grid)
+        ds_set(get_entity,"grid",basic_grid,key.grid)
         break
         }
     //
@@ -22,7 +22,7 @@ switch get_entity_type
         var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
         var get_entity = entity_from_uuid(get_uuid)
         var get_id = irandom(item.types-1)+1
-        ds_set(get_entity,"id",get_id)
+        ds_set(get_entity,"id",get_id,key.value)
         console_add("id is: " + string(get_id))
         break
         }
@@ -33,9 +33,9 @@ switch get_entity_type
         var get_entity = entity_from_uuid(get_uuid)
         generate_random_asteroid(get_uuid,get_entity,8,8)//irandom_range(10,40),irandom_range(10,40))
         
-        ds_set(get_entity,"heading",irandom(360))
-        ds_set(get_entity,"direction",irandom(360))
-        ds_set(get_entity,"speed",irandom(4))
+        ds_set(get_entity,"heading",irandom(360),key.value)
+        ds_set(get_entity,"direction",irandom(360),key.value)
+        ds_set(get_entity,"speed",irandom(4),key.value)
         
         break
         }
@@ -44,9 +44,9 @@ switch get_entity_type
         var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
         var get_entity = entity_from_uuid(get_uuid)
         
-        ds_set(get_entity,"lifetime",60)
-        ds_set(get_entity,"direction",irandom(360))
-        ds_set(get_entity,"speed",6)
+        ds_set(get_entity,"lifetime",60,key.value)
+        ds_set(get_entity,"direction",irandom(360),key.value)
+        ds_set(get_entity,"speed",6,key.value)
         
         console_add("created bullet")
         break
@@ -55,6 +55,7 @@ switch get_entity_type
         {
         var get_uuid = entity_create_server(mouse_x,mouse_y,get_entity_type)
         var get_entity = entity_from_uuid(get_uuid)
+        ds_set(get_entity,"heading",90,key.value)
         
         console_add("created shipyard")
         break

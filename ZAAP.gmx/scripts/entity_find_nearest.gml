@@ -12,16 +12,16 @@ var nearest_entity = 0
 var nearest_distance = -1
 
 var get_map = fetch_entity_map(get_search_type)
-var get_list = keys_from_map(get_map)
-var keys = ds_list_size(get_list)
+var get_list = keys(get_map)
+var key_count = ds_list_size(get_list)
 //show("size of list to search: " + string(keys))
-if not keys
+if not key_count
     {
     show("list is empty #entity_find_nearest")
     return false
     }
 
-for (var i = 0;i < keys;i += 1)
+for (var i = 0;i < key_count;i += 1)
     {
     var get_uuid = ds_list_find_value(get_list,i)
     

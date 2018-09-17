@@ -23,7 +23,7 @@ switch get_packet_array[data.mode]
         {
         var get_sss = read()
         
-        set("SSS",get_sss)
+        ds_set(envar,"SSS",get_sss,key.value)
         var get_map = my_socket()
  
         //get_map[? "ping timeout"] = ping_timeout

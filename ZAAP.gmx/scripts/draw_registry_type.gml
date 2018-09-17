@@ -1,6 +1,8 @@
 ///draw_registry_type()
 //draw the registry entity types
 //currently, is the first window
+//###//
+//to be removed with #Draw_Entity_Registry
 var type_x1 = argument0
 var type_y1 = argument1
 var type_x2 = argument2

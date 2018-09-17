@@ -16,10 +16,16 @@ if am_client()
     if docked
         {
         show("docked entity pressed left up")
+        var get_grid = grid_from_entity(get_ship)
+        var grid_width = ds_grid_width(get_grid)
+        var grid_height = ds_grid_height(get_grid)
+        
         var get_entity = entity_from_uuid(docked)
         var build_cell_x = ds_get(get_entity,"build cell x")
         var build_cell_y = ds_get(get_entity,"build cell y")
-        entity_issue_command(get_entity,"build cell y",build_cell_y-1)
+        //var new_x = clamp(build_cell_x,0,grid_width-1)
+        var new_y = clamp(build_cell_y-1,0,grid_height-1)
+        entity_issue_command(get_entity,"build cell y",new_y)
         exit
         }
     
@@ -32,7 +38,7 @@ if am_client()
 
 if am_server()
     {
-    var get_uuid = get("selected entity")
+    var get_uuid = ds_get(envar,"selected entity")
     
     if get_uuid
         {
@@ -42,9 +48,9 @@ if am_server()
         }
     
     //loop through the entity types
-    var get_entity_type = get("selected type")
+    var get_entity_type = ds_get(envar,"selected type")
     var new_entity_type = (get_entity_type + 1) mod (entity.types)
-    set("selected type",(get_entity_type + 1) mod (entity.types))
+    ds_set(envar,"selected type",(get_entity_type + 1) mod (entity.types),key.value)
     
     //output the entity type and name
     var name = name_from_type(new_entity_type)

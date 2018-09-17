@@ -26,7 +26,7 @@ or am_client()
 if not am_server()
 and not am_client()
     {
-    var username = get("username")
+    var username = ds_get(envar,"username")
     var valid = false
     
     if is_string(username)

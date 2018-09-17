@@ -33,7 +33,7 @@ for (var i = 0;i < ds_list_size(static_lists);i++)
 for (var i = 0;i < ds_list_size(static_maps);i++)
     {
     var get_map = ds_list_find_value(static_maps,i)
-    var get_list = keys_from_map(get_map)
+    var get_list = keys(get_map)
     ds_map_clear(get_map)
     ds_list_clear(get_list)
     ds_map_set(get_map,"key list",get_list)

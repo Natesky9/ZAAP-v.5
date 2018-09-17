@@ -13,12 +13,7 @@ if am_client()
         console_add("You don't have a ship! Press Control to make one")
         exit
         }
-    
-    if entity_is_docked(get_ship)
-        {
-        show("docked entity pressed left up")
-        exit
-        }
+
     entity_issue_command(get_ship,"trigger",false)
     }
 

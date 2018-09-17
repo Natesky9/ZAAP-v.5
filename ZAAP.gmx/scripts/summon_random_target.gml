@@ -13,15 +13,15 @@ randomize_grid(new_grid)
 
 var get_uuid = entity_create_server(random_x,random_y,entity.ship)
 var get_entity = entity_from_uuid(get_uuid)
-ds_set(get_entity,"x",random_x)
-ds_set(get_entity,"y",random_y)
-ds_set(get_entity,"heading",random_angle)
+ds_set(get_entity,"x",random_x,key.value)
+ds_set(get_entity,"y",random_y,key.value)
+ds_set(get_entity,"heading",random_angle,key.value)
 
-ds_set(get_entity,"grid",new_grid)
+ds_set(get_entity,"grid",new_grid,key.grid)
 
 //set the target
 //unnecesary, since autopilot is handling this?
-ds_set(get_entity,"target",get_target)
+ds_set(get_entity,"target",get_target,key.value)
 
 //packet_entity_create
 packet_write(packet.entity_create,get_uuid)
